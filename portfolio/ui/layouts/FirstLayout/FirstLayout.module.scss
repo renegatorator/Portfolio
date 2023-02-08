@@ -1,5 +1,4 @@
-@import 'styles/theme.scss';
-@import 'styles/mixins.scss';
+@import 'styles/global.scss';
 
 .container {
     color: $color-electric-blue;
@@ -10,14 +9,27 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size:cover;
+    font-family: 'Swansea';
 
     > header {
-        color:$color-lime-green;
+        color:$color-neon-blue;
         padding:20px;
         background-color: $color-overlay;
         @include d-flex-a-center-j-center;
 
+        .home {
+            padding:8px;
+            border: 2px solid $color-neon-blue;
+            @include border-radius-round;
+
+            > svg {
+                width:24px;
+            }
+        }
+
         > h1 {
+            font-family: 'SwanseaBold';
+            font-weight: normal;
             flex-grow:1;
         }
     }
@@ -37,13 +49,13 @@
         }
     
         &::-webkit-scrollbar-thumb {
-            background: $color-lime-green;
+            background: $color-neon-blue;
         }
         
     }
 
     > footer {
-        color:$color-lime-green;
+        color:$color-neon-blue;
         background-color: $color-overlay;
         padding: 10px 20px;
         text-align: center;

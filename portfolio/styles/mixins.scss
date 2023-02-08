@@ -17,3 +17,7 @@
 @mixin border-radius-big {
     border-radius: 16px;
 }
+
+@mixin border-radius-round {
+    border-radius: 50%;
+}

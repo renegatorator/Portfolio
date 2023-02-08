@@ -1,5 +1,4 @@
-@import 'styles/theme.scss';
-@import 'styles/mixins.scss';
+@import 'styles/global.scss';
 
 .container {
     @include d-flex-a-center-j-center;
@@ -12,7 +11,7 @@
             padding:10px 20px;
 
             &:not(:last-child) {
-                border-right:1px solid $color-lime-green;
+                border-right:1px solid $color-neon-blue;
             }
         }
     }
