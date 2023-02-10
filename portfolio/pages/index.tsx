@@ -1,9 +1,11 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import classes from "@/styles/pages/Home.module.scss";
-import Link from "next/link";
-import { routes } from "@/constants/routes";
+import Head from 'next/head';
+import Image from 'next/image';
+import { Inter } from '@next/font/google';
+import classes from '@/styles/pages/Home.module.scss';
+// import Link from 'next/link';
+// import { routes } from '@/constants/routes';
+import ContentCardIntro from '@/ui/components/ContentCardIntro/ContentCardIntro';
+import imgBeard from '@/assets/images/brada.jpg';
 
 export default function Home() {
   return (
@@ -15,10 +17,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={classes.container}>
-        <h1>About me:</h1>
+        {/* <h1>About me:</h1>
         <article>
           I am a software engineer that loves kitties and used to be a soldier.
-        </article>
+        </article> */}
+        <ContentCardIntro
+          title={'Who am I?'}
+          text={
+            "My name is Rene and I'm a software engineer specializing in the front end of web development." +
+            '\n' +
+            "If you'd like to find out more, please take a look at my story or my projects."
+          }
+          image={imgBeard}
+        />
       </main>
     </>
   );

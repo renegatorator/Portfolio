@@ -3,16 +3,34 @@
 .container {
     @include d-flex-a-center-j-center;
 
-    ul {
-        list-style: none;
+    .menuButton {
+        > button {
+            width:60px;
+            padding:8px;
+            border: 2px solid $color-neon-blue;
+            @include border-radius-round;
 
-        > li {
-            display:inline-block;
-            padding:10px 20px;
-
-            &:not(:last-child) {
-                border-right:1px solid $color-neon-blue;
+            > svg {
+                transform: rotate(180deg);
+                max-width: 100%;
+                height:auto;
             }
+        }
+    }
+
+    .navMenu {
+        position:fixed;
+        top:100px;
+        right:0;
+
+        > ul {
+            transition:transform 0.5s ease;
+            transform:translate(100%);
+        }
+
+        &.isOpen > ul {
+            transform:translate(0%);
+            
         }
     }
 }

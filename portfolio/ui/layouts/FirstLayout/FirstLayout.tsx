@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import classes from './FirstLayout.module.scss';
-import bgImg from '../../../assets/images/bg/photo-maldives.jpg';
+import bgImg from '../../../assets/images/bg/tech.jpg';
 import Navigation from '@/ui/components/Navigation/Navigation';
 import { menuItems, pages } from '@/constants/globalConstants';
 import { useRouter } from 'next/router';
@@ -26,9 +26,11 @@ const FirstLayout: FC<FirstLayoutProps> = ({ page }) => {
       style={{ backgroundImage: `url('${bgImg.src}')` }}
     >
       <header>
-        <Link className={classes.home} href={routes.HOME}>
-          <FontAwesomeIcon icon={faPropIcon} />
-        </Link>
+        {currentPage?.route !== routes.HOME && (
+          <Link className={classes.home} href={routes.HOME}>
+            <FontAwesomeIcon icon={faPropIcon} />
+          </Link>
+        )}
         <h1>{currentPage?.pageName}</h1>
         <Navigation navItems={menuItems} />
       </header>

@@ -1,0 +1,31 @@
+@import 'styles/theme.scss';
+@import 'styles/mixins.scss';
+
+.container {
+    background-color: $color-overlay;
+    @include d-inl-flex-a-center-j-center;
+    @include border-radius-mid;
+    padding:20px;
+
+    > img {
+        max-width: 350px;
+        height:auto;
+        margin-right:20px;
+        @include border-radius-big;
+    }
+
+    > div {
+        > h3 {
+            color:$color-neon-blue;
+            @include font-size-title-sm;
+            margin-bottom:20px;
+        }
+
+        > p {
+            // color:$color-neon-blue;
+            color:$color-white;
+            @include font-size-txt-md;
+            white-space: break-spaces;
+        }
+    }
+}

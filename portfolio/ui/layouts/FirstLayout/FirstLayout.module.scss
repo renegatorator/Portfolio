@@ -18,12 +18,12 @@
         @include d-flex-a-center-j-center;
 
         .home {
-            padding:8px;
+            padding:15px;
             border: 2px solid $color-neon-blue;
             @include border-radius-round;
 
             > svg {
-                width:24px;
+                width:25px;
             }
         }
 
@@ -31,6 +31,7 @@
             font-family: 'SwanseaBold';
             font-weight: normal;
             flex-grow:1;
+            text-align: center;
         }
     }
 

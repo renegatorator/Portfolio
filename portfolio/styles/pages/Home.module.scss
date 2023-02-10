@@ -1,0 +1,6 @@
+@import '@/styles/mixins.scss';
+
+.container {
+    @include d-flex-a-center-j-center;
+    height:100%;
+}
