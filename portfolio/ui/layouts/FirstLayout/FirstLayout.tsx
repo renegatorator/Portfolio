@@ -15,11 +15,9 @@ interface FirstLayoutProps {
 }
 
 const FirstLayout: FC<FirstLayoutProps> = ({ page }) => {
-  console.log(faHouse);
-  const faPropIcon: IconProp = faHouse as IconProp;
+  const faPropIcon = faHouse as IconProp;
   const router = useRouter();
   const currentPage = pages.find((page) => page.route === router.asPath);
-  console.log(currentPage);
   return (
     <div
       className={classes.container}

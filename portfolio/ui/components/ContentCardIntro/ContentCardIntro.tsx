@@ -6,23 +6,23 @@ import classes from './ContentCardIntro.module.scss';
 interface ContentCardIntroProps {
   title: string;
   image: StaticImageData;
-  text: string;
+  text1: string;
+  text2?: string;
 }
 
 const ContentCardIntro: FC<ContentCardIntroProps> = ({
   title,
   image,
-  text,
+  text1,
+  text2,
 }) => {
   return (
     <div className={classes.container}>
       <Image src={image} alt={title} />
       <div>
         <h3>{title}</h3>
-        <p>{text}</p>
-        {/* todo - maybe add buttons for story and projects 
-          <div></div>  
-          */}
+        <p>{text1}</p>
+        {text2 && <p>{text2}</p>}
       </div>
     </div>
   );

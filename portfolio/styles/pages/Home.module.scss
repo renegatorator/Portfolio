@@ -3,4 +3,8 @@
 .container {
     @include d-flex-a-center-j-center;
     height:100%;
+
+    > div {
+        width:100%;
+    }
 }

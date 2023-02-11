@@ -5,7 +5,7 @@
     background-color: $color-overlay;
     @include d-inl-flex-a-center-j-center;
     @include border-radius-mid;
-    padding:20px;
+    padding:30px;
 
     > img {
         max-width: 350px;
@@ -26,6 +26,14 @@
             color:$color-light-blue;
             @include font-size-txt-md;
             white-space: break-spaces;
+
+            &:not(:last-child) {
+                margin-bottom:10px;
+            }
+        }
+
+        .btnWrapper {
+            margin-top:40px;
         }
     }
 }

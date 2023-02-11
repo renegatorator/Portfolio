@@ -1,0 +1,12 @@
+@import '@/styles/theme.scss';
+@import '@/styles/mixins.scss';
+
+.container {
+    @include d-flex-a-center-j-center;
+    @include border-radius-mid;
+    background-color: transparent;
+
+    > div {
+        flex-grow:1;
+    }
+}

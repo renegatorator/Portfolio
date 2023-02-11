@@ -1,11 +1,12 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from '@next/font/google';
 import classes from '@/styles/pages/Home.module.scss';
 // import Link from 'next/link';
 // import { routes } from '@/constants/routes';
 import ContentCardIntro from '@/ui/components/ContentCardIntro/ContentCardIntro';
 import imgBeard from '@/assets/images/brada.jpg';
+import { pages } from '@/constants/globalConstants';
+import { routes } from '@/constants/routes';
+import IntroButtonsWrapper from '@/ui/components/buttons/IntroButtonsWrapper/IntroButtonsWrapper';
 
 export default function Home() {
   return (
@@ -23,12 +24,16 @@ export default function Home() {
         </article> */}
         <ContentCardIntro
           title={'Who am I?'}
-          text={
-            "My name is Rene and I'm a software engineer specializing in the front end of web development." +
-            '\n' +
+          text1={
+            "My name is Rene and I'm a software engineer specializing in the front end of web development."
+          }
+          text2={
             "If you'd like to find out more, please take a look at my story or my projects."
           }
           image={imgBeard}
+        />
+        <IntroButtonsWrapper
+          pages={pages.filter((page) => page.route !== routes.HOME)}
         />
       </main>
     </>

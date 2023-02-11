@@ -36,6 +36,7 @@
     }
 
     > div {
+        padding:15px;
         flex-grow:1;
         overflow:auto;
     
@@ -51,6 +52,12 @@
     
         &::-webkit-scrollbar-thumb {
             background: $color-neon-blue;
+        }
+
+        > main {
+            flex-direction: column;
+            max-width:1200px;
+            margin:0 auto;
         }
         
     }

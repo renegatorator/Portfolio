@@ -1,0 +1,15 @@
+@import '@/styles/theme.scss';
+@import '@/styles/mixins.scss';
+
+.container {
+    @include d-inl-flex-a-center-j-center;
+    @include border-radius-mid;
+    border: 1px solid $color-neon-blue;
+    color: $color-neon-blue;
+    background-color: transparent;
+    @include font-size-txt-md;
+    
+    > a {
+        padding:20px;
+    }
+}

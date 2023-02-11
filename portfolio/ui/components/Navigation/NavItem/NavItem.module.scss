@@ -1,0 +1,21 @@
+@import '@/styles/theme.scss';
+@import '@/styles/mixins.scss';
+
+.container {
+    background-color: $color-overlay;
+
+    > a {
+        width:300px;
+        @include d-flex-a-center-j-sp-between;
+        padding:20px;
+        @include font-size-txt-md;
+        color:$color-light-blue;
+
+        > svg {
+            color: $color-neon-blue;
+            width:30px;
+            height:auto;
+            margin-right:10px;
+        }
+    }
+}

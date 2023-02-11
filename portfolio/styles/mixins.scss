@@ -10,6 +10,18 @@
     justify-content: center;
 }
 
+@mixin d-flex-a-center-j-sp-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin d-flex-a-center-j-sp-around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 @mixin border-radius-mid {
     border-radius: 8px;
 }

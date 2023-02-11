@@ -5,21 +5,20 @@ import classes from './BtnHamburger.module.scss';
 
 interface BtnHamburgerProps {
   // handleClick
-  handleChange: (isOpenAfterClick: boolean) => void;
+  handleClick: () => void;
+  isOpen: boolean;
 }
 
-const BtnHamburger: FC<BtnHamburgerProps> = ({ handleChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    handleChange(isOpen);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen]);
+const BtnHamburger: FC<BtnHamburgerProps> = ({ handleClick, isOpen }) => {
+  // useEffect(() => {
+  //   handleChange(isOpen);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [isOpen]);
 
   return (
     <button
       className={classNames(classes.menu, { [classes.opened]: isOpen })}
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={handleClick}
     >
       {/* <button className="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">*/}
       <svg width="100" height="100" viewBox="0 0 100 100">

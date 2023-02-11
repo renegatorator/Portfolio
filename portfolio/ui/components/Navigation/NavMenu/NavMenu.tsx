@@ -1,21 +1,20 @@
-import { MenuItem } from '@/models/general';
-import Link from 'next/link';
+import { PageData } from '@/models/general';
 import React, { FC } from 'react';
+import NavItem from '../NavItem/NavItem';
 
 import classes from './NavMenu.module.scss';
 
 interface NavMenuProps {
-  navItems: MenuItem[];
+  navItems: PageData[];
+  handleItemClick: () => void;
 }
 
-const NavMenu: FC<NavMenuProps> = ({ navItems }) => {
+const NavMenu: FC<NavMenuProps> = ({ navItems, handleItemClick }) => {
   return (
     <ul className={classes.container}>
       {navItems.map((item, index) => (
         <li key={`item-${index}`}>
-          <Link href={item.route}>
-            <span>{item.pageName}</span>
-          </Link>
+          <NavItem handleClick={handleItemClick} page={item} />
         </li>
       ))}
     </ul>
