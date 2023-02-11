@@ -18,8 +18,8 @@ export const pages: MenuItem[] = [
     // icon: ''
   },
   {
-    pageName: 'Images',
-    route: routes.IMAGES,
+    pageName: 'Contact',
+    route: routes.CONTACT,
     // icon: ''
   },
 ];
