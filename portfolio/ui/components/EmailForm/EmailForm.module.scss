@@ -1,0 +1,31 @@
+@import '@/styles/theme.scss';
+@import '@/styles/mixins.scss';
+
+.container {
+    @include d-flex-a-center-j-center;
+    flex-direction: column;
+    
+    > div {
+        max-width:700px;
+        width:100%;
+        background-color: $color-overlay;
+        padding: 40px 40px 20px 40px;
+        @include border-radius-mid;
+
+        > h2 {
+            text-align: center;
+            color:$color-neon-blue;
+            margin-bottom:30px;
+        }
+
+        > div {
+            width: 100%;
+        }
+    
+        > a {
+            margin-top:40px;
+            width: 100%;
+        }
+    }
+    
+}

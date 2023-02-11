@@ -1,6 +1,6 @@
 import { PageData } from '@/models/general';
 import React, { FC } from 'react';
-import BtnIntro from '../BtnIntro/BtnIntro';
+import BtnImage from '../BtnImage/BtnImage';
 
 import classes from './IntroButtonsWrapper.module.scss';
 
@@ -12,7 +12,7 @@ const IntroButtonsWrapper: FC<IntroButtonsWrapperProps> = ({ pages }) => {
   return (
     <div className={classes.container}>
       {pages?.map((page, index) => (
-        <BtnIntro key={`p-${index}-${page.pageName}`} page={page} />
+        <BtnImage key={`p-${index}-${page.pageName}`} page={page} />
       ))}
     </div>
   );

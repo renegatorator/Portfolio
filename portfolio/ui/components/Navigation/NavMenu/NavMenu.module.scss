@@ -6,13 +6,18 @@
     top:100px;
     list-style: none;
 
-        > li {
-            transition: transform 0.2s ease;
-            margin-top:1px;
+    > li {
+        transition: transform 0.2s ease;
+        margin-top:5px;
+        border-left: 1px solid $color-light-blue;
+        border-bottom: 1px solid $color-light-blue;
 
-            &:active,
-            &:hover {
-                transform:translateX(-10px);
-            }
+        &:active,
+        &:focus,
+        &:hover {
+            transform:translateX(-10px);
+            border-left: 1px solid $color-neon-blue;
+        border-bottom: 1px solid $color-neon-blue;
         }
+    }
 }

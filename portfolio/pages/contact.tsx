@@ -1,7 +1,10 @@
 import Head from 'next/head';
-import classes from '@/styles/pages/Home.module.scss';
+import classes from '@/styles/pages/Contact.module.scss';
+import EmailForm from '@/ui/components/EmailForm/EmailForm';
+import ContentCardSocialMedia from '@/ui/components/ContentCardSocialMedia/ContentCardSocialMedia';
+import { mediaButtons } from '@/constants/globalConstants';
 
-export default function Images() {
+export default function Contact() {
   return (
     <>
       <Head>
@@ -11,8 +14,8 @@ export default function Images() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={classes.container}>
-        <h1>Contact info</h1>
-        <article>Lorem ipsumn</article>
+        <EmailForm />
+        <ContentCardSocialMedia mediaBtns={mediaButtons} />
       </main>
     </>
   );
