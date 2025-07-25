@@ -1,0 +1,33 @@
+{
+  "title": "Rene Krajnc | Developer Portfolio",
+  "metaDescription": "Rene Krajnc - Successful Developer Portfolio",
+  "name": "Rene Krajnc",
+  "role": "Full Stack Developer",
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "linkedin": "LinkedIn"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Hi, I&apos;m Rene Krajnc, a Full Stack Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I&apos;ve since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills."
+  },
+  "projects": {
+    "title": "Projects",
+    "one": "Project One - Lorem ipsum dolor sit amet.",
+    "two": "Project Two - Pellentesque euismod nisi eu consectetur.",
+    "three": "Project Three - Etiam porta sem malesuada magna mollis euismod."
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "contact": {
+    "title": "Contact",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Message",
+    "send": "Send"
+  },
+  "footer": "&copy; {{year}} Rene Krajnc. All rights reserved."
+}
