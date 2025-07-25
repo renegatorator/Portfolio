@@ -1,0 +1,33 @@
+{
+  "title": "Rene Krajnc | Entwickler-Portfolio",
+  "metaDescription": "Rene Krajnc - Erfolgreiches Entwickler-Portfolio",
+  "name": "Name",
+  "role": "Full Stack Entwickler",
+  "nav": {
+    "about": "Über mich",
+    "projects": "Projekte",
+    "skills": "Fähigkeiten",
+    "contact": "Kontakt",
+    "linkedin": "LinkedIn"
+  },
+  "about": {
+    "title": "Über mich",
+    "description": "Hallo, ich bin Rene Krajnc, ein Full Stack Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten."
+  },
+  "projects": {
+    "title": "Projekte",
+    "one": "Projekt Eins - Lorem ipsum dolor sit amet.",
+    "two": "Projekt Zwei - Pellentesque euismod nisi eu consectetur.",
+    "three": "Projekt Drei - Etiam porta sem malesuada magna mollis euismod."
+  },
+  "skills": {
+    "title": "Fähigkeiten"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "emailPlaceholder": "E-Mail",
+    "messagePlaceholder": "Nachricht",
+    "send": "Senden"
+  },
+  "footer": "&copy; {{year}} Rene Krajnc. Alle Rechte vorbehalten."
+}

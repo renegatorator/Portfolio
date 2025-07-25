@@ -1,0 +1,33 @@
+{
+  "title": "Rene Krajnc | Razvijalčev portfelj",
+  "metaDescription": "Rene Krajnc - Uspešen razvijalčev portfelj",
+  "name": "Ime",
+  "role": "Full Stack Razvijalec",
+  "nav": {
+    "about": "O meni",
+    "projects": "Projekti",
+    "skills": "Spretnosti",
+    "contact": "Kontakt",
+    "linkedin": "LinkedIn"
+  },
+  "about": {
+    "title": "O meni",
+    "description": "Pozdravljeni, sem Rene Krajnc, Full Stack razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin."
+  },
+  "projects": {
+    "title": "Projekti",
+    "one": "Projekt Ena - Lorem ipsum dolor sit amet.",
+    "two": "Projekt Dva - Pellentesque euismod nisi eu consectetur.",
+    "three": "Projekt Tri - Etiam porta sem malesuada magna mollis euismod."
+  },
+  "skills": {
+    "title": "Spretnosti"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "emailPlaceholder": "E-pošta",
+    "messagePlaceholder": "Sporočilo",
+    "send": "Pošlji"
+  },
+  "footer": "&copy; {{year}} Rene Krajnc. Vse pravice pridržane."
+}

@@ -25,11 +25,7 @@ const ContactForm = () => {
 
   return (
     <form className={classes.contactForm} onSubmit={handleSubmit(onSubmit)}>
-      <input
-        type="text"
-        placeholder={t('contact.namePlaceholder')}
-        {...register('name', { required: true })}
-      />
+      <input type="text" placeholder={t('name')} {...register('name', { required: true })} />
       {errors.name && (
         <span style={{ color: 'red' }}>{t('contact.namePlaceholder')} is required</span>
       )}

@@ -5,6 +5,7 @@ import { skills } from '../../../constants/rene';
 import classes from './LandingPage.module.scss';
 import { useTranslation } from 'next-i18next';
 import ThemeToggle from '@/components/UI/ThemeToggle';
+import LanguageSwitcher from '@/components/UI/LanguageSwitcher';
 import ContactForm from '@/components/forms/ContactForm/ContactForm';
 
 const LandingPage = () => {
@@ -18,7 +19,10 @@ const LandingPage = () => {
         <meta name="description" content={t('metaDescription')} />
       </Head>
       <header className={classes.header}>
-        <ThemeToggle />
+        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+          <ThemeToggle />
+          <LanguageSwitcher />
+        </div>
         <Image
           src="/images/rene-profile.jfif"
           alt="Rene Krajnc"
