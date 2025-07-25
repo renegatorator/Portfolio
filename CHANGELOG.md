@@ -3,8 +3,11 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
 // Add new changes here
 
+- Added Slovenian and German translation JSON files for i18n (next-i18next).
+- Created a LanguageSwitcher component for language selection and placed it on the LandingPage.
 
 ## [0.1.0] - 2025-07-25 // update date once v 0.1.0 gets released
 
