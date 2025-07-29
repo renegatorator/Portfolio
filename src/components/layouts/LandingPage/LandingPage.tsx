@@ -16,10 +16,6 @@ const LandingPage = () => {
   return (
     <PageLayout route={Routes.LANDING_PAGE}>
       <header className={classes.header}>
-        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-          <ThemeToggle />
-          <LanguageSwitcher />
-        </div>
         <Image
           src="/images/rene-profile.jfif"
           alt="Rene Krajnc"
