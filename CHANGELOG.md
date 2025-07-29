@@ -13,6 +13,9 @@ All notable changes to this project will be documented in this file.
 - Removed unnecessary 'use client' directive from LandingPage (not needed in Pages Router).
 - Updated navigation links in LandingPage to use Routes constants for consistency and type safety.
 - Improved section structure in LandingPage for better semantics and maintainability.
+- Moved ThemeToggle and LanguageSwitcher to a global sticky header for consistent access across all pages.
+- Refactored header as a separate StickyHeader component in PageLayout.
+- Made header fixed for robust sticky behavior and improved layout compatibility.
 
 ## [0.1.0] - 2025-07-25 // update date once v 0.1.0 gets released
 
