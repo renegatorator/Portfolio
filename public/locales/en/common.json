@@ -1,33 +1,63 @@
 {
   "title": "Rene Krajnc | Developer Portfolio",
-  "metaDescription": "Rene Krajnc - Successful Developer Portfolio",
   "name": "Name",
   "role": "Full Stack Developer",
   "nav": {
     "about": "About",
     "projects": "Projects",
     "skills": "Skills",
-    "contact": "Contact",
-    "linkedin": "LinkedIn"
+    "contact": "Contact"
+  },
+  "landingPage": {
+    "title": "Rene Krajnc | Developer Portfolio",
+    "description": "Rene Krajnc - Successful Full Stack Developer Portfolio showcasing projects, skills, and experience in modern web development technologies."
   },
   "about": {
     "title": "About Me",
-    "description": "Hi, I&apos;m Rene Krajnc, a Full Stack Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I&apos;ve since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills."
+    "description": "Hi, I&apos;m Rene Krajnc, a Full Stack Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I&apos;ve since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
+    "seo": {
+      "title": "About Rene Krajnc | Full Stack Developer",
+      "description": "Learn about Rene Krajnc's journey from infantry soldier to Full Stack Developer, his passion for building impactful digital solutions, and his experience with modern web technologies."
+    }
   },
   "projects": {
     "title": "Projects",
     "one": "Project One - Lorem ipsum dolor sit amet.",
     "two": "Project Two - Pellentesque euismod nisi eu consectetur.",
-    "three": "Project Three - Etiam porta sem malesuada magna mollis euismod."
+    "three": "Project Three - Etiam porta sem malesuada magna mollis euismod.",
+    "seo": {
+      "title": "Projects | Rene Krajnc Portfolio",
+      "description": "Explore Rene Krajnc's portfolio of web development projects, showcasing his skills in frontend and backend technologies, and his ability to deliver impactful digital solutions."
+    }
   },
   "skills": {
-    "title": "Skills"
+    "title": "Skills",
+    "seo": {
+      "title": "Skills & Technologies | Rene Krajnc",
+      "description": "Discover Rene Krajnc's technical skills and expertise in modern web development technologies, including frontend frameworks, backend technologies, and development tools."
+    }
   },
   "contact": {
     "title": "Contact",
     "emailPlaceholder": "Email",
     "messagePlaceholder": "Message",
-    "send": "Send"
+    "send": "Send",
+    "seo": {
+      "title": "Contact Rene Krajnc | Get In Touch",
+      "description": "Get in touch with Rene Krajnc for collaboration opportunities, project inquiries, or to discuss your next web development project."
+    }
+  },
+  "blog": {
+    "seo": {
+      "title": "Blog | Rene Krajnc - Web Development Insights",
+      "description": "Read Rene Krajnc's thoughts on web development, technology trends, and insights from his experience as a Full Stack Developer."
+    }
+  },
+  "resume": {
+    "seo": {
+      "title": "Resume | Rene Krajnc - Full Stack Developer",
+      "description": "View Rene Krajnc's professional resume, work experience, education, and technical skills as a Full Stack Developer."
+    }
   },
   "footer": "&copy; {{year}} Rene Krajnc. All rights reserved."
 }

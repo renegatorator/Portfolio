@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 
 - Added Slovenian and German translation JSON files for i18n (next-i18next).
 - Created a LanguageSwitcher component for language selection and placed it on the LandingPage.
+- Fixed SEO translation fallback and improved useSeo hook for better reliability.
+- Refactored PageLayout to accept a route prop for dynamic SEO data.
+- Removed unnecessary 'use client' directive from LandingPage (not needed in Pages Router).
+- Updated navigation links in LandingPage to use Routes constants for consistency and type safety.
+- Improved section structure in LandingPage for better semantics and maintainability.
 
 ## [0.1.0] - 2025-07-25 // update date once v 0.1.0 gets released
 
