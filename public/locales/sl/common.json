@@ -1,33 +1,63 @@
 {
   "title": "Rene Krajnc | Razvijalčev portfelj",
-  "metaDescription": "Rene Krajnc - Uspešen razvijalčev portfelj",
   "name": "Ime",
   "role": "Full Stack Razvijalec",
   "nav": {
     "about": "O meni",
     "projects": "Projekti",
     "skills": "Spretnosti",
-    "contact": "Kontakt",
-    "linkedin": "LinkedIn"
+    "contact": "Kontakt"
+  },
+  "landingPage": {
+    "title": "Rene Krajnc | Razvijalčev portfelj",
+    "description": "Rene Krajnc - Uspešen Full Stack razvijalčev portfelj s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
   },
   "about": {
     "title": "O meni",
-    "description": "Pozdravljeni, sem Rene Krajnc, Full Stack razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin."
+    "description": "Pozdravljeni, sem Rene Krajnc, Full Stack razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin.",
+    "seo": {
+      "title": "O Rene Krajnc | Full Stack Razvijalec",
+      "description": "Spoznajte pot Rene Krajnc od pehotnega vojaka do Full Stack razvijalca, njegovo strast do ustvarjanja učinkovitih digitalnih rešitev in izkušnje s sodobnimi spletnimi tehnologijami."
+    }
   },
   "projects": {
     "title": "Projekti",
     "one": "Projekt Ena - Lorem ipsum dolor sit amet.",
     "two": "Projekt Dva - Pellentesque euismod nisi eu consectetur.",
-    "three": "Projekt Tri - Etiam porta sem malesuada magna mollis euismod."
+    "three": "Projekt Tri - Etiam porta sem malesuada magna mollis euismod.",
+    "seo": {
+      "title": "Projekti | Rene Krajnc Portfelj",
+      "description": "Raziskujte portfelj Rene Krajnc spletnih razvojnih projektov, ki prikazujejo njegove spretnosti v frontend in backend tehnologijah ter sposobnost dostave učinkovitih digitalnih rešitev."
+    }
   },
   "skills": {
-    "title": "Spretnosti"
+    "title": "Spretnosti",
+    "seo": {
+      "title": "Spretnosti in Tehnologije | Rene Krajnc",
+      "description": "Odkrijte tehnične spretnosti in strokovnost Rene Krajnc v sodobnih spletnih razvojnih tehnologijah, vključno s frontend okvirji, backend tehnologijami in razvojnimi orodji."
+    }
   },
   "contact": {
     "title": "Kontakt",
     "emailPlaceholder": "E-pošta",
     "messagePlaceholder": "Sporočilo",
-    "send": "Pošlji"
+    "send": "Pošlji",
+    "seo": {
+      "title": "Kontakt Rene Krajnc | Povežite se",
+      "description": "Povežite se z Rene Krajnc za možnosti sodelovanja, povpraševanja o projektih ali razpravljanje o vašem naslednjem spletnem razvojnem projektu."
+    }
+  },
+  "blog": {
+    "seo": {
+      "title": "Blog | Rene Krajnc - Vpogledi v Spletni Razvoj",
+      "description": "Preberite misli Rene Krajnc o spletnem razvoju, tehnoloških trendih in vpogledih iz njegovih izkušenj kot Full Stack razvijalec."
+    }
+  },
+  "resume": {
+    "seo": {
+      "title": "Življenjepis | Rene Krajnc - Full Stack Razvijalec",
+      "description": "Oglejte si profesionalni življenjepis Rene Krajnc, delovne izkušnje, izobrazbo in tehnične spretnosti kot Full Stack razvijalec."
+    }
   },
   "footer": "&copy; {{year}} Rene Krajnc. Vse pravice pridržane."
 }
