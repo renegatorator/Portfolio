@@ -6,26 +6,71 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- Created SocialMediaLinks component with hover effects and responsive design
-- Enhanced ContactPage with descriptive text and improved layout
-- Added social media section with GitHub, LinkedIn, Twitter, Instagram, and Discord links
-- Implemented two-column layout for contact form and social media sections
-- Added contact page translations for Slovenian and German languages
-- Enhanced StickyHeader with responsive navigation and mobile hamburger menu
-- Added desktop navigation links with hover effects and underline animations
-- Implemented mobile sidebar with navigation, language switcher, and theme toggle
-- Added smooth slide-in animation for mobile menu
-- Integrated Material UI component library with custom theme
-- Enhanced ContactForm with Material UI components (Card, TextField, Button)
-- Added Material UI ThemeProvider and CssBaseline for consistent styling
+- **Logo Component**: Created dedicated Logo component with theme-aware switching between light/dark logos
+- **Responsive Logo Design**: Implemented full logo for desktop and initials logo for mobile screens
+- **Enhanced Visual Hierarchy**: Implemented distinct background colors for better visual separation
+- **Backdrop Filter Effects**: Added glass-morphism effect to header with backdrop blur
+- **Improved Color System**: Refactored to semantic color tokens with proper light/dark theme support
+- **Theme Utilities**: Created themeUtils.ts with type-safe color token access and theme-aware fallbacks
+- **Enhanced Form Styling**: Added icons to contact form fields (Person, Email, Message icons)
+- **Language Switcher Improvements**: Integrated country flag icons using country-flag-icons library
+- **Navigation Enhancements**: Added elegant hover effects with animated underlines and background highlights
+- **Mobile Menu Refinements**: Enhanced mobile sidebar with improved animations and styling
+- **Card Design System**: Implemented consistent card styling with shadows, borders, and rounded corners
+- **Semantic Color Tokens**: Created comprehensive color system with primary, secondary, and tertiary backgrounds
+- **Theme Synchronization**: Fixed Material-UI theme integration with custom CSS variable system
+- **Hydration Fixes**: Resolved theme mismatch issues on page refresh with proper SSR handling
+- **Enhanced ContactPage**: Added descriptive text and improved layout
+- **Social Media Section**: Added GitHub, LinkedIn, Twitter, Instagram, and Discord links
+- **Two-Column Layout**: Implemented for contact form and social media sections
+- **Contact Page Translations**: Added translations for Slovenian and German languages
+- **Enhanced StickyHeader**: Added responsive navigation and mobile hamburger menu
+- **Desktop Navigation**: Added links with hover effects and underline animations
+- **Mobile Sidebar**: Implemented with navigation, language switcher, and theme toggle
+- **Smooth Animations**: Added slide-in animation for mobile menu
+- **Material UI Integration**: Integrated component library with custom theme
+- **Enhanced ContactForm**: Added Material UI components (Card, TextField, Button)
+- **Material UI ThemeProvider**: Added and CssBaseline for consistent styling
+
+### Changed
+
+- **Header Background**: Fixed transparent header issue with proper opaque backgrounds
+- **Color Variables**: Migrated from generic `--background-color` to semantic `--bg-primary`, `--bg-secondary`, `--bg-tertiary`
+- **Text Colors**: Updated from `--text-color` to semantic `--text-primary` and `--text-secondary`
+- **Component Architecture**: Refactored logo implementation into separate reusable component
+- **Styling Organization**: Moved logo-specific styles to dedicated Logo.module.scss
+- **Theme Detection**: Improved theme detection with MutationObserver for real-time theme switching
+- **Form Field Styling**: Enhanced input fields with proper background colors and semantic styling
+- **Navigation Styling**: Updated navigation links to use semantic color variables
+- **Mobile Controls**: Improved mobile menu button and close button styling
+- **Card Styling**: Enhanced all cards with consistent shadows, borders, and spacing
 
 ### Fixed
 
-- Fixed navigation links to preserve locale when switching between pages
-- Replaced regular anchor tags with Next.js Link components in LandingPage navigation
-- Added locale preservation to ensure users stay on their selected language when navigating
-- Fixed missing translation key for contact form title in all languages
-- Replaced hardcoded "Send me a message" text with proper translation keys
+- **Header Transparency**: Fixed header background transparency issues in both light and dark themes
+- **Theme Hydration**: Resolved hydration mismatch when refreshing page in dark theme
+- **Flag Icon Display**: Fixed country flag rendering issues in language switcher
+- **Layout Shift**: Prevented layout shift when opening language switcher dropdown
+- **Color Consistency**: Eliminated hardcoded colors in favor of semantic color tokens
+- **Mobile Menu Styling**: Fixed mobile sidebar header border color references
+- **Form Input Styling**: Updated contact form inputs to use semantic color variables
+- **Navigation Underlines**: Fixed underline width to go full width of navigation text
+- **Brand Logo Styling**: Removed unnecessary underline effect from brand/logo link
+- **Navigation Links**: Fixed to preserve locale when switching between pages
+- **Anchor Tags**: Replaced regular anchor tags with Next.js Link components in LandingPage navigation
+- **Locale Preservation**: Added to ensure users stay on their selected language when navigating
+- **Translation Keys**: Fixed missing translation key for contact form title in all languages
+- **Hardcoded Text**: Replaced hardcoded "Send me a message" text with proper translation keys
+
+### Technical Improvements
+
+- **Type Safety**: Added ColorToken type and ColorTokens constant for type-safe color usage
+- **Theme Utilities**: Created getCssVar and getCssVarWithTheme functions for consistent color access
+- **Component Separation**: Isolated logo logic into dedicated component for better maintainability
+- **CSS Organization**: Improved SCSS structure with proper component-specific styling
+- **Performance**: Optimized theme detection with efficient MutationObserver implementation
+- **Accessibility**: Enhanced logo component with proper alt text and semantic markup
+- **Responsive Design**: Improved logo responsive behavior with proper breakpoint handling
 
 ## [0.1.1] - 2025-08-02
 
