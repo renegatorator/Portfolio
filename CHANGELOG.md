@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 
 // Add new changes here
 
+- Enhanced Next.js configuration with comprehensive optimizations and security settings
+- Added i18n configuration supporting English, Slovenian, and German locales
+- Configured image optimization with WebP and AVIF formats for better performance
+- Implemented security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy)
+- Enabled compression and disabled powered-by header for better performance and security
+- Added comprehensive device and image size configurations for responsive image handling
 - Added Slovenian and German translation JSON files for i18n (next-i18next).
 - Created a LanguageSwitcher component for language selection and placed it on the LandingPage.
 - Fixed SEO translation fallback and improved useSeo hook for better reliability.

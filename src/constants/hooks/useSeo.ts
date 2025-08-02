@@ -14,7 +14,6 @@ export const useSeo = (route: Route): SEOType => {
       case Routes.LANDING_PAGE:
         const landingTitle = t('landingPage.title');
         const landingDesc = t('landingPage.description');
-        console.log('Landing page SEO:', { title: landingTitle, description: landingDesc });
 
         // Fallback to root title if landingPage.title doesn't work
         const finalTitle = landingTitle === 'landingPage.title' ? t('title') : landingTitle;
