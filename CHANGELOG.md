@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 // Add new changes here
 
+## [0.1.1] - 2025-08-02
+
 - Enhanced Next.js configuration with comprehensive optimizations and security settings
 - Added i18n configuration supporting English, Slovenian, and German locales
 - Configured image optimization with WebP and AVIF formats for better performance
@@ -23,7 +25,7 @@ All notable changes to this project will be documented in this file.
 - Refactored header as a separate StickyHeader component in PageLayout.
 - Made header fixed for robust sticky behavior and improved layout compatibility.
 
-## [0.1.0] - 2025-07-25 // update date once v 0.1.0 gets released
+## [0.1.0] - 2025-07-25
 
 - Project initialized and configured
 - Added a CHANGELOG and updated the README with changelog reference
