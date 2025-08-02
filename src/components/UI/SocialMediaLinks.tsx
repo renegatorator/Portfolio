@@ -6,13 +6,14 @@ import {
   faInstagram,
   faDiscord,
 } from '@fortawesome/free-brands-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { useTranslation } from 'next-i18next';
 import classes from './SocialMediaLinks.module.scss';
 
 interface SocialMediaLink {
   name: string;
   url: string;
-  icon: any;
+  icon: IconDefinition;
   color: string;
 }
 
