@@ -39,9 +39,15 @@
   },
   "contact": {
     "title": "Kontakt",
+    "description": "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach nur für ein Gespräch über Technologie und Entwicklung. Fühlen Sie sich frei, sich über das untenstehende Formular zu melden oder mich in sozialen Medien zu kontaktieren.",
     "emailPlaceholder": "E-Mail",
     "messagePlaceholder": "Nachricht",
     "send": "Senden",
+    "socialMedia": {
+      "title": "Verbinden Sie sich mit mir",
+      "description": "Folgen Sie mir in sozialen Medien für Updates zu meinen neuesten Projekten und Gedanken zur Web-Entwicklung."
+    },
+    "formTitle": "Senden Sie mir eine Nachricht",
     "seo": {
       "title": "Kontakt Rene Krajnc | In Verbindung treten",
       "description": "Treten Sie mit Rene Krajnc in Verbindung für Kooperationsmöglichkeiten, Projektanfragen oder um über Ihr nächstes Web-Entwicklungsprojekt zu sprechen."

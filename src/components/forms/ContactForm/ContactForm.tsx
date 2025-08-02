@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'next-i18next';
 import classes from './ContactForm.module.scss';
+import classNames from 'classnames';
 
 interface FormData {
   name: string;
@@ -8,8 +9,12 @@ interface FormData {
   message: string;
 }
 
-const ContactForm = () => {
-  const { t } = useTranslation('common');
+interface ContactFormProps {
+  fullWidth?: boolean;
+}
+
+const ContactForm = ({ fullWidth = false }: ContactFormProps) => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -24,7 +29,10 @@ const ContactForm = () => {
   };
 
   return (
-    <form className={classes.contactForm} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={classNames(classes.contactForm, { [classes.fullWidth]: fullWidth })}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <input type="text" placeholder={t('name')} {...register('name', { required: true })} />
       {errors.name && (
         <span style={{ color: 'red' }}>{t('contact.namePlaceholder')} is required</span>

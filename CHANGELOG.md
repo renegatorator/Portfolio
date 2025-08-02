@@ -4,7 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-// Add new changes here
+### Added
+
+- Created SocialMediaLinks component with hover effects and responsive design
+- Enhanced ContactPage with descriptive text and improved layout
+- Added social media section with GitHub, LinkedIn, Twitter, Instagram, and Discord links
+- Implemented two-column layout for contact form and social media sections
+- Added contact page translations for Slovenian and German languages
+
+### Fixed
+
+- Fixed navigation links to preserve locale when switching between pages
+- Replaced regular anchor tags with Next.js Link components in LandingPage navigation
+- Added locale preservation to ensure users stay on their selected language when navigating
+- Fixed missing translation key for contact form title in all languages
+- Replaced hardcoded "Send me a message" text with proper translation keys
 
 ## [0.1.1] - 2025-08-02
 

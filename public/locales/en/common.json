@@ -39,9 +39,15 @@
   },
   "contact": {
     "title": "Contact",
+    "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development. Feel free to reach out through the form below or connect with me on social media.",
     "emailPlaceholder": "Email",
     "messagePlaceholder": "Message",
     "send": "Send",
+    "socialMedia": {
+      "title": "Connect with me",
+      "description": "Follow me on social media for updates on my latest projects and thoughts on web development."
+    },
+    "formTitle": "Send me a message",
     "seo": {
       "title": "Contact Rene Krajnc | Get In Touch",
       "description": "Get in touch with Rene Krajnc for collaboration opportunities, project inquiries, or to discuss your next web development project."
