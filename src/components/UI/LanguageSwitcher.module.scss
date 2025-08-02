@@ -1,0 +1,81 @@
+.languageSwitcher {
+  min-width: 140px !important;
+}
+
+.select {
+  :global(.MuiSelect-select) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: var(--border-primary);
+  }
+
+  &:hover :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: var(--primary);
+  }
+
+  &:global(.Mui-focused) :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: var(--primary);
+  }
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+// Prevent layout shift by ensuring the dropdown doesn't affect document flow
+:global(.MuiPopover-root) {
+  position: fixed !important;
+}
+
+:global(.MuiPaper-root) {
+  margin-top: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-primary);
+  background-color: var(--bg-primary);
+}
+
+// Prevent Material-UI from adding padding-right and overflow:hidden to body
+:global(body) {
+  padding-right: 0 !important;
+  overflow: auto !important;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-primary);
+
+  // Hover effect only on non-selected items
+  &:not(:global(.Mui-selected)):hover {
+    background-color: var(--hover-primary);
+  }
+
+  // Selected item styling with better contrast
+  &:global(.Mui-selected) {
+    background-color: var(--primary);
+    color: var(--primary-text);
+    font-weight: 500;
+
+    // No hover effect on selected item
+    &:hover {
+      background-color: var(--primary);
+    }
+
+    // Ensure text has good contrast
+    :global(.MuiTypography-root) {
+      color: var(--primary-text);
+      font-weight: 500;
+    }
+  }
+}
+
+.flag {
+  width: 20px;
+  height: 15px;
+}
