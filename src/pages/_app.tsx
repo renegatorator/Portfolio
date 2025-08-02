@@ -41,21 +41,23 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     palette: {
       mode: isDark ? 'dark' : 'light',
       primary: {
-        main: getCssVar(ColorTokens.ACCENT_COLOR),
+        main: getCssVar(ColorTokens.PRIMARY),
+        contrastText: getCssVar(ColorTokens.PRIMARY_TEXT),
       },
       secondary: {
-        main: getCssVar(ColorTokens.BUTTON_BG),
+        main: getCssVar(ColorTokens.BG_SECONDARY),
+        contrastText: getCssVar(ColorTokens.TEXT_PRIMARY),
       },
       background: {
-        default: getCssVar(ColorTokens.BACKGROUND_COLOR),
-        paper: getCssVar(ColorTokens.CARD_BG),
+        default: getCssVar(ColorTokens.BG_PRIMARY),
+        paper: getCssVar(ColorTokens.BG_SECONDARY),
       },
       text: {
-        primary: getCssVar(ColorTokens.TEXT_COLOR),
-        secondary: getCssVar(ColorTokens.TEXT_COLOR),
+        primary: getCssVar(ColorTokens.TEXT_PRIMARY),
+        secondary: getCssVar(ColorTokens.TEXT_SECONDARY),
       },
       action: {
-        hover: getCssVar(ColorTokens.HOVER_COLOR),
+        hover: getCssVar(ColorTokens.HOVER_PRIMARY),
       },
     },
     components: {
@@ -63,7 +65,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         styleOverrides: {
           root: {
             '& .MuiInputBase-root': {
-              backgroundColor: getCssVar(ColorTokens.INPUT_BG),
+              backgroundColor: getCssVar(ColorTokens.BG_PRIMARY),
+              borderColor: getCssVar(ColorTokens.BORDER_PRIMARY),
             },
           },
         },
@@ -71,8 +74,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       MuiCard: {
         styleOverrides: {
           root: {
-            backgroundColor: getCssVar(ColorTokens.CARD_BG),
-            borderColor: getCssVar(ColorTokens.BORDER_COLOR),
+            backgroundColor: getCssVar(ColorTokens.BG_SECONDARY),
+            borderColor: getCssVar(ColorTokens.BORDER_PRIMARY),
           },
         },
       },
