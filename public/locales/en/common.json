@@ -1,7 +1,7 @@
 {
   "title": "Rene Krajnc | Developer Portfolio",
   "name": "Name",
-  "role": "Full Stack Developer",
+  "role": "Web Developer",
   "nav": {
     "about": "About",
     "projects": "Projects",
@@ -10,14 +10,14 @@
   },
   "landingPage": {
     "title": "Rene Krajnc | Developer Portfolio",
-    "description": "Rene Krajnc - Successful Full Stack Developer Portfolio showcasing projects, skills, and experience in modern web development technologies."
+    "description": "Rene Krajnc - Web Developer Portfolio showcasing projects, skills, and experience in modern web development technologies."
   },
   "about": {
     "title": "About Me",
-    "description": "Hi, I&apos;m Rene Krajnc, a Full Stack Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I&apos;ve since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
+    "description": "Hi, I&apos;m Rene Krajnc, a Web Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I&apos;ve since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
     "seo": {
-      "title": "About Rene Krajnc | Full Stack Developer",
-      "description": "Learn about Rene Krajnc's journey from infantry soldier to Full Stack Developer, his passion for building impactful digital solutions, and his experience with modern web technologies."
+      "title": "About Rene Krajnc | Web Developer",
+      "description": "Learn about Rene Krajnc's journey from infantry soldier to Web Developer, his passion for building impactful digital solutions, and his experience with modern web technologies."
     }
   },
   "projects": {
@@ -50,13 +50,13 @@
   "blog": {
     "seo": {
       "title": "Blog | Rene Krajnc - Web Development Insights",
-      "description": "Read Rene Krajnc's thoughts on web development, technology trends, and insights from his experience as a Full Stack Developer."
+      "description": "Read Rene Krajnc's thoughts on web development, technology trends, and insights from his experience as a Web Developer."
     }
   },
   "resume": {
     "seo": {
-      "title": "Resume | Rene Krajnc - Full Stack Developer",
-      "description": "View Rene Krajnc's professional resume, work experience, education, and technical skills as a Full Stack Developer."
+      "title": "Resume | Rene Krajnc - Web Developer",
+      "description": "View Rene Krajnc's professional resume, work experience, education, and technical skills as a Web Developer."
     }
   },
   "footer": "&copy; {{year}} Rene Krajnc. All rights reserved."
