@@ -9,7 +9,6 @@ import { Routes } from '@/constants/routes';
 
 const LandingPage = () => {
   const { t } = useTranslation();
-  const year = new Date().getFullYear();
 
   return (
     <PageLayout route={Routes.LANDING_PAGE}>
@@ -51,9 +50,6 @@ const LandingPage = () => {
         </div>
       </section>
       <ContactForm title={t('contact.title')} className={classes.contactForm} />
-      <footer className={classes.footer}>
-        <p dangerouslySetInnerHTML={{ __html: t('footer', { year }) }} />
-      </footer>
     </PageLayout>
   );
 };

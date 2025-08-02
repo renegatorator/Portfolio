@@ -33,10 +33,11 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Card
-        className={classNames(classes.contactForm, className, { [classes.fullWidth]: fullWidth })}
-      >
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={classNames(classes.container, className, { [classes.fullWidth]: fullWidth })}
+    >
+      <Card className={classes.contactForm}>
         {!!title && <h3>{title}</h3>}
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField

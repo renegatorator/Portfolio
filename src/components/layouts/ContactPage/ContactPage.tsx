@@ -19,10 +19,7 @@ const ContactPage = () => {
       </section>
 
       <div className={classes.content}>
-        <div className={classes.formSection}>
-          <h2>{t('contact.formTitle')}</h2>
-          <ContactForm />
-        </div>
+        <ContactForm className={classes.contactForm} title={t('contact.formTitle')} fullWidth />
 
         <div className={classes.socialSection}>
           <SocialMediaLinks />
