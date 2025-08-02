@@ -13,7 +13,7 @@ const LandingPage = () => {
 
   return (
     <PageLayout route={Routes.LANDING_PAGE}>
-      <header className={classes.header}>
+      <section className={classes.header}>
         <Image
           src="/images/rene-profile.jfif"
           alt="Rene Krajnc"
@@ -23,7 +23,7 @@ const LandingPage = () => {
         />
         <h1>Rene Krajnc</h1>
         <h2>{t('role')}</h2>
-      </header>
+      </section>
       <section className={classes.section}>
         <h3>{t('about.title')}</h3>
         <p dangerouslySetInnerHTML={{ __html: t('about.description') }} />
@@ -50,10 +50,7 @@ const LandingPage = () => {
           ))}
         </div>
       </section>
-      <section className={classes.section}>
-        <h3>{t('contact.title')}</h3>
-        <ContactForm />
-      </section>
+      <ContactForm title={t('contact.title')} className={classes.contactForm} />
       <footer className={classes.footer}>
         <p dangerouslySetInnerHTML={{ __html: t('footer', { year }) }} />
       </footer>

@@ -1,13 +1,10 @@
-.contactContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+.header {
+  text-align: center;
+  color: var(--text-primary);
+  padding: 40px 0;
 }
 
 .title {
-  text-align: center;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
   font-size: 2.5rem;
   font-weight: 700;
 }

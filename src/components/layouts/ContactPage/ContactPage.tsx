@@ -10,22 +10,22 @@ const ContactPage = () => {
 
   return (
     <PageLayout route={Routes.CONTACT}>
-      <div className={classes.contactContainer}>
+      <section className={classes.header}>
         <h1 className={classes.title}>{t('contact.title')}</h1>
 
         <div className={classes.description}>
           <p>{t('contact.description')}</p>
         </div>
+      </section>
 
-        <div className={classes.content}>
-          <div className={classes.formSection}>
-            <h2>{t('contact.formTitle')}</h2>
-            <ContactForm />
-          </div>
+      <div className={classes.content}>
+        <div className={classes.formSection}>
+          <h2>{t('contact.formTitle')}</h2>
+          <ContactForm />
+        </div>
 
-          <div className={classes.socialSection}>
-            <SocialMediaLinks />
-          </div>
+        <div className={classes.socialSection}>
+          <SocialMediaLinks />
         </div>
       </div>
     </PageLayout>

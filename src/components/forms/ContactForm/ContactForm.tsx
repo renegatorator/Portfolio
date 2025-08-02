@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'next-i18next';
-import { TextField, Button, Card, CardContent, Box, InputAdornment } from '@mui/material';
+import { TextField, Button, Card, Box, InputAdornment } from '@mui/material';
 import { Person, Email, Message } from '@mui/icons-material';
 import classes from './ContactForm.module.scss';
 import classNames from 'classnames';
@@ -12,10 +12,12 @@ interface FormData {
 }
 
 interface ContactFormProps {
+  title?: string;
   fullWidth?: boolean;
+  className?: string;
 }
 
-const ContactForm = ({ fullWidth = false }: ContactFormProps) => {
+const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) => {
   const { t } = useTranslation();
   const {
     register,
@@ -32,70 +34,71 @@ const ContactForm = ({ fullWidth = false }: ContactFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Card className={classNames(classes.contactForm, { [classes.fullWidth]: fullWidth })}>
-        <CardContent>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <TextField
-              label={t('name')}
-              //placeholder={t('name')}
-              fullWidth
-              error={!!errors.name}
-              helperText={errors.name && `${t('name')} is required`}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Person />
-                  </InputAdornment>
-                ),
-              }}
-              {...register('name', { required: true })}
-            />
+      <Card
+        className={classNames(classes.contactForm, className, { [classes.fullWidth]: fullWidth })}
+      >
+        {!!title && <h3>{title}</h3>}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <TextField
+            label={t('name')}
+            //placeholder={t('name')}
+            fullWidth
+            error={!!errors.name}
+            helperText={errors.name && `${t('name')} is required`}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Person />
+                </InputAdornment>
+              ),
+            }}
+            {...register('name', { required: true })}
+          />
 
-            <TextField
-              label={t('contact.emailPlaceholder')}
-              type="email"
-              //placeholder={t('contact.emailPlaceholder')}
-              fullWidth
-              error={!!errors.email}
-              helperText={errors.email && `${t('contact.emailPlaceholder')} is invalid`}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Email />
-                  </InputAdornment>
-                ),
-              }}
-              {...register('email', { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}
-            />
+          <TextField
+            label={t('contact.emailPlaceholder')}
+            type="email"
+            //placeholder={t('contact.emailPlaceholder')}
+            fullWidth
+            error={!!errors.email}
+            helperText={errors.email && `${t('contact.emailPlaceholder')} is invalid`}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email />
+                </InputAdornment>
+              ),
+            }}
+            {...register('email', { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}
+          />
 
-            <TextField
-              label={t('contact.messagePlaceholder')}
-              multiline
-              rows={4}
-              fullWidth
-              error={!!errors.message}
-              helperText={errors.message && `${t('contact.messagePlaceholder')} is required`}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start" className={classes.messageIcon}>
-                    <Message />
-                  </InputAdornment>
-                ),
-              }}
-              {...register('message', { required: true })}
-            />
+          <TextField
+            label={t('contact.messagePlaceholder')}
+            multiline
+            rows={4}
+            fullWidth
+            error={!!errors.message}
+            helperText={errors.message && `${t('contact.messagePlaceholder')} is required`}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start" className={classes.messageIcon}>
+                  <Message />
+                </InputAdornment>
+              ),
+            }}
+            {...register('message', { required: true })}
+          />
 
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              disabled={isSubmitting}
-              sx={{ mt: 2 }}
-            >
-              {t('contact.send')}
-            </Button>
-          </Box>
-        </CardContent>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            disabled={isSubmitting}
+            sx={{ mt: 2 }}
+          >
+            {t('contact.send')}
+          </Button>
+        </Box>
       </Card>
     </form>
   );
