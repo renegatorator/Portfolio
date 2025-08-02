@@ -1,7 +1,7 @@
 {
   "title": "Rene Krajnc | Entwickler-Portfolio",
   "name": "Name",
-  "role": "Full Stack Entwickler",
+  "role": "Web Entwickler",
   "nav": {
     "about": "Über mich",
     "projects": "Projekte",
@@ -10,14 +10,14 @@
   },
   "landingPage": {
     "title": "Rene Krajnc | Entwickler-Portfolio",
-    "description": "Rene Krajnc - Erfolgreiches Full Stack Entwickler-Portfolio mit Präsentation von Projekten, Fähigkeiten und Erfahrungen in modernen Web-Entwicklungstechnologien."
+    "description": "Rene Krajnc - Portfolio mit Präsentation von Projekten, Fähigkeiten und Erfahrungen in modernen Web-Entwicklungstechnologien."
   },
   "about": {
     "title": "Über mich",
-    "description": "Hallo, ich bin Rene Krajnc, ein Full Stack Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten.",
+    "description": "Hallo, ich bin Rene Krajnc, ein Web Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten.",
     "seo": {
-      "title": "Über Rene Krajnc | Full Stack Entwickler",
-      "description": "Erfahren Sie mehr über Rene Krajncs Weg vom Infanteriesoldaten zum Full Stack Entwickler, seine Leidenschaft für wirkungsvolle digitale Lösungen und seine Erfahrungen mit modernen Web-Technologien."
+      "title": "Über Rene Krajnc | Web Entwickler",
+      "description": "Erfahren Sie mehr über Rene Krajncs Weg vom Infanteriesoldaten zum Web Entwickler, seine Leidenschaft für wirkungsvolle digitale Lösungen und seine Erfahrungen mit modernen Web-Technologien."
     }
   },
   "projects": {
@@ -50,13 +50,13 @@
   "blog": {
     "seo": {
       "title": "Blog | Rene Krajnc - Web-Entwicklung Einblicke",
-      "description": "Lesen Sie Rene Krajncs Gedanken zur Web-Entwicklung, Technologietrends und Einblicke aus seinen Erfahrungen als Full Stack Entwickler."
+      "description": "Lesen Sie Rene Krajncs Gedanken zur Web-Entwicklung, Technologietrends und Einblicke aus seinen Erfahrungen als Web Entwickler."
     }
   },
   "resume": {
     "seo": {
-      "title": "Lebenslauf | Rene Krajnc - Full Stack Entwickler",
-      "description": "Sehen Sie sich Rene Krajncs professionellen Lebenslauf, Arbeitserfahrung, Ausbildung und technische Fähigkeiten als Full Stack Entwickler an."
+      "title": "Lebenslauf | Rene Krajnc - Web Entwickler",
+      "description": "Sehen Sie sich Rene Krajncs professionellen Lebenslauf, Arbeitserfahrung, Ausbildung und technische Fähigkeiten als Web Entwickler an."
     }
   },
   "footer": "&copy; {{year}} Rene Krajnc. Alle Rechte vorbehalten."

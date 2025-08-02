@@ -1,7 +1,7 @@
 {
   "title": "Rene Krajnc | Razvijalčev portfelj",
   "name": "Ime",
-  "role": "Full Stack Razvijalec",
+  "role": "Spletni Razvijalec",
   "nav": {
     "about": "O meni",
     "projects": "Projekti",
@@ -10,14 +10,14 @@
   },
   "landingPage": {
     "title": "Rene Krajnc | Razvijalčev portfelj",
-    "description": "Rene Krajnc - Uspešen Full Stack razvijalčev portfelj s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
+    "description": "Rene Krajnc - Portfelj spletnega razvijalca s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
   },
   "about": {
     "title": "O meni",
-    "description": "Pozdravljeni, sem Rene Krajnc, Full Stack razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin.",
+    "description": "Pozdravljeni, sem Rene Krajnc, spletni razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin.",
     "seo": {
-      "title": "O Rene Krajnc | Full Stack Razvijalec",
-      "description": "Spoznajte pot Rene Krajnc od pehotnega vojaka do Full Stack razvijalca, njegovo strast do ustvarjanja učinkovitih digitalnih rešitev in izkušnje s sodobnimi spletnimi tehnologijami."
+      "title": "O Rene Krajnc | Spletni Razvijalec",
+      "description": "Spoznajte pot Rene Krajnc od pehotnega vojaka do razvijalca, njegovo strast do ustvarjanja učinkovitih digitalnih rešitev in izkušnje s sodobnimi spletnimi tehnologijami."
     }
   },
   "projects": {
@@ -50,13 +50,13 @@
   "blog": {
     "seo": {
       "title": "Blog | Rene Krajnc - Vpogledi v Spletni Razvoj",
-      "description": "Preberite misli Rene Krajnc o spletnem razvoju, tehnoloških trendih in vpogledih iz njegovih izkušenj kot Full Stack razvijalec."
+      "description": "Preberite misli Rene Krajnc o spletnem razvoju, tehnoloških trendih in vpogledih iz njegovih izkušenj kot razvijalec."
     }
   },
   "resume": {
     "seo": {
-      "title": "Življenjepis | Rene Krajnc - Full Stack Razvijalec",
-      "description": "Oglejte si profesionalni življenjepis Rene Krajnc, delovne izkušnje, izobrazbo in tehnične spretnosti kot Full Stack razvijalec."
+      "title": "Življenjepis | Rene Krajnc - Spletni Razvijalec",
+      "description": "Oglejte si profesionalni življenjepis Rene Krajnc, delovne izkušnje, izobrazbo in tehnične spretnosti kot spletni razvijalec."
     }
   },
   "footer": "&copy; {{year}} Rene Krajnc. Vse pravice pridržane."
