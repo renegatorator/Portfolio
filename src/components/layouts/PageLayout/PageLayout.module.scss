@@ -1,0 +1,38 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  padding-top: 56px; /* Height of the fixed header */
+
+  > * {
+    width: 100%;
+  }
+}
+
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--background-color);
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.headerContent {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 0 2rem;
+}
