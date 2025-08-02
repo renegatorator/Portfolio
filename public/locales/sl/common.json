@@ -39,9 +39,15 @@
   },
   "contact": {
     "title": "Kontakt",
+    "description": "Vedno sem odprt za razpravljanje o novih priložnostih, zanimivih projektih ali preprosto za pogovor o tehnologiji in razvoju. Prosim, obrnite se name preko spodnje obrazca ali se povežite z mano na družbenih omrežjih.",
     "emailPlaceholder": "E-pošta",
     "messagePlaceholder": "Sporočilo",
     "send": "Pošlji",
+    "socialMedia": {
+      "title": "Povežite se z mano",
+      "description": "Sledite mi na družbenih omrežjih za posodobitve mojih najnovejših projektov in misli o spletnem razvoju."
+    },
+    "formTitle": "Pošljite mi sporočilo",
     "seo": {
       "title": "Kontakt Rene Krajnc | Povežite se",
       "description": "Povežite se z Rene Krajnc za možnosti sodelovanja, povpraševanja o projektih ali razpravljanje o vašem naslednjem spletnem razvojnem projektu."

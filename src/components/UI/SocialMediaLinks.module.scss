@@ -1,0 +1,75 @@
+.socialMediaContainer {
+  margin: 2rem 0;
+  text-align: center;
+
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .socialDescription {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  font-size: 1.2rem;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--social-color);
+    color: var(--social-color);
+  }
+
+  &:focus {
+    outline: 2px solid var(--social-color);
+    outline-offset: 2px;
+  }
+}
+
+// Dark theme adjustments
+@media (prefers-color-scheme: dark) {
+  .socialLink {
+    background: var(--bg-secondary);
+
+    &:hover {
+      background: var(--bg-primary);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .socialLinks {
+    gap: 1rem;
+  }
+
+  .socialLink {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+}

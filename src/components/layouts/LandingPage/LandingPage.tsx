@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { skills } from '../../../constants/rene';
 import classes from './LandingPage.module.scss';
@@ -9,6 +11,7 @@ import { Routes } from '@/constants/routes';
 
 const LandingPage = () => {
   const { t } = useTranslation();
+  const router = useRouter();
   const year = new Date().getFullYear();
 
   return (
@@ -24,10 +27,18 @@ const LandingPage = () => {
         <h1>Rene Krajnc</h1>
         <h2>{t('role')}</h2>
         <nav>
-          <a href={Routes.ABOUT}>{t('nav.about')}</a>
-          <a href={Routes.PROJECTS}>{t('nav.projects')}</a>
-          <a href={Routes.SKILLS}>{t('nav.skills')}</a>
-          <a href={Routes.CONTACT}>{t('nav.contact')}</a>
+          <Link href={Routes.ABOUT} locale={router.locale}>
+            {t('nav.about')}
+          </Link>
+          <Link href={Routes.PROJECTS} locale={router.locale}>
+            {t('nav.projects')}
+          </Link>
+          <Link href={Routes.SKILLS} locale={router.locale}>
+            {t('nav.skills')}
+          </Link>
+          <Link href={Routes.CONTACT} locale={router.locale}>
+            {t('nav.contact')}
+          </Link>
         </nav>
       </header>
       <section className={classes.section}>
