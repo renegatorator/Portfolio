@@ -1,29 +1,57 @@
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import { Select, MenuItem, FormControl, SelectChangeEvent, Typography } from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
+import { GB, SI, DE } from 'country-flag-icons/react/3x2';
+import styles from './LanguageSwitcher.module.scss';
 
 const languages = [
-  { code: 'en', label: 'English' },
-  { code: 'sl', label: 'Slovenščina' },
-  { code: 'de', label: 'Deutsch' },
+  { code: 'en', label: 'English', Flag: GB },
+  { code: 'sl', label: 'Slovenščina', Flag: SI },
+  { code: 'de', label: 'Deutsch', Flag: DE },
 ];
 
 const LanguageSwitcher = () => {
   const router = useRouter();
   const { i18n } = useTranslation();
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const locale = e.target.value;
+  const handleChange = (event: SelectChangeEvent) => {
+    const locale = event.target.value;
     router.push(router.pathname, router.asPath, { locale });
   };
 
   return (
-    <select onChange={handleChange} value={i18n.language} aria-label="Select language">
-      {languages.map((lang) => (
-        <option key={lang.code} value={lang.code}>
-          {lang.label}
-        </option>
-      ))}
-    </select>
+    <FormControl size="small" className={styles.languageSwitcher}>
+      <Select
+        value={i18n.language}
+        onChange={handleChange}
+        displayEmpty
+        IconComponent={ExpandMore}
+        className={styles.select}
+        MenuProps={{
+          PaperProps: {
+            style: {
+              maxHeight: 200,
+            },
+          },
+          anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'left',
+          },
+          transformOrigin: {
+            vertical: 'top',
+            horizontal: 'left',
+          },
+        }}
+      >
+        {languages.map((lang) => (
+          <MenuItem key={lang.code} value={lang.code} className={styles.menuItem}>
+            <lang.Flag className={styles.flag} />
+            <Typography variant="body2">{lang.label}</Typography>
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 };
 

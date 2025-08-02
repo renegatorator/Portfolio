@@ -6,25 +6,26 @@ export const Themes = {
 export type Theme = (typeof Themes)[keyof typeof Themes];
 
 export const ColorTokens = {
+  // Primary colors
+  PRIMARY: '--primary',
+  PRIMARY_TEXT: '--primary-text',
+
   // Background colors
-  BACKGROUND_COLOR: '--background-color',
-  CARD_BG: '--card-bg',
-  INPUT_BG: '--input-bg',
-  HEADER_BG: '--header-bg',
-  FOOTER_BG: '--footer-bg',
+  BG_PRIMARY: '--bg-primary',
+  BG_SECONDARY: '--bg-secondary',
+  BG_TERTIARY: '--bg-tertiary',
 
   // Text colors
-  TEXT_COLOR: '--text-color',
+  TEXT_PRIMARY: '--text-primary',
+  TEXT_SECONDARY: '--text-secondary',
 
-  // Accent and interactive colors
-  ACCENT_COLOR: '--accent-color',
-  LINK_COLOR: '--link-color',
-  BUTTON_BG: '--button-bg',
-  BUTTON_TEXT: '--button-text',
+  // Border colors
+  BORDER_PRIMARY: '--border-primary',
+  BORDER_SECONDARY: '--border-secondary',
 
-  // Border and hover colors
-  BORDER_COLOR: '--border-color',
-  HOVER_COLOR: '--hover-color',
+  // Interactive colors
+  HOVER_PRIMARY: '--hover-primary',
+  HOVER_SECONDARY: '--hover-secondary',
 } as const;
 
 export type ColorToken = (typeof ColorTokens)[keyof typeof ColorTokens];

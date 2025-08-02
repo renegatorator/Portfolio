@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ThemeToggle from '@/components/UI/ThemeToggle';
 import LanguageSwitcher from '@/components/UI/LanguageSwitcher';
+import Logo from '@/components/UI/Logo';
 import { Routes } from '@/constants/routes';
 import classes from './PageLayout.module.scss';
 
@@ -29,6 +30,13 @@ const StickyHeader = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const isActiveLink = (href: string) => {
+    if (href === Routes.LANDING_PAGE) {
+      return router.pathname === Routes.LANDING_PAGE;
+    }
+    return router.pathname === href;
+  };
+
   return (
     <>
       <header className={classes.stickyHeader}>
@@ -36,7 +44,7 @@ const StickyHeader = () => {
           {/* Logo/Brand */}
           <div className={classes.brand}>
             <Link href={Routes.LANDING_PAGE} locale={router.locale}>
-              Rene Krajnc
+              <Logo priority />
             </Link>
           </div>
 
@@ -47,7 +55,7 @@ const StickyHeader = () => {
                 key={link.href}
                 href={link.href}
                 locale={router.locale}
-                className={classes.navLink}
+                className={`${classes.navLink} ${isActiveLink(link.href) ? classes.active : ''}`}
               >
                 {link.label}
               </Link>
@@ -92,7 +100,7 @@ const StickyHeader = () => {
                   key={link.href}
                   href={link.href}
                   locale={router.locale}
-                  className={classes.mobileNavLink}
+                  className={`${classes.mobileNavLink} ${isActiveLink(link.href) ? classes.active : ''}`}
                   onClick={closeMobileMenu}
                 >
                   {link.label}

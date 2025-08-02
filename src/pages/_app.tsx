@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useEffect, useState } from 'react';
 import { Theme, ColorTokens } from '@/constants/theme';
-import { getCssVar } from '@/utils/themeUtils';
+import { getCssVarWithTheme } from '@/utils/themeUtils';
 import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -14,7 +14,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem('theme') as Theme | null;
-    setTheme(stored || 'light');
+    const initialTheme = stored || 'light';
+    setTheme(initialTheme);
+
+    // Immediately set the theme on document to prevent flash
+    document.documentElement.setAttribute('data-theme', initialTheme);
   }, []);
 
   useEffect(() => {
@@ -41,21 +45,23 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     palette: {
       mode: isDark ? 'dark' : 'light',
       primary: {
-        main: getCssVar(ColorTokens.ACCENT_COLOR),
+        main: getCssVarWithTheme(ColorTokens.PRIMARY, isDark),
+        contrastText: getCssVarWithTheme(ColorTokens.PRIMARY_TEXT, isDark),
       },
       secondary: {
-        main: getCssVar(ColorTokens.BUTTON_BG),
+        main: getCssVarWithTheme(ColorTokens.BG_SECONDARY, isDark),
+        contrastText: getCssVarWithTheme(ColorTokens.TEXT_PRIMARY, isDark),
       },
       background: {
-        default: getCssVar(ColorTokens.BACKGROUND_COLOR),
-        paper: getCssVar(ColorTokens.CARD_BG),
+        default: getCssVarWithTheme(ColorTokens.BG_PRIMARY, isDark),
+        paper: getCssVarWithTheme(ColorTokens.BG_SECONDARY, isDark),
       },
       text: {
-        primary: getCssVar(ColorTokens.TEXT_COLOR),
-        secondary: getCssVar(ColorTokens.TEXT_COLOR),
+        primary: getCssVarWithTheme(ColorTokens.TEXT_PRIMARY, isDark),
+        secondary: getCssVarWithTheme(ColorTokens.TEXT_SECONDARY, isDark),
       },
       action: {
-        hover: getCssVar(ColorTokens.HOVER_COLOR),
+        hover: getCssVarWithTheme(ColorTokens.HOVER_PRIMARY, isDark),
       },
     },
     components: {
@@ -63,7 +69,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         styleOverrides: {
           root: {
             '& .MuiInputBase-root': {
-              backgroundColor: getCssVar(ColorTokens.INPUT_BG),
+              backgroundColor: getCssVarWithTheme(ColorTokens.BG_PRIMARY, isDark),
+              borderColor: getCssVarWithTheme(ColorTokens.BORDER_PRIMARY, isDark),
             },
           },
         },
@@ -71,16 +78,27 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       MuiCard: {
         styleOverrides: {
           root: {
-            backgroundColor: getCssVar(ColorTokens.CARD_BG),
-            borderColor: getCssVar(ColorTokens.BORDER_COLOR),
+            backgroundColor: getCssVarWithTheme(ColorTokens.BG_SECONDARY, isDark),
+            borderColor: getCssVarWithTheme(ColorTokens.BORDER_PRIMARY, isDark),
           },
         },
       },
     },
   });
 
+  // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
-    return null; // Prevent hydration mismatch
+    return (
+      <div
+        style={{
+          backgroundColor: isDark ? '#181818' : '#fff',
+          color: isDark ? '#f5f5f5' : '#222',
+          minHeight: '100vh',
+        }}
+      >
+        {/* Simple loading state */}
+      </div>
+    );
   }
 
   return (

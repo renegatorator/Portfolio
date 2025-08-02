@@ -5,8 +5,8 @@
   align-items: center;
   gap: 40px;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--background-color);
-  color: var(--text-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   padding-top: 56px; /* Height of the fixed header */
 
   > * {
@@ -19,9 +19,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--background-color);
+  background: var(--bg-primary);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
   display: flex;
   justify-content: center;
@@ -39,14 +41,14 @@
 
 .brand {
   a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-color);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 
     &:hover {
-      color: var(--accent-color);
+      transform: translateY(-1px);
     }
   }
 }
@@ -62,29 +64,60 @@
 }
 
 .navLink {
-  color: var(--text-color);
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
+  padding: 0.5rem 0;
+  border-radius: 4px;
 
   &:hover {
-    color: var(--accent-color);
+    color: var(--primary);
+    transform: translateY(-1px);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hover-primary);
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    opacity: 1;
   }
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-color);
+    background: var(--primary);
     transition: width 0.3s ease;
   }
 
   &:hover::after {
     width: 100%;
+  }
+
+  // Active state for current page
+  &.active {
+    color: var(--primary);
+    font-weight: 600;
+
+    &::after {
+      width: 100%;
+    }
   }
 }
 
@@ -102,14 +135,17 @@
   display: none;
   background: none;
   border: none;
-  color: var(--text-color);
+  color: var(--text-primary);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 
   &:hover {
-    color: var(--accent-color);
+    color: var(--primary);
+    background: var(--hover-primary);
+    transform: scale(1.05);
   }
 
   @media (max-width: 768px) {
@@ -127,12 +163,22 @@
   z-index: 200;
   display: flex;
   justify-content: flex-end;
+  animation: fadeIn 0.3s ease-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 .mobileSidebar {
   width: 280px;
   height: 100%;
-  background: var(--background-color);
+  background: var(--bg-primary);
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -158,21 +204,24 @@
   h3 {
     margin: 0;
     font-size: 1.25rem;
-    color: var(--text-color);
+    color: var(--text-primary);
   }
 }
 
 .closeButton {
   background: none;
   border: none;
-  color: var(--text-color);
+  color: var(--text-primary);
   font-size: 1.25rem;
   cursor: pointer;
   padding: 0.5rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 
   &:hover {
-    color: var(--accent-color);
+    color: var(--primary);
+    background: var(--hover-primary);
+    transform: scale(1.1);
   }
 }
 
@@ -184,13 +233,44 @@
 .mobileNavLink {
   display: block;
   padding: 1rem 1.5rem;
-  color: var(--text-color);
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0.25rem 0;
 
   &:hover {
-    background: var(--hover-color);
+    background: var(--hover-primary);
+    color: var(--primary);
+    transform: translateX(8px);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--primary);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
+
+  // Active state for current page
+  &.active {
+    color: var(--primary);
+    font-weight: 600;
+    background: var(--hover-primary);
+
+    &::before {
+      transform: scaleY(1);
+    }
   }
 }
 
