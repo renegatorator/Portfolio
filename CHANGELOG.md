@@ -11,6 +11,10 @@ All notable changes to this project will be documented in this file.
 - Added social media section with GitHub, LinkedIn, Twitter, Instagram, and Discord links
 - Implemented two-column layout for contact form and social media sections
 - Added contact page translations for Slovenian and German languages
+- Enhanced StickyHeader with responsive navigation and mobile hamburger menu
+- Added desktop navigation links with hover effects and underline animations
+- Implemented mobile sidebar with navigation, language switcher, and theme toggle
+- Added smooth slide-in animation for mobile menu
 
 ### Fixed
 
