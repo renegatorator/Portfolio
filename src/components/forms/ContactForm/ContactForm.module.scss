@@ -34,3 +34,8 @@
 .contactForm button:hover {
   background: var(--accent-color);
 }
+
+.messageIcon {
+  align-self: flex-start;
+  padding-top: 0.75rem;
+}
