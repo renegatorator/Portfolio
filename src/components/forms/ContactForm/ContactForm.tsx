@@ -1,5 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'next-i18next';
+import { TextField, Button, Card, CardContent, Box, InputAdornment } from '@mui/material';
+import { Person, Email, Message } from '@mui/icons-material';
 import classes from './ContactForm.module.scss';
 import classNames from 'classnames';
 
@@ -29,32 +31,72 @@ const ContactForm = ({ fullWidth = false }: ContactFormProps) => {
   };
 
   return (
-    <form
-      className={classNames(classes.contactForm, { [classes.fullWidth]: fullWidth })}
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <input type="text" placeholder={t('name')} {...register('name', { required: true })} />
-      {errors.name && (
-        <span style={{ color: 'red' }}>{t('contact.namePlaceholder')} is required</span>
-      )}
-      <input
-        type="email"
-        placeholder={t('contact.emailPlaceholder')}
-        {...register('email', { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}
-      />
-      {errors.email && (
-        <span style={{ color: 'red' }}>{t('contact.emailPlaceholder')} is invalid</span>
-      )}
-      <textarea
-        placeholder={t('contact.messagePlaceholder')}
-        {...register('message', { required: true })}
-      />
-      {errors.message && (
-        <span style={{ color: 'red' }}>{t('contact.messagePlaceholder')} is required</span>
-      )}
-      <button type="submit" disabled={isSubmitting}>
-        {t('contact.send')}
-      </button>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Card className={classNames(classes.contactForm, { [classes.fullWidth]: fullWidth })}>
+        <CardContent>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <TextField
+              label={t('name')}
+              //placeholder={t('name')}
+              fullWidth
+              error={!!errors.name}
+              helperText={errors.name && `${t('name')} is required`}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Person />
+                  </InputAdornment>
+                ),
+              }}
+              {...register('name', { required: true })}
+            />
+
+            <TextField
+              label={t('contact.emailPlaceholder')}
+              type="email"
+              //placeholder={t('contact.emailPlaceholder')}
+              fullWidth
+              error={!!errors.email}
+              helperText={errors.email && `${t('contact.emailPlaceholder')} is invalid`}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Email />
+                  </InputAdornment>
+                ),
+              }}
+              {...register('email', { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}
+            />
+
+            <TextField
+              label={t('contact.messagePlaceholder')}
+              multiline
+              rows={4}
+              fullWidth
+              error={!!errors.message}
+              helperText={errors.message && `${t('contact.messagePlaceholder')} is required`}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start" className={classes.messageIcon}>
+                    <Message />
+                  </InputAdornment>
+                ),
+              }}
+              {...register('message', { required: true })}
+            />
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              disabled={isSubmitting}
+              sx={{ mt: 2 }}
+            >
+              {t('contact.send')}
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
     </form>
   );
 };
