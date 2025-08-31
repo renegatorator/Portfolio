@@ -83,12 +83,12 @@
   "footer": "&copy; {{year}} Rene Krajnc. Vse pravice pridržane.",
   "fishing": {
     "title": "Ribolov z Dedkom",
-    "subtitle": "Pridružite se nama na morskem ribolovnem pustolovstvu z najboljšimi lovnimi ribami Sredozemlja",
+    "subtitle": "Pridružite se nama na morskem ribolovnem pustolovstvu",
       "countdown": {
     "title": "Odštevanje do ribolovnega izleta",
-    "description": "19. septembra 2024 ob 15:00 slovenskega časa se odpravljamo na morje. Pripravite se na nepozabno ribolovno izkušnjo!",
+    "description": "19. septembra 2025 ob 15:00 slovenskega časa se odpravljamo na morje. Pripravite se na nepozabno ribolovno izkušnjo!",
     "location": "Hrvaška, Dugi Otok",
-    "time": "19. september 2024 ob 15:00",
+    "time": "19. september 2025 ob 15:00",
     "labels": {
       "days": "Dnevi",
       "hours": "Ure",
@@ -140,7 +140,7 @@
     },
     "seo": {
       "title": "Ribolov | Rene Krajnc",
-      "description": "Pridružite se Rene Krajnc in njegovemu dedku na vznemirljivo morsko ribolovno pustolovstvo v Sredozemlju. Odštevanje do ribolovnega izleta 19. septembra 2024 z ciljem sredozemska palamida, barakuda, bonito, skuša in več."
+      "description": "Pridružite se Rene Krajnc in njegovemu dedku na vznemirljivo morsko ribolovno pustolovstvo v Sredozemlju. Odštevanje do ribolovnega izleta 19. septembra 2025 z ciljem sredozemska palamida, barakuda, bonito, skuša in več."
     }
   }
 }

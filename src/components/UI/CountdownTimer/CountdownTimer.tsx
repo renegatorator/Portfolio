@@ -19,7 +19,7 @@ const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2024-09-19T15:00:00+02:00'); // Slovenian time (UTC+2)
+    const targetDate = new Date('2025-09-19T15:00:00+02:00'); // Slovenian time (UTC+2)
 
     const timer = setInterval(() => {
       const now = new Date();

@@ -86,12 +86,12 @@
   },
   "fishing": {
     "title": "Fishing with Grandpa",
-    "subtitle": "Join us on an exciting sea fishing adventure targeting the Mediterranean's finest game fish",
+    "subtitle": "Join us on an exciting sea fishing adventure",
     "countdown": {
       "title": "Countdown to Our Fishing Trip",
-      "description": "We're heading out to sea on September 19th, 2024 at 15:00 Slovenian time. Get ready for an unforgettable fishing experience!",
+      "description": "We're heading out to sea on September 19th, 2025 at 15:00 Slovenian time. Get ready for an unforgettable fishing experience!",
       "location": "Croatia, Dugi Otok",
-      "time": "September 19th, 2024 at 15:00",
+      "time": "September 19th, 2025 at 15:00",
       "labels": {
         "days": "Days",
         "hours": "Hours",
@@ -143,7 +143,7 @@
     },
     "seo": {
       "title": "Fishing | Rene Krajnc",
-      "description": "Join Rene Krajnc and his grandpa for an exciting sea fishing adventure in the Mediterranean. Countdown to September 19th, 2024 fishing trip targeting amberjack, barracuda, bonito, grouper, and more."
+      "description": "Join Rene Krajnc and his grandpa for an exciting sea fishing adventure in the Mediterranean. Countdown to September 19th, 2025 fishing trip targeting amberjack, barracuda, bonito, grouper, and more."
     }
   },
   "footer": "&copy; {{year}} Rene Krajnc. All rights reserved."

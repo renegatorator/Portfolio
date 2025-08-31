@@ -36,7 +36,7 @@ const FishingPage = () => {
           <div className={classes.countdownHeader}>
             <FontAwesomeIcon icon={faCalendarAlt} className={classes.countdownIcon} />
             <h2>{t('fishing.countdown.title')}</h2>
-            <p>{t('fishing.countdown.description')}</p>
+            {/* <p>{t('fishing.countdown.description')}</p> */}
           </div>
           <CountdownTimer />
           <div className={classes.eventDetails}>
