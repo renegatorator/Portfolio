@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- **Prepare for release**: Prepare content for release, hide unfinished contact form
+- **Coming soon Page**: Created a coming soon page and displayed it in place of the Projects page
+- **Fishing Page**: Created a fishing page with a countdown timer to the start of the trip with grandpa
 - **Logo Component**: Created dedicated Logo component with theme-aware switching between light/dark logos
 - **Responsive Logo Design**: Implemented full logo for desktop and initials logo for mobile screens
 - **Enhanced Visual Hierarchy**: Implemented distinct background colors for better visual separation
