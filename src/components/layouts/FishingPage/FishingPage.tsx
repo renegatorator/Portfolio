@@ -1,9 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faFish, 
-  faAnchor, 
-  faWater, 
-  faSun, 
   faMapMarkerAlt,
   faCalendarAlt,
   faClock

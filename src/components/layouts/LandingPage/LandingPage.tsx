@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { skills } from '../../../constants/rene';
 import classes from './LandingPage.module.scss';
 import { useTranslation } from 'next-i18next';
-import ContactForm from '@/components/forms/ContactForm/ContactForm';
 import PageLayout from '../PageLayout/PageLayout';
 import { Routes } from '@/constants/routes';
 
