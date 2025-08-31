@@ -1,6 +1,5 @@
 import { Routes } from '@/constants/routes';
 import PageLayout from '../PageLayout/PageLayout';
-import ContactForm from '@/components/forms/ContactForm/ContactForm';
 import SocialMediaLinks from '@/components/UI/SocialMediaLinks';
 import classes from './ContactPage.module.scss';
 import { useTranslation } from 'next-i18next';
@@ -19,7 +18,8 @@ const ContactPage = () => {
       </section>
 
       <div className={classes.content}>
-        <ContactForm className={classes.contactForm} title={t('contact.formTitle')} fullWidth />
+        {/* TODO: uncomment this when the contact form is ready */}
+        {/* <ContactForm className={classes.contactForm} title={t('contact.formTitle')} fullWidth /> */}
 
         <div className={classes.socialSection}>
           <SocialMediaLinks />

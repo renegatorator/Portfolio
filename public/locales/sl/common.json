@@ -1,5 +1,5 @@
 {
-  "title": "Rene Krajnc | Razvijalčev portfelj",
+  "title": "Rene Krajnc | Razvijalec",
   "name": "Ime",
   "role": "Spletni Razvijalec",
   "nav": {
@@ -9,14 +9,14 @@
     "contact": "Kontakt"
   },
   "landingPage": {
-    "title": "Rene Krajnc | Razvijalčev portfelj",
+    "title": "Rene Krajnc | Razvijalec",
     "description": "Rene Krajnc - Portfelj spletnega razvijalca s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
   },
   "about": {
     "title": "O meni",
     "description": "Pozdravljeni, sem Rene Krajnc, spletni razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin.",
     "seo": {
-      "title": "O Rene Krajnc | Spletni Razvijalec",
+      "title": "O meni | Rene Krajnc",
       "description": "Spoznajte pot Rene Krajnc od pehotnega vojaka do razvijalca, njegovo strast do ustvarjanja učinkovitih digitalnih rešitev in izkušnje s sodobnimi spletnimi tehnologijami."
     }
   },
@@ -26,7 +26,7 @@
     "two": "Projekt Dva - Pellentesque euismod nisi eu consectetur.",
     "three": "Projekt Tri - Etiam porta sem malesuada magna mollis euismod.",
     "seo": {
-      "title": "Projekti | Rene Krajnc Portfelj",
+      "title": "Projekti | Rene Krajnc",
       "description": "Raziskujte portfelj Rene Krajnc spletnih razvojnih projektov, ki prikazujejo njegove spretnosti v frontend in backend tehnologijah ter sposobnost dostave učinkovitih digitalnih rešitev."
     }
   },
@@ -39,7 +39,7 @@
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Vedno sem odprt za razpravljanje o novih priložnostih, zanimivih projektih ali preprosto za pogovor o tehnologiji in razvoju. Prosim, obrnite se name preko spodnje obrazca ali se povežite z mano na družbenih omrežjih.",
+    "description": "Vedno sem odprt za razpravljanje o novih priložnostih, zanimivih projektih ali preprosto za pogovor o tehnologiji in razvoju. Povežite se z mano na družbenih omrežjih ali mi pošljite elektronsko pošto.",
     "emailPlaceholder": "E-pošta",
     "messagePlaceholder": "Sporočilo",
     "send": "Pošlji",
@@ -57,6 +57,20 @@
     "seo": {
       "title": "Blog | Rene Krajnc - Vpogledi v Spletni Razvoj",
       "description": "Preberite misli Rene Krajnc o spletnem razvoju, tehnoloških trendih in vpogledih iz njegovih izkušenj kot razvijalec."
+    }
+  },
+  "comingSoon": {
+    "title": "Prihaja kmalu",
+    "description": "Ta spletna stran je v izdelavi. Prosimo, preverite kmalu za posodobitve.",
+    "features": {
+      "modernTech": "Sodobne Spletne Tehnologije",
+      "performance": "Optimizirano za Učinkovitost",
+      "construction": "V Izdelavi"
+    },
+    "progress": "Razvoj v Teku",
+    "seo": {
+      "title": "Prihaja kmalu | Rene Krajnc - Spletni Razvijalec",
+      "description": "Kmalu na voljo - Rene Krajnc - Spletni Razvijalec"
     }
   },
   "resume": {

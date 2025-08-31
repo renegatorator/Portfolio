@@ -39,7 +39,7 @@
   },
   "contact": {
     "title": "Contact",
-    "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development. Feel free to reach out through the form below or connect with me on social media.",
+    "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development. Feel free to reach out through email or connect with me on social media.",
     "emailPlaceholder": "Email",
     "messagePlaceholder": "Message",
     "send": "Send",
@@ -57,6 +57,24 @@
     "seo": {
       "title": "Blog | Rene Krajnc - Web Development Insights",
       "description": "Read Rene Krajnc's thoughts on web development, technology trends, and insights from his experience as a Web Developer."
+    }
+  },
+  "comingSoon": {
+    "title": "Coming Soon",
+    "description": "This website is under construction. Please check back soon for updates.",
+    "features": {
+      "modernTech": "Modern Web Technologies",
+      "performance": "Performance Optimized",
+      "construction": "Under Construction"
+    },
+    "progress": "Development in Progress",
+    "contact": {
+      "message": "In the meantime, feel free to reach out:",
+      "button": "Get in Touch"
+    },
+    "seo": {
+      "title": "Coming Soon | Rene Krajnc - Web Developer",
+      "description": "Coming Soon - Rene Krajnc - Web Developer"
     }
   },
   "resume": {

@@ -28,14 +28,6 @@ const LandingPage = () => {
         <p dangerouslySetInnerHTML={{ __html: t('about.description') }} />
       </section>
       <section className={classes.section}>
-        <h3>{t('projects.title')}</h3>
-        <ul>
-          <li>{t('projects.one')}</li>
-          <li>{t('projects.two')}</li>
-          <li>{t('projects.three')}</li>
-        </ul>
-      </section>
-      <section className={classes.section}>
         <h3>{t('skills.title')}</h3>
         <div className={classes.skillsGrid}>
           {skills.map((skill, idx) => (
@@ -49,7 +41,8 @@ const LandingPage = () => {
           ))}
         </div>
       </section>
-      <ContactForm title={t('contact.title')} className={classes.contactForm} />
+      {/* TODO: uncomment this when the contact form is ready */}
+      {/* <ContactForm title={t('contact.title')} className={classes.contactForm} /> */}
     </PageLayout>
   );
 };

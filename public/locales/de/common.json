@@ -39,7 +39,7 @@
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach nur für ein Gespräch über Technologie und Entwicklung. Fühlen Sie sich frei, sich über das untenstehende Formular zu melden oder mich in sozialen Medien zu kontaktieren.",
+    "description": "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach nur für ein Gespräch über Technologie und Entwicklung. Fühlen Sie sich frei, sich über Email zu melden oder mich in sozialen Medien zu kontaktieren.",
     "emailPlaceholder": "E-Mail",
     "messagePlaceholder": "Nachricht",
     "send": "Senden",
@@ -57,6 +57,24 @@
     "seo": {
       "title": "Blog | Rene Krajnc - Web-Entwicklung Einblicke",
       "description": "Lesen Sie Rene Krajncs Gedanken zur Web-Entwicklung, Technologietrends und Einblicke aus seinen Erfahrungen als Web Entwickler."
+    }
+  },
+  "comingSoon": {
+    "title": "Demnächst verfügbar",
+    "description": "Diese Website befindet sich im Aufbau. Bitte schauen Sie bald wieder vorbei für Updates.",
+    "features": {
+      "modernTech": "Moderne Web-Technologien",
+      "performance": "Leistungsoptimiert",
+      "construction": "Im Aufbau"
+    },
+    "progress": "Entwicklung läuft",
+    "contact": {
+      "message": "In der Zwischenzeit können Sie sich gerne melden:",
+      "button": "Kontakt aufnehmen"
+    },
+    "seo": {
+      "title": "Demnächst verfügbar | Rene Krajnc - Web Entwickler",
+      "description": "Demnächst verfügbar - Rene Krajnc - Web Entwickler"
     }
   },
   "resume": {
