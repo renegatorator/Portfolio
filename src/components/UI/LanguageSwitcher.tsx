@@ -21,37 +21,40 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <FormControl size="small" className={styles.languageSwitcher}>
-      <Select
-        value={i18n.language}
-        onChange={handleChange}
-        displayEmpty
-        IconComponent={ExpandMore}
-        className={styles.select}
-        MenuProps={{
-          PaperProps: {
-            style: {
-              maxHeight: 200,
+    <>
+      <div className={styles.globalStyles}></div>
+      <FormControl size="small" className={styles.languageSwitcher}>
+        <Select
+          value={i18n.language}
+          onChange={handleChange}
+          displayEmpty
+          IconComponent={ExpandMore}
+          className={styles.select}
+          MenuProps={{
+            PaperProps: {
+              style: {
+                maxHeight: 200,
+              },
             },
-          },
-          anchorOrigin: {
-            vertical: 'bottom',
-            horizontal: 'left',
-          },
-          transformOrigin: {
-            vertical: 'top',
-            horizontal: 'left',
-          },
-        }}
-      >
-        {languages.map((lang) => (
-          <MenuItem key={lang.code} value={lang.code} className={styles.menuItem}>
-            <lang.Flag className={styles.flag} />
-            <Typography variant="body2">{lang.label}</Typography>
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+            anchorOrigin: {
+              vertical: 'bottom',
+              horizontal: 'left',
+            },
+            transformOrigin: {
+              vertical: 'top',
+              horizontal: 'left',
+            },
+          }}
+        >
+          {languages.map((lang) => (
+            <MenuItem key={lang.code} value={lang.code} className={styles.menuItem}>
+              <lang.Flag className={styles.flag} />
+              <Typography variant="body2">{lang.label}</Typography>
+            </MenuItem>
+          ))}
+        </Select>
+            </FormControl>
+    </>
   );
 };
 

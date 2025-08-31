@@ -26,22 +26,25 @@
   color: var(--text-primary);
 }
 
-// Prevent layout shift by ensuring the dropdown doesn't affect document flow
-:global(.MuiPopover-root) {
-  position: fixed !important;
-}
+// Global styles that need to be wrapped in a local class for CSS modules
+.globalStyles {
+  // Prevent layout shift by ensuring the dropdown doesn't affect document flow
+  :global(.MuiPopover-root) {
+    position: fixed !important;
+  }
 
-:global(.MuiPaper-root) {
-  margin-top: 4px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid var(--border-primary);
-  background-color: var(--bg-primary);
-}
+  :global(.MuiPaper-root) {
+    margin-top: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-primary);
+    background-color: var(--bg-primary);
+  }
 
-// Prevent Material-UI from adding padding-right and overflow:hidden to body
-:global(body) {
-  padding-right: 0 !important;
-  overflow: auto !important;
+  // Prevent Material-UI from adding padding-right and overflow:hidden to body
+  :global(body) {
+    padding-right: 0 !important;
+    overflow: auto !important;
+  }
 }
 
 .menuItem {
