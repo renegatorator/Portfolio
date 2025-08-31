@@ -1,10 +1,11 @@
 {
-  "title": "Rene Krajnc | Entwickler-Portfolio",
+  "title": "Rene Krajnc | Web-Entwickler",
   "name": "Name",
   "role": "Web Entwickler",
   "nav": {
     "about": "Über mich",
     "projects": "Projekte",
+    "fishing": "Fischen",
     "skills": "Fähigkeiten",
     "contact": "Kontakt"
   },
@@ -39,9 +40,15 @@
   },
   "contact": {
     "title": "Kontakt",
+    "description": "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach nur für ein Gespräch über Technologie und Entwicklung. Fühlen Sie sich frei, sich über Email zu melden oder mich in sozialen Medien zu kontaktieren.",
     "emailPlaceholder": "E-Mail",
     "messagePlaceholder": "Nachricht",
     "send": "Senden",
+    "socialMedia": {
+      "title": "Verbinden Sie sich mit mir",
+      "description": "Folgen Sie mir in sozialen Medien für Updates zu meinen neuesten Projekten und Gedanken zur Web-Entwicklung."
+    },
+    "formTitle": "Senden Sie mir eine Nachricht",
     "seo": {
       "title": "Kontakt Rene Krajnc | In Verbindung treten",
       "description": "Treten Sie mit Rene Krajnc in Verbindung für Kooperationsmöglichkeiten, Projektanfragen oder um über Ihr nächstes Web-Entwicklungsprojekt zu sprechen."
@@ -53,11 +60,91 @@
       "description": "Lesen Sie Rene Krajncs Gedanken zur Web-Entwicklung, Technologietrends und Einblicke aus seinen Erfahrungen als Web Entwickler."
     }
   },
+  "comingSoon": {
+    "title": "Demnächst verfügbar",
+    "description": "Diese Website befindet sich im Aufbau. Bitte schauen Sie bald wieder vorbei für Updates.",
+    "features": {
+      "modernTech": "Moderne Web-Technologien",
+      "performance": "Leistungsoptimiert",
+      "construction": "Im Aufbau"
+    },
+    "progress": "Entwicklung läuft",
+    "contact": {
+      "message": "In der Zwischenzeit können Sie sich gerne melden:",
+      "button": "Kontakt aufnehmen"
+    },
+    "seo": {
+      "title": "Demnächst verfügbar | Rene Krajnc",
+      "description": "Demnächst verfügbar - Rene Krajnc - Web Entwickler"
+    }
+  },
   "resume": {
     "seo": {
-      "title": "Lebenslauf | Rene Krajnc - Web Entwickler",
+      "title": "Lebenslauf | Rene Krajnc",
       "description": "Sehen Sie sich Rene Krajncs professionellen Lebenslauf, Arbeitserfahrung, Ausbildung und technische Fähigkeiten als Web Entwickler an."
     }
   },
-  "footer": "&copy; {{year}} Rene Krajnc. Alle Rechte vorbehalten."
+  "footer": "&copy; {{year}} Rene Krajnc. Alle Rechte vorbehalten.",
+  "fishing": {
+    "title": "Fischen mit Opa",
+    "subtitle": "Begleiten Sie uns auf ein aufregendes Meeresfisch-Abenteuer",
+      "countdown": {
+    "title": "Countdown zu unserem Angelausflug",
+    "description": "Wir fahren am 19. September 2025 um 15:00 Uhr slowenischer Zeit aufs Meer. Machen Sie sich bereit für ein unvergessliches Angelerlebnis!",
+    "location": "Kroatien, Dugi Otok",
+    "time": "19. September 2025 um 15:00 Uhr",
+    "labels": {
+      "days": "Tage",
+      "hours": "Stunden",
+      "minutes": "Minuten",
+      "seconds": "Sekunden"
+    }
+  },
+    "targetFish": {
+      "title": "Zielarten",
+      "description": "Wir werden einige der aufregendsten und herausforderndsten Fischarten anvisieren, die in den Gewässern des Mittelmeers vorkommen.",
+      "species": {
+        "amberjack": "Bernsteinmakrele",
+        "barracuda": "Barrakuda",
+        "bonito": "Bonito",
+        "grouper": "Zackenbarsch",
+        "tuna": "Thunfisch",
+        "mackerel": "Makrele"
+      },
+      "descriptions": {
+        "amberjack": "Kraftvolle Kämpfer, bekannt für ihre Stärke und akrobatischen Sprünge. Ein echter Test für Geschick und Ausrüstung.",
+        "barracuda": "Schnelle und aggressive Raubtiere mit rasiermesserscharfen Zähnen. Sie bieten explosive Angriffe und aufregende Kämpfe.",
+        "bonito": "Schnelle Schwimmer, die schnelle Aktionen und ausgezeichnete Tischkost bieten. Perfekt für leichtes Angeln.",
+        "grouper": "Bodenbewohnende Riesen, die Geduld und Kraft erfordern. Bekannt für ihre kraftvollen Läufe und hartnäckigen Kämpfe.",
+        "tuna": "Der ultimative Spielfisch - schnell, stark und unerbittlich. Ein echter Trophäenfisch, der jeden Aspekt Ihrer Angelkünste testet.",
+        "mackerel": "Schnell bewegende Schwarmfische, die ständige Aktion bieten und perfekt für Anfänger und erfahrene Angler sind."
+      }
+    },
+    "equipment": {
+      "title": "Angelausrüstung",
+      "rods": {
+        "title": "Premium Angelruten",
+        "description": "Hochwertige Ruten, die für das Meeresfischen entwickelt wurden und das perfekte Gleichgewicht zwischen Stärke und Empfindlichkeit für das Erkennen von Bissen und das Kämpfen mit kraftvollen Fischen bieten."
+      },
+      "reels": {
+        "title": "Professionelle Rollen",
+        "description": "Langlebige Salzwasserrollen mit sanften Bremssystemen, die die stärksten Läufe von Mittelmeer-Spielfischen bewältigen können."
+      },
+      "tackle": {
+        "title": "Spezialisiertes Tackle",
+        "description": "Sorgfältig ausgewählte Köder, Haken und Endtackle, optimiert für das Anvisieren spezifischer Arten und die Maximierung der Fangquoten."
+      }
+    },
+    "experience": {
+      "title": "Jahre der Angelerfahrung",
+      "description": "Mit jahrzehntelanger kombinierter Erfahrung beim Fischen in den Gewässern des Mittelmeers haben wir die Geheimnisse des erfolgreichen Meeresfischens gelernt und können es kaum erwarten, dieses Abenteuer mit Ihnen zu teilen.",
+      "years": "Jahre Erfahrung",
+      "trips": "Angelausflüge",
+      "species": "Fischarten"
+    },
+    "seo": {
+      "title": "Fischen | Rene Krajnc",
+      "description": "Begleiten Sie Rene Krajnc und seinen Opa auf ein aufregendes Meeresfisch-Abenteuer im Mittelmeer. Countdown zum Angelausflug am 19. September 2025 mit dem Ziel Bernsteinmakrele, Barrakuda, Bonito, Zackenbarsch und mehr."
+    }
+  }
 }

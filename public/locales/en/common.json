@@ -1,10 +1,11 @@
 {
-  "title": "Rene Krajnc | Developer Portfolio",
+  "title": "Rene Krajnc | Web Developer",
   "name": "Name",
   "role": "Web Developer",
   "nav": {
     "about": "About",
     "projects": "Projects",
+    "fishing": "Fishing",
     "skills": "Skills",
     "contact": "Contact"
   },
@@ -39,9 +40,15 @@
   },
   "contact": {
     "title": "Contact",
+    "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development. Feel free to reach out through email or connect with me on social media.",
     "emailPlaceholder": "Email",
     "messagePlaceholder": "Message",
     "send": "Send",
+    "socialMedia": {
+      "title": "Connect with me",
+      "description": "Follow me on social media for updates on my latest projects and thoughts on web development."
+    },
+    "formTitle": "Send me a message",
     "seo": {
       "title": "Contact Rene Krajnc | Get In Touch",
       "description": "Get in touch with Rene Krajnc for collaboration opportunities, project inquiries, or to discuss your next web development project."
@@ -53,10 +60,90 @@
       "description": "Read Rene Krajnc's thoughts on web development, technology trends, and insights from his experience as a Web Developer."
     }
   },
+  "comingSoon": {
+    "title": "Coming Soon",
+    "description": "This website is under construction. Please check back soon for updates.",
+    "features": {
+      "modernTech": "Modern Web Technologies",
+      "performance": "Performance Optimized",
+      "construction": "Under Construction"
+    },
+    "progress": "Development in Progress",
+    "contact": {
+      "message": "In the meantime, feel free to reach out:",
+      "button": "Get in Touch"
+    },
+    "seo": {
+      "title": "Coming Soon | Rene Krajnc",
+      "description": "Coming Soon - Rene Krajnc - Web Developer"
+    }
+  },
   "resume": {
     "seo": {
-      "title": "Resume | Rene Krajnc - Web Developer",
+      "title": "Resume | Rene Krajnc",
       "description": "View Rene Krajnc's professional resume, work experience, education, and technical skills as a Web Developer."
+    }
+  },
+  "fishing": {
+    "title": "Fishing with Grandpa",
+    "subtitle": "Join us on an exciting sea fishing adventure",
+    "countdown": {
+      "title": "Countdown to Our Fishing Trip",
+      "description": "We're heading out to sea on September 19th, 2025 at 15:00 Slovenian time. Get ready for an unforgettable fishing experience!",
+      "location": "Croatia, Dugi Otok",
+      "time": "September 19th, 2025 at 15:00",
+      "labels": {
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
+      }
+    },
+    "targetFish": {
+      "title": "Target Species",
+      "description": "We'll be targeting some of the most exciting and challenging fish species found in the Mediterranean waters.",
+      "species": {
+        "amberjack": "Amberjack",
+        "barracuda": "Barracuda",
+        "bonito": "Bonito",
+        "grouper": "Grouper",
+        "tuna": "Tuna",
+        "mackerel": "Mackerel"
+      },
+      "descriptions": {
+        "amberjack": "Powerful fighters known for their strength and acrobatic jumps. A true test of skill and equipment.",
+        "barracuda": "Fast and aggressive predators with razor-sharp teeth. They provide explosive strikes and thrilling battles.",
+        "bonito": "Swift swimmers that offer fast-paced action and excellent table fare. Perfect for light tackle fishing.",
+        "grouper": "Bottom-dwelling giants that require patience and strength. Known for their powerful runs and stubborn fights.",
+        "tuna": "The ultimate game fish - fast, strong, and relentless. A true trophy that tests every aspect of your fishing skills.",
+        "mackerel": "Fast-moving schooling fish that provide constant action and are perfect for beginners and experienced anglers alike."
+      }
+    },
+    "equipment": {
+      "title": "Fishing Equipment",
+      "rods": {
+        "title": "Premium Fishing Rods",
+        "description": "High-quality rods designed for sea fishing, featuring the perfect balance of strength and sensitivity for detecting bites and fighting powerful fish."
+      },
+      "reels": {
+        "title": "Professional Reels",
+        "description": "Durable saltwater reels with smooth drag systems, capable of handling the strongest runs from Mediterranean game fish."
+      },
+      "tackle": {
+        "title": "Specialized Tackle",
+        "description": "Carefully selected lures, hooks, and terminal tackle optimized for targeting specific species and maximizing catch rates."
+      }
+    },
+    "experience": {
+      "title": "Years of Fishing Experience",
+      "description": "With decades of combined experience fishing the Mediterranean waters, we've learned the secrets of successful sea fishing and can't wait to share this adventure with you.",
+      "years": "Years Experience",
+      "trips": "Fishing Trips",
+      "species": "Fish Species"
+    },
+    "seo": {
+      "title": "Fishing | Rene Krajnc",
+      "description": "Join Rene Krajnc and his grandpa for an exciting sea fishing adventure in the Mediterranean. Countdown to September 19th, 2025 fishing trip targeting amberjack, barracuda, bonito, grouper, and more."
     }
   },
   "footer": "&copy; {{year}} Rene Krajnc. All rights reserved."

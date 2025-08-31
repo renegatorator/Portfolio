@@ -56,6 +56,11 @@ export const useSeo = (route: Route): SEOType => {
           title: t('resume.seo.title'),
           description: t('resume.seo.description'),
         };
+      case Routes.FISHING:
+        return {
+          title: t('fishing.seo.title'),
+          description: t('fishing.seo.description'),
+        };
       default:
         return {
           title: t('landingPage.title'),
