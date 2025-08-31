@@ -18,7 +18,7 @@ const StickyHeader = () => {
   const navigationLinks = [
     { href: Routes.LANDING_PAGE, label: t('nav.about') },
     { href: Routes.PROJECTS, label: t('nav.projects') },
-    { href: Routes.SKILLS, label: t('nav.skills') },
+    { href: Routes.FISHING, label: t('nav.fishing') },
     { href: Routes.CONTACT, label: t('nav.contact') },
   ];
 
