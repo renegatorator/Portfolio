@@ -5,6 +5,7 @@
   "nav": {
     "about": "O meni",
     "projects": "Projekti",
+    "fishing": "Ribolov",
     "skills": "Spretnosti",
     "contact": "Kontakt"
   },
@@ -55,7 +56,7 @@
   },
   "blog": {
     "seo": {
-      "title": "Blog | Rene Krajnc - Vpogledi v Spletni Razvoj",
+      "title": "Blog | Rene Krajnc",
       "description": "Preberite misli Rene Krajnc o spletnem razvoju, tehnoloških trendih in vpogledih iz njegovih izkušenj kot razvijalec."
     }
   },
@@ -69,15 +70,77 @@
     },
     "progress": "Razvoj v Teku",
     "seo": {
-      "title": "Prihaja kmalu | Rene Krajnc - Spletni Razvijalec",
+      "title": "Prihaja kmalu | Rene Krajnc",
       "description": "Kmalu na voljo - Rene Krajnc - Spletni Razvijalec"
     }
   },
   "resume": {
     "seo": {
-      "title": "Življenjepis | Rene Krajnc - Spletni Razvijalec",
+      "title": "Življenjepis | Rene Krajnc",
       "description": "Oglejte si profesionalni življenjepis Rene Krajnc, delovne izkušnje, izobrazbo in tehnične spretnosti kot spletni razvijalec."
     }
   },
-  "footer": "&copy; {{year}} Rene Krajnc. Vse pravice pridržane."
+  "footer": "&copy; {{year}} Rene Krajnc. Vse pravice pridržane.",
+  "fishing": {
+    "title": "Ribolov z Dedkom",
+    "subtitle": "Pridružite se nama na morskem ribolovnem pustolovstvu z najboljšimi lovnimi ribami Sredozemlja",
+      "countdown": {
+    "title": "Odštevanje do ribolovnega izleta",
+    "description": "19. septembra 2024 ob 15:00 slovenskega časa se odpravljamo na morje. Pripravite se na nepozabno ribolovno izkušnjo!",
+    "location": "Hrvaška, Dugi Otok",
+    "time": "19. september 2024 ob 15:00",
+    "labels": {
+      "days": "Dnevi",
+      "hours": "Ure",
+      "minutes": "Minute",
+      "seconds": "Sekunde"
+    }
+  },
+    "targetFish": {
+      "title": "Ciljne vrste",
+      "description": "Ciljali bomo nekatere najbolj vznemirljive in zahtevne ribje vrste, ki jih najdemo v sredozemskih vodah.",
+      "species": {
+        "amberjack": "Gof",
+        "barracuda": "Barakuda",
+        "bonito": "Palamida",
+        "grouper": "Krnija",
+        "tuna": "Tun",
+        "mackerel": "Skuša"
+      },
+      "descriptions": {
+        "amberjack": "Močni borci, znani po svoji moči in akrobatskih skokih. Pravi test spretnosti in opreme.",
+        "barracuda": "Hitri in agresivni plenilci z britvami ostri zob. Zagotavljajo eksplozivne napade in vznemirljive boje.",
+        "bonito": "Hitri plavalci, ki ponujajo hitro akcijo in odlično mizo. Popolni za lahek ribolov.",
+        "grouper": "Dno bivajoči velikani, ki zahtevajo potrpežljivost in moč. Znani po svojih močnih tečajih in trmastih bojih.",
+        "tuna": "Ultimativna lovna riba - hitra, močna in neusmiljena. Prava trofeja, ki preizkuša vsak vidik vaših ribolovnih spretnosti.",
+        "mackerel": "Hitro se premikajoče jate rib, ki zagotavljajo stalno akcijo in so popolne za začetnike in izkušene ribiče."
+      }
+    },
+    "equipment": {
+      "title": "Ribolovna oprema",
+      "rods": {
+        "title": "Vrhunske ribolovne palice",
+        "description": "Visokokakovostne palice, zasnovane za morski ribolov, z odličnim ravnotežjem moči in občutljivosti za zaznavanje ugrizov in boj z močnimi ribami."
+      },
+      "reels": {
+        "title": "Profesionalne kolutne",
+        "description": "Trajne morske kolutne z gladkimi zavorami, sposobne obvladovati najmočnejše tečaje sredozemskih lovnih rib."
+      },
+      "tackle": {
+        "title": "Specializirana ribolovna oprema",
+        "description": "Spoštljivo izbrani vabice, kavlji in končna oprema, optimizirana za ciljanje specifičnih vrst in maksimiranje ulovov."
+      }
+    },
+    "experience": {
+      "title": "Leta ribolovnih izkušenj",
+      "description": "Z desetletji skupnih izkušenj ribolova v sredozemskih vodah smo se naučili skrivnosti uspešnega morskega ribolova in se komaj čakamo, da delimo to pustolovščino z vami.",
+      "years": "Let izkušenj",
+      "trips": "Ribolovni izleti",
+      "species": "Ribje vrste"
+    },
+    "seo": {
+      "title": "Ribolov | Rene Krajnc",
+      "description": "Pridružite se Rene Krajnc in njegovemu dedku na vznemirljivo morsko ribolovno pustolovstvo v Sredozemlju. Odštevanje do ribolovnega izleta 19. septembra 2024 z ciljem sredozemska palamida, barakuda, bonito, skuša in več."
+    }
+  }
 }
