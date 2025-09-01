@@ -13,7 +13,7 @@ const LandingPage = () => {
     <PageLayout route={Routes.LANDING_PAGE}>
       <section className={classes.header}>
         <Image
-          src="/images/rene-profile.jfif"
+          src="/images/rene-profile.jpg"
           alt="Rene Krajnc"
           width={100}
           height={100}
