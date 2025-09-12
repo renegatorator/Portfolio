@@ -29,8 +29,13 @@
 }
 
 @keyframes wave {
-  0%, 100% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
 }
 
 .heroContent {
@@ -46,8 +51,13 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .heroTitle {
@@ -303,34 +313,34 @@
   .hero {
     padding: 3rem 1.5rem;
   }
-  
+
   .heroTitle {
     font-size: 2.5rem;
   }
-  
+
   .heroSubtitle {
     font-size: 1.1rem;
   }
-  
+
   .countdownSection,
   .targetFishSection,
   .equipmentSection,
   .experienceSection {
     padding: 2rem 1.5rem;
   }
-  
+
   .eventDetails {
     gap: 2rem;
   }
-  
+
   .fishGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .equipmentGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .experienceStats {
     gap: 2rem;
   }
@@ -340,27 +350,27 @@
   .hero {
     padding: 2rem 1rem;
   }
-  
+
   .heroTitle {
     font-size: 2rem;
   }
-  
+
   .heroSubtitle {
     font-size: 1rem;
   }
-  
+
   .countdownSection,
   .targetFishSection,
   .equipmentSection,
   .experienceSection {
     padding: 1.5rem 1rem;
   }
-  
+
   .eventDetails {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .experienceStats {
     flex-direction: column;
     gap: 1.5rem;
