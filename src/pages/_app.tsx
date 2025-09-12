@@ -26,7 +26,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
     const handleThemeChange = () => {
       const currentTheme = document.documentElement.getAttribute('data-theme') as Theme;
-      setTheme(currentTheme || 'light');
+      setTheme(currentTheme || 'dark');
     };
 
     // Listen for theme changes
