@@ -1,7 +1,6 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 // Hero Section
@@ -78,7 +77,7 @@
 .countdownSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 2rem;
+  padding: 3rem 0rem;
   margin: 2rem 0;
   text-align: center;
   border: 1px solid var(--border-primary);
@@ -133,7 +132,7 @@
 .targetFishSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 2rem;
+  padding: 3rem 0rem;
   margin: 2rem 0;
   border: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -200,7 +199,7 @@
 .equipmentSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 2rem;
+  padding: 3rem 0rem;
   margin: 2rem 0;
   border: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -259,7 +258,7 @@
 .experienceSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 2rem;
+  padding: 3rem 0rem;
   margin: 2rem 0;
   border: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
