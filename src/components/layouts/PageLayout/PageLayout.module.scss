@@ -4,7 +4,7 @@
   background: var(--bg-secondary);
   color: var(--text-primary);
   padding-top: 94px;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -17,6 +17,10 @@
   max-width: 1200px;
   padding: 3rem 2rem;
   margin: 0 auto;
+
+  @media screen and (max-width: 480px) {
+    padding: 3rem 0;
+  }
 
   > * {
     width: 100%;
@@ -298,5 +302,5 @@
   font-size: 0.95rem;
   background: var(--bg-tertiary);
   border-radius: 12px 12px 0 0;
-  margin-top:auto;
+  margin-top: auto;
 }
