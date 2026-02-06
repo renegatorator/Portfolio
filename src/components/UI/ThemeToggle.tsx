@@ -1,29 +1,9 @@
-import { Theme } from '@/constants/theme';
-import { useEffect, useState } from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import { LightMode, DarkMode } from '@mui/icons-material';
+import { useTheme } from '@/context/ThemeContext';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<Theme>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem('theme') as Theme | null;
-    setTheme(stored || 'light');
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme, mounted]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
-
-  if (!mounted) return null; // Prevent mismatch
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Tooltip
