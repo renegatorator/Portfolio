@@ -84,7 +84,7 @@
       "description": "Sehen Sie sich Rene Krajncs professionellen Lebenslauf, Arbeitserfahrung, Ausbildung und technische Fähigkeiten als Web Entwickler an."
     }
   },
-  "footer": "&copy; {{year}} Rene Krajnc. Alle Rechte vorbehalten.",
+  "footer": "© {{year}} Rene Krajnc. Alle Rechte vorbehalten.",
   "fishing": {
     "title": "Fischen mit Opa",
     "subtitle": "Begleiten Sie uns auf ein aufregendes Meeresfisch-Abenteuer",

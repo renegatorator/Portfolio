@@ -5,10 +5,14 @@
   flex-direction: column;
   border-radius: $border-radius-md;
   box-shadow: $box-shadow-md;
-  padding: 24px;
+  padding: 32px;
 
   &.border {
     border: 1px solid var(--border-primary);
+  }
+
+  @include mq('sm') {
+    padding: 32px 16px;
   }
 }
 
@@ -16,6 +20,7 @@
 
 .center {
   align-items: center;
+  justify-content: stretch;
   text-align: center;
 }
 
