@@ -1,7 +1,7 @@
 @use './theme' as *;
 
 @mixin mq($name) {
-  @media (max-width: map-get($breakpoints, $name)) {
+  @media (max-width: map.get($breakpoints, $name)) {
     @content;
   }
 }
