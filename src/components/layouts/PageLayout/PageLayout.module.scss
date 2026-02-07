@@ -3,7 +3,7 @@
   font-family: 'Segoe UI', Arial, sans-serif;
   background: var(--bg-secondary);
   color: var(--text-primary);
-  padding-top: 94px;
+  padding-top: 90px;
   display: flex;
   flex-direction: column;
 }
@@ -87,7 +87,6 @@
 
   &:hover {
     color: var(--primary);
-    transform: translateY(-1px);
   }
 
   &::before {
@@ -97,7 +96,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--hover-primary);
     border-radius: 4px;
     opacity: 0;
     transition: opacity 0.3s ease;
