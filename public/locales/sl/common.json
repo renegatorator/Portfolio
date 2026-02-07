@@ -41,8 +41,9 @@
   "contact": {
     "title": "Kontakt",
     "description": "Vedno sem odprt za razpravljanje o novih priložnostih, zanimivih projektih ali preprosto za pogovor o tehnologiji in razvoju. Povežite se z mano na družbenih omrežjih ali mi pošljite elektronsko pošto.",
-    "emailPlaceholder": "E-pošta",
-    "messagePlaceholder": "Sporočilo",
+    "email": "E-pošta",
+    "message": "Sporočilo",
+    "messagePlaceholder": "Vaše sporočilo tukaj...",
     "send": "Pošlji",
     "socialMedia": {
       "title": "Povežite se z mano",

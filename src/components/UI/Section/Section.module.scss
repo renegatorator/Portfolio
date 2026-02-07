@@ -4,11 +4,14 @@
   display: flex;
   flex-direction: column;
   border-radius: $border-radius-md;
-  box-shadow: $box-shadow-md;
   padding: 32px;
 
-  &.border {
+  &.border:not(.noPadding) {
     border: 1px solid var(--border-primary);
+  }
+
+  &.noPadding {
+    padding: 32px 0;
   }
 
   @include mq('sm') {
@@ -30,11 +33,11 @@
 
 // shadows
 
-.medium {
+.medium:not(.transparent) {
   box-shadow: $box-shadow-md;
 }
 
-.large {
+.large:not(.transparent) {
   box-shadow: $box-shadow-lg;
 }
 

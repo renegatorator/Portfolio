@@ -41,8 +41,9 @@
   "contact": {
     "title": "Contact",
     "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development. Feel free to reach out through email or connect with me on social media.",
-    "emailPlaceholder": "Email",
-    "messagePlaceholder": "Message",
+    "email": "Email",
+    "message": "Message",
+    "messagePlaceholder": "Your message here...",
     "send": "Send",
     "socialMedia": {
       "title": "Connect with me",

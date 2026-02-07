@@ -41,8 +41,9 @@
   "contact": {
     "title": "Kontakt",
     "description": "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach nur für ein Gespräch über Technologie und Entwicklung. Fühlen Sie sich frei, sich über Email zu melden oder mich in sozialen Medien zu kontaktieren.",
-    "emailPlaceholder": "E-Mail",
-    "messagePlaceholder": "Nachricht",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "messagePlaceholder": "Ihre Nachricht hier...",
     "send": "Senden",
     "socialMedia": {
       "title": "Verbinden Sie sich mit mir",

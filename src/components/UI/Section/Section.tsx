@@ -9,6 +9,8 @@ interface SectionProps {
   background?: 'transparent' | 'default' | 'gradient';
   shadow?: 'medium' | 'large';
   border?: boolean;
+  noPadding?: boolean;
+  className?: string;
 }
 
 const Section = ({
@@ -18,6 +20,8 @@ const Section = ({
   background = 'default',
   shadow = 'medium',
   border = true,
+  noPadding,
+  className = '',
 }: SectionProps) => {
   return (
     <section
@@ -26,7 +30,9 @@ const Section = ({
         classes[alignment],
         classes[background],
         classes[shadow],
+        className,
         { [classes.border]: border },
+        { [classes.noPadding]: noPadding },
       )}
       style={{ gap: `${gap}px` }}
     >

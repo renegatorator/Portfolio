@@ -71,6 +71,7 @@
 }
 
 body {
+  padding-right: 0 !important;
   background: var(--bg-primary);
   color: var(--text-primary);
   transition:
