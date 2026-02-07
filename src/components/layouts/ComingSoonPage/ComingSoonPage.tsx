@@ -6,55 +6,48 @@ import PageLayout from '../PageLayout/PageLayout';
 import { Routes } from '@/constants/routes';
 import { Typography } from '@mui/material';
 import ProgressBar from '@/components/UI/ProgressBar';
+import Section from '@/components/UI/Section/Section';
+import IconCard, { IconCardProps } from '@/components/UI/IconCard/IconCard';
 
 const ComingSoonPage = () => {
   const { t } = useTranslation();
 
+  const maintenanceReasons: IconCardProps[] = [
+    {
+      icon: faCode,
+      title: t('comingSoon.features.modernTech'),
+    },
+    {
+      icon: faRocket,
+      title: t('comingSoon.features.performance'),
+    },
+    {
+      icon: faHammer,
+      title: t('comingSoon.features.construction'),
+    },
+  ];
+
   return (
     <PageLayout route={Routes.PROJECTS}>
-      <div className={classes.container}>
-        <div className={classes.mainContent}>
-          <div className={classes.iconContainer}>
-            <FontAwesomeIcon icon={faHammer} className={classes.mainIcon} />
-            <FontAwesomeIcon icon={faWrench} className={classes.secondaryIcon} />
-          </div>
-
-          <Typography variant="h1" className={classes.title}>
-            {t('comingSoon.title')}
-          </Typography>
-          <Typography variant="body1" className={classes.description}>
-            {t('comingSoon.description')}
-          </Typography>
-
-          <div className={classes.features}>
-            <div className={classes.feature}>
-              <FontAwesomeIcon icon={faCode} className={classes.featureIcon} />
-              <Typography variant="caption" component="span">
-                {t('comingSoon.features.modernTech')}
-              </Typography>
-            </div>
-            <div className={classes.feature}>
-              <FontAwesomeIcon icon={faRocket} className={classes.featureIcon} />
-              <Typography variant="caption" component="span">
-                {t('comingSoon.features.performance')}
-              </Typography>
-            </div>
-            <div className={classes.feature}>
-              <FontAwesomeIcon icon={faHammer} className={classes.featureIcon} />
-              <Typography variant="caption" component="span">
-                {t('comingSoon.features.construction')}
-              </Typography>
-            </div>
-          </div>
-
-          <div className={classes.progressSection}>
-            <ProgressBar progress={60} animated />
-            <Typography variant="caption" component="p" className={classes.progressText}>
-              {t('comingSoon.progress')}
-            </Typography>
-          </div>
+      <Section alignment="center" gap={32}>
+        <div className={classes.icons}>
+          <FontAwesomeIcon icon={faHammer} className={classes.mainIcon} />
+          <FontAwesomeIcon icon={faWrench} className={classes.secondaryIcon} />
         </div>
-      </div>
+        <Typography variant="h1">{t('comingSoon.title')}</Typography>
+        <Typography variant="body1" className={classes.description}>
+          {t('comingSoon.description')}
+        </Typography>
+        <div className={classes.reasons}>
+          {maintenanceReasons.map((reason, idx) => (
+            <IconCard key={idx} {...reason} />
+          ))}
+        </div>
+        <ProgressBar progress={60} animated />
+        <Typography variant="caption" component="p" className={classes.progressText}>
+          {t('comingSoon.progress')}
+        </Typography>
+      </Section>
     </PageLayout>
   );
 };

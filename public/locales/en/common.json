@@ -15,7 +15,7 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Hi, I&apos;m Rene Krajnc, a Web Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I&apos;ve since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
+    "description": "Hi, I'm Rene Krajnc, a Web Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I've since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
     "seo": {
       "title": "About Rene Krajnc | Web Developer",
       "description": "Learn about Rene Krajnc's journey from infantry soldier to Web Developer, his passion for building impactful digital solutions, and his experience with modern web technologies."
@@ -41,8 +41,9 @@
   "contact": {
     "title": "Contact",
     "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development. Feel free to reach out through email or connect with me on social media.",
-    "emailPlaceholder": "Email",
-    "messagePlaceholder": "Message",
+    "email": "Email",
+    "message": "Message",
+    "messagePlaceholder": "Your message here...",
     "send": "Send",
     "socialMedia": {
       "title": "Connect with me",
@@ -143,5 +144,5 @@
       "description": "Join Rene Krajnc and his grandpa for an exciting sea fishing adventure in the Mediterranean. Countdown to September 19th, 2025 fishing trip targeting amberjack, barracuda, bonito, grouper, and more."
     }
   },
-  "footer": "&copy; {{year}} Rene Krajnc. All rights reserved."
+  "footer": "© {{year}} Rene Krajnc. All rights reserved."
 }

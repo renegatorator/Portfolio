@@ -42,7 +42,7 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField
             label={t('name')}
-            //placeholder={t('name')}
+            placeholder="John Doe"
             fullWidth
             error={!!errors.name}
             helperText={errors.name && `${t('name')} is required`}
@@ -57,12 +57,12 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
           />
 
           <TextField
-            label={t('contact.emailPlaceholder')}
+            label={t('contact.email')}
             type="email"
-            //placeholder={t('contact.emailPlaceholder')}
+            placeholder="john.doe@example.com"
             fullWidth
             error={!!errors.email}
-            helperText={errors.email && `${t('contact.emailPlaceholder')} is invalid`}
+            helperText={errors.email && `${t('contact.email')} is invalid`}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -74,12 +74,13 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
           />
 
           <TextField
-            label={t('contact.messagePlaceholder')}
+            label={t('contact.message')}
+            placeholder={t('contact.messagePlaceholder')}
             multiline
             rows={4}
             fullWidth
             error={!!errors.message}
-            helperText={errors.message && `${t('contact.messagePlaceholder')} is required`}
+            helperText={errors.message && `${t('contact.message')} is required`}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start" className={classes.messageIcon}>

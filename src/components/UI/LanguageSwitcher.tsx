@@ -17,6 +17,9 @@ const LanguageSwitcher = () => {
 
   const handleChange = (event: SelectChangeEvent) => {
     const locale = event.target.value;
+    if (locale === i18n.language) {
+      return;
+    }
     router.push(router.pathname, router.asPath, { locale });
   };
 
@@ -53,7 +56,7 @@ const LanguageSwitcher = () => {
             </MenuItem>
           ))}
         </Select>
-            </FormControl>
+      </FormControl>
     </>
   );
 };

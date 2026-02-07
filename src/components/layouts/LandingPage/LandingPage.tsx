@@ -6,13 +6,14 @@ import { useTranslation } from 'next-i18next';
 import PageLayout from '../PageLayout/PageLayout';
 import { Routes } from '@/constants/routes';
 import { Typography } from '@mui/material';
+import Section from '@/components/UI/Section/Section';
 
 const LandingPage = () => {
   const { t } = useTranslation();
 
   return (
     <PageLayout route={Routes.LANDING_PAGE}>
-      <section className={classes.header}>
+      <Section alignment="center" background="gradient" shadow="large">
         <Image
           src="/images/rene-profile.jpg"
           alt="Rene Krajnc"
@@ -22,16 +23,14 @@ const LandingPage = () => {
         />
         <Typography variant="h1">{t('about.title')}</Typography>
         <Typography variant="h4">{t('role')}</Typography>
-      </section>
-      <section className={classes.section}>
+      </Section>
+      <Section>
         <Typography variant="h3">{t('about.title')}</Typography>
-        <Typography
-          variant="body1"
-          component="p"
-          dangerouslySetInnerHTML={{ __html: t('about.description') }}
-        />
-      </section>
-      <section className={classes.section}>
+        <Typography variant="body1" component="p">
+          {t('about.description')}
+        </Typography>
+      </Section>
+      <Section gap={24}>
         <Typography variant="h3">{t('skills.title')}</Typography>
         <div className={classes.skillsGrid}>
           {skills.map((skill, idx) => (
@@ -46,7 +45,7 @@ const LandingPage = () => {
             </Typography>
           ))}
         </div>
-      </section>
+      </Section>
       {/* TODO: uncomment this when the contact form is ready */}
       {/* <ContactForm title={t('contact.title')} className={classes.contactForm} /> */}
     </PageLayout>

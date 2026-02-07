@@ -26,11 +26,9 @@ const PageLayout = ({ children, route = Routes.LANDING_PAGE }: PageLayoutProps) 
       <StickyHeader />
       <main className={classes.main}>{children}</main>
       <footer className={classes.footer}>
-        <Typography
-          variant="caption"
-          component="p"
-          dangerouslySetInnerHTML={{ __html: t('footer', { year }) }}
-        />
+        <Typography variant="caption" component="p">
+          {t('footer', { year })}
+        </Typography>
       </footer>
     </div>
   );

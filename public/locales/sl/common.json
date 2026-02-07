@@ -41,8 +41,9 @@
   "contact": {
     "title": "Kontakt",
     "description": "Vedno sem odprt za razpravljanje o novih priložnostih, zanimivih projektih ali preprosto za pogovor o tehnologiji in razvoju. Povežite se z mano na družbenih omrežjih ali mi pošljite elektronsko pošto.",
-    "emailPlaceholder": "E-pošta",
-    "messagePlaceholder": "Sporočilo",
+    "email": "E-pošta",
+    "message": "Sporočilo",
+    "messagePlaceholder": "Vaše sporočilo tukaj...",
     "send": "Pošlji",
     "socialMedia": {
       "title": "Povežite se z mano",
@@ -80,7 +81,7 @@
       "description": "Oglejte si profesionalni življenjepis Rene Krajnc, delovne izkušnje, izobrazbo in tehnične spretnosti kot spletni razvijalec."
     }
   },
-  "footer": "&copy; {{year}} Rene Krajnc. Vse pravice pridržane.",
+  "footer": "© {{year}} Rene Krajnc. Vse pravice pridržane.",
   "fishing": {
     "title": "Ribolov z Dedkom",
     "subtitle": "Pridružite se nama na morskem ribolovnem pustolovstvu",
