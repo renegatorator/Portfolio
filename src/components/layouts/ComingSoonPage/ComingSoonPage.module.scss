@@ -18,17 +18,6 @@
   overflow: hidden;
 }
 
-.mainContent::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--hover-primary));
-  border-radius: 16px 16px 0 0;
-}
-
 .iconContainer {
   position: relative;
   margin-bottom: 32px;
@@ -102,24 +91,6 @@
   margin-bottom: 40px;
 }
 
-.progressBar {
-  width: 100%;
-  height: 8px;
-  background: var(--bg-secondary);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 16px;
-  border: 1px solid var(--border-secondary);
-}
-
-.progressFill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--hover-primary));
-  border-radius: 4px;
-  animation: progress 3s ease-in-out infinite;
-  width: 60%;
-}
-
 .progressText {
   margin: 0;
   font-style: italic;
@@ -176,16 +147,6 @@
   }
   to {
     transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@keyframes progress {
-  0%,
-  100% {
-    width: 60%;
-  }
-  50% {
-    width: 80%;
   }
 }
 

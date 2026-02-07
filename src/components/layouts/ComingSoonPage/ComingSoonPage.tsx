@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import PageLayout from '../PageLayout/PageLayout';
 import { Routes } from '@/constants/routes';
 import { Typography } from '@mui/material';
+import ProgressBar from '@/components/UI/ProgressBar';
 
 const ComingSoonPage = () => {
   const { t } = useTranslation();
@@ -47,9 +48,7 @@ const ComingSoonPage = () => {
           </div>
 
           <div className={classes.progressSection}>
-            <div className={classes.progressBar}>
-              <div className={classes.progressFill}></div>
-            </div>
+            <ProgressBar progress={60} animated />
             <Typography variant="caption" component="p" className={classes.progressText}>
               {t('comingSoon.progress')}
             </Typography>
