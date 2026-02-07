@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .countdownContainer {
   display: flex;
   align-items: center;
@@ -49,49 +51,48 @@
   }
 }
 
-// Responsive design
-@media (max-width: 768px) {
-  .countdownContainer {
+.number {
+  font-size: 2rem;
+}
+
+.label {
+  font-size: 0.8rem;
+}
+
+.separator {
+  font-size: 1.5rem;
+  margin-top: -8px;
+}
+
+.number {
+  font-size: 1.5rem;
+}
+
+.label {
+  font-size: 0.7rem;
+}
+
+.separator {
+  font-size: 1.2rem;
+  margin-top: -4px;
+}
+
+.countdownContainer {
+  @include mq(sm) {
     gap: 8px;
   }
 
-  .countdownItem {
-    min-width: 60px;
-  }
-
-  .number {
-    font-size: 2rem;
-  }
-
-  .label {
-    font-size: 0.8rem;
-  }
-
-  .separator {
-    font-size: 1.5rem;
-    margin-top: -8px;
+  @include mq(xs) {
+    gap: 4px;
   }
 }
 
-@media (max-width: 480px) {
-  .countdownContainer {
-    gap: 4px;
+.countdownItem {
+  @include mq(sm) {
+    min-width: 60px;
   }
 
-  .countdownItem {
+  @include mq(xs) {
     min-width: 50px;
-  }
-
-  .number {
-    font-size: 1.5rem;
-  }
-
-  .label {
-    font-size: 0.7rem;
-  }
-
-  .separator {
-    font-size: 1.2rem;
-    margin-top: -4px;
   }
 }

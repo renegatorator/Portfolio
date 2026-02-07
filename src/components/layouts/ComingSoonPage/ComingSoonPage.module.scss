@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .icons {
   position: relative;
   display: inline-flex;
@@ -12,7 +14,7 @@
   animation: bounce 2s infinite;
   z-index: 2;
 
-  @media (max-width: 768px) {
+  @include mq(sm) {
     font-size: 3rem;
   }
 }
@@ -27,7 +29,7 @@
   opacity: 0.3;
   animation: rotate 4s linear infinite;
 
-  @media (max-width: 768px) {
+  @include mq(sm) {
     font-size: 2rem;
   }
 }

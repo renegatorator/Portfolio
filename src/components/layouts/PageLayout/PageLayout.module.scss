@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .container {
   min-height: 100vh;
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -71,7 +73,7 @@
   gap: 32px;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @include mq(sm) {
     display: none;
   }
 }
@@ -137,7 +139,7 @@
   gap: 16px;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @include mq(sm) {
     display: none;
   }
 }
@@ -159,7 +161,7 @@
     transform: scale(1.05);
   }
 
-  @media (max-width: 768px) {
+  @include mq(sm) {
     display: block;
   }
 }

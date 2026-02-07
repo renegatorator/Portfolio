@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .socialMediaContainer {
   margin: 32px 0;
   text-align: center;
@@ -17,6 +19,10 @@
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+
+  @include mq(sm) {
+    gap: 16px;
+  }
 }
 
 .socialLink {
@@ -44,6 +50,12 @@
     outline: 2px solid var(--social-color);
     outline-offset: 2px;
   }
+
+  @include mq(sm) {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
 // Dark theme adjustments
@@ -54,18 +66,5 @@
     &:hover {
       background: var(--bg-primary);
     }
-  }
-}
-
-// Responsive design
-@media (max-width: 768px) {
-  .socialLinks {
-    gap: 16px;
-  }
-
-  .socialLink {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
   }
 }
