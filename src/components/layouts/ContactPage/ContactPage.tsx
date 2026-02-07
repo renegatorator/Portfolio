@@ -3,6 +3,7 @@ import PageLayout from '../PageLayout/PageLayout';
 import SocialMediaLinks from '@/components/UI/SocialMediaLinks';
 import classes from './ContactPage.module.scss';
 import { useTranslation } from 'next-i18next';
+import { Typography } from '@mui/material';
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -10,10 +11,14 @@ const ContactPage = () => {
   return (
     <PageLayout route={Routes.CONTACT}>
       <section className={classes.header}>
-        <h1 className={classes.title}>{t('contact.title')}</h1>
+        <Typography variant="h1" className={classes.title}>
+          {t('contact.title')}
+        </Typography>
 
         <div className={classes.description}>
-          <p>{t('contact.description')}</p>
+          <Typography variant="body1" component="p">
+            {t('contact.description')}
+          </Typography>
         </div>
       </section>
 

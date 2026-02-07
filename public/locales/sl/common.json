@@ -84,18 +84,17 @@
   "fishing": {
     "title": "Ribolov z Dedkom",
     "subtitle": "Pridružite se nama na morskem ribolovnem pustolovstvu",
-      "countdown": {
-    "title": "Odštevanje do ribolovnega izleta",
-    "description": "19. septembra 2025 ob 15:00 slovenskega časa se odpravljamo na morje. Pripravite se na nepozabno ribolovno izkušnjo!",
-    "location": "Hrvaška, Dugi Otok",
-    "time": "19. september 2025 ob 15:00",
-    "labels": {
-      "days": "Dnevi",
-      "hours": "Ure",
-      "minutes": "Minute",
-      "seconds": "Sekunde"
-    }
-  },
+    "countdown": {
+      "title": "Odštevanje do ribolovnega izleta",
+      "location": "Hrvaška, Dugi Otok",
+      "time": "19. september 2025 ob 15:00",
+      "labels": {
+        "days": "Dnevi",
+        "hours": "Ure",
+        "minutes": "Minute",
+        "seconds": "Sekunde"
+      }
+    },
     "targetFish": {
       "title": "Ciljne vrste",
       "description": "Ciljali bomo nekatere najbolj vznemirljive in zahtevne ribje vrste, ki jih najdemo v sredozemskih vodah.",
@@ -104,7 +103,6 @@
         "barracuda": "Barakuda",
         "bonito": "Palamida",
         "grouper": "Krnija",
-        "tuna": "Tun",
         "mackerel": "Skuša"
       },
       "descriptions": {
@@ -112,7 +110,6 @@
         "barracuda": "Hitri in agresivni plenilci z britvami ostri zob. Zagotavljajo eksplozivne napade in vznemirljive boje.",
         "bonito": "Hitri plavalci, ki ponujajo hitro akcijo in odlično mizo. Popolni za lahek ribolov.",
         "grouper": "Dno bivajoči velikani, ki zahtevajo potrpežljivost in moč. Znani po svojih močnih tečajih in trmastih bojih.",
-        "tuna": "Ultimativna lovna riba - hitra, močna in neusmiljena. Prava trofeja, ki preizkuša vsak vidik vaših ribolovnih spretnosti.",
         "mackerel": "Hitro se premikajoče jate rib, ki zagotavljajo stalno akcijo in so popolne za začetnike in izkušene ribiče."
       }
     },

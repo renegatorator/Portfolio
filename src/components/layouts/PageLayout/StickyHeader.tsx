@@ -9,6 +9,7 @@ import LanguageSwitcher from '@/components/UI/LanguageSwitcher';
 import Logo from '@/components/UI/Logo';
 import { Routes } from '@/constants/routes';
 import classes from './PageLayout.module.scss';
+import { Typography } from '@mui/material';
 
 const StickyHeader = () => {
   const { t } = useTranslation();
@@ -84,7 +85,7 @@ const StickyHeader = () => {
         <div className={classes.mobileOverlay} onClick={closeMobileMenu}>
           <div className={classes.mobileSidebar} onClick={(e) => e.stopPropagation()}>
             <div className={classes.mobileSidebarHeader}>
-              <h3>Menu</h3>
+              <Typography variant="h5">Menu</Typography>
               <button
                 className={classes.closeButton}
                 onClick={closeMobileMenu}

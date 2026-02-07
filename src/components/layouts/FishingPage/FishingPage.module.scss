@@ -7,8 +7,8 @@
 .hero {
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   border-radius: 20px;
-  padding: 4rem 2rem;
-  margin: 2rem 0;
+  padding: 64px 32px;
+  margin: 32px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -45,7 +45,7 @@
 .heroIcon {
   font-size: 4rem;
   color: var(--primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -60,50 +60,39 @@
 }
 
 .heroTitle {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: var(--text-primary);
+  margin: 0 0 16px 0;
 }
 
 .heroSubtitle {
-  font-size: 1.3rem;
-  color: var(--text-secondary);
   margin: 0;
-  line-height: 1.6;
 }
 
 // Countdown Section
 .countdownSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 0rem;
-  margin: 2rem 0;
+  padding: 48px 0;
+  margin: 32px 0;
   text-align: center;
   border: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .countdownHeader {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .countdownIcon {
   font-size: 2rem;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .countdownHeader h2 {
-  font-size: 2rem;
-  font-weight: 600;
   margin: 0 0 1rem 0;
-  color: var(--text-primary);
 }
 
 .countdownHeader p {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
   margin: 0;
   line-height: 1.6;
 }
@@ -111,17 +100,15 @@
 .eventDetails {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: 48px;
+  margin-top: 32px;
   flex-wrap: wrap;
 }
 
 .eventDetail {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--text-secondary);
-  font-size: 1rem;
+  gap: 8px;
 }
 
 .eventDetail svg {
@@ -132,24 +119,19 @@
 .targetFishSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 0rem;
-  margin: 2rem 0;
+  padding: 48px 0;
+  margin: 32px 0;
   border: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .targetFishSection h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: var(--text-primary);
+  margin: 0 0 16px 0;
   text-align: center;
 }
 
 .targetFishDescription {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin: 0 0 2rem 0;
+  margin: 0 0 32px 0;
   text-align: center;
   line-height: 1.6;
 }
@@ -163,7 +145,7 @@
 .fishCard {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 24px;
   text-align: center;
   border: 1px solid var(--border-secondary);
   transition: all 0.3s ease;
@@ -178,19 +160,14 @@
 .fishIcon {
   font-size: 2.5rem;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .fishCard h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: var(--text-primary);
+  margin: 0 0 16px 0;
 }
 
 .fishCard p {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
   margin: 0;
   line-height: 1.5;
 }
@@ -199,8 +176,8 @@
 .equipmentSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 0rem;
-  margin: 2rem 0;
+  padding: 48px 0px;
+  margin: 32px 0;
   border: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -258,8 +235,8 @@
 .experienceSection {
   background: var(--bg-primary);
   border-radius: 16px;
-  padding: 3rem 0rem;
-  margin: 2rem 0;
+  padding: 48px 0px;
+  margin: 32px 0;
   border: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -310,7 +287,7 @@
 // Responsive Design
 @media (max-width: 768px) {
   .hero {
-    padding: 3rem 1.5rem;
+    padding: 48px 24px;
   }
 
   .heroTitle {
@@ -325,11 +302,11 @@
   .targetFishSection,
   .equipmentSection,
   .experienceSection {
-    padding: 2rem 1.5rem;
+    padding: 32px 24px;
   }
 
   .eventDetails {
-    gap: 2rem;
+    gap: 32px;
   }
 
   .fishGrid {
@@ -341,13 +318,13 @@
   }
 
   .experienceStats {
-    gap: 2rem;
+    gap: 32px;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 2rem 1rem;
+    padding: 32px 16px;
   }
 
   .heroTitle {
@@ -362,12 +339,12 @@
   .targetFishSection,
   .equipmentSection,
   .experienceSection {
-    padding: 1.5rem 1rem;
+    padding: 24px 16px;
   }
 
   .eventDetails {
     flex-direction: column;
-    gap: 1rem;
+    gap: 16px;
   }
 
   .experienceStats {

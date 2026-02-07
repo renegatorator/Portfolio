@@ -13,7 +13,7 @@
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-primary);
-  padding: 3rem 0;
+  padding: 48px 0;
   position: relative;
   overflow: hidden;
 }
@@ -31,7 +31,7 @@
 
 .iconContainer {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@
 }
 
 .secondaryIcon {
-  font-size: 2.5rem;
+  font-size: 44px !important;
   color: var(--text-secondary);
   position: absolute;
   top: 50%;
@@ -56,32 +56,27 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: var(--text-primary);
+  margin: 0 0 16px 0;
 }
 
 .description {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 40px 0;
   line-height: 1.6;
 }
 
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  gap: 24px;
+  margin-bottom: 40px;
 }
 
 .feature {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
+  gap: 8px;
+  padding: 16px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-secondary);
@@ -100,14 +95,11 @@
 }
 
 .feature span {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-primary);
   text-align: center;
 }
 
 .progressSection {
-  margin-bottom: 2.5rem;
+  margin-bottom: 40px;
 }
 
 .progressBar {
@@ -116,7 +108,7 @@
   background: var(--bg-secondary);
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   border: 1px solid var(--border-secondary);
 }
 
@@ -129,26 +121,22 @@
 }
 
 .progressText {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
   margin: 0;
   font-style: italic;
 }
 
 .contactInfo {
   border-top: 1px solid var(--border-secondary);
-  padding-top: 2rem;
+  padding-top: 32px;
 }
 
 .contactInfo p {
-  color: var(--text-secondary);
-  margin: 0 0 1rem 0;
-  font-size: 1rem;
+  margin: 0 0 16px 0;
 }
 
 .contactLink {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 12px 24px;
   background: var(--primary);
   color: var(--primary-text);
   text-decoration: none;
@@ -204,20 +192,12 @@
 // Responsive design
 @media (max-width: 768px) {
   .mainContent {
-    padding: 2rem 1.5rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .description {
-    font-size: 1.1rem;
+    padding: 32px 24px;
   }
 
   .features {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 16px;
   }
 
   .mainIcon {
@@ -231,14 +211,6 @@
 
 @media (max-width: 480px) {
   .mainContent {
-    padding: 1.5rem 1rem;
-  }
-
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .description {
-    font-size: 1rem;
+    padding: 24px 16px;
   }
 }

@@ -89,7 +89,6 @@
     "subtitle": "Join us on an exciting sea fishing adventure",
     "countdown": {
       "title": "Countdown to Our Fishing Trip",
-      "description": "We're heading out to sea on September 19th, 2025 at 15:00 Slovenian time. Get ready for an unforgettable fishing experience!",
       "location": "Croatia, Dugi Otok",
       "time": "September 19th, 2025 at 15:00",
       "labels": {
@@ -107,7 +106,6 @@
         "barracuda": "Barracuda",
         "bonito": "Bonito",
         "grouper": "Grouper",
-        "tuna": "Tuna",
         "mackerel": "Mackerel"
       },
       "descriptions": {
@@ -115,7 +113,6 @@
         "barracuda": "Fast and aggressive predators with razor-sharp teeth. They provide explosive strikes and thrilling battles.",
         "bonito": "Swift swimmers that offer fast-paced action and excellent table fare. Perfect for light tackle fishing.",
         "grouper": "Bottom-dwelling giants that require patience and strength. Known for their powerful runs and stubborn fights.",
-        "tuna": "The ultimate game fish - fast, strong, and relentless. A true trophy that tests every aspect of your fishing skills.",
         "mackerel": "Fast-moving schooling fish that provide constant action and are perfect for beginners and experienced anglers alike."
       }
     },
