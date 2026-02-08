@@ -16,7 +16,10 @@ export const ThemeProviderCustom = ({ children }: { children: React.ReactNode })
 
   useEffect(() => {
     const stored = localStorage.getItem('theme') as Theme | null;
-    setTheme(stored || 'light');
+    if (stored) {
+      setTheme(stored);
+    }
+
     document.documentElement.setAttribute('data-theme', stored || 'light');
   }, []);
 
@@ -27,11 +30,7 @@ export const ThemeProviderCustom = ({ children }: { children: React.ReactNode })
     document.documentElement.setAttribute('data-theme', next);
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export const useTheme = () => useContext(ThemeContext);
