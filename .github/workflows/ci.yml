@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Show current directory and files
-      run: pwd && ls -l
+        run: pwd && ls -l
 
       - name: Run ESLint
         run: npm run lint
