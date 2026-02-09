@@ -18,9 +18,8 @@ export const ThemeProviderCustom = ({ children }: { children: React.ReactNode })
     const stored = localStorage.getItem('theme') as Theme | null;
     if (stored) {
       setTheme(stored);
+      document.documentElement.setAttribute('data-theme', stored || 'light');
     }
-
-    document.documentElement.setAttribute('data-theme', stored || 'light');
   }, []);
 
   const toggleTheme = () => {
