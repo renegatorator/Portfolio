@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "eslint": "next lint",
+    "lint": "next lint",
     "tsc": "tsc --noEmit",
     "format": "prettier --write ."
   },
