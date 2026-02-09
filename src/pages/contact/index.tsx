@@ -1,4 +1,5 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import ContactPage from '@/components/layouts/ContactPage/ContactPage';
 
 const Contact = () => {

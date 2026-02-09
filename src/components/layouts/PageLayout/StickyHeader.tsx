@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import ThemeToggle from '@/components/UI/ThemeToggle';
+import { useState } from 'react';
+
 import LanguageSwitcher from '@/components/UI/LanguageSwitcher';
 import Logo from '@/components/UI/Logo';
+import ThemeToggle from '@/components/UI/ThemeToggle';
 import { Routes } from '@/constants/routes';
+
 import classes from './PageLayout.module.scss';
 
 const StickyHeader = () => {
@@ -18,7 +21,6 @@ const StickyHeader = () => {
   const navigationLinks = [
     { href: Routes.LANDING_PAGE, label: t('nav.about') },
     { href: Routes.PROJECTS, label: t('nav.projects') },
-    { href: Routes.FISHING, label: t('nav.fishing') },
     { href: Routes.CONTACT, label: t('nav.contact') },
   ];
 
@@ -84,7 +86,7 @@ const StickyHeader = () => {
         <div className={classes.mobileOverlay} onClick={closeMobileMenu}>
           <div className={classes.mobileSidebar} onClick={(e) => e.stopPropagation()}>
             <div className={classes.mobileSidebarHeader}>
-              <h3>Menu</h3>
+              <Typography variant="h5">Menu</Typography>
               <button
                 className={classes.closeButton}
                 onClick={closeMobileMenu}

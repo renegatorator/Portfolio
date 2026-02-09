@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
+import { useEffect,useState } from 'react';
+
 import classes from './CountdownTimer.module.scss';
 
 interface TimeLeft {
@@ -43,23 +45,80 @@ const CountdownTimer = () => {
   return (
     <div className={classes.countdownContainer}>
       <div className={classes.countdownItem}>
-        <div className={classes.number}>{timeLeft.days.toString().padStart(2, '0')}</div>
-        <div className={classes.label}>{t('fishing.countdown.labels.days')}</div>
+        <Typography
+          variant="h2"
+          className={classes.number}
+          component="div"
+          sx={{ fontSize: '3rem' }}
+        >
+          {timeLeft.days.toString().padStart(2, '0')}
+        </Typography>
+        <Typography variant="caption" component="div" className={classes.label}>
+          {t('fishing.countdown.labels.days')}
+        </Typography>
       </div>
-      <div className={classes.separator}>:</div>
+      <Typography
+        variant="h2"
+        component="div"
+        className={classes.separator}
+        sx={{ fontSize: '2rem' }}
+      >
+        :
+      </Typography>
       <div className={classes.countdownItem}>
-        <div className={classes.number}>{timeLeft.hours.toString().padStart(2, '0')}</div>
-        <div className={classes.label}>{t('fishing.countdown.labels.hours')}</div>
+        <Typography
+          variant="h2"
+          className={classes.number}
+          component="div"
+          sx={{ fontSize: '3rem' }}
+        >
+          {timeLeft.hours.toString().padStart(2, '0')}
+        </Typography>
+        <Typography variant="caption" component="div" className={classes.label}>
+          {t('fishing.countdown.labels.hours')}
+        </Typography>
       </div>
-      <div className={classes.separator}>:</div>
+      <Typography
+        variant="h2"
+        component="div"
+        className={classes.separator}
+        sx={{ fontSize: '2rem' }}
+      >
+        :
+      </Typography>
       <div className={classes.countdownItem}>
-        <div className={classes.number}>{timeLeft.minutes.toString().padStart(2, '0')}</div>
-        <div className={classes.label}>{t('fishing.countdown.labels.minutes')}</div>
+        <Typography
+          variant="h2"
+          className={classes.number}
+          component="div"
+          sx={{ fontSize: '3rem' }}
+        >
+          {timeLeft.minutes.toString().padStart(2, '0')}
+        </Typography>
+        <Typography variant="caption" component="div" className={classes.label}>
+          {t('fishing.countdown.labels.minutes')}
+        </Typography>
       </div>
-      <div className={classes.separator}>:</div>
+      <Typography
+        variant="h2"
+        component="div"
+        className={classes.separator}
+        sx={{ fontSize: '2rem' }}
+      >
+        :
+      </Typography>
       <div className={classes.countdownItem}>
-        <div className={classes.number}>{timeLeft.seconds.toString().padStart(2, '0')}</div>
-        <div className={classes.label}>{t('fishing.countdown.labels.seconds')}</div>
+        <Typography
+          variant="h2"
+          className={classes.number}
+          component="div"
+          sx={{ fontSize: '3rem' }}
+        >
+          {timeLeft.seconds.toString().padStart(2, '0')}
+        </Typography>
+        <Typography variant="caption" component="div" className={classes.label}>
+          {t('fishing.countdown.labels.seconds')}
+        </Typography>
       </div>
     </div>
   );

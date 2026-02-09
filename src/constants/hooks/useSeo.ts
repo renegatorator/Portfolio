@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import { Routes, Route } from '../routes';
+
+import { Route,Routes } from '../routes';
 
 type SEOType = {
   title: string;

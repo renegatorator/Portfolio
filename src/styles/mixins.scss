@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use './theme' as *;
+
+@mixin mq($name) {
+  @media (max-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}

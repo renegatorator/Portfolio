@@ -1,24 +1,14 @@
-.header {
-  text-align: center;
-  color: var(--text-primary);
-  padding: 40px 0;
-}
+@use '@/styles' as *;
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
+.header {
+  max-width: 600px;
 }
 
 .description {
   text-align: center;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 
   p {
-    font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--text-secondary);
   }
 }
 
@@ -26,31 +16,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 48px;
   flex: 1 1 0px;
 
-  @media (max-width: 768px) {
+  @include mq(sm) {
     flex-direction: column;
-    gap: 2rem;
+    gap: 32px;
   }
 }
 
 .socialSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   max-width: 600px;
   min-height: 300px;
-  padding: 2rem;
-  background: var(--bg-primary);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--border-primary);
-
-  @media (max-width: 768px) {
-    min-height: auto;
-    padding: 1.5rem;
-  }
 }

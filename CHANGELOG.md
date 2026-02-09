@@ -4,6 +4,45 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-02-09
+
+### Added
+
+- **Global Loader Component**: Created elegant animated loader for theme initialization and app mounting
+- **Section Component**: Added reusable Section component for consistent layout patterns
+- **Progress Bar Component**: Implemented ProgressBar component with customizable styling
+- **Responsive Design Mixin**: Created `mq` mixin for consistent media query handling across SCSS files
+- **Breakpoints System**: Added centralized breakpoint constants for responsive design
+
+### Changed
+
+- **Dependency Updates**: Upgraded to Next.js 16.1.6 and React 19.2.4 for latest features and performance
+- **Theme Context Refactoring**: Improved theme initialization and hydration handling
+- **ESLint Configuration**: Migrated from legacy .eslintrc.json to flat config (eslint.config.mjs)
+- **Responsive Design**: Refactored all SCSS files to use mq mixin instead of hardcoded media queries
+- **Typography Usage**: Enhanced typography consistency across components using Material-UI Typography
+- **CSS Organization**: Added `@use 'styles'` imports to SCSS modules for better dependency management
+
+### Fixed
+
+- **Theme Hydration**: Resolved theme flash and hydration mismatch issues with proper SSR handling
+- **MUI Theme Synchronization**: Fixed Material-UI theme not updating on theme toggle by using theme-aware fallbacks
+- **Fishing Page Visibility**: Implemented server-side redirect to properly hide fishing page from users and crawlers
+- **ESLint Import Issues**: Fixed ES module import errors with proper .mjs extension
+- **CI/CD Pipeline**: Resolved GitHub Actions linting and build failures
+- **Sass Deprecation**: Updated from deprecated `map-get` to `map.get` with proper `sass:map` import
+- **Mobile Padding**: Fixed responsive padding issues across all pages
+- **Language Switcher**: Fixed dropdown behavior to only close when clicking active language
+
+### Technical Improvements
+
+- **Node Version**: Updated to Node.js 20.9.0 for improved performance and compatibility
+- **Build Configuration**: Optimized package.json scripts and removed conflicting module type
+- **Import Sorting**: Configured and applied automatic import sorting with eslint-plugin-simple-import-sort
+- **Unused Import Cleanup**: Integrated eslint-plugin-unused-imports for cleaner codebase
+
+## [1.0.1] - 2025-08-02
+
 ### Added
 
 - **Prepare for release**: Prepare content for release, hide unfinished contact form

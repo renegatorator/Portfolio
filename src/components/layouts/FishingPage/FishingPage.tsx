@@ -1,15 +1,13 @@
+import { faCalendarAlt, faClock,faFish, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faFish, 
-  faMapMarkerAlt,
-  faCalendarAlt,
-  faClock
-} from '@fortawesome/free-solid-svg-icons';
-import classes from './FishingPage.module.scss';
+import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
-import PageLayout from '../PageLayout/PageLayout';
-import { Routes } from '@/constants/routes';
+
 import CountdownTimer from '@/components/UI/CountdownTimer/CountdownTimer';
+import { Routes } from '@/constants/routes';
+
+import PageLayout from '../PageLayout/PageLayout';
+import classes from './FishingPage.module.scss';
 
 const FishingPage = () => {
   const { t } = useTranslation();
@@ -23,8 +21,12 @@ const FishingPage = () => {
             <div className={classes.heroIcon}>
               <FontAwesomeIcon icon={faFish} />
             </div>
-            <h1 className={classes.heroTitle}>{t('fishing.title')}</h1>
-            <p className={classes.heroSubtitle}>{t('fishing.subtitle')}</p>
+            <Typography variant="h1" className={classes.heroTitle}>
+              {t('fishing.title')}
+            </Typography>
+            <Typography variant="subtitle1" component="div" className={classes.heroSubtitle}>
+              {t('fishing.subtitle')}
+            </Typography>
           </div>
         </section>
 
@@ -32,39 +34,45 @@ const FishingPage = () => {
         <section className={classes.countdownSection}>
           <div className={classes.countdownHeader}>
             <FontAwesomeIcon icon={faCalendarAlt} className={classes.countdownIcon} />
-            <h2>{t('fishing.countdown.title')}</h2>
-            {/* <p>{t('fishing.countdown.description')}</p> */}
+            <Typography variant="h2">{t('fishing.countdown.title')}</Typography>
           </div>
           <CountdownTimer />
           <div className={classes.eventDetails}>
             <div className={classes.eventDetail}>
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              <span>{t('fishing.countdown.location')}</span>
+              <Typography variant="body1" component="span">
+                {t('fishing.countdown.location')}
+              </Typography>
             </div>
             <div className={classes.eventDetail}>
               <FontAwesomeIcon icon={faClock} />
-              <span>{t('fishing.countdown.time')}</span>
+              <Typography variant="body1" component="span">
+                {t('fishing.countdown.time')}
+              </Typography>
             </div>
           </div>
         </section>
 
         {/* Target Fish Section */}
         <section className={classes.targetFishSection}>
-          <h2>{t('fishing.targetFish.title')}</h2>
-          <p className={classes.targetFishDescription}>{t('fishing.targetFish.description')}</p>
+          <Typography variant="h2">{t('fishing.targetFish.title')}</Typography>
+          <Typography variant="body1" component="p" className={classes.targetFishDescription}>
+            {t('fishing.targetFish.description')}
+          </Typography>
           <div className={classes.fishGrid}>
-            {['amberjack', 'barracuda', 'bonito', 'grouper', 'tuna', 'mackerel'].map((fish) => (
+            {['amberjack', 'barracuda', 'bonito', 'grouper', 'mackerel'].map((fish) => (
               <div key={fish} className={classes.fishCard}>
                 <div className={classes.fishIcon}>
                   <FontAwesomeIcon icon={faFish} />
                 </div>
-                <h3>{t(`fishing.targetFish.species.${fish}`)}</h3>
-                <p>{t(`fishing.targetFish.descriptions.${fish}`)}</p>
+                <Typography variant="h5">{t(`fishing.targetFish.species.${fish}`)}</Typography>
+                <Typography variant="body2" component="p">
+                  {t(`fishing.targetFish.descriptions.${fish}`)}
+                </Typography>
               </div>
             ))}
           </div>
         </section>
-
       </div>
     </PageLayout>
   );

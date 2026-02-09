@@ -1,10 +1,13 @@
-import { ReactNode } from 'react';
-import classes from './PageLayout.module.scss';
+import { Typography } from '@mui/material';
 import Head from 'next/head';
-import { useSeo } from '@/constants/hooks/useSeo';
-import { Routes, Route } from '@/constants/routes';
-import StickyHeader from './StickyHeader';
 import { useTranslation } from 'next-i18next';
+import { ReactNode } from 'react';
+
+import { useSeo } from '@/constants/hooks/useSeo';
+import { Route,Routes } from '@/constants/routes';
+
+import classes from './PageLayout.module.scss';
+import StickyHeader from './StickyHeader';
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -25,7 +28,9 @@ const PageLayout = ({ children, route = Routes.LANDING_PAGE }: PageLayoutProps) 
       <StickyHeader />
       <main className={classes.main}>{children}</main>
       <footer className={classes.footer}>
-        <p dangerouslySetInnerHTML={{ __html: t('footer', { year }) }} />
+        <Typography variant="caption" component="p">
+          {t('footer', { year })}
+        </Typography>
       </footer>
     </div>
   );

@@ -41,8 +41,9 @@
   "contact": {
     "title": "Kontakt",
     "description": "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach nur für ein Gespräch über Technologie und Entwicklung. Fühlen Sie sich frei, sich über Email zu melden oder mich in sozialen Medien zu kontaktieren.",
-    "emailPlaceholder": "E-Mail",
-    "messagePlaceholder": "Nachricht",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "messagePlaceholder": "Ihre Nachricht hier...",
     "send": "Senden",
     "socialMedia": {
       "title": "Verbinden Sie sich mit mir",
@@ -84,22 +85,21 @@
       "description": "Sehen Sie sich Rene Krajncs professionellen Lebenslauf, Arbeitserfahrung, Ausbildung und technische Fähigkeiten als Web Entwickler an."
     }
   },
-  "footer": "&copy; {{year}} Rene Krajnc. Alle Rechte vorbehalten.",
+  "footer": "© {{year}} Rene Krajnc. Alle Rechte vorbehalten.",
   "fishing": {
     "title": "Fischen mit Opa",
     "subtitle": "Begleiten Sie uns auf ein aufregendes Meeresfisch-Abenteuer",
-      "countdown": {
-    "title": "Countdown zu unserem Angelausflug",
-    "description": "Wir fahren am 19. September 2025 um 15:00 Uhr slowenischer Zeit aufs Meer. Machen Sie sich bereit für ein unvergessliches Angelerlebnis!",
-    "location": "Kroatien, Dugi Otok",
-    "time": "19. September 2025 um 15:00 Uhr",
-    "labels": {
-      "days": "Tage",
-      "hours": "Stunden",
-      "minutes": "Minuten",
-      "seconds": "Sekunden"
-    }
-  },
+    "countdown": {
+      "title": "Countdown zu unserem Angelausflug",
+      "location": "Kroatien, Dugi Otok",
+      "time": "19. September 2025 um 15:00 Uhr",
+      "labels": {
+        "days": "Tage",
+        "hours": "Stunden",
+        "minutes": "Minuten",
+        "seconds": "Sekunden"
+      }
+    },
     "targetFish": {
       "title": "Zielarten",
       "description": "Wir werden einige der aufregendsten und herausforderndsten Fischarten anvisieren, die in den Gewässern des Mittelmeers vorkommen.",
@@ -108,7 +108,6 @@
         "barracuda": "Barrakuda",
         "bonito": "Bonito",
         "grouper": "Zackenbarsch",
-        "tuna": "Thunfisch",
         "mackerel": "Makrele"
       },
       "descriptions": {
@@ -116,7 +115,6 @@
         "barracuda": "Schnelle und aggressive Raubtiere mit rasiermesserscharfen Zähnen. Sie bieten explosive Angriffe und aufregende Kämpfe.",
         "bonito": "Schnelle Schwimmer, die schnelle Aktionen und ausgezeichnete Tischkost bieten. Perfekt für leichtes Angeln.",
         "grouper": "Bodenbewohnende Riesen, die Geduld und Kraft erfordern. Bekannt für ihre kraftvollen Läufe und hartnäckigen Kämpfe.",
-        "tuna": "Der ultimative Spielfisch - schnell, stark und unerbittlich. Ein echter Trophäenfisch, der jeden Aspekt Ihrer Angelkünste testet.",
         "mackerel": "Schnell bewegende Schwarmfische, die ständige Aktion bieten und perfekt für Anfänger und erfahrene Angler sind."
       }
     },

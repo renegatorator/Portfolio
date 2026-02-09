@@ -1,13 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faGithub,
-  faLinkedin,
-  faFacebook,
-} from '@fortawesome/free-brands-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { useTranslation } from 'next-i18next';
-import classes from './SocialMediaLinks.module.scss';
+import { faFacebook,faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
+
+import classes from './SocialMediaLinks.module.scss';
 
 interface SocialMediaLink {
   name: string;
@@ -66,8 +64,10 @@ const SocialMediaLinks = () => {
 
   return (
     <div className={classes.socialMediaContainer}>
-      <h3>{t('contact.socialMedia.title')}</h3>
-      <p className={classes.socialDescription}>{t('contact.socialMedia.description')}</p>
+      <Typography variant="h3">{t('contact.socialMedia.title')}</Typography>
+      <Typography variant="body1" component="p" className={classes.socialDescription}>
+        {t('contact.socialMedia.description')}
+      </Typography>
       <div className={classes.socialLinks}>
         {socialLinks.map((link) => (
           <a

@@ -6,8 +6,8 @@
   :global(.MuiSelect-select) {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    gap: 8px;
+    padding: 8px 12px;
   }
 
   :global(.MuiOutlinedInput-notchedOutline) {
@@ -50,8 +50,8 @@
 .menuItem {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  gap: 8px;
+  padding: 8px 12px;
   color: var(--text-primary);
 
   // Hover effect only on non-selected items
