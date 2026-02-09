@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
+
 import { breakpoints, ColorTokens } from '@/constants/theme';
 import { getCssVarWithTheme } from '@/utils/themeUtils';
+
 import { useTheme } from './useTheme';
 
 export const useMuiTheme = () => {

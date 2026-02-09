@@ -1,11 +1,13 @@
-import { ReactNode } from 'react';
-import classes from './PageLayout.module.scss';
-import Head from 'next/head';
-import { useSeo } from '@/constants/hooks/useSeo';
-import { Routes, Route } from '@/constants/routes';
-import StickyHeader from './StickyHeader';
-import { useTranslation } from 'next-i18next';
 import { Typography } from '@mui/material';
+import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { ReactNode } from 'react';
+
+import { useSeo } from '@/constants/hooks/useSeo';
+import { Route,Routes } from '@/constants/routes';
+
+import classes from './PageLayout.module.scss';
+import StickyHeader from './StickyHeader';
 
 interface PageLayoutProps {
   children: ReactNode;

@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import ThemeToggle from '@/components/UI/ThemeToggle';
+import { useState } from 'react';
+
 import LanguageSwitcher from '@/components/UI/LanguageSwitcher';
 import Logo from '@/components/UI/Logo';
+import ThemeToggle from '@/components/UI/ThemeToggle';
 import { Routes } from '@/constants/routes';
+
 import classes from './PageLayout.module.scss';
-import { Typography } from '@mui/material';
 
 const StickyHeader = () => {
   const { t } = useTranslation();

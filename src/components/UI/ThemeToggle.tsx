@@ -1,5 +1,6 @@
+import { DarkMode,LightMode } from '@mui/icons-material';
 import { IconButton, Tooltip } from '@mui/material';
-import { LightMode, DarkMode } from '@mui/icons-material';
+
 import { useTheme } from '@/utils/hooks/useTheme';
 
 const ThemeToggle = () => {

@@ -1,10 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { useTranslation } from 'next-i18next';
-import classes from './SocialMediaLinks.module.scss';
+import { faFacebook,faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
+
+import classes from './SocialMediaLinks.module.scss';
 
 interface SocialMediaLink {
   name: string;

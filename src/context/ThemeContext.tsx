@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
+
 import GlobalLoader from '@/components/UI/GlobalLoader/GlobalLoader';
 import { Theme } from '@/constants/theme';
 

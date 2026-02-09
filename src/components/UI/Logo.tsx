@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import styles from './Logo.module.scss';
 import classNames from 'classnames';
+import Image from 'next/image';
+import { useEffect,useState } from 'react';
+
+import styles from './Logo.module.scss';
 
 interface LogoProps {
   className?: string;

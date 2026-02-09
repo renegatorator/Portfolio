@@ -1,4 +1,5 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import ComingSoonPage from '@/components/layouts/ComingSoonPage/ComingSoonPage';
 
 const Projects = () => {

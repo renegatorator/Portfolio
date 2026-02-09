@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
-import classes from './Section.module.scss';
 import classNames from 'classnames';
+import { ReactNode } from 'react';
+
+import classes from './Section.module.scss';
 
 interface SectionProps {
   children: ReactNode;

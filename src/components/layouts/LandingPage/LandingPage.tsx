@@ -1,12 +1,14 @@
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { skills } from '../../../constants/rene';
-import classes from './LandingPage.module.scss';
-import { useTranslation } from 'next-i18next';
-import PageLayout from '../PageLayout/PageLayout';
-import { Routes } from '@/constants/routes';
 import { Typography } from '@mui/material';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
+
 import Section from '@/components/UI/Section/Section';
+import { Routes } from '@/constants/routes';
+
+import { skills } from '../../../constants/rene';
+import PageLayout from '../PageLayout/PageLayout';
+import classes from './LandingPage.module.scss';
 
 const LandingPage = () => {
   const { t } = useTranslation();
