@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import GlobalLoader from '@/components/UI/GlobalLoader/GlobalLoader';
 import { Theme } from '@/constants/theme';
 
 interface ThemeContextProps {
@@ -6,18 +7,21 @@ interface ThemeContextProps {
   toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextProps>({
-  theme: 'light',
+export const ThemeContext = createContext<ThemeContextProps>({
+  theme: 'dark',
   toggleTheme: () => {},
 });
 
 export const ThemeProviderCustom = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      return (localStorage.getItem('theme') as Theme) || 'light';
-    }
-    return 'light';
-  });
+  const [theme, setTheme] = useState<Theme>(
+    (typeof window !== 'undefined' && (localStorage.getItem('theme') as Theme)) || 'dark',
+  );
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -25,10 +29,10 @@ export const ThemeProviderCustom = ({ children }: { children: React.ReactNode })
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
+
+  if (!mounted) return <GlobalLoader />;
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
-
-export const useTheme = () => useContext(ThemeContext);

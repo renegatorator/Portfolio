@@ -40,11 +40,7 @@ const getDefaultFallback = (token: ColorToken): string => {
 
 // Get CSS variable with theme-aware fallback
 export const getCssVarWithTheme = (token: ColorToken, isDark: boolean): string => {
-  if (typeof window !== 'undefined') {
-    const value = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
-    if (value) return value;
-  }
-
+  // Always use theme-aware fallback for MUI theme generation to avoid lag
   return getThemeAwareFallback(token, isDark);
 };
 
