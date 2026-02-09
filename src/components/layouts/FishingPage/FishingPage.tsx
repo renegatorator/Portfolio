@@ -1,11 +1,13 @@
+import { faCalendarAlt, faClock,faFish, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFish, faMapMarkerAlt, faCalendarAlt, faClock } from '@fortawesome/free-solid-svg-icons';
-import classes from './FishingPage.module.scss';
-import { useTranslation } from 'next-i18next';
-import PageLayout from '../PageLayout/PageLayout';
-import { Routes } from '@/constants/routes';
-import CountdownTimer from '@/components/UI/CountdownTimer/CountdownTimer';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
+
+import CountdownTimer from '@/components/UI/CountdownTimer/CountdownTimer';
+import { Routes } from '@/constants/routes';
+
+import PageLayout from '../PageLayout/PageLayout';
+import classes from './FishingPage.module.scss';
 
 const FishingPage = () => {
   const { t } = useTranslation();

@@ -1,7 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classes from './IconCard.module.scss';
-import { Typography } from '@mui/material';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Typography } from '@mui/material';
+
+import classes from './IconCard.module.scss';
 
 export interface IconCardProps {
   icon: IconDefinition;

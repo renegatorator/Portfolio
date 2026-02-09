@@ -1,9 +1,10 @@
-import { useForm } from 'react-hook-form';
-import { useTranslation } from 'next-i18next';
-import { TextField, Button, Card, Box, InputAdornment, Typography } from '@mui/material';
-import { Person, Email, Message } from '@mui/icons-material';
-import classes from './ContactForm.module.scss';
+import { Email, Message,Person } from '@mui/icons-material';
+import { Box, Button, Card, InputAdornment, TextField, Typography } from '@mui/material';
 import classNames from 'classnames';
+import { useTranslation } from 'next-i18next';
+import { useForm } from 'react-hook-form';
+
+import classes from './ContactForm.module.scss';
 
 interface FormData {
   name: string;

@@ -1,7 +1,7 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faJs, faReact, faNodeJs } from '@fortawesome/free-brands-svg-icons';
-import { faCode, faServer, faCubes, faSitemap } from '@fortawesome/free-solid-svg-icons';
+import { faJs, faNodeJs,faReact } from '@fortawesome/free-brands-svg-icons';
 import { faDocker } from '@fortawesome/free-brands-svg-icons';
+import { faCode, faCubes, faServer, faSitemap } from '@fortawesome/free-solid-svg-icons';
 
 export interface Skill {
   label: string;

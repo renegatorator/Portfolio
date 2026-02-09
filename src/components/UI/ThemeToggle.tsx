@@ -1,15 +1,13 @@
+import { DarkMode,LightMode } from '@mui/icons-material';
 import { IconButton, Tooltip } from '@mui/material';
-import { LightMode, DarkMode } from '@mui/icons-material';
-import { useTheme } from '@/context/ThemeContext';
+
+import { useTheme } from '@/utils/hooks/useTheme';
 
 const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { isDark, toggleTheme } = useTheme();
 
   return (
-    <Tooltip
-      title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-      placement="bottom"
-    >
+    <Tooltip title={isDark ? 'Switch to light mode' : 'Switch to dark mode'} placement="bottom">
       <IconButton
         onClick={toggleTheme}
         aria-label="Toggle theme"
@@ -31,11 +29,7 @@ const ThemeToggle = () => {
           height: 40,
         }}
       >
-        {theme === 'light' ? (
-          <DarkMode sx={{ fontSize: 20 }} />
-        ) : (
-          <LightMode sx={{ fontSize: 20 }} />
-        )}
+        {isDark ? <LightMode sx={{ fontSize: 20 }} /> : <DarkMode sx={{ fontSize: 20 }} />}
       </IconButton>
     </Tooltip>
   );

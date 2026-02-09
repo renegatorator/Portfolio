@@ -1,10 +1,12 @@
-import { Routes } from '@/constants/routes';
-import PageLayout from '../PageLayout/PageLayout';
-import SocialMediaLinks from '@/components/UI/SocialMediaLinks';
-import classes from './ContactPage.module.scss';
-import { useTranslation } from 'next-i18next';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
+
 import Section from '@/components/UI/Section/Section';
+import SocialMediaLinks from '@/components/UI/SocialMediaLinks';
+import { Routes } from '@/constants/routes';
+
+import PageLayout from '../PageLayout/PageLayout';
+import classes from './ContactPage.module.scss';
 
 const ContactPage = () => {
   const { t } = useTranslation();

@@ -1,13 +1,15 @@
+import { faCode, faHammer, faRocket,faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHammer, faWrench, faCode, faRocket } from '@fortawesome/free-solid-svg-icons';
-import classes from './ComingSoonPage.module.scss';
-import { useTranslation } from 'next-i18next';
-import PageLayout from '../PageLayout/PageLayout';
-import { Routes } from '@/constants/routes';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
+
+import IconCard, { IconCardProps } from '@/components/UI/IconCard/IconCard';
 import ProgressBar from '@/components/UI/ProgressBar';
 import Section from '@/components/UI/Section/Section';
-import IconCard, { IconCardProps } from '@/components/UI/IconCard/IconCard';
+import { Routes } from '@/constants/routes';
+
+import PageLayout from '../PageLayout/PageLayout';
+import classes from './ComingSoonPage.module.scss';
 
 const ComingSoonPage = () => {
   const { t } = useTranslation();

@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
-import classes from './CountdownTimer.module.scss';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
+import { useEffect,useState } from 'react';
+
+import classes from './CountdownTimer.module.scss';
 
 interface TimeLeft {
   days: number;

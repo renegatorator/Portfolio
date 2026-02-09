@@ -1,8 +1,9 @@
+import { ExpandMore } from '@mui/icons-material';
+import { FormControl, MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
+import { DE,GB, SI } from 'country-flag-icons/react/3x2';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { Select, MenuItem, FormControl, SelectChangeEvent, Typography } from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
-import { GB, SI, DE } from 'country-flag-icons/react/3x2';
+
 import styles from './LanguageSwitcher.module.scss';
 
 const languages = [
