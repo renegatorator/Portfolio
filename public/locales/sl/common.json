@@ -6,7 +6,6 @@
     "about": "O meni",
     "projects": "Projekti",
     "fishing": "Ribolov",
-    "skills": "Spretnosti",
     "contact": "Kontakt"
   },
   "theme": {
@@ -19,11 +18,7 @@
   },
   "about": {
     "title": "O meni",
-    "description": "Pozdravljeni, sem Rene Krajnc, spletni razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin.",
-    "seo": {
-      "title": "O meni | Rene Krajnc",
-      "description": "Spoznajte pot Rene Krajnc od pehotnega vojaka do razvijalca, njegovo strast do ustvarjanja učinkovitih digitalnih rešitev in izkušnje s sodobnimi spletnimi tehnologijami."
-    }
+    "description": "Pozdravljeni, sem Rene Krajnc, spletni razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin."
   },
   "projects": {
     "title": "Projekti",
@@ -33,13 +28,6 @@
     "seo": {
       "title": "Projekti | Rene Krajnc",
       "description": "Raziskujte portfelj Rene Krajnc spletnih razvojnih projektov, ki prikazujejo njegove spretnosti v frontend in backend tehnologijah ter sposobnost dostave učinkovitih digitalnih rešitev."
-    }
-  },
-  "skills": {
-    "title": "Spretnosti",
-    "seo": {
-      "title": "Spretnosti in Tehnologije | Rene Krajnc",
-      "description": "Odkrijte tehnične spretnosti in strokovnost Rene Krajnc v sodobnih spletnih razvojnih tehnologijah, vključno s frontend okvirji, backend tehnologijami in razvojnimi orodji."
     }
   },
   "contact": {
@@ -59,12 +47,6 @@
       "description": "Povežite se z Rene Krajnc za možnosti sodelovanja, povpraševanja o projektih ali razpravljanje o vašem naslednjem spletnem razvojnem projektu."
     }
   },
-  "blog": {
-    "seo": {
-      "title": "Blog | Rene Krajnc",
-      "description": "Preberite misli Rene Krajnc o spletnem razvoju, tehnoloških trendih in vpogledih iz njegovih izkušenj kot razvijalec."
-    }
-  },
   "comingSoon": {
     "title": "Prihaja kmalu",
     "description": "Ta spletna stran je v izdelavi. Prosimo, preverite kmalu za posodobitve.",
@@ -77,12 +59,6 @@
     "seo": {
       "title": "Prihaja kmalu | Rene Krajnc",
       "description": "Kmalu na voljo - Rene Krajnc - Spletni Razvijalec"
-    }
-  },
-  "resume": {
-    "seo": {
-      "title": "Življenjepis | Rene Krajnc",
-      "description": "Oglejte si profesionalni življenjepis Rene Krajnc, delovne izkušnje, izobrazbo in tehnične spretnosti kot spletni razvijalec."
     }
   },
   "footer": "© {{year}} Rene Krajnc. Vse pravice pridržane.",

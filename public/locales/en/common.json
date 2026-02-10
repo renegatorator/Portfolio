@@ -1,12 +1,11 @@
 {
-  "title": "Rene Krajnc | Web Developer",
+  "title": "Rene Krajnc | Software Engineer",
   "name": "Name",
-  "role": "Web Developer",
+  "role": "Software Engineer",
   "nav": {
     "about": "About",
     "projects": "Projects",
     "fishing": "Fishing",
-    "skills": "Skills",
     "contact": "Contact"
   },
   "theme": {
@@ -14,16 +13,12 @@
     "switchToDark": "Dark theme"
   },
   "landingPage": {
-    "title": "Rene Krajnc | Developer Portfolio",
-    "description": "Rene Krajnc - Web Developer Portfolio showcasing projects, skills, and experience in modern web development technologies."
+    "title": "Rene Krajnc | Software Engineer",
+    "description": "Rene Krajnc - Software Engineer Portfolio showcasing projects, skills, and experience in modern web development technologies."
   },
   "about": {
     "title": "About Me",
-    "description": "Hi, I'm Rene Krajnc, a Web Developer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I've since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
-    "seo": {
-      "title": "About Rene Krajnc | Web Developer",
-      "description": "Learn about Rene Krajnc's journey from infantry soldier to Web Developer, his passion for building impactful digital solutions, and his experience with modern web technologies."
-    }
+    "description": "Hi, I'm Rene Krajnc, a Software Engineer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I've since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills."
   },
   "projects": {
     "title": "Projects",
@@ -33,13 +28,6 @@
     "seo": {
       "title": "Projects | Rene Krajnc Portfolio",
       "description": "Explore Rene Krajnc's portfolio of web development projects, showcasing his skills in frontend and backend technologies, and his ability to deliver impactful digital solutions."
-    }
-  },
-  "skills": {
-    "title": "Skills",
-    "seo": {
-      "title": "Skills & Technologies | Rene Krajnc",
-      "description": "Discover Rene Krajnc's technical skills and expertise in modern web development technologies, including frontend frameworks, backend technologies, and development tools."
     }
   },
   "contact": {
@@ -59,12 +47,6 @@
       "description": "Get in touch with Rene Krajnc for collaboration opportunities, project inquiries, or to discuss your next web development project."
     }
   },
-  "blog": {
-    "seo": {
-      "title": "Blog | Rene Krajnc - Web Development Insights",
-      "description": "Read Rene Krajnc's thoughts on web development, technology trends, and insights from his experience as a Web Developer."
-    }
-  },
   "comingSoon": {
     "title": "Coming Soon",
     "description": "This website is under construction. Please check back soon for updates.",
@@ -80,13 +62,7 @@
     },
     "seo": {
       "title": "Coming Soon | Rene Krajnc",
-      "description": "Coming Soon - Rene Krajnc - Web Developer"
-    }
-  },
-  "resume": {
-    "seo": {
-      "title": "Resume | Rene Krajnc",
-      "description": "View Rene Krajnc's professional resume, work experience, education, and technical skills as a Web Developer."
+      "description": "Coming Soon - Rene Krajnc - Software Engineer"
     }
   },
   "fishing": {
