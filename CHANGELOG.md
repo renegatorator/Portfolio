@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.5] - 2026-02-10
+
+### Fixed
+
+- **Security Headers Routing**: Corrected headers source pattern from `/(.*)`to `/:path*` in next.config.ts for proper i18n routing compatibility, ensuring all security headers are applied to all routes including localized paths
+- **Production URLs**: Updated all references from `renekrajnc.com` to `www.renekrajnc.com` across sitemap.xml, robots.txt, security.txt, PageHead component, .env.example, and documentation to match canonical domain
+
 ## [1.0.4] - 2026-02-10
 
 ### Added
