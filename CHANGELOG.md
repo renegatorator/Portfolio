@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-02-10
+
+### Added
+
+- **Theme Toggle Translations**: Added multilingual support for theme toggle tooltips in English, Slovenian, and German
+
+### Changed
+
+- **Global Loader Styling**: Updated loader dot colors to use proper theme color tokens
+
 ## [1.0.2] - 2026-02-09
 
 ### Added

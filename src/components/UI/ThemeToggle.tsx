@@ -1,13 +1,15 @@
-import { DarkMode,LightMode } from '@mui/icons-material';
+import { DarkMode, LightMode } from '@mui/icons-material';
 import { IconButton, Tooltip } from '@mui/material';
+import { useTranslation } from 'next-i18next';
 
 import { useTheme } from '@/utils/hooks/useTheme';
 
 const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();
+  const { t } = useTranslation();
 
   return (
-    <Tooltip title={isDark ? 'Switch to light mode' : 'Switch to dark mode'} placement="bottom">
+    <Tooltip title={isDark ? t('theme.switchToLight') : t('theme.switchToDark')} placement="bottom">
       <IconButton
         onClick={toggleTheme}
         aria-label="Toggle theme"

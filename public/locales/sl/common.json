@@ -9,6 +9,10 @@
     "skills": "Spretnosti",
     "contact": "Kontakt"
   },
+  "theme": {
+    "switchToLight": "Svetla tema",
+    "switchToDark": "Temna tema"
+  },
   "landingPage": {
     "title": "Rene Krajnc | Razvijalec",
     "description": "Rene Krajnc - Portfelj spletnega razvijalca s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
