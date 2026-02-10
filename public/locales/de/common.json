@@ -9,6 +9,10 @@
     "skills": "Fähigkeiten",
     "contact": "Kontakt"
   },
+  "theme": {
+    "switchToLight": "Helles Thema",
+    "switchToDark": "Dunkles Thema"
+  },
   "landingPage": {
     "title": "Rene Krajnc | Entwickler-Portfolio",
     "description": "Rene Krajnc - Portfolio mit Präsentation von Projekten, Fähigkeiten und Erfahrungen in modernen Web-Entwicklungstechnologien."
