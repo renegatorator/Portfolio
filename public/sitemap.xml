@@ -2,41 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Homepage -->
   <url>
-    <loc>https://renekrajnc.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://renekrajnc.com/"/>
+    <loc>https://www.renekrajnc.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.renekrajnc.com/"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>https://renekrajnc.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/"/>
+    <loc>https://www.renekrajnc.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>https://renekrajnc.com/sl/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/"/>
+    <loc>https://www.renekrajnc.com/sl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>https://renekrajnc.com/de/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/"/>
+    <loc>https://www.renekrajnc.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -44,30 +44,30 @@
 
   <!-- Projects Page -->
   <url>
-    <loc>https://renekrajnc.com/en/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/projects"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/projects"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/projects"/>
+    <loc>https://www.renekrajnc.com/en/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/projects"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/projects"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://renekrajnc.com/sl/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/projects"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/projects"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/projects"/>
+    <loc>https://www.renekrajnc.com/sl/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/projects"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/projects"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://renekrajnc.com/de/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/projects"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/projects"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/projects"/>
+    <loc>https://www.renekrajnc.com/de/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/projects"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/projects"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -75,30 +75,30 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://renekrajnc.com/en/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/contact"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/contact"/>
+    <loc>https://www.renekrajnc.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/contact"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://renekrajnc.com/sl/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/contact"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/contact"/>
+    <loc>https://www.renekrajnc.com/sl/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/contact"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://renekrajnc.com/de/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://renekrajnc.com/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://renekrajnc.com/sl/contact"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://renekrajnc.com/de/contact"/>
+    <loc>https://www.renekrajnc.com/de/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renekrajnc.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://www.renekrajnc.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.renekrajnc.com/de/contact"/>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
