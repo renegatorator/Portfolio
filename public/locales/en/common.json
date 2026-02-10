@@ -9,6 +9,10 @@
     "skills": "Skills",
     "contact": "Contact"
   },
+  "theme": {
+    "switchToLight": "Light theme",
+    "switchToDark": "Dark theme"
+  },
   "landingPage": {
     "title": "Rene Krajnc | Developer Portfolio",
     "description": "Rene Krajnc - Web Developer Portfolio showcasing projects, skills, and experience in modern web development technologies."
