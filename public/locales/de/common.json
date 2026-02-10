@@ -1,12 +1,11 @@
 {
-  "title": "Rene Krajnc | Web-Entwickler",
+  "title": "Rene Krajnc | Software Engineer",
   "name": "Name",
-  "role": "Web Entwickler",
+  "role": "Software Engineer",
   "nav": {
     "about": "Über mich",
     "projects": "Projekte",
     "fishing": "Fischen",
-    "skills": "Fähigkeiten",
     "contact": "Kontakt"
   },
   "theme": {
@@ -14,16 +13,12 @@
     "switchToDark": "Dunkles Thema"
   },
   "landingPage": {
-    "title": "Rene Krajnc | Entwickler-Portfolio",
+    "title": "Rene Krajnc | Software Engineer",
     "description": "Rene Krajnc - Portfolio mit Präsentation von Projekten, Fähigkeiten und Erfahrungen in modernen Web-Entwicklungstechnologien."
   },
   "about": {
     "title": "Über mich",
-    "description": "Hallo, ich bin Rene Krajnc, ein Web Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten.",
-    "seo": {
-      "title": "Über Rene Krajnc | Web Entwickler",
-      "description": "Erfahren Sie mehr über Rene Krajncs Weg vom Infanteriesoldaten zum Web Entwickler, seine Leidenschaft für wirkungsvolle digitale Lösungen und seine Erfahrungen mit modernen Web-Technologien."
-    }
+    "description": "Hallo, ich bin Rene Krajnc, ein Web Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten."
   },
   "projects": {
     "title": "Projekte",
@@ -33,13 +28,6 @@
     "seo": {
       "title": "Projekte | Rene Krajnc Portfolio",
       "description": "Entdecken Sie Rene Krajncs Portfolio von Web-Entwicklungsprojekten, die seine Fähigkeiten in Frontend- und Backend-Technologien sowie seine Fähigkeit zur Bereitstellung wirkungsvoller digitaler Lösungen zeigen."
-    }
-  },
-  "skills": {
-    "title": "Fähigkeiten",
-    "seo": {
-      "title": "Fähigkeiten & Technologien | Rene Krajnc",
-      "description": "Entdecken Sie Rene Krajncs technische Fähigkeiten und Expertise in modernen Web-Entwicklungstechnologien, einschließlich Frontend-Frameworks, Backend-Technologien und Entwicklungstools."
     }
   },
   "contact": {
@@ -59,12 +47,6 @@
       "description": "Treten Sie mit Rene Krajnc in Verbindung für Kooperationsmöglichkeiten, Projektanfragen oder um über Ihr nächstes Web-Entwicklungsprojekt zu sprechen."
     }
   },
-  "blog": {
-    "seo": {
-      "title": "Blog | Rene Krajnc - Web-Entwicklung Einblicke",
-      "description": "Lesen Sie Rene Krajncs Gedanken zur Web-Entwicklung, Technologietrends und Einblicke aus seinen Erfahrungen als Web Entwickler."
-    }
-  },
   "comingSoon": {
     "title": "Demnächst verfügbar",
     "description": "Diese Website befindet sich im Aufbau. Bitte schauen Sie bald wieder vorbei für Updates.",
@@ -80,13 +62,7 @@
     },
     "seo": {
       "title": "Demnächst verfügbar | Rene Krajnc",
-      "description": "Demnächst verfügbar - Rene Krajnc - Web Entwickler"
-    }
-  },
-  "resume": {
-    "seo": {
-      "title": "Lebenslauf | Rene Krajnc",
-      "description": "Sehen Sie sich Rene Krajncs professionellen Lebenslauf, Arbeitserfahrung, Ausbildung und technische Fähigkeiten als Web Entwickler an."
+      "description": "Demnächst verfügbar - Rene Krajnc - Software Engineer"
     }
   },
   "footer": "© {{year}} Rene Krajnc. Alle Rechte vorbehalten.",

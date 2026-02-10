@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-02-10
+
+### Added
+
+- **Security Headers**: Comprehensive security headers including Content-Security-Policy, Permissions-Policy, Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, and Referrer-Policy
+- **SEO Files**: Added robots.txt, RFC 9116 compliant security.txt, and multilingual sitemap.xml with hreflang annotations
+- **PageHead Component**: Created dedicated component for SEO meta tags with hreflang support, Open Graph locale metadata, and canonical URLs
+- **Dynamic Locale Support**: HTML lang attribute now dynamically reflects current language (en/sl/de)
+- **Environment Configuration**: Added .env.example template for site URL configuration
+
+### Changed
+
+- **PageLayout Refactoring**: Extracted SEO logic into PageHead component for better separation of concerns
+- **URL Structure**: Canonical URLs and hreflang tags now use route constants for cleaner, query-parameter-free URLs
+
 ## [1.0.3] - 2026-02-10
 
 ### Added

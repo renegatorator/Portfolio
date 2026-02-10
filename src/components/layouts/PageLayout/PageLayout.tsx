@@ -1,11 +1,10 @@
 import { Typography } from '@mui/material';
-import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { ReactNode } from 'react';
 
-import { useSeo } from '@/constants/hooks/useSeo';
-import { Route,Routes } from '@/constants/routes';
+import { Route, Routes } from '@/constants/routes';
 
+import PageHead from './PageHead';
 import classes from './PageLayout.module.scss';
 import StickyHeader from './StickyHeader';
 
@@ -16,15 +15,11 @@ interface PageLayoutProps {
 
 const PageLayout = ({ children, route = Routes.LANDING_PAGE }: PageLayoutProps) => {
   const { t } = useTranslation();
-  const { title, description } = useSeo(route);
   const year = new Date().getFullYear();
 
   return (
     <div className={classes.container}>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-      </Head>
+      <PageHead route={route} />
       <StickyHeader />
       <main className={classes.main}>{children}</main>
       <footer className={classes.footer}>
