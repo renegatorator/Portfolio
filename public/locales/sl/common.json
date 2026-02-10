@@ -1,7 +1,7 @@
 {
-  "title": "Rene Krajnc | Razvijalec",
+  "title": "Rene Krajnc | Programski inženir",
   "name": "Ime",
-  "role": "Spletni Razvijalec",
+  "role": "Programski inženir",
   "nav": {
     "about": "O meni",
     "projects": "Projekti",
@@ -13,12 +13,12 @@
     "switchToDark": "Temna tema"
   },
   "landingPage": {
-    "title": "Rene Krajnc | Razvijalec",
-    "description": "Rene Krajnc - Portfelj spletnega razvijalca s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
+    "title": "Rene Krajnc | Programski inženir",
+    "description": "Rene Krajnc - Portfelj programskega inženirja s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
   },
   "about": {
     "title": "O meni",
-    "description": "Pozdravljeni, sem Rene Krajnc, spletni razvijalec s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin."
+    "description": "Pozdravljeni, sem Rene Krajnc, programski inženir s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin."
   },
   "projects": {
     "title": "Projekti",
@@ -58,7 +58,7 @@
     "progress": "Razvoj v Teku",
     "seo": {
       "title": "Prihaja kmalu | Rene Krajnc",
-      "description": "Kmalu na voljo - Rene Krajnc - Spletni Razvijalec"
+      "description": "Kmalu na voljo - Rene Krajnc - Programski inženir"
     }
   },
   "footer": "© {{year}} Rene Krajnc. Vse pravice pridržane.",
