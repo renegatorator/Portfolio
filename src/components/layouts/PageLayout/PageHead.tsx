@@ -12,7 +12,7 @@ const PageHead = ({ route }: PageHeadProps) => {
   const { i18n } = useTranslation();
   const { title, description } = useSeo(route || Routes.LANDING_PAGE);
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://renekrajnc.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.renekrajnc.com';
   const routePath = route || Routes.LANDING_PAGE;
   const currentLocale = i18n.language;
 

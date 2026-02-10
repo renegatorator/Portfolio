@@ -2,7 +2,7 @@
 Contact: mailto:security@renekrajnc.com
 Expires: 2027-02-10T23:59:59.000Z
 Preferred-Languages: en, sl, de
-Canonical: https://renekrajnc.com/.well-known/security.txt
+Canonical: https://www.renekrajnc.com/.well-known/security.txt
 
 # If you discover a security vulnerability, please report it responsibly.
 # We appreciate your efforts to help keep our users safe.

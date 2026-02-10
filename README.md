@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**Live Demo:** [renekrajnc.com](https://renekrajnc.com)
+**Live Demo:** [www.renekrajnc.com](https://www.renekrajnc.com)
 
 ---
 
@@ -271,9 +271,9 @@ Test your deployment: [securityheaders.com](https://securityheaders.com)
 This is a personal portfolio project, but suggestions and feedback are welcome!
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feat/amazing-feature`)
 3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+4. Push to the branch (`git push origin feat/amazing-feature`)
 5. Open a Pull Request
 
 ---
@@ -288,7 +288,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Rene Krajnc**
 
-- Website: [renekrajnc.com](https://renekrajnc.com)
+- Website: [www.renekrajnc.com](https://www.renekrajnc.com)
 - GitHub: [@renegatorator](https://github.com/renegatorator)
 - LinkedIn: [Rene Krajnc](https://linkedin.com/in/rene-krajnc)
 
