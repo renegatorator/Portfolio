@@ -1,7 +1,9 @@
 {
   "title": "Rene Krajnc | Software Engineer",
-  "name": "Name",
+  "name": "Rene Krajnc",
   "role": "Software Engineer",
+  "tagline": "Entwicklung skalierbarer, hochperformanter Webanwendungen mit <highlight>Next.js</highlight>",
+  "availability": "Verfügbar für Vertrags- & Freelance-Projekte",
   "nav": {
     "about": "Über mich",
     "projects": "Projekte",
@@ -18,8 +20,15 @@
   },
   "about": {
     "title": "Über mich",
-    "description": "Hallo, ich bin Rene Krajnc, ein Web Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten.",
-    "skills": "Fähigkeiten"
+    "headline": "Software Engineer spezialisiert auf Frontend Web-Technologien",
+    "description": "Ich entwickle produktionsreife Webanwendungen mit React, Next.js und TypeScript. Mit Erfahrung im gesamten Entwicklungszyklus liefere ich sauberen, wartbaren Code und pixelgenaue Implementierungen. Meine militärische Vergangenheit hat mir starke Disziplin, Problemlösungsfähigkeiten und die Fähigkeit vermittelt, in schnelllebigen Umgebungen zu gedeihen.",
+    "techStack": "Tech Stack",
+    "skills": "Fähigkeiten",
+    "highlights": {
+      "experience": "Produktionserfahrung",
+      "specialization": "Frontend Spezialist",
+      "methodology": "Agile & Moderne Praktiken"
+    }
   },
   "projects": {
     "title": "Projekte",
@@ -27,7 +36,7 @@
     "two": "Projekt Zwei - Pellentesque euismod nisi eu consectetur.",
     "three": "Projekt Drei - Etiam porta sem malesuada magna mollis euismod.",
     "seo": {
-      "title": "Projekte | Rene Krajnc Portfolio",
+      "title": "Projekte | Rene Krajnc",
       "description": "Entdecken Sie Rene Krajncs Portfolio von Web-Entwicklungsprojekten, die seine Fähigkeiten in Frontend- und Backend-Technologien sowie seine Fähigkeit zur Bereitstellung wirkungsvoller digitaler Lösungen zeigen."
     }
   },
@@ -44,7 +53,7 @@
     },
     "formTitle": "Senden Sie mir eine Nachricht",
     "seo": {
-      "title": "Kontakt Rene Krajnc | In Verbindung treten",
+      "title": "Kontakt | Rene Krajnc",
       "description": "Treten Sie mit Rene Krajnc in Verbindung für Kooperationsmöglichkeiten, Projektanfragen oder um über Ihr nächstes Web-Entwicklungsprojekt zu sprechen."
     }
   },

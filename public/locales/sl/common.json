@@ -1,7 +1,9 @@
 {
   "title": "Rene Krajnc | Programski inženir",
-  "name": "Ime",
+  "name": "Rene Krajnc",
   "role": "Programski inženir",
+  "tagline": "Razvoj skalabilnih, visoko zmogljivih spletnih aplikacij z <highlight>Next.js</highlight>",
+  "availability": "Na voljo za pogodbene in svobodne projekte",
   "nav": {
     "about": "O meni",
     "projects": "Projekti",
@@ -18,8 +20,15 @@
   },
   "about": {
     "title": "O meni",
-    "description": "Pozdravljeni, sem Rene Krajnc, programski inženir s strastjo do ustvarjanja učinkovitih digitalnih rešitev. Moja pot se je začela s prehodom iz pehotnega vojaka v programerja, od takrat pa sem pridobil izkušnje z različnimi tehnologijami in industrijami. Rad rešujem kompleksne probleme in se nenehno učim novih veščin.",
-    "skills": "Spretnosti"
+    "headline": "Programski inženir, specializiran za frontend spletne tehnologije",
+    "description": "Razvijam produkcijsko pripravljene spletne aplikacije z React, Next.js in TypeScript. Z izkušnjami v celotnem razvojnem ciklu dostavljam čisto, vzdržljivo kodo in natančne implementacije. Moja vojaška preteklost mi je vcepila močno disciplino, spretnosti reševanja problemov in sposobnost uspevanja v hitro razvijajočih se okoljih.",
+    "techStack": "Tehnološki sklad",
+    "skills": "Spretnosti",
+    "highlights": {
+      "experience": "Produkcijske izkušnje",
+      "specialization": "Frontend specialist",
+      "methodology": "Agilne & Moderne prakse"
+    }
   },
   "projects": {
     "title": "Projekti",
@@ -44,7 +53,7 @@
     },
     "formTitle": "Pošljite mi sporočilo",
     "seo": {
-      "title": "Kontakt Rene Krajnc | Povežite se",
+      "title": "Kontakt | Rene Krajnc",
       "description": "Povežite se z Rene Krajnc za možnosti sodelovanja, povpraševanja o projektih ali razpravljanje o vašem naslednjem spletnem razvojnem projektu."
     }
   },

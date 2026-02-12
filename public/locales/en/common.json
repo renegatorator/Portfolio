@@ -1,7 +1,9 @@
 {
   "title": "Rene Krajnc | Software Engineer",
-  "name": "Name",
+  "name": "Rene Krajnc",
   "role": "Software Engineer",
+  "tagline": "Building scalable, high-performance web applications with <highlight>Next.js</highlight>",
+  "availability": "Available for Contract & Freelance Projects",
   "nav": {
     "about": "About",
     "projects": "Projects",
@@ -18,8 +20,15 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Hi, I'm Rene Krajnc, a Software Engineer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I've since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
-    "skills": "Skills"
+    "headline": "Software Engineer specializing frontend web technologies",
+    "description": "I build production-ready web applications using React, Next.js, and TypeScript. With experience across the full development lifecycle, I deliver clean, maintainable code and pixel-perfect implementations. My background transitioning from military service has instilled strong discipline, problem-solving skills, and the ability to thrive in fast-paced environments.",
+    "techStack": "Tech Stack",
+    "skills": "Skills",
+    "highlights": {
+      "experience": "Production Experience",
+      "specialization": "Frontend Specialist",
+      "methodology": "Agile & Modern Practices"
+    }
   },
   "projects": {
     "title": "Projects",
@@ -27,7 +36,7 @@
     "two": "Project Two - Pellentesque euismod nisi eu consectetur.",
     "three": "Project Three - Etiam porta sem malesuada magna mollis euismod.",
     "seo": {
-      "title": "Projects | Rene Krajnc Portfolio",
+      "title": "Projects | Rene Krajnc",
       "description": "Explore Rene Krajnc's portfolio of web development projects, showcasing his skills in frontend and backend technologies, and his ability to deliver impactful digital solutions."
     }
   },
@@ -44,7 +53,7 @@
     },
     "formTitle": "Send me a message",
     "seo": {
-      "title": "Contact Rene Krajnc | Get In Touch",
+      "title": "Contact | Rene Krajnc",
       "description": "Get in touch with Rene Krajnc for collaboration opportunities, project inquiries, or to discuss your next web development project."
     }
   },
