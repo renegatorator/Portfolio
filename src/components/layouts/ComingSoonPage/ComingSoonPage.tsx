@@ -6,11 +6,11 @@ import { useTranslation } from 'next-i18next';
 import IconCard, { IconCardProps } from '@/components/UI/IconCard/IconCard';
 import ProgressBar from '@/components/UI/ProgressBar';
 import Section from '@/components/UI/Section/Section';
+import { MaintenanceReason } from '@/constants/maintenance';
 import { Routes } from '@/constants/routes';
 
 import PageLayout from '../PageLayout/PageLayout';
 import classes from './ComingSoonPage.module.scss';
-import { MaintenanceReason } from '@/constants/maintenance';
 
 interface ComingSoonPageProps {
   maintenanceReasons: MaintenanceReason[];
