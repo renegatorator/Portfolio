@@ -20,8 +20,18 @@ export const ThemeProviderCustom = ({ children }: { children: React.ReactNode })
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
+    // Wait for fonts and initial render to prevent layout shift
+    const initializeTheme = async () => {
+      if (typeof document !== 'undefined' && document.fonts) {
+        await document.fonts.ready;
+      }
+      // Small delay to ensure CSS is applied
+      requestAnimationFrame(() => {
+        setMounted(true);
+      });
+    };
+
+    initializeTheme();
   }, []);
 
   useEffect(() => {

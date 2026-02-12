@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.6] - 2026-02-12
+
+### Added
+
+- **Maintenance Reasons**: Added typed maintenance reasons constants and translations
+
+### Changed
+
+- **Landing Page Rework**: Updated layout and content to better highlight expertise, description, and skills
+- **Coming Soon Page**: Added configurable maintenance reasons display
+- **Global Loader**: Keep loader visible while fonts load
+
+### Fixed
+
+- **Page Titles**: Corrected page titles
+- **Language Switcher**: Prevented layout shift
+- **Skills Label**: Corrected the skills label text
+- **Import Sorting**: Fixed import sorting order
+- **TSConfig JSX**: Corrected JSX configuration in tsconfig
+
 ## [1.0.5] - 2026-02-10
 
 ### Fixed

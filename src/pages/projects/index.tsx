@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ComingSoonPage from '@/components/layouts/ComingSoonPage/ComingSoonPage';
 
 const Projects = () => {
-  return <ComingSoonPage />;
+  return <ComingSoonPage maintenanceReasons={['construction', 'update']} />;
 };
 
 export default Projects;
