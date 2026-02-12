@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.7] - 2026-02-12
+
+### Fixed
+
+- **Headline Translation**: Fix typo in headline on the landing page
+
 ## [1.0.6] - 2026-02-12
 
 ### Added
