@@ -1,4 +1,4 @@
-import { faCode, faHammer, faRocket,faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faHammer, faRocket, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
@@ -10,24 +10,29 @@ import { Routes } from '@/constants/routes';
 
 import PageLayout from '../PageLayout/PageLayout';
 import classes from './ComingSoonPage.module.scss';
+import { MaintenanceReason } from '@/constants/maintenance';
 
-const ComingSoonPage = () => {
+interface ComingSoonPageProps {
+  maintenanceReasons: MaintenanceReason[];
+}
+
+const ComingSoonPage = ({ maintenanceReasons }: ComingSoonPageProps) => {
   const { t } = useTranslation();
 
-  const maintenanceReasons: IconCardProps[] = [
-    {
+  const reasonsMap: Record<MaintenanceReason, IconCardProps> = {
+    update: {
       icon: faCode,
       title: t('comingSoon.features.modernTech'),
     },
-    {
+    performance: {
       icon: faRocket,
       title: t('comingSoon.features.performance'),
     },
-    {
+    construction: {
       icon: faHammer,
       title: t('comingSoon.features.construction'),
     },
-  ];
+  };
 
   return (
     <PageLayout route={Routes.PROJECTS}>
@@ -41,8 +46,8 @@ const ComingSoonPage = () => {
           {t('comingSoon.description')}
         </Typography>
         <div className={classes.reasons}>
-          {maintenanceReasons.map((reason, idx) => (
-            <IconCard key={idx} {...reason} />
+          {maintenanceReasons?.map((reason, idx) => (
+            <IconCard key={idx} {...reasonsMap[reason]} />
           ))}
         </div>
         <ProgressBar progress={60} animated />
