@@ -18,7 +18,8 @@
   },
   "about": {
     "title": "Über mich",
-    "description": "Hallo, ich bin Rene Krajnc, ein Web Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten."
+    "description": "Hallo, ich bin Rene Krajnc, ein Web Entwickler mit einer Leidenschaft für die Entwicklung wirkungsvoller digitaler Lösungen. Mein Weg begann mit dem Übergang vom Infanteriesoldaten zum Softwareentwickler, und seitdem habe ich Erfahrungen mit verschiedenen Technologien und Branchen gesammelt. Ich löse gerne komplexe Probleme und lerne ständig neue Fähigkeiten.",
+    "skills": "Fähigkeiten"
   },
   "projects": {
     "title": "Projekte",

@@ -33,7 +33,7 @@ const LandingPage = () => {
         </Typography>
       </Section>
       <Section gap={24}>
-        <Typography variant="h3">{t('skills.title')}</Typography>
+        <Typography variant="h3">{t('about.skills')}</Typography>
         <div className={classes.skillsGrid}>
           {skills.map((skill, idx) => (
             <Typography

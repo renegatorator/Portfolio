@@ -18,7 +18,8 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Hi, I'm Rene Krajnc, a Software Engineer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I've since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills."
+    "description": "Hi, I'm Rene Krajnc, a Software Engineer with a passion for building impactful digital solutions. My journey began transitioning from an infantry soldier to a software engineer, and I've since gained experience in a variety of technologies and industries. I enjoy tackling complex problems and continuously learning new skills.",
+    "skills": "Skills"
   },
   "projects": {
     "title": "Projects",
