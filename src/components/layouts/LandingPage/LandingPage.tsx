@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Typography } from '@mui/material';
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 
 import Section from '@/components/UI/Section/Section';
 import { Routes } from '@/constants/routes';
@@ -15,41 +15,64 @@ const LandingPage = () => {
 
   return (
     <PageLayout route={Routes.LANDING_PAGE}>
-      <Section alignment="center" background="gradient" shadow="large">
+      {/* Hero Section */}
+      <Section alignment="center" background="gradient" shadow="large" gap={20}>
         <Image
           src="/images/rene-profile.jpg"
           alt="Rene Krajnc"
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           className={classes.avatar}
         />
-        <Typography variant="h1">{t('about.title')}</Typography>
-        <Typography variant="h4">{t('role')}</Typography>
-      </Section>
-      <Section>
-        <Typography variant="h3">{t('about.title')}</Typography>
-        <Typography variant="body1" component="p">
-          {t('about.description')}
+        <Typography variant="h1" component="h1">
+          {t('name')}
+        </Typography>
+        <Typography variant="h4" component="h2">
+          {t('role')}
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          component="p"
+          sx={{ maxWidth: '700px', textAlign: 'center' }}
+        >
+          <Trans
+            i18nKey="tagline"
+            components={{
+              highlight: <span style={{ color: 'var(--primary)', fontWeight: 600 }} />,
+            }}
+          />
         </Typography>
       </Section>
-      <Section gap={24}>
-        <Typography variant="h3">{t('skills.title')}</Typography>
-        <div className={classes.skillsGrid}>
+
+      {/* Tech Stack Section */}
+      <Section gap={32} alignment="center">
+        <Typography variant="h3" component="h2">
+          {t('about.techStack')}
+        </Typography>
+        <div className={classes.techStack}>
           {skills.map((skill, idx) => (
-            <Typography
-              key={idx}
-              variant="body1"
-              component="div"
-              title={skill.label}
-              style={{ display: 'flex', alignItems: 'center', gap: 8 }}
-            >
-              <FontAwesomeIcon icon={skill.icon} /> {skill.label}
-            </Typography>
+            <div key={idx} className={classes.techBadge}>
+              <FontAwesomeIcon icon={skill.icon} />
+              <Typography variant="body2" component="span">
+                {skill.label}
+              </Typography>
+            </div>
           ))}
         </div>
       </Section>
-      {/* TODO: uncomment this when the contact form is ready */}
-      {/* <ContactForm title={t('contact.title')} className={classes.contactForm} /> */}
+
+      {/* About Section */}
+      <Section gap={20}>
+        <Typography variant="h3" component="h2">
+          {t('about.title')}
+        </Typography>
+        <Typography variant="subtitle1" component="p" sx={{ fontWeight: 600 }}>
+          {t('about.headline')}
+        </Typography>
+        <Typography variant="body1" component="p" sx={{ lineHeight: 1.7 }}>
+          {t('about.description')}
+        </Typography>
+      </Section>
     </PageLayout>
   );
 };
