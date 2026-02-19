@@ -1,5 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faFacebook,faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Typography } from '@mui/material';
@@ -35,7 +35,7 @@ const socialLinks: SocialMediaLink[] = [
   },
   {
     name: 'Email',
-    url: 'mailto:rene@renekrajnc.com',
+    url: 'mailto:renekrajnc@hotmail.com',
     icon: faEnvelope,
     color: '#999',
   },
