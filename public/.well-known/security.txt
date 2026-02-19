@@ -1,5 +1,5 @@
 # RFC 9116 - https://securitytxt.org/
-Contact: mailto:security@renekrajnc.com
+Contact: mailto:renekrajnc@hotmail.com
 Expires: 2027-02-10T23:59:59.000Z
 Preferred-Languages: en, sl, de
 Canonical: https://www.renekrajnc.com/.well-known/security.txt

@@ -4,19 +4,29 @@ import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import LanguageSwitcher from '@/components/UI/LanguageSwitcher';
 import Logo from '@/components/UI/Logo';
 import ThemeToggle from '@/components/UI/ThemeToggle';
 import { Routes } from '@/constants/routes';
 
-import classes from './PageLayout.module.scss';
+import classes from './StickyHeader.module.scss';
 
 const StickyHeader = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 60);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigationLinks = [
     { href: Routes.LANDING_PAGE, label: t('nav.about') },
@@ -41,7 +51,7 @@ const StickyHeader = () => {
 
   return (
     <>
-      <header className={classes.stickyHeader}>
+      <header className={`${classes.stickyHeader} ${isScrolled ? classes.scrolled : ''}`}>
         <div className={classes.headerContent}>
           {/* Logo/Brand */}
           <div className={classes.brand}>
