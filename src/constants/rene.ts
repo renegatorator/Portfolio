@@ -1,10 +1,19 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faGit, faGithub, faJs, faNodeJs, faReact } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGit,
+  faGithub,
+  faJira,
+  faJs,
+  faNodeJs,
+  faReact,
+} from '@fortawesome/free-brands-svg-icons';
 import { faDocker } from '@fortawesome/free-brands-svg-icons';
 import {
   faCode,
   faCubes,
+  faDatabase,
   faLayerGroup,
+  faMagnifyingGlass,
   faMobileAlt,
   faServer,
   faSitemap,
@@ -16,16 +25,19 @@ export interface Skill {
 }
 
 export const skills: Skill[] = [
-  { label: 'TypeScript', icon: faCode },
-  { label: 'React', icon: faReact },
   { label: 'Next.js', icon: faSitemap },
-  { label: 'JavaScript', icon: faJs },
-  { label: 'SCSS/CSS', icon: faCubes },
-  { label: 'Material-UI', icon: faLayerGroup },
-  { label: 'Node.js', icon: faNodeJs },
+  { label: 'TypeScript', icon: faCode },
   { label: 'Git', icon: faGit },
-  { label: 'REST API', icon: faServer },
-  { label: 'Responsive Design', icon: faMobileAlt },
   { label: 'Docker', icon: faDocker },
+  { label: 'Jira', icon: faJira },
+  { label: 'REST API', icon: faServer },
+  { label: 'React', icon: faReact },
+  { label: 'Node.js', icon: faNodeJs },
+  { label: 'SCSS/CSS', icon: faCubes },
+  { label: 'JavaScript', icon: faJs },
+  { label: 'Material-UI', icon: faLayerGroup },
+  { label: 'Responsive Design', icon: faMobileAlt },
+  { label: 'SEO', icon: faMagnifyingGlass },
+  { label: 'SQL', icon: faDatabase },
   { label: 'GitHub', icon: faGithub },
 ];

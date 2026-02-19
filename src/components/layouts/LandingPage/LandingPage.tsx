@@ -1,12 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Typography } from '@mui/material';
 import Image from 'next/image';
 import { Trans, useTranslation } from 'next-i18next';
 
 import Section from '@/components/UI/Section/Section';
+import TechStack from '@/components/UI/TechStack/TechStack';
 import { Routes } from '@/constants/routes';
 
-import { skills } from '../../../constants/rene';
 import PageLayout from '../PageLayout/PageLayout';
 import classes from './LandingPage.module.scss';
 
@@ -45,24 +44,10 @@ const LandingPage = () => {
       </Section>
 
       {/* Tech Stack Section */}
-      <Section gap={32} alignment="center">
-        <Typography variant="h3" component="h2">
-          {t('about.techStack')}
-        </Typography>
-        <div className={classes.techStack}>
-          {skills.map((skill, idx) => (
-            <div key={idx} className={classes.techBadge}>
-              <FontAwesomeIcon icon={skill.icon} />
-              <Typography variant="body2" component="span">
-                {skill.label}
-              </Typography>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <TechStack />
 
       {/* About Section */}
-      <Section gap={20}>
+      <Section gap={20} alignment="center">
         <Typography variant="h3" component="h2">
           {t('about.title')}
         </Typography>
