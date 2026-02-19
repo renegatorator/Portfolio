@@ -67,6 +67,24 @@
       transparent 70%
     );
     animation: wave 8s ease-in-out infinite;
+
+    @include mq('sm') {
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(0, 150, 255, 0.05) 50%,
+        transparent 70%
+      );
+    }
+
+    @include mq('xs') {
+      background: linear-gradient(
+        70deg,
+        transparent 30%,
+        rgba(0, 150, 255, 0.05) 50%,
+        transparent 70%
+      );
+    }
   }
 }
 
