@@ -4,9 +4,9 @@ import { ReactNode } from 'react';
 
 import { Route, Routes } from '@/constants/routes';
 
-import PageHead from './PageHead';
+import PageHead from './PageHead/PageHead';
 import classes from './PageLayout.module.scss';
-import StickyHeader from './StickyHeader';
+import StickyHeader from './StickyHeader/StickyHeader';
 
 interface PageLayoutProps {
   children: ReactNode;
