@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.8] - 2026-02-19
+
+### Added
+
+- **Breakpoint Utility Hook**: Created `useBreakpoint` hook that accepts breakpoint as argument and returns true if window size is at or below the specified breakpoint value
+- **Skills Section Enhancements**:
+  - Dynamic skill display on small screens (shows top 4 skills by default)
+  - "Show more" and "Show less" buttons with plus/minus icons for mobile experience
+  - New skills added: Jira, SEO, SQL, CI/CD, Headless CMS
+- **TechStack Component**: Extracted tech stack section into standalone reusable component with dedicated SCSS file
+- **Scroll-based Header Border**: Sticky header now displays border-bottom only when scrolled past 60px
+
+### Changed
+
+- **Page Layout Refactor**: Moved sticky header CSS into separate SCSS file for better organization
+- **Contact Information**: Updated email addresses
+- **Skill Icons**:
+  - Improved SEO icon (database → magnifying glass)
+  - Added CI/CD icon (gears)
+  - Added Headless CMS icon (box)
+
+### Fixed
+
+- **Responsive Gradient Animation**: Fixed gradient animation responsiveness on landing page, ensuring borders don't show on screens below 768px
+- **Responsive Design**: General responsive design improvements across the landing page
+- **TypeScript Types**: Fixed breakpoint type inference issue by defining `Breakpoint` type in theme.ts
+
 ## [1.0.7] - 2026-02-12
 
 ### Fixed

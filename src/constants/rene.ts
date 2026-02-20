@@ -9,9 +9,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faDocker } from '@fortawesome/free-brands-svg-icons';
 import {
+  faBox,
   faCode,
   faCubes,
   faDatabase,
+  faGears,
   faLayerGroup,
   faMagnifyingGlass,
   faMobileAlt,
@@ -31,13 +33,15 @@ export const skills: Skill[] = [
   { label: 'Docker', icon: faDocker },
   { label: 'Jira', icon: faJira },
   { label: 'REST API', icon: faServer },
+  { label: 'CI/CD', icon: faGears },
+  { label: 'Headless CMS', icon: faBox },
   { label: 'React', icon: faReact },
-  { label: 'Node.js', icon: faNodeJs },
   { label: 'SCSS/CSS', icon: faCubes },
   { label: 'JavaScript', icon: faJs },
-  { label: 'Material-UI', icon: faLayerGroup },
-  { label: 'Responsive Design', icon: faMobileAlt },
   { label: 'SEO', icon: faMagnifyingGlass },
-  { label: 'SQL', icon: faDatabase },
+  { label: 'Responsive Design', icon: faMobileAlt },
+  { label: 'Node.js', icon: faNodeJs },
   { label: 'GitHub', icon: faGithub },
+  { label: 'SQL', icon: faDatabase },
+  { label: 'Material-UI', icon: faLayerGroup },
 ];
