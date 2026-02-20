@@ -1,5 +1,3 @@
-import { BreakpointsOptions } from '@mui/material';
-
 export const Themes = {
   LIGHT: 'light',
   DARK: 'dark',
@@ -32,10 +30,12 @@ export const ColorTokens = {
 
 export type ColorToken = (typeof ColorTokens)[keyof typeof ColorTokens];
 
-export const breakpoints: BreakpointsOptions['values'] = {
+export const breakpoints = {
   xs: 480,
   sm: 768,
   md: 1024,
   lg: 1280,
   xl: 1440,
-};
+} as const;
+
+export type Breakpoint = keyof typeof breakpoints;
