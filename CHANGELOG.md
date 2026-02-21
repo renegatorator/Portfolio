@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.9] - 2026-02-21
+
+### Fixed
+
+- **Mobile menu**: Move missing CSS for the mobile menu to the correct file
+
 ## [1.0.8] - 2026-02-19
 
 ### Added
