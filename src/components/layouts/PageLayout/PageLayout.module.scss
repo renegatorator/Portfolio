@@ -20,7 +20,7 @@
   padding: 48px 32px 70px;
   margin: 0 auto;
 
-  @media screen and (max-width: 480px) {
+  @include mq('xs') {
     padding: 48px 16px;
   }
 

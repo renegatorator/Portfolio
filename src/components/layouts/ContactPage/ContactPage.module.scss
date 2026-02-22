@@ -19,14 +19,18 @@
   gap: 48px;
   flex: 1 1 0px;
 
-  @include mq(sm) {
+  @include mq(md) {
     flex-direction: column;
     gap: 32px;
   }
 }
 
-.socialSection {
-  width: 100%;
+.socialMedia {
   max-width: 600px;
-  min-height: 300px;
+  height: 100%;
+  justify-content: center;
+
+  @include mq(md) {
+    height: auto;
+  }
 }

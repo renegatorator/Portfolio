@@ -31,8 +31,7 @@ const ContactPage = () => {
 
       <div className={classes.content}>
         <ContactForm className={classes.contactForm} title={t('contact.formTitle')} fullWidth />
-
-        <Section alignment="center" gap={48} className={classes.socialSection}>
+        <Section alignment="center" className={classes.socialMedia}>
           <SocialMediaLinks />
         </Section>
       </div>
