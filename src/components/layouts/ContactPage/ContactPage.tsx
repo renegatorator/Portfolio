@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
+import ContactForm from '@/components/forms/ContactForm/ContactForm';
 import Section from '@/components/UI/Section/Section';
 import SocialMediaLinks from '@/components/UI/SocialMediaLinks';
 import { Routes } from '@/constants/routes';
@@ -29,10 +30,8 @@ const ContactPage = () => {
       </Section>
 
       <div className={classes.content}>
-        {/* TODO: uncomment this when the contact form is ready */}
-        {/* <ContactForm className={classes.contactForm} title={t('contact.formTitle')} fullWidth /> */}
-
-        <Section alignment="center" gap={48} className={classes.socialSection}>
+        <ContactForm className={classes.contactForm} title={t('contact.formTitle')} fullWidth />
+        <Section alignment="center" className={classes.socialMedia}>
           <SocialMediaLinks />
         </Section>
       </div>
