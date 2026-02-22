@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- **Resend Contact Delivery**: Added `api/contact/send` endpoint to send contact submissions to `info@renekrajnc.com` and send localized confirmation emails to submitters
+- **Email Templates**: Added React Email templates for inquiry and confirmation emails with branded logo presentation
+- **Contact Form Hook**: Added `useContactForm` hook to centralize submit, API request, reset, and success/error state logic
+- **Contact Email Utilities**: Added `contactEmail` utility module for locale resolution, sender formatting, public asset URL handling, and localized email copy loading
+- **Email Locale Files**: Added dedicated `public/locales/{en,sl,de}/email.json` files for email-specific translation content
+- **Form Validation Rules**: Added shared `EMAIL_PATTERN` in `src/constants/formRules.ts`
+
+### Changed
+
+- **Contact Form UX**: Replaced placeholder alert submit flow with API-backed submission and added visible success/error notifications
+- **Localization**: Added localized contact submit states (`sending`, `sendSuccess`, `sendError`) in English, Slovenian, and German
+- **Environment Configuration**: Documented Resend-related variables (`RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `RESEND_FROM_NAME`, `EMAIL_ASSET_BASE_URL`) in `.env.example` and README
+- **Dependencies**: Added `resend` and `@react-email/components`
+
+### Fixed
+
+- **Email Branding Visibility**: Improved logo readability in email clients by using a visibility-safe email logo asset
+
 ## [1.0.9] - 2026-02-21
 
 ### Fixed

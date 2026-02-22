@@ -1,0 +1,13 @@
+{
+  "contact": {
+    "emailConfirmation": {
+      "subject": "Rene Krajnc - Nachricht erhalten",
+      "preview": "Danke für Ihre Nachricht — ich melde mich in Kürze bei Ihnen.",
+      "heading": "Vielen Dank für Ihre Nachricht",
+      "greeting": "Hallo {{name}},",
+      "body": "Vielen Dank, dass Sie mich über meine Website kontaktiert haben. Ihre Nachricht ist bei mir eingegangen und ich werde mich so schnell wie möglich bei Ihnen melden.",
+      "outro": "Viele Grüße,",
+      "signature": "Rene Krajnc"
+    }
+  }
+}

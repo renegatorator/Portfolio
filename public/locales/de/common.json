@@ -47,6 +47,18 @@
     "message": "Nachricht",
     "messagePlaceholder": "Ihre Nachricht hier...",
     "send": "Senden",
+    "validation": {
+      "nameRequired": "Name ist erforderlich",
+      "emailRequired": "E-Mail ist erforderlich",
+      "emailInvalid": "E-Mail ist ungültig",
+      "messageRequired": "Nachricht ist erforderlich"
+    },
+    "captchaRequired": "Bitte schließen Sie die CAPTCHA-Prüfung ab.",
+    "captchaVerifyError": "CAPTCHA-Überprüfung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "captchaLoadError": "CAPTCHA konnte nicht geladen werden. Bitte versuchen Sie es später erneut.",
+    "sending": "Wird gesendet...",
+    "sendSuccess": "Vielen Dank für Ihre Nachricht. Wir melden uns bald bei Ihnen.",
+    "sendError": "Ihre Nachricht konnte derzeit nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "socialMedia": {
       "title": "Verbinden Sie sich mit mir",
       "description": "Folgen Sie mir in sozialen Medien für Updates zu meinen neuesten Projekten und Gedanken zur Web-Entwicklung."

@@ -1,34 +1,41 @@
 .container {
   max-width: 400px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 0;
+  background-color: var(--bg-primary);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-primary);
 
   &.fullWidth {
     max-width: 100%;
   }
 }
 
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 0;
-  background-color: var(--bg-primary) !important;
-  padding: 32px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--border-primary);
+.input {
+  background-color: var(--bg-secondary) !important;
 }
 
-.contactForm input,
-.contactForm textarea {
+.textarea {
+  background-color: var(--bg-secondary) !important;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.input input,
+.textarea textarea {
   padding: 12px;
   border: 1px solid var(--border-primary);
   border-radius: 5px;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   color: var(--text-primary);
 }
 
-.contactForm button {
+.container button {
   padding: 12px;
   background: var(--primary);
   color: var(--primary-text);
@@ -38,10 +45,19 @@
   transition: all 0.2s ease;
 }
 
-.contactForm button:hover {
+:global([data-theme='dark']) .container button {
+  color: var(--bg-primary);
+}
+
+.container button:hover {
   background: var(--primary);
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.captchaContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .messageIcon {

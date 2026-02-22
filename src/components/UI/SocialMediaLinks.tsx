@@ -63,9 +63,9 @@ const SocialMediaLinks = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={classes.socialMediaContainer}>
+    <div className={classes.container}>
       <Typography variant="h3">{t('contact.socialMedia.title')}</Typography>
-      <Typography variant="body1" component="p" className={classes.socialDescription}>
+      <Typography variant="body1" component="p">
         {t('contact.socialMedia.description')}
       </Typography>
       <div className={classes.socialLinks}>

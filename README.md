@@ -18,6 +18,14 @@
 - Full multilingual support (English, Slovenian, German)
 - Dynamic language switching with next-i18next
 - Proper hreflang tags and locale-specific meta tags for SEO
+- Separate locale files for UI copy (`common.json`) and email copy (`email.json`)
+
+### ✉️ **Contact & Email**
+
+- reCAPTCHA v3 protection on contact form submissions
+- Resend integration for transactional email delivery
+- Branded React Email templates for inquiry and confirmation emails
+- Localized confirmation emails based on submitter language
 
 ### 🎨 **Theme System**
 
@@ -69,6 +77,12 @@
 
 - [React Hook Form 7.54.2](https://react-hook-form.com/)
 - Client-side validation
+- Google reCAPTCHA v3 server-side verification
+
+### **Email Delivery**
+
+- [Resend](https://resend.com/) for sending contact and confirmation emails
+- [@react-email/components](https://react.email/docs/components) for email templates
 
 ### **Code Quality**
 
@@ -137,9 +151,9 @@ portfolio/
 │   ├── .well-known/
 │   │   └── security.txt      # Security contact info
 │   ├── locales/              # Translation files
-│   │   ├── en/
-│   │   ├── sl/
-│   │   └── de/
+│   │   ├── en/               # common.json + email.json
+│   │   ├── sl/               # common.json + email.json
+│   │   └── de/               # common.json + email.json
 │   ├── robots.txt            # Crawler instructions
 │   └── sitemap.xml           # SEO sitemap
 ├── src/
@@ -147,11 +161,12 @@ portfolio/
 │   │   ├── forms/            # Form components
 │   │   ├── layouts/          # Page layouts
 │   │   └── UI/               # Reusable UI components
+│   ├── emails/               # React Email templates
 │   ├── constants/            # App constants
 │   ├── context/              # React contexts (Theme)
-│   ├── pages/                # Next.js pages
+│   ├── pages/                # Next.js pages and API routes
 │   ├── styles/               # Global styles & mixins
-│   └── utils/                # Helper functions
+│   └── utils/                # Helper hooks and utilities
 ├── .env.example              # Environment template
 ├── next.config.ts            # Next.js configuration
 └── tsconfig.json             # TypeScript config
@@ -166,6 +181,21 @@ Create a `.env.local` file in the root directory:
 ```env
 # Site URL (used for canonical URLs and sitemaps)
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Google reCAPTCHA (Contact form)
+RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
+# Optional: reCAPTCHA v3 score threshold (defaults to 0.5 if omitted/invalid)
+RECAPTCHA_MIN_SCORE=0.5
+
+# Resend (Contact emails)
+RESEND_API_KEY=your_resend_api_key
+# Optional: sender identity (must be configured in Resend)
+RESEND_FROM_EMAIL=Rene Krajnc <onboarding@resend.dev>
+# Optional: sender display name used when RESEND_FROM_EMAIL is only an address
+RESEND_FROM_NAME=Rene Info
+# Optional: public base URL for assets in emails (do not use localhost)
+EMAIL_ASSET_BASE_URL=https://www.renekrajnc.com
 ```
 
 For production deployment on Vercel:
@@ -213,6 +243,7 @@ Built with a mobile-first approach using centralized breakpoint mixins:
 
    ```bash
    cp public/locales/en/common.json public/locales/fr/common.json
+   cp public/locales/en/email.json public/locales/fr/email.json
    ```
 
 2. Update `next-i18next.config.js`:

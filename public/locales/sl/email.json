@@ -1,0 +1,13 @@
+{
+  "contact": {
+    "emailConfirmation": {
+      "subject": "Rene Krajnc - Sporočilo prejeto",
+      "preview": "Hvala za vaše sporočilo — odgovoril vam bom kmalu.",
+      "heading": "Hvala za vaše sporočilo",
+      "greeting": "Pozdravljeni {{name}},",
+      "body": "Hvala, ker ste me kontaktirali preko moje spletne strani. Vaše sporočilo sem prejel in vam odgovorim v najkrajšem možnem času.",
+      "outro": "Lep pozdrav,",
+      "signature": "Rene Krajnc"
+    }
+  }
+}

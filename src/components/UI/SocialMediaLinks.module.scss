@@ -1,17 +1,11 @@
 @use '@/styles' as *;
 
-.socialMediaContainer {
-  margin: 32px 0;
+.container {
   text-align: center;
-
-  h3 {
-    margin-bottom: 16px;
-  }
-
-  .socialDescription {
-    margin-bottom: 24px;
-    line-height: 1.5;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
 .socialLinks {
@@ -19,6 +13,7 @@
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+  margin-top: 48px;
 
   @include mq(sm) {
     gap: 16px;
