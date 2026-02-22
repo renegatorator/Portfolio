@@ -1,0 +1,13 @@
+{
+  "contact": {
+    "emailConfirmation": {
+      "subject": "Rene Krajnc - Message received",
+      "preview": "Thanks for your message — I will get back to you soon.",
+      "heading": "Thank you for reaching out",
+      "greeting": "Hi {{name}},",
+      "body": "Thank you for contacting me through my website. I have received your message and I will get back to you as soon as possible.",
+      "outro": "Best regards,",
+      "signature": "Rene Krajnc"
+    }
+  }
+}

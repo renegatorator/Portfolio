@@ -1,22 +1,16 @@
 import { Email, Message, Person } from '@mui/icons-material';
-import { Box, Button, InputAdornment, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, InputAdornment, TextField, Typography } from '@mui/material';
 import classNames from 'classnames';
 import Script from 'next/script';
 import { useTranslation } from 'next-i18next';
-import { useForm } from 'react-hook-form';
 
+import { EMAIL_PATTERN } from '@/constants/formRules';
+import { useContactForm } from '@/utils/hooks/useContactForm';
 import { useRecaptchaV3 } from '@/utils/hooks/useRecaptchaV3';
 
 import classes from './ContactForm.module.scss';
 
 const CAPTCHA_ACTION = 'contact_form_submit';
-
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 interface ContactFormProps {
   title?: string;
   fullWidth?: boolean;
@@ -37,24 +31,11 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
     action: CAPTCHA_ACTION,
   });
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormData>();
-
-  const onSubmit = async (data: FormData) => {
-    const isCaptchaValid = await verifyCaptcha();
-    if (!isCaptchaValid) {
-      return;
-    }
-
-    // TODO: handle form submission here (e.g., send to API)
-    alert(JSON.stringify(data, null, 2));
-    reset();
-    clearCaptchaError();
-  };
+  const { errors, handleSubmit, isSubmitting, onSubmit, register, submitError, submitSuccess } =
+    useContactForm({
+      verifyCaptcha,
+      clearCaptchaError,
+    });
 
   return (
     <form
@@ -114,7 +95,7 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
               ),
             },
           }}
-          {...register('email', { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}
+          {...register('email', { required: true, pattern: EMAIL_PATTERN })}
         />
 
         <TextField
@@ -146,13 +127,25 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
           </Typography>
         )}
 
+        {!!submitError && (
+          <Alert severity="error" variant="outlined">
+            {submitError}
+          </Alert>
+        )}
+
+        {submitSuccess && (
+          <Alert severity="success" variant="outlined">
+            {t('contact.sendSuccess')}
+          </Alert>
+        )}
+
         <Button
           type="submit"
           variant="contained"
           color="primary"
           disabled={isSubmitting || !siteKey || !captchaReady}
         >
-          {t('contact.send')}
+          {isSubmitting ? t('contact.sending') : t('contact.send')}
         </Button>
       </Box>
     </form>

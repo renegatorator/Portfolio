@@ -56,6 +56,9 @@
     "captchaRequired": "Please complete the CAPTCHA challenge.",
     "captchaVerifyError": "CAPTCHA verification failed. Please try again.",
     "captchaLoadError": "Unable to load CAPTCHA. Please try again later.",
+    "sending": "Sending...",
+    "sendSuccess": "Thank you for your message. We will contact you soon.",
+    "sendError": "Unable to send your message right now. Please try again.",
     "socialMedia": {
       "title": "Connect with me",
       "description": "Follow me on social media for updates on my latest projects and thoughts on web development."
