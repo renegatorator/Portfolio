@@ -6,17 +6,23 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- **reCAPTCHA v3 Protection**: Added server-side reCAPTCHA verification endpoints and score/action validation for contact form submissions
-- **reCAPTCHA Hook**: Extracted contact form CAPTCHA logic into reusable `useRecaptchaV3` hook for cleaner component code
+- **Resend Contact Delivery**: Added `api/contact/send` endpoint to send contact submissions to `info@renekrajnc.com` and send localized confirmation emails to submitters
+- **Email Templates**: Added React Email templates for inquiry and confirmation emails with branded logo presentation
+- **Contact Form Hook**: Added `useContactForm` hook to centralize submit, API request, reset, and success/error state logic
+- **Contact Email Utilities**: Added `contactEmail` utility module for locale resolution, sender formatting, public asset URL handling, and localized email copy loading
+- **Email Locale Files**: Added dedicated `public/locales/{en,sl,de}/email.json` files for email-specific translation content
+- **Form Validation Rules**: Added shared `EMAIL_PATTERN` in `src/constants/formRules.ts`
 
 ### Changed
 
-- **CSP Configuration**: Updated Content-Security-Policy directives to allow required Google reCAPTCHA script, frame, and connect sources
-- **Environment Documentation**: Added `RECAPTCHA_SITE_KEY`, `RECAPTCHA_SECRET_KEY`, and optional `RECAPTCHA_MIN_SCORE` documentation
+- **Contact Form UX**: Replaced placeholder alert submit flow with API-backed submission and added visible success/error notifications
+- **Localization**: Added localized contact submit states (`sending`, `sendSuccess`, `sendError`) in English, Slovenian, and German
+- **Environment Configuration**: Documented Resend-related variables (`RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `RESEND_FROM_NAME`, `EMAIL_ASSET_BASE_URL`) in `.env.example` and README
+- **Dependencies**: Added `resend` and `@react-email/components`
 
 ### Fixed
 
-- **Optional Score Threshold**: `RECAPTCHA_MIN_SCORE` now safely defaults to `0.5` when omitted or invalid
+- **Email Branding Visibility**: Improved logo readability in email clients by using a visibility-safe email logo asset
 
 ## [1.0.9] - 2026-02-21
 
