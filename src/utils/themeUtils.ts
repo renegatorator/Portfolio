@@ -65,7 +65,7 @@ const getThemeAwareFallback = (token: ColorToken, isDark: boolean): string => {
     '--primary-text': '#f5f5f5',
     '--bg-primary': '#181818',
     '--bg-secondary': '#23272f',
-    '--bg-tertiary': '#2a2a2a',
+    '--bg-tertiary': '#1a1d24',
     '--text-primary': '#f5f5f5',
     '--text-secondary': '#ccc',
     '--border-primary': '#333',
