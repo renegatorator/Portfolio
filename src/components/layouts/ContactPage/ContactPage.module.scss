@@ -29,7 +29,7 @@
   max-width: 470px;
   width: 100%;
   height: 100%;
-  justify-content: center;
+  justify-content: center !important;
 
   @include mq(md) {
     height: auto;
