@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- **reCAPTCHA v3 Protection**: Added server-side reCAPTCHA verification endpoints and score/action validation for contact form submissions
+- **reCAPTCHA Hook**: Extracted contact form CAPTCHA logic into reusable `useRecaptchaV3` hook for cleaner component code
+
+### Changed
+
+- **CSP Configuration**: Updated Content-Security-Policy directives to allow required Google reCAPTCHA script, frame, and connect sources
+- **Environment Documentation**: Added `RECAPTCHA_SITE_KEY`, `RECAPTCHA_SECRET_KEY`, and optional `RECAPTCHA_MIN_SCORE` documentation
+
+### Fixed
+
+- **Optional Score Threshold**: `RECAPTCHA_MIN_SCORE` now safely defaults to `0.5` when omitted or invalid
+
 ## [1.0.9] - 2026-02-21
 
 ### Fixed

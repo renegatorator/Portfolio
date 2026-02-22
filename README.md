@@ -166,6 +166,12 @@ Create a `.env.local` file in the root directory:
 ```env
 # Site URL (used for canonical URLs and sitemaps)
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Google reCAPTCHA (Contact form)
+RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
+# Optional: reCAPTCHA v3 score threshold (defaults to 0.5 if omitted/invalid)
+RECAPTCHA_MIN_SCORE=0.5
 ```
 
 For production deployment on Vercel:

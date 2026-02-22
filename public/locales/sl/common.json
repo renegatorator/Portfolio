@@ -47,6 +47,15 @@
     "message": "Sporočilo",
     "messagePlaceholder": "Vaše sporočilo tukaj...",
     "send": "Pošlji",
+    "validation": {
+      "nameRequired": "Ime je obvezno",
+      "emailRequired": "E-pošta je obvezna",
+      "emailInvalid": "E-pošta ni veljavna",
+      "messageRequired": "Sporočilo je obvezno"
+    },
+    "captchaRequired": "Prosim, dokončajte CAPTCHA preverjanje.",
+    "captchaVerifyError": "CAPTCHA preverjanje ni uspelo. Poskusite znova.",
+    "captchaLoadError": "CAPTCHA ni bilo mogoče naložiti. Poskusite znova kasneje.",
     "socialMedia": {
       "title": "Povežite se z mano",
       "description": "Sledite mi na družbenih omrežjih za posodobitve mojih najnovejših projektov in misli o spletnem razvoju."
