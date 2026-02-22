@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.1.1]
+
+### Fixed
+
+- **Social Media Section**: Fixes vertical alignment
+
+## [1.1.0]
+
 ### Added
 
 - **Resend Contact Delivery**: Added `api/contact/send` endpoint to send contact submissions to `info@renekrajnc.com` and send localized confirmation emails to submitters
