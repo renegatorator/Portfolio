@@ -38,6 +38,17 @@ export const useRecaptchaV3 = ({ action }: UseRecaptchaV3Options) => {
     void fetchSiteKey();
   }, []);
 
+  useEffect(() => {
+    if (!siteKey) {
+      return;
+    }
+
+    if (window.grecaptcha) {
+      setCaptchaReady(true);
+      setCaptchaErrorType(null);
+    }
+  }, [siteKey]);
+
   const handleScriptLoad = () => {
     setCaptchaReady(true);
   };

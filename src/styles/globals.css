@@ -96,6 +96,16 @@ a {
   text-decoration: none;
 }
 
+.grecaptcha-badge {
+  visibility: hidden !important;
+  pointer-events: none;
+}
+
+body.show-recaptcha-badge .grecaptcha-badge {
+  visibility: visible !important;
+  pointer-events: auto;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
