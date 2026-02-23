@@ -1,6 +1,8 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { EmailAddresses } from '@/constants/rene';
+
 export type Locale = 'en' | 'sl' | 'de';
 
 export type EmailConfirmationCopy = {
@@ -94,11 +96,10 @@ export const getEmailAssetBaseUrl = () => {
 
 export const getFromAddress = () => {
   const fallbackName = process.env.RESEND_FROM_NAME || 'Rene Info';
-  const fallbackEmail = 'info@renekrajnc.com';
   const configuredFrom = process.env.RESEND_FROM_EMAIL?.trim();
 
   if (!configuredFrom) {
-    return `${fallbackName} <${fallbackEmail}>`;
+    return `${fallbackName} <${EmailAddresses.INFO}>`;
   }
 
   if (configuredFrom.includes('<') && configuredFrom.includes('>')) {

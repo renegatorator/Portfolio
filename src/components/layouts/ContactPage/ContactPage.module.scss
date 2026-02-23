@@ -2,6 +2,16 @@
 
 .header {
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  padding-bottom: 24px;
+  max-width: 600px;
+
+  @include mq(md) {
+    padding-bottom: 0;
+  }
 }
 
 .description {
@@ -21,6 +31,9 @@
 
   @include mq(md) {
     flex-direction: column;
+  }
+
+  @include mq(xs) {
     gap: 32px;
   }
 }
@@ -32,6 +45,7 @@
   justify-content: center !important;
 
   @include mq(md) {
+    max-width: 600px;
     height: auto;
   }
 }

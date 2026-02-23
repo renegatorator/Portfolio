@@ -14,7 +14,7 @@
     padding: 32px 0;
   }
 
-  @include mq('sm') {
+  @include mq(sm) {
     padding: 32px 16px;
   }
 }
@@ -68,7 +68,7 @@
     );
     animation: wave 8s ease-in-out infinite;
 
-    @include mq('sm') {
+    @include mq(sm) {
       background: linear-gradient(
         60deg,
         transparent 30%,
@@ -77,7 +77,7 @@
       );
     }
 
-    @include mq('xs') {
+    @include mq(xs) {
       background: linear-gradient(
         70deg,
         transparent 30%,
