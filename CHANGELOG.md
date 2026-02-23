@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- **Centralized Email Constants**: Added `EmailAddresses` and `EmailAddress` in `src/constants/rene.ts` for reusable address references
+
+### Changed
+
+- **Contact Email Routing**: Updated contact send API and email utility fallback logic to use centralized `EmailAddresses` constants
+- **Social Links Email Address**: Updated social media email link to use centralized email constants instead of hardcoded mailto
+- **Contact Page Layout**: Refined header/content spacing and responsiveness in contact page and page layout styles
+- **Contact Form Styling**: Improved responsive input/textarea spacing and full-width form sizing behavior
+- **SCSS Breakpoint Consistency**: Normalized mixin usage in section and page layout styles
+
+### Fixed
+
+- **Security Contact Address**: Updated `.well-known/security.txt` contact email to `security@renekrajnc.com`
+
 ## [1.1.1]
 
 ### Fixed

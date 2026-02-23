@@ -45,3 +45,12 @@ export const skills: Skill[] = [
   { label: 'SQL', icon: faDatabase },
   { label: 'Material-UI', icon: faLayerGroup },
 ];
+
+export const EmailAddresses = {
+  INFO: 'info@renekrajnc.com',
+  ADMIN: 'admin@renekrajnc.com',
+  NOREPLY: 'noreply@renekrajnc.com',
+  RENE: 'rene@renekrajnc.com',
+} as const;
+
+export type EmailAddress = (typeof EmailAddresses)[keyof typeof EmailAddresses];
