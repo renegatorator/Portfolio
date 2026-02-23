@@ -3,6 +3,7 @@ import { Alert, Box, Button, InputAdornment, TextField, Typography } from '@mui/
 import classNames from 'classnames';
 import Script from 'next/script';
 import { useTranslation } from 'next-i18next';
+import { useEffect } from 'react';
 
 import { EMAIL_PATTERN } from '@/constants/formRules';
 import { useContactForm } from '@/utils/hooks/useContactForm';
@@ -31,6 +32,14 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
     action: CAPTCHA_ACTION,
   });
 
+  useEffect(() => {
+    document.body.classList.add('show-recaptcha-badge');
+
+    return () => {
+      document.body.classList.remove('show-recaptcha-badge');
+    };
+  }, []);
+
   const { errors, handleSubmit, isSubmitting, onSubmit, register, submitError, submitSuccess } =
     useContactForm({
       verifyCaptcha,
@@ -47,6 +56,7 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
           src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
           strategy="afterInteractive"
           onLoad={handleScriptLoad}
+          onReady={handleScriptLoad}
           onError={handleScriptError}
         />
       )}

@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.1.4]
+
+### Fixed
+
+- **Contact reCAPTCHA Lifecycle**: Fixed reCAPTCHA badge visibility and readiness state when navigating between landing and contact pages, preventing a stuck disabled submit button on return
+
+## [1.1.3]
+
 ### Added
 
 - **Centralized Email Constants**: Added `EmailAddresses` and `EmailAddress` in `src/constants/rene.ts` for reusable address references
@@ -19,6 +27,12 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 
 - **Security Contact Address**: Updated `.well-known/security.txt` contact email to `security@renekrajnc.com`
+
+## [1.1.2]
+
+### Changed
+
+- **App Version**: update app version
 
 ## [1.1.1]
 
