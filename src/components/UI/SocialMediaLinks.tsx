@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
+import { EmailAddresses } from '@/constants/rene';
+
 import classes from './SocialMediaLinks.module.scss';
 
 interface SocialMediaLink {
@@ -35,7 +37,7 @@ const socialLinks: SocialMediaLink[] = [
   },
   {
     name: 'Email',
-    url: 'mailto:renekrajnc@hotmail.com',
+    url: `mailto:${EmailAddresses.RENE}`,
     icon: faEnvelope,
     color: '#999',
   },

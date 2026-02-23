@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Resend } from 'resend';
 
+import { EmailAddresses } from '@/constants/rene';
 import ContactConfirmationEmail from '@/emails/ContactConfirmationEmail';
 import ContactInquiryEmail from '@/emails/ContactInquiryEmail';
 import {
@@ -64,7 +65,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<SendContactResp
   try {
     await resend.emails.send({
       from,
-      to: ['info@renekrajnc.com'],
+      to: [EmailAddresses.INFO],
       subject: `New contact form message from ${safeName}`,
       replyTo: safeEmail,
       react: ContactInquiryEmail({
@@ -79,7 +80,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<SendContactResp
       from,
       to: [safeEmail],
       subject: confirmationCopy.subject,
-      replyTo: 'info@renekrajnc.com',
+      replyTo: EmailAddresses.INFO,
       react: ContactConfirmationEmail({
         body: confirmationCopy.body,
         greeting: confirmationCopy.greeting,

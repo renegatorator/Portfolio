@@ -14,20 +14,14 @@ const ContactPage = () => {
 
   return (
     <PageLayout route={Routes.CONTACT}>
-      <Section
-        alignment="center"
-        gap={24}
-        className={classes.header}
-        background="transparent"
-        noPadding
-      >
+      <section className={classes.header}>
         <Typography variant="h1" className={classes.title}>
           {t('contact.title')}
         </Typography>
         <Typography variant="body1" component="p" className={classes.description}>
           {t('contact.description')}
         </Typography>
-      </Section>
+      </section>
 
       <div className={classes.content}>
         <ContactForm className={classes.contactForm} title={t('contact.formTitle')} fullWidth />

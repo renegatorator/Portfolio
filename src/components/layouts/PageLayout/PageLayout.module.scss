@@ -5,7 +5,7 @@
   font-family: 'Segoe UI', Arial, sans-serif;
   background: var(--bg-secondary);
   color: var(--text-primary);
-  padding-top: 90px;
+  padding-top: 64px;
   display: flex;
   flex-direction: column;
 }
@@ -18,10 +18,10 @@
   gap: 40px;
   max-width: 1200px;
   width: 100%;
-  padding: 48px 32px 70px;
+  padding: 64px 32px 70px;
   margin: 0 auto;
 
-  @include mq('xs') {
+  @include mq(xs) {
     padding: 48px 16px;
   }
 
