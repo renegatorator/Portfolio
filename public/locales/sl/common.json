@@ -1,6 +1,5 @@
 {
   "title": "Rene Krajnc | Programski inženir",
-  "name": "Rene Krajnc",
   "role": "Programski inženir",
   "tagline": "Razvoj skalabilnih, visoko zmogljivih spletnih aplikacij z <highlight>Next.js</highlight>",
   "availability": "Na voljo za pogodbene in svobodne projekte",
@@ -43,6 +42,7 @@
   "contact": {
     "title": "Kontakt",
     "description": "Vedno sem odprt za razpravljanje o novih priložnostih, zanimivih projektih ali preprosto za pogovor o tehnologiji in razvoju. Povežite se z mano na družbenih omrežjih ali mi pošljite elektronsko pošto.",
+    "name": "Ime in priimek",
     "email": "E-pošta",
     "message": "Sporočilo",
     "messagePlaceholder": "Vaše sporočilo tukaj...",

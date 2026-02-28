@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.1.5]
+
+### Changed
+
+- **Contact Emails**: Reduce logo size in email templates to make it load faster
+
+### Fixed
+
+- **Contact Form**: Fixed label of name field,
+
 ## [1.1.4]
 
 ### Fixed
