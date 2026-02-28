@@ -64,7 +64,7 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
       {!!title && <Typography variant="h3">{title}</Typography>}
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         <TextField
-          label={t('name')}
+          label={t('contact.name')}
           placeholder="John Doe"
           fullWidth
           error={!!errors.name}

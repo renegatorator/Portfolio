@@ -4,6 +4,7 @@ import { Trans, useTranslation } from 'next-i18next';
 
 import Section from '@/components/UI/Section/Section';
 import TechStack from '@/components/UI/TechStack/TechStack';
+import { reneKrajnc } from '@/constants/rene';
 import { Routes } from '@/constants/routes';
 
 import PageLayout from '../PageLayout/PageLayout';
@@ -18,13 +19,13 @@ const LandingPage = () => {
       <Section alignment="center" background="gradient" shadow="large" gap={20}>
         <Image
           src="/images/rene-profile.jpg"
-          alt="Rene Krajnc"
+          alt={reneKrajnc}
           width={120}
           height={120}
           className={classes.avatar}
         />
         <Typography variant="h1" component="h1">
-          {t('name')}
+          {reneKrajnc}
         </Typography>
         <Typography variant="h4" component="h2">
           {t('role')}

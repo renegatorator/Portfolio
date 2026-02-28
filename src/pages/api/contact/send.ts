@@ -58,7 +58,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<SendContactResp
   const confirmationCopy = await getEmailConfirmationCopy(resolvedLocale);
   const resend = new Resend(apiKey);
 
-  const logoUrl = `${getEmailAssetBaseUrl()}/images/logo/logo-full-dark.png`;
+  const logoUrl = `${getEmailAssetBaseUrl()}/images/logo/logo-full-email.png`;
 
   const from = getFromAddress();
 
