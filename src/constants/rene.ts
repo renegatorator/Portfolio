@@ -54,3 +54,5 @@ export const EmailAddresses = {
 } as const;
 
 export type EmailAddress = (typeof EmailAddresses)[keyof typeof EmailAddresses];
+
+export const reneKrajnc = 'Rene Krajnc';

@@ -1,6 +1,5 @@
 {
   "title": "Rene Krajnc | Software Engineer",
-  "name": "Rene Krajnc",
   "role": "Software Engineer",
   "tagline": "Entwicklung skalierbarer, hochperformanter Webanwendungen mit <highlight>Next.js</highlight>",
   "availability": "Verfügbar für Vertrags- & Freelance-Projekte",
@@ -43,6 +42,7 @@
   "contact": {
     "title": "Kontakt",
     "description": "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach nur für ein Gespräch über Technologie und Entwicklung. Fühlen Sie sich frei, sich über Email zu melden oder mich in sozialen Medien zu kontaktieren.",
+    "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
     "messagePlaceholder": "Ihre Nachricht hier...",
