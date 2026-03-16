@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material';
+
 import classes from './StatCard.module.scss';
 
 interface StatCardProps {
@@ -7,14 +8,16 @@ interface StatCardProps {
 }
 
 const StatCard = ({ title, description }: StatCardProps) => {
-    return <div className={classes.container}>
-          <Typography variant="h2" component="p" className={classes.statValue}>
-            {title}
-          </Typography>
-          <Typography variant="body2" component="p" className={classes.statLabel}>
-            {description}
-          </Typography>
-        </div>
-}
+  return (
+    <div className={classes.container}>
+      <Typography variant="h2" component="p" className={classes.statValue}>
+        {title}
+      </Typography>
+      <Typography variant="body2" component="p" className={classes.statLabel}>
+        {description}
+      </Typography>
+    </div>
+  );
+};
 
 export default StatCard;
