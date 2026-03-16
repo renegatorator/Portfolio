@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 
 import IconCard, { IconCardProps } from '@/components/UI/IconCard/IconCard';
 import ProgressBar from '@/components/UI/ProgressBar';
+import Reveal from '@/components/UI/Reveal/Reveal';
 import Section from '@/components/UI/Section/Section';
 import { MaintenanceReason } from '@/constants/maintenance';
 import { Routes } from '@/constants/routes';
@@ -36,24 +37,36 @@ const ComingSoonPage = ({ maintenanceReasons }: ComingSoonPageProps) => {
 
   return (
     <PageLayout route={Routes.PROJECTS}>
-      <Section alignment="center" gap={32}>
-        <div className={classes.icons}>
-          <FontAwesomeIcon icon={faHammer} className={classes.mainIcon} />
-          <FontAwesomeIcon icon={faWrench} className={classes.secondaryIcon} />
-        </div>
-        <Typography variant="h1">{t('comingSoon.title')}</Typography>
-        <Typography variant="body1" className={classes.description}>
-          {t('comingSoon.description')}
-        </Typography>
-        <div className={classes.reasons}>
-          {maintenanceReasons?.map((reason, idx) => (
-            <IconCard key={idx} {...reasonsMap[reason]} />
-          ))}
-        </div>
-        <ProgressBar progress={60} animated />
-        <Typography variant="caption" component="p" className={classes.progressText}>
-          {t('comingSoon.progress')}
-        </Typography>
+      <Section alignment="center" gap={32} className={classes.content}>
+        <Reveal>
+          <div className={classes.icons}>
+            <FontAwesomeIcon icon={faHammer} className={classes.mainIcon} />
+            <FontAwesomeIcon icon={faWrench} className={classes.secondaryIcon} />
+          </div>
+        </Reveal>
+        <Reveal delayMs={80}>
+          <Typography variant="h1">{t('comingSoon.title')}</Typography>
+        </Reveal>
+        <Reveal delayMs={160}>
+          <Typography variant="body1" className={classes.description}>
+            {t('comingSoon.description')}
+          </Typography>
+        </Reveal>
+        <Reveal delayMs={240}>
+          <div className={classes.reasons}>
+            {maintenanceReasons?.map((reason, idx) => (
+              <IconCard key={idx} {...reasonsMap[reason]} />
+            ))}
+          </div>
+        </Reveal>
+        <Reveal delayMs={320}>
+          <ProgressBar progress={60} animated />
+        </Reveal>
+        <Reveal delayMs={380}>
+          <Typography variant="caption" component="p" className={classes.progressText}>
+            {t('comingSoon.progress')}
+          </Typography>
+        </Reveal>
       </Section>
     </PageLayout>
   );
