@@ -1,5 +1,13 @@
 @use '@/styles' as *;
 
+.content {
+  max-width: 640px;
+
+  > div {
+    width: 100%;
+  }
+}
+
 .icons {
   position: relative;
   display: inline-flex;
