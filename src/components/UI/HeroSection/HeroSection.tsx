@@ -11,10 +11,23 @@ import { reneKrajnc } from '@/constants/rene';
 import { Routes } from '@/constants/routes';
 
 import classes from './HeroSection.module.scss';
+import { useMemo } from 'react';
+import StatCard from '../StatCard/StatCard';
 
 const HeroSection = () => {
   const { t } = useTranslation();
   const router = useRouter();
+
+  const statCards = useMemo(() => ([{
+    title: t('hero.stats.experience.value'),
+    description: t('hero.stats.experience.label'),
+  }, {
+    title: t('hero.stats.seniority.value'),
+    description: t('hero.stats.seniority.label'),
+  }, {
+    title: t('hero.stats.specialization.value'),
+    description: t('hero.stats.specialization.label'),
+  }]), [t]);
 
   return (
     <Section alignment="center" background="default" shadow="large" gap={24} className={classes.heroSection}>
@@ -96,30 +109,9 @@ const HeroSection = () => {
       </div>
 
       <Reveal delayMs={340} className={classes.heroStats}>
-        <div className={classes.statCard}>
-          <Typography variant="h2" component="p" className={classes.statValue}>
-            {t('hero.stats.experience.value')}
-          </Typography>
-          <Typography variant="body2" component="p" className={classes.statLabel}>
-            {t('hero.stats.experience.label')}
-          </Typography>
-        </div>
-        <div className={classes.statCard}>
-          <Typography variant="h2" component="p" className={classes.statValue}>
-            {t('hero.stats.seniority.value')}
-          </Typography>
-          <Typography variant="body2" component="p" className={classes.statLabel}>
-            {t('hero.stats.seniority.label')}
-          </Typography>
-        </div>
-        <div className={classes.statCard}>
-          <Typography variant="h2" component="p" className={classes.statValue}>
-            {t('hero.stats.specialization.value')}
-          </Typography>
-          <Typography variant="body2" component="p" className={classes.statLabel}>
-            {t('hero.stats.specialization.label')}
-          </Typography>
-        </div>
+        {statCards.map((card, idx) => (
+            <StatCard key={idx} {...card} />
+        ))}
       </Reveal>
     </Section>
   );
