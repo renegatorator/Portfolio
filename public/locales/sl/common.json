@@ -1,8 +1,28 @@
 {
-  "title": "Rene Krajnc | Programski inženir",
-  "role": "Programski inženir",
-  "tagline": "Razvoj skalabilnih, visoko zmogljivih spletnih aplikacij z <highlight>Next.js</highlight>",
-  "availability": "Na voljo za pogodbene in svobodne projekte",
+  "title": "Rene Krajnc | Frontend razvijalec",
+  "role": "Frontend razvijalec",
+  "tagline": "Pomagam ekipam dostaviti dovršene produkte z <highlight>React</highlight>, <highlight>Next.js</highlight> in <highlight>TypeScript</highlight>.",
+  "availability": "Na voljo za pogodbeno in freelance sodelovanje",
+  "hero": {
+    "cta": {
+      "contact": "Kontaktiraj me",
+      "projects": "Poglej projekte"
+    },
+    "stats": {
+      "experience": {
+        "value": "6+",
+        "label": "Let izkušenj"
+      },
+      "seniority": {
+        "value": "Senior",
+        "label": "Frontend nivo"
+      },
+      "specialization": {
+        "value": "B2B SaaS",
+        "label": "Produktni fokus"
+      }
+    }
+  },
   "nav": {
     "about": "O meni",
     "projects": "Projekti",
@@ -14,12 +34,12 @@
     "switchToDark": "Temna tema"
   },
   "landingPage": {
-    "title": "Rene Krajnc | Programski inženir",
-    "description": "Rene Krajnc - Predstavitvena stran programskega inženirja s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih razvojnih tehnologijah."
+    "title": "Rene Krajnc | Frontend razvijalec",
+    "description": "Rene Krajnc - Portal frontend razvijalca s predstavitvijo projektov, spretnosti in izkušenj v sodobnih spletnih tehnologijah."
   },
   "about": {
     "title": "O meni",
-    "headline": "Programski inženir, specializiran za frontend spletne tehnologije",
+    "headline": "Frontend razvijalec, specializiran za React, Next.js in TypeScript",
     "description": "Razvijam produkcijsko pripravljene spletne aplikacije z React, Next.js in TypeScript. Z izkušnjami v celotnem razvojnem ciklu dostavljam čisto, vzdržljivo kodo in natančne implementacije. Moja vojaška preteklost mi je vcepila močno disciplino, spretnosti reševanja problemov in sposobnost uspevanja v hitro razvijajočih se okoljih.",
     "techStack": "Tech Stack",
     "skills": "Spretnosti",
@@ -27,6 +47,20 @@
       "experience": "Produkcijske izkušnje",
       "specialization": "Frontend specialist",
       "methodology": "Agilne & Moderne prakse"
+    },
+    "cards": {
+      "frontendMastery": {
+        "title": "Frontend mojstrstvo",
+        "description": "Gradim hitre in dostopne vmesnike s čisto arhitekturo in močnimi komponentami."
+      },
+      "mobileReady": {
+        "title": "Pripravljeno za mobile",
+        "description": "Odzivne postavitve, prilagojene napravam, ki delujejo naravno na telefonu, tablici in namizju."
+      },
+      "designDriven": {
+        "title": "Voden z dizajnom",
+        "description": "Ideje produkta pretvorim v jasen vizualni sistem z dobrim občutkom za hierarhijo, razmike in gibanje."
+      }
     }
   },
   "projects": {
@@ -80,7 +114,7 @@
     "progress": "Razvoj v Teku",
     "seo": {
       "title": "Prihaja kmalu | Rene Krajnc",
-      "description": "Kmalu na voljo - Rene Krajnc - Programski inženir"
+      "description": "Kmalu na voljo - Rene Krajnc - Frontend razvijalec"
     }
   },
   "footer": "© {{year}} Rene Krajnc. Vse pravice pridržane.",

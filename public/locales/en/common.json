@@ -1,8 +1,28 @@
 {
-  "title": "Rene Krajnc | Software Engineer",
-  "role": "Software Engineer",
-  "tagline": "Building scalable, high-performance web applications with <highlight>Next.js</highlight>",
+  "title": "Rene Krajnc | Frontend Developer",
+  "role": "Frontend Developer",
+  "tagline": "I help teams ship polished products with <highlight>React</highlight>, <highlight>Next.js</highlight>, and <highlight>TypeScript</highlight>.",
   "availability": "Available for Contract & Freelance Projects",
+  "hero": {
+    "cta": {
+      "contact": "Get in Touch",
+      "projects": "View Projects"
+    },
+    "stats": {
+      "experience": {
+        "value": "6+",
+        "label": "Years Experience"
+      },
+      "seniority": {
+        "value": "Senior",
+        "label": "Frontend Level"
+      },
+      "specialization": {
+        "value": "B2B SaaS",
+        "label": "Product Focus"
+      }
+    }
+  },
   "nav": {
     "about": "About",
     "projects": "Projects",
@@ -14,12 +34,12 @@
     "switchToDark": "Dark theme"
   },
   "landingPage": {
-    "title": "Rene Krajnc | Software Engineer",
-    "description": "Rene Krajnc - Software Engineer Portfolio showcasing projects, skills, and experience in modern web development technologies."
+    "title": "Rene Krajnc | Frontend Developer",
+    "description": "Rene Krajnc - Frontend Developer portfolio showcasing projects, skills, and experience with modern web technologies."
   },
   "about": {
     "title": "About Me",
-    "headline": "Software Engineer specializing in frontend web technologies",
+    "headline": "Frontend Developer specializing in modern web interfaces",
     "description": "I build production-ready web applications using React, Next.js, and TypeScript. With experience across the full development lifecycle, I deliver clean, maintainable code and pixel-perfect implementations. My background transitioning from military service has instilled strong discipline, problem-solving skills, and the ability to thrive in fast-paced environments.",
     "techStack": "Tech Stack",
     "skills": "Skills",
@@ -27,6 +47,20 @@
       "experience": "Production Experience",
       "specialization": "Frontend Specialist",
       "methodology": "Agile & Modern Practices"
+    },
+    "cards": {
+      "frontendMastery": {
+        "title": "Frontend Mastery",
+        "description": "Building fast, accessible interfaces with clean architecture and maintainable component systems."
+      },
+      "mobileReady": {
+        "title": "Mobile Ready",
+        "description": "Responsive, device-aware layouts that feel natural on phones, tablets, and desktop screens."
+      },
+      "designDriven": {
+        "title": "Design Driven",
+        "description": "Translating product ideas into clear visual systems with attention to hierarchy, spacing, and motion."
+      }
     }
   },
   "projects": {
@@ -84,7 +118,7 @@
     },
     "seo": {
       "title": "Coming Soon | Rene Krajnc",
-      "description": "Coming Soon - Rene Krajnc - Software Engineer"
+      "description": "Coming Soon - Rene Krajnc - Frontend Developer"
     }
   },
   "fishing": {
