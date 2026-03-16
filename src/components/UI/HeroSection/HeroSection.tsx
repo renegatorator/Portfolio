@@ -14,6 +14,14 @@ import { Routes } from '@/constants/routes';
 import StatCard from '../StatCard/StatCard';
 import classes from './HeroSection.module.scss';
 
+const ctaButtonSx = {
+  borderRadius: '999px',
+  px: 3,
+  py: 1.15,
+  fontWeight: 700,
+  textTransform: 'none',
+};
+
 const HeroSection = () => {
   const { t } = useTranslation();
   const router = useRouter();
@@ -90,13 +98,7 @@ const HeroSection = () => {
                 variant="contained"
                 endIcon={<ArrowOutwardIcon />}
                 className={classes.primaryCta}
-                sx={{
-                  borderRadius: '999px',
-                  px: 3,
-                  py: 1.15,
-                  fontWeight: 700,
-                  textTransform: 'none',
-                }}
+                sx={ctaButtonSx}
               >
                 {t('hero.cta.contact')}
               </Button>
@@ -106,13 +108,7 @@ const HeroSection = () => {
                 variant="outlined"
                 endIcon={<ArrowOutwardIcon />}
                 className={classes.secondaryCta}
-                sx={{
-                  borderRadius: '999px',
-                  px: 3,
-                  py: 1.15,
-                  fontWeight: 700,
-                  textTransform: 'none',
-                }}
+                sx={ctaButtonSx}
               >
                 {t('hero.cta.projects')}
               </Button>
