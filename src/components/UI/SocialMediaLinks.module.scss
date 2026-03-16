@@ -8,12 +8,23 @@
   gap: 24px;
 }
 
+.compact {
+  width: 100%;
+  align-items: flex-start;
+  gap: 0;
+
+  .socialLinks {
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+}
+
 .socialLinks {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-top: 48px;
+  margin-top: 18px;
 
   @include mq(md) {
     margin-top: 0;
@@ -28,19 +39,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background: var(--bg-secondary);
+  background: color-mix(in srgb, var(--bg-primary) 88%, var(--bg-secondary));
   color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
-  font-size: 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-primary));
+  font-size: 18px;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
     border-color: var(--social-color);
     color: var(--social-color);
   }
@@ -53,17 +64,16 @@
   @include mq(sm) {
     width: 40px;
     height: 40px;
-    font-size: 1rem;
+    font-size: 14px;
   }
 }
 
-// Dark theme adjustments
-@media (prefers-color-scheme: dark) {
+[data-theme='dark'] {
   .socialLink {
-    background: var(--bg-secondary);
+    background: color-mix(in srgb, #0f1724 78%, transparent);
 
     &:hover {
-      background: var(--bg-primary);
+      background: color-mix(in srgb, #111d30 82%, transparent);
     }
   }
 }

@@ -16,6 +16,10 @@ interface SocialMediaLink {
   color: string;
 }
 
+interface SocialMediaLinksProps {
+  compact?: boolean;
+}
+
 const socialLinks: SocialMediaLink[] = [
   {
     name: 'GitHub',
@@ -61,15 +65,17 @@ const socialLinks: SocialMediaLink[] = [
   },*/
 ];
 
-const SocialMediaLinks = () => {
+const SocialMediaLinks = ({ compact = false }: SocialMediaLinksProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classes.container}>
-      <Typography variant="h3">{t('contact.socialMedia.title')}</Typography>
-      <Typography variant="body1" component="p">
-        {t('contact.socialMedia.description')}
-      </Typography>
+    <div className={`${classes.container} ${compact ? classes.compact : ''}`}>
+      {!compact && <Typography variant="h3">{t('contact.socialMedia.title')}</Typography>}
+      {!compact && (
+        <Typography variant="body1" component="p">
+          {t('contact.socialMedia.description')}
+        </Typography>
+      )}
       <div className={classes.socialLinks}>
         {socialLinks.map((link) => (
           <a
