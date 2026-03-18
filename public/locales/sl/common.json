@@ -2,7 +2,8 @@
   "title": "Rene Krajnc | Frontend razvijalec",
   "role": "Frontend razvijalec",
   "tagline": "Pomagam ekipam dostaviti dovršene produkte z <highlight>React</highlight>, <highlight>Next.js</highlight> in <highlight>TypeScript</highlight>.",
-  "availability": "Na voljo za pogodbeno in freelance sodelovanje",
+  "availability": "Na voljo za pogodbeno sodelovanje",
+  "availabilityShort": "Na voljo za sodelovanje",
   "hero": {
     "cta": {
       "contact": "Kontaktiraj me",

@@ -28,6 +28,10 @@
     animation: drift 16s ease-in-out infinite;
     pointer-events: none;
   }
+
+  @include mq(md) {
+    padding: 30px 20px;
+  }
 }
 
 .header {
@@ -42,42 +46,33 @@
   text-align: center;
 }
 
-.availableBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border-primary);
-  background: color-mix(in srgb, var(--bg-primary) 90%, transparent);
-  padding: 8px 16px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.availableDot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #18c173;
-  box-shadow: 0 0 10px rgba(24, 193, 115, 0.8);
-  animation: pulse 2.4s ease-in-out infinite;
-}
-
 .description {
   max-width: 700px;
   line-height: 1.7;
   color: var(--text-secondary);
+
+  @include mq(md) {
+    max-width: 100%;
+  }
 }
 
 .content {
   position: relative;
   z-index: 1;
   margin-top: 34px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
-  gap: 22px;
+  display: flex;
+  gap: 24px;
   align-items: stretch;
+
+  @include mq(md) {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  > div {
+    max-width: 600px;
+  }
 }
 
 .formReveal,
@@ -102,6 +97,12 @@
   display: flex;
   flex-direction: column;
   gap: 22px;
+  min-width: 400px;
+
+  @include mq(xs) {
+    align-items: center;
+    min-width: unset;
+  }
 }
 
 .profileBlock {
@@ -113,6 +114,18 @@
   display: flex;
   align-items: center;
   gap: 16px;
+
+  @include mq(md) {
+    // justify-content: flex-start;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  @include mq(xs) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .profileImage {
@@ -121,26 +134,23 @@
   object-fit: cover;
   object-position: center top;
   animation: float 5.4s ease-in-out infinite;
+
+  @include mq(xs) {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+  }
 }
 
 .profileCopy {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-width: 400px;
 
   p {
     color: var(--text-secondary);
     line-height: 1.65;
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.14);
   }
 }
 
@@ -166,8 +176,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .contactShell::before,
-  .profileImage,
-  .availableDot {
+  .profileImage {
     animation: none;
   }
 }
@@ -185,38 +194,5 @@
 [data-theme='dark'] {
   .contactShell {
     box-shadow: 0 24px 42px rgba(2, 8, 18, 0.44);
-  }
-}
-
-@include mq(md) {
-  .contactShell {
-    padding: 30px 20px;
-  }
-
-  .content {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .header {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .description {
-    max-width: 100%;
-  }
-}
-
-@include mq(xs) {
-  .profileBlock {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .profileImage {
-    width: 100%;
-    max-width: 160px;
-    height: auto;
   }
 }
