@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { Trans, useTranslation } from 'next-i18next';
 import { useMemo } from 'react';
 
+import AvailabilityChip from '@/components/UI/AvailabilityChip/AvailabilityChip';
 import Reveal from '@/components/UI/Reveal/Reveal';
 import Section from '@/components/UI/Section/Section';
 import { reneKrajnc } from '@/constants/rene';
@@ -65,11 +66,8 @@ const HeroSection = () => {
         </Reveal>
 
         <div className={classes.heroContent}>
-          <Reveal className={classes.heroAvailability}>
-            <span className={classes.availabilityDot} />
-            <Typography variant="caption" component="p">
-              {t('availability')}
-            </Typography>
+          <Reveal>
+            <AvailabilityChip />
           </Reveal>
 
           <Reveal delayMs={100}>

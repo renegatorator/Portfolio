@@ -1,0 +1,64 @@
+@use '@/styles' as *;
+
+.chip {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-primary);
+  background: color-mix(in srgb, var(--bg-primary) 90%, transparent);
+  padding: 8px 16px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.label {
+  @include mq(sm) {
+    font-size: 12px !important;
+  }
+
+  .short {
+    display: none;
+  }
+
+  @include mq(xs) {
+    .full {
+      display: none;
+    }
+    .short {
+      display: inline;
+    }
+  }
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #18c173;
+  box-shadow: 0 0 10px rgba(24, 193, 115, 0.8);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+}
+
+@include mq(xs) {
+  .chip {
+    font-size: 10px;
+  }
+}

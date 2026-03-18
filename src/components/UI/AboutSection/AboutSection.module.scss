@@ -25,6 +25,10 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+
+  @include mq(md) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .aboutCard {
@@ -56,6 +60,10 @@
   background:
     radial-gradient(circle at 18% 22%, rgba(0, 112, 243, 0.25) 0%, transparent 40%),
     var(--bg-tertiary);
+
+  @include mq(md) {
+    height: 170px;
+  }
 }
 
 .aboutCardContent {
@@ -127,6 +135,10 @@
   height: 78px;
   left: 36px;
   bottom: 40px;
+
+  @include mq(sm) {
+    left: 14px;
+  }
 }
 
 .deviceTablet {
@@ -135,6 +147,10 @@
   left: 172px;
   bottom: 31px;
   animation: floatY 4.2s ease-in-out infinite;
+
+  @include mq(sm) {
+    left: 146px;
+  }
 }
 
 .devicePhone {
@@ -144,6 +160,10 @@
   bottom: 44px;
   border-radius: 10px;
   animation: floatY 4.2s ease-in-out 0.35s infinite;
+
+  @include mq(sm) {
+    left: 218px;
+  }
 }
 
 .deviceDot {
@@ -266,29 +286,5 @@
 [data-theme='dark'] {
   .aboutCard {
     box-shadow: 0 18px 30px rgba(0, 0, 0, 0.26);
-  }
-}
-
-@include mq(md) {
-  .aboutCards {
-    grid-template-columns: 1fr;
-  }
-
-  .aboutCardVisual {
-    height: 170px;
-  }
-}
-
-@include mq(sm) {
-  .deviceLaptop {
-    left: 14px;
-  }
-
-  .deviceTablet {
-    left: 146px;
-  }
-
-  .devicePhone {
-    left: 218px;
   }
 }
