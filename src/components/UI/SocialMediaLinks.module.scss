@@ -22,7 +22,7 @@
 .socialLinks {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
   margin-top: 18px;
 
@@ -30,8 +30,9 @@
     margin-top: 0;
   }
 
-  @include mq(sm) {
-    gap: 16px;
+  @include mq(xs) {
+    gap: 8px;
+    margin-inline: auto;
   }
 }
 

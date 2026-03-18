@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 
 import ContactForm from '@/components/forms/ContactForm/ContactForm';
+import AvailabilityChip from '@/components/UI/AvailabilityChip/AvailabilityChip';
 import Reveal from '@/components/UI/Reveal/Reveal';
 import SocialMediaLinks from '@/components/UI/SocialMediaLinks';
 import { reneKrajnc } from '@/constants/rene';
@@ -19,10 +20,6 @@ const ContactPage = () => {
       <section className={classes.contactShell}>
         <Reveal>
           <header className={classes.header}>
-            <span className={classes.availableBadge}>
-              <span className={classes.availableDot} />
-              {t('availability')}
-            </span>
             <Typography variant="h1" className={classes.title}>
               {t('contact.title')}
             </Typography>
@@ -39,6 +36,7 @@ const ContactPage = () => {
 
           <Reveal direction="right" delayMs={180} className={classes.connectReveal}>
             <aside className={classes.connectCard}>
+              <AvailabilityChip />
               <div className={classes.profileBlock}>
                 <Image
                   src="/images/rene-profile.jpg"
