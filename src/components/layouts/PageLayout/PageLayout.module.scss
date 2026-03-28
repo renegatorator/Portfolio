@@ -12,13 +12,12 @@
 
 .main {
   display: flex;
-  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   max-width: 1200px;
   width: 100%;
-  padding: 64px 32px 70px;
+  padding: 64px 32px;
   margin: 0 auto;
 
   @include mq(xs) {
@@ -34,6 +33,6 @@
   text-align: center;
   padding: 16px;
   background: var(--bg-tertiary);
-  border-radius: 12px 12px 0 0;
+  border-radius: $border-radius-sm $border-radius-sm 0 0;
   margin-top: auto;
 }
