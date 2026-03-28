@@ -85,7 +85,8 @@ export const useMuiTheme = () => {
       },
       subtitle1: {
         fontSize: '1.3rem',
-        fontWeight: 400,
+        fontWeight: 600,
+        lineHeight: 1.5,
         color: getCssVarWithTheme(ColorTokens.TEXT_SECONDARY, isDark),
       },
       subtitle2: {

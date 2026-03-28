@@ -49,17 +49,14 @@
 
 .gradient {
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  border-radius: 20px;
+  border-radius: $border-radius-lg;
   position: relative;
   overflow: hidden;
 
   &:before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: linear-gradient(
       45deg,
       transparent 30%,
@@ -67,24 +64,6 @@
       transparent 70%
     );
     animation: wave 8s ease-in-out infinite;
-
-    @include mq(sm) {
-      background: linear-gradient(
-        60deg,
-        transparent 30%,
-        rgba(0, 150, 255, 0.05) 50%,
-        transparent 70%
-      );
-    }
-
-    @include mq(xs) {
-      background: linear-gradient(
-        70deg,
-        transparent 30%,
-        rgba(0, 150, 255, 0.05) 50%,
-        transparent 70%
-      );
-    }
   }
 }
 

@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 
-import { Route,Routes } from '../routes';
+import { Route, Routes } from '../routes';
 
 type SEOType = {
   title: string;
@@ -10,45 +10,26 @@ type SEOType = {
 export const useSeo = (route: Route): SEOType => {
   const { t } = useTranslation();
 
-  const getSeoData = (): SEOType => {
-    switch (route) {
-      case Routes.LANDING_PAGE:
-        const landingTitle = t('landingPage.title');
-        const landingDesc = t('landingPage.description');
-
-        // Fallback to root title if landingPage.title doesn't work
-        const finalTitle = landingTitle === 'landingPage.title' ? t('title') : landingTitle;
-        const finalDesc =
-          landingDesc === 'landingPage.description'
-            ? 'Rene Krajnc - Successful Developer Portfolio'
-            : landingDesc;
-
-        return {
-          title: finalTitle,
-          description: finalDesc,
-        };
-      case Routes.PROJECTS:
-        return {
-          title: t('projects.seo.title'),
-          description: t('projects.seo.description'),
-        };
-      case Routes.CONTACT:
-        return {
-          title: t('contact.seo.title'),
-          description: t('contact.seo.description'),
-        };
-      case Routes.FISHING:
-        return {
-          title: t('fishing.seo.title'),
-          description: t('fishing.seo.description'),
-        };
-      default:
-        return {
-          title: t('landingPage.title'),
-          description: t('landingPage.description'),
-        };
-    }
-  };
-
-  return getSeoData();
+  switch (route) {
+    case Routes.LANDING_PAGE:
+      return {
+        title: t('landingPage.title'),
+        description: t('landingPage.description'),
+      };
+    case Routes.PROJECTS:
+      return {
+        title: t('projects.seo.title'),
+        description: t('projects.seo.description'),
+      };
+    case Routes.CONTACT:
+      return {
+        title: t('contact.seo.title'),
+        description: t('contact.seo.description'),
+      };
+    default:
+      return {
+        title: t('landingPage.title'),
+        description: t('landingPage.description'),
+      };
+  }
 };
