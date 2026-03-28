@@ -5,8 +5,8 @@
   overflow: hidden;
   gap: 24px;
   border-radius: $border-radius-lg;
-  @include primary-border(16%);
   border: 1px solid;
+  @include primary-border(16%);
   @include section-glass-bg;
 
   &::before,

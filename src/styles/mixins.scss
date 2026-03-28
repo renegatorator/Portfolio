@@ -75,7 +75,7 @@
 }
 
 // Thin gradient accent bar pinned to the top edge of a card (use with &::before).
-@mixin top-accent-bar($radius: 14px) {
+@mixin top-accent-bar($radius: $border-radius-md) {
   &::before {
     content: '';
     position: absolute;
