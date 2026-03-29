@@ -140,25 +140,8 @@
   }
 }
 
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-24px, 18px);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
+@include orb-drift(drift, -24px, 18px);
+@include float-y(float, -4px);
 
 @include reduced-motion {
   .contactShell::before,

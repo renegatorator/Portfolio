@@ -154,25 +154,8 @@
   }
 }
 
-@keyframes driftOne {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(30px, 22px);
-  }
-}
-
-@keyframes driftTwo {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-34px, -24px);
-  }
-}
+@include orb-drift(driftOne, 30px, 22px);
+@include orb-drift(driftTwo, -34px, -24px);
 
 @include reduced-motion {
   .heroSection::before,

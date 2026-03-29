@@ -19,37 +19,33 @@ const WorkExperienceCard = ({ experience }: WorkExperienceCardProps) => {
   return (
     <article className={classes.card}>
       <div className={classes.header}>
-        <div className={classes.companyRow}>
+        <div className={classes.headerLeft}>
           <Link href={companyUrl || '#'} target="_blank" className={classes.companyLink}>
             <Typography variant="overline" component="span" className={classes.company}>
               {company}
             </Typography>
           </Link>
-          {current && (
-            <Chip
-              label={t('workExperience.present')}
-              size="small"
-              className={classes.currentBadge}
-            />
-          )}
+          <Typography variant="h4" component="h3" className={classes.role}>
+            {role}
+          </Typography>
+          <div className={classes.meta}>
+            <span className={classes.metaItem}>
+              <FontAwesomeIcon icon={faCalendar} className={classes.metaIcon} />
+              <Typography variant="body2" component="span">
+                {period}
+              </Typography>
+            </span>
+            <span className={classes.metaItem}>
+              <FontAwesomeIcon icon={faLocationDot} className={classes.metaIcon} />
+              <Typography variant="body2" component="span">
+                {location}
+              </Typography>
+            </span>
+          </div>
         </div>
-        <Typography variant="h4" component="h3" className={classes.role}>
-          {role}
-        </Typography>
-        <div className={classes.meta}>
-          <span className={classes.metaItem}>
-            <FontAwesomeIcon icon={faCalendar} className={classes.metaIcon} />
-            <Typography variant="body2" component="span">
-              {period}
-            </Typography>
-          </span>
-          <span className={classes.metaItem}>
-            <FontAwesomeIcon icon={faLocationDot} className={classes.metaIcon} />
-            <Typography variant="body2" component="span">
-              {location}
-            </Typography>
-          </span>
-        </div>
+        {current && (
+          <Chip label={t('workExperience.present')} size="small" className={classes.currentBadge} />
+        )}
       </div>
 
       <ul className={classes.highlights}>

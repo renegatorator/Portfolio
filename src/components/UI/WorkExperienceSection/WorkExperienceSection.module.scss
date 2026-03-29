@@ -1,6 +1,6 @@
 @use '@/styles' as *;
 
-// ── Shell (matches heroSection / contactShell visual language) ──────────────
+// Shell
 
 .shell {
   position: relative;
@@ -39,7 +39,7 @@
   }
 }
 
-// ── Header ───────────────────────────────────────────────────────────────────
+// Header
 
 .header {
   position: relative;
@@ -71,7 +71,7 @@
   max-width: 640px;
 }
 
-// ── Timeline ─────────────────────────────────────────────────────────────────
+// Timeline
 
 .timeline {
   position: relative;
@@ -139,38 +139,13 @@
   padding-bottom: 24px;
 }
 
-// ── Keyframes ────────────────────────────────────────────────────────────────
+// Keyframes
 
-@keyframes driftA {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-22px, 16px);
-  }
-}
+@include orb-drift(driftA, -22px, 16px);
+@include orb-drift(driftB, 18px, -20px);
+@include rotate-spin(rotateSlow);
 
-@keyframes driftB {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(18px, -20px);
-  }
-}
-
-@keyframes rotateSlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-// ── Theme overrides ───────────────────────────────────────────────────────────
+// Theme overrides
 
 [data-theme='light'] {
   .shell {
