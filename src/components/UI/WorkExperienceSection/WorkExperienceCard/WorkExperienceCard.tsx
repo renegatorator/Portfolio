@@ -19,12 +19,14 @@ const WorkExperienceCard = ({ experience }: WorkExperienceCardProps) => {
 
   const role = t(`workExperience.experiences.${id}.role`);
   const location = t(`workExperience.experiences.${id}.location`);
-  const highlights = t(`workExperience.experiences.${id}.highlights`, {
+  const translatedHighlights = t(`workExperience.experiences.${id}.highlights`, {
     returnObjects: true,
-  }) as string[];
+    defaultValue: [],
+  });
+  const highlights = Array.isArray(translatedHighlights) ? translatedHighlights : [];
   const period = current
     ? `${startDate} – ${t('workExperience.present')}`
-    : `${startDate} – ${endDate}`;
+    : `${startDate} – ${endDate ?? t('workExperience.present')}`;
 
   return (
     <article className={classes.card}>

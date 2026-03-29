@@ -57,16 +57,17 @@ export type EmailAddress = (typeof EmailAddresses)[keyof typeof EmailAddresses];
 
 export const reneKrajnc = 'Rene Krajnc';
 
-export interface WorkExperience {
+type CurrentRole = { current: true; endDate?: never };
+type PastRole = { current?: false; endDate: string };
+
+export type WorkExperience = {
   id: string;
   company: string;
   companyUrl?: string;
   logo: string;
   startDate: string;
-  endDate?: string;
   tech: string[];
-  current?: boolean;
-}
+} & (CurrentRole | PastRole);
 
 export const workExperiences: WorkExperience[] = [
   {
