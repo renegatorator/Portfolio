@@ -62,10 +62,8 @@ export interface WorkExperience {
   company: string;
   companyUrl?: string;
   logo: string;
-  role: string;
-  period: string;
-  location: string;
-  highlights: string[];
+  startDate: string;
+  endDate?: string;
   tech: string[];
   current?: boolean;
 }
@@ -76,16 +74,8 @@ export const workExperiences: WorkExperience[] = [
     company: 'Equaleyes',
     companyUrl: 'https://equaleyes.com/',
     logo: '/images/eq.png',
-    role: 'Senior Frontend Engineer',
-    period: '08/2023 – Present',
-    location: 'Maribor, Slovenia',
+    startDate: '08/2023',
     current: true,
-    highlights: [
-      'Lead frontend development for blockchain-based products for nChain / Teranode (UK)',
-      'Build scalable web apps with React, Next.js, TypeScript and React Query',
-      'Mentor junior developers, conduct code reviews and drive frontend best practices',
-      'Contribute to architectural decisions for production-grade, high-traffic web apps',
-    ],
     tech: ['React', 'Next.js', 'TypeScript', 'React Query', 'Blockchain'],
   },
   {
@@ -93,15 +83,8 @@ export const workExperiences: WorkExperience[] = [
     company: 'Margento',
     companyUrl: 'https://www.margento.com/',
     logo: '/images/margento.png',
-    role: 'Software Engineer',
-    period: '01/2022 – 08/2023',
-    location: 'Maribor, Slovenia',
-    highlights: [
-      'Built React applications for Slovenian Railways, Arriva, Nomago and Marprom',
-      'Developed ticket purchasing platforms and public transport passenger apps',
-      'Created interfaces for ticket vending machines deployed at train stations across Slovenia',
-      'Integrated backend APIs ensuring reliable data flow across complex transport systems',
-    ],
+    startDate: '01/2022',
+    endDate: '08/2023',
     tech: ['React', 'TypeScript', 'REST APIs'],
   },
   {
@@ -109,15 +92,8 @@ export const workExperiences: WorkExperience[] = [
     company: 'Direct4.me',
     companyUrl: 'https://www.direct4me.si/',
     logo: '/images/d4me.png',
-    role: 'Frontend Developer',
-    period: '09/2019 – 12/2021',
-    location: 'Maribor, Slovenia',
-    highlights: [
-      'Developed web portals and admin interfaces for a smart parcel delivery SaaS platform',
-      'Built user, company and delivery-box management UIs serving an international client base',
-      'Integrated APIs and developed reusable UI components within a DotNetNuke CMS',
-      'Collaborated in an international agile team delivering cross-border logistics solutions',
-    ],
+    startDate: '09/2019',
+    endDate: '12/2021',
     tech: ['React', 'JavaScript', 'REST APIs', 'DotNetNuke'],
   },
 ];

@@ -1,6 +1,7 @@
 import { faCalendar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Chip, Typography } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 
@@ -14,28 +15,40 @@ interface WorkExperienceCardProps {
 
 const WorkExperienceCard = ({ experience }: WorkExperienceCardProps) => {
   const { t } = useTranslation();
-  const { company, companyUrl, role, period, location, highlights, tech, current } = experience;
+  const { id, company, companyUrl, logo, startDate, endDate, tech, current } = experience;
+
+  const role = t(`workExperience.experiences.${id}.role`);
+  const location = t(`workExperience.experiences.${id}.location`);
+  const highlights = t(`workExperience.experiences.${id}.highlights`, {
+    returnObjects: true,
+  }) as string[];
+  const period = current
+    ? `${startDate} – ${t('workExperience.present')}`
+    : `${startDate} – ${endDate}`;
 
   return (
     <article className={classes.card}>
       <div className={classes.header}>
         <div className={classes.headerLeft}>
-          {companyUrl ? (
-            <Link
-              href={companyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes.companyLink}
-            >
+          <div className={classes.companyRow}>
+            <Image src={logo} alt={company} width={40} height={40} className={classes.logoCard} />
+            {companyUrl ? (
+              <Link
+                href={companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.companyLink}
+              >
+                <Typography variant="overline" component="span" className={classes.company}>
+                  {company}
+                </Typography>
+              </Link>
+            ) : (
               <Typography variant="overline" component="span" className={classes.company}>
                 {company}
               </Typography>
-            </Link>
-          ) : (
-            <Typography variant="overline" component="span" className={classes.company}>
-              {company}
-            </Typography>
-          )}
+            )}
+          </div>
           <Typography variant="h4" component="h3" className={classes.role}>
             {role}
           </Typography>
