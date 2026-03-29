@@ -129,6 +129,38 @@
     "subtitle": "Seit 6+ Jahren produktionsreife Frontend-Lösungen in den Bereichen Blockchain, Transport und Logistik.",
     "present": "Aktuell",
     "downloadCv": "Lebenslauf herunterladen",
-    "overviewTitle": "Karriere\u00fcbersicht"
+    "overviewTitle": "Karriere\u00fcbersicht",
+    "experiences": {
+      "equaleyes": {
+        "role": "Senior Frontend Engineer",
+        "location": "Maribor, Slowenien",
+        "highlights": [
+          "Leitung der Frontend-Entwicklung für Blockchain-basierte Produkte für nChain / Teranode (UK)",
+          "Entwicklung skalierbarer Webanwendungen mit React, Next.js, TypeScript und React Query",
+          "Mentoring von Junior-Entwicklern, Code-Reviews und Förderung von Frontend-Best-Practices",
+          "Beitrag zu Architekturentscheidungen für produktionsreife Web-Apps mit hohem Traffic"
+        ]
+      },
+      "margento": {
+        "role": "Software Engineer",
+        "location": "Maribor, Slowenien",
+        "highlights": [
+          "React-Anwendungen für Slowenische Eisenbahnen, Arriva, Nomago und Marprom entwickelt",
+          "Ticketkauf-Plattformen und Fahrgast-Apps für den öffentlichen Nahverkehr entwickelt",
+          "Oberflächen für Fahrkartenautomaten an Bahnhöfen in ganz Slowenien erstellt",
+          "Backend-APIs für zuverlässigen Datenfluss in komplexen Transportsystemen integriert"
+        ]
+      },
+      "direct4me": {
+        "role": "Frontend Entwickler",
+        "location": "Maribor, Slowenien",
+        "highlights": [
+          "Webportale und Admin-Oberflächen für eine SaaS-Plattform zur intelligenten Paketzustellung entwickelt",
+          "Benutzer-, Unternehmens- und Lieferboxverwaltungs-UIs für eine internationale Kundenbasis erstellt",
+          "APIs integriert und wiederverwendbare UI-Komponenten in einem DotNetNuke-CMS entwickelt",
+          "In einem internationalen agilen Team grenzüberschreitende Logistiklösungen geliefert"
+        ]
+      }
+    }
   }
 }

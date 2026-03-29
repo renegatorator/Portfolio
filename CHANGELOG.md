@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.2.5]
+
+### Added
+
+- **Work Experience i18n**: Moved `role`, `location`, and `highlights` fields out of `rene.ts` constants and into locale files (`en`, `sl`, `de`) under `workExperience.experiences.{id}.*`
+
+### Changed
+
+- **WorkExperienceCard**: All translatable content (role, location, highlights, period label) now resolved via `useTranslation`; period string constructed at render time from `startDate`/`endDate` fields
+- **WorkExperience Interface**: Removed hardcoded `role`, `period`, `location`, and `highlights` fields from `WorkExperience`; replaced `period` with `startDate` and optional `endDate`
+- **WorkExperienceCard Mobile Layout**: Company logo rendered inside the card header on mobile (`≤sm`); timeline avatar column hidden at the same breakpoint
+- **Dev Script**: Switched from `--turbopack` to `--webpack`
+
+## [1.2.4]
+
+### Changed
+
+- **Profile Images**: Added anime-style profile picture (`rene-anime.png`) to HeroSection; updated profile image on ContactPage; replaced `rene-profile.jpg` with `rene-profile.png` and `rene-anime.png`
+
 ## [1.2.3]
 
 ### Added

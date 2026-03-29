@@ -92,6 +92,10 @@
   align-items: center;
   flex-shrink: 0;
   width: 56px;
+
+  @include mq(sm) {
+    display: none;
+  }
 }
 
 // Company logo avatar

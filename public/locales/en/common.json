@@ -129,6 +129,38 @@
     "subtitle": "Delivering production-ready frontend solutions across blockchain, transport and logistics for 6+ years.",
     "present": "Present",
     "downloadCv": "Download CV",
-    "overviewTitle": "Career Overview"
+    "overviewTitle": "Career Overview",
+    "experiences": {
+      "equaleyes": {
+        "role": "Senior Frontend Engineer",
+        "location": "Maribor, Slovenia",
+        "highlights": [
+          "Lead frontend development for blockchain-based products for nChain / Teranode (UK)",
+          "Build scalable web apps with React, Next.js, TypeScript and React Query",
+          "Mentor junior developers, conduct code reviews and drive frontend best practices",
+          "Contribute to architectural decisions for production-grade, high-traffic web apps"
+        ]
+      },
+      "margento": {
+        "role": "Software Engineer",
+        "location": "Maribor, Slovenia",
+        "highlights": [
+          "Built React applications for Slovenian Railways, Arriva, Nomago and Marprom",
+          "Developed ticket purchasing platforms and public transport passenger apps",
+          "Created interfaces for ticket vending machines deployed at train stations across Slovenia",
+          "Integrated backend APIs ensuring reliable data flow across complex transport systems"
+        ]
+      },
+      "direct4me": {
+        "role": "Frontend Developer",
+        "location": "Maribor, Slovenia",
+        "highlights": [
+          "Developed web portals and admin interfaces for a smart parcel delivery SaaS platform",
+          "Built user, company and delivery-box management UIs serving an international client base",
+          "Integrated APIs and developed reusable UI components within a DotNetNuke CMS",
+          "Collaborated in an international agile team delivering cross-border logistics solutions"
+        ]
+      }
+    }
   }
 }

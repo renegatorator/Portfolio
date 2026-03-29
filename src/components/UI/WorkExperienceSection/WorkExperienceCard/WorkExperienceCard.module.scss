@@ -49,6 +49,26 @@
   text-decoration: none;
 }
 
+// Company row (logo + name, used for mobile logo visibility)
+.companyRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoCard {
+  display: none;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+  border: 1px solid var(--border-primary);
+  overflow: hidden;
+
+  @include mq(sm) {
+    display: block;
+  }
+}
+
 .company {
   color: var(--primary) !important;
   font-weight: 700 !important;

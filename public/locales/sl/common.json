@@ -125,6 +125,38 @@
     "subtitle": "6+ let dostave produkcijsko pripravljenih frontend rešitev na področju blockchain, transporta in logistike.",
     "present": "Trenutno",
     "downloadCv": "Prenesi CV",
-    "overviewTitle": "Karierni pregled"
+    "overviewTitle": "Karierni pregled",
+    "experiences": {
+      "equaleyes": {
+        "role": "Višji Frontend Inženir",
+        "location": "Maribor, Slovenija",
+        "highlights": [
+          "Vodim frontend razvoj blockchain produktov za nChain / Teranode (UK)",
+          "Gradim razširljive spletne aplikacije z React, Next.js, TypeScript in React Query",
+          "Mentoriram mlajše razvijalce, izvajam preglede kode in spodbujam dobre prakse",
+          "Prispevam k arhitekturnim odločitvam za produkcijsko pripravljene, prometno obremenjene spletne aplikacije"
+        ]
+      },
+      "margento": {
+        "role": "Software Inženir",
+        "location": "Maribor, Slovenija",
+        "highlights": [
+          "Razvijal React aplikacije za Slovenske železnice, Arriva, Nomago in Marprom",
+          "Razvijal platforme za nakup vozovnic in aplikacije za potnike v javnem prevozu",
+          "Ustvaril vmesnike za avtomatske blagajne na železniških postajah po Sloveniji",
+          "Integriral zaledne API-je za zanesljiv pretok podatkov v kompleksnih transportnih sistemih"
+        ]
+      },
+      "direct4me": {
+        "role": "Frontend Razvijalec",
+        "location": "Maribor, Slovenija",
+        "highlights": [
+          "Razvijal spletne portale in administrativne vmesnike za SaaS platformo za pametno dostavo paketov",
+          "Gradil UI-je za upravljanje uporabnikov, podjetij in dostavljalnih škatlic za mednarodno bazo strank",
+          "Integriral API-je in razvijal komponente za večkratno uporabo v DotNetNuke CMS",
+          "Sodeloval v mednarodnem agilnem timu pri zagotavljanju čezmejnih logističnih rešitev"
+        ]
+      }
+    }
   }
 }
