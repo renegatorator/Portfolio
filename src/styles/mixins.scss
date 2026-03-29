@@ -1,8 +1,170 @@
 @use 'sass:map';
 @use '@/styles/theme' as *;
 
+// Responsive
+
 @mixin mq($name) {
   @media (max-width: map.get($breakpoints, $name)) {
     @content;
+  }
+}
+
+// Motion
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// Typography
+
+// Gradient text: text-primary fading into the primary brand colour.
+@mixin text-gradient($direction: 92deg) {
+  background: linear-gradient($direction, var(--text-primary) 0%, var(--primary) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// Colour helpers
+
+// Hard brand blue → sky gradient (fills, lines, progress bars).
+@mixin primary-gradient($direction: 90deg) {
+  background: linear-gradient($direction, var(--primary) 0%, #28b8ff 100%);
+}
+
+// Primary-tinted border via color-mix.
+@mixin primary-border($pct: 20%) {
+  border-color: color-mix(in srgb, var(--primary) $pct, var(--border-primary));
+}
+
+// Backgrounds
+
+// Hero/section shell: twin radial blobs + subtle diagonal linear fade.
+@mixin section-glass-bg {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0, 112, 243, 0.12) 0%, transparent 44%),
+    radial-gradient(circle at 88% 80%, rgba(40, 184, 255, 0.15) 0%, transparent 46%),
+    linear-gradient(
+      140deg,
+      var(--bg-primary) 0%,
+      color-mix(in srgb, var(--bg-secondary) 76%, var(--bg-primary)) 100%
+    );
+}
+
+// Card glass: subtle top-to-bottom tonal fade.
+@mixin card-glass-bg {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-primary) 92%, transparent),
+    color-mix(in srgb, var(--bg-secondary) 78%, transparent)
+  );
+}
+
+// Decorative elements
+
+// Shared base styles for floating orb pseudo-elements.
+@mixin floating-orb-base {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(12px);
+  pointer-events: none;
+  opacity: 0.62;
+}
+
+// Thin gradient accent bar pinned to the top edge of a card (use with &::before).
+@mixin top-accent-bar($radius: $border-radius-md) {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    border-radius: $radius $radius 0 0;
+    background: linear-gradient(90deg, transparent, rgba(0, 112, 243, 0.65), transparent);
+  }
+}
+
+// Cards & interactions
+
+// Standard card hover: lift + primary-tinted border + deeper shadow.
+@mixin card-hover($lift: -4px) {
+  &:hover {
+    transform: translateY($lift);
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border-primary));
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+// Smooth transition for interactive card properties.
+@mixin card-transition {
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+// Standard card padding with a responsive mobile reduction.
+@mixin card-padding($h: 24px, $v: 24px) {
+  padding: $v $h;
+
+  @include mq(xs) {
+    padding: 16px;
+  }
+}
+
+// Pulsing glow ring — use on badge/chip elements to signal an active state.
+@mixin pulse-glow($duration: 2.8s) {
+  animation: pulseGlow $duration ease-in-out infinite;
+
+  @at-root {
+    @keyframes pulseGlow {
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 30%, transparent);
+      }
+      50% {
+        box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary) 20%, transparent);
+      }
+    }
+  }
+}
+
+// Floating orb drift — background orbs oscillate from origin to a translate offset and back.
+@mixin orb-drift($name, $x, $y) {
+  @keyframes #{$name} {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate($x, $y);
+    }
+  }
+}
+
+// Gentle vertical float — decorative elements bob up and down.
+@mixin float-y($name, $y: -6px) {
+  @keyframes #{$name} {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY($y);
+    }
+  }
+}
+
+// Continuous 360° spin via transform: rotate.
+@mixin rotate-spin($name) {
+  @keyframes #{$name} {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }

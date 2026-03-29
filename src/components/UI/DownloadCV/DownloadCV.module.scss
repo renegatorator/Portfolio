@@ -1,0 +1,9 @@
+@use '@/styles' as *;
+
+.btn {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  white-space: nowrap;
+  padding: 8px 24px !important;
+}

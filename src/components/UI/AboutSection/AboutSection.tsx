@@ -56,7 +56,7 @@ const AboutSection = () => {
         </Typography>
       </Reveal>
       <Reveal delayMs={120}>
-        <Typography variant="subtitle1" component="p" className={classes.aboutHeadline}>
+        <Typography variant="subtitle1" component="p">
           {t('about.headline')}
         </Typography>
       </Reveal>

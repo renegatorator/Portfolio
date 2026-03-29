@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 
 import ContactForm from '@/components/forms/ContactForm/ContactForm';
 import AvailabilityChip from '@/components/UI/AvailabilityChip/AvailabilityChip';
+import DownloadCV from '@/components/UI/DownloadCV/DownloadCV';
 import Reveal from '@/components/UI/Reveal/Reveal';
 import SocialMediaLinks from '@/components/UI/SocialMediaLinks';
 import { reneKrajnc } from '@/constants/rene';
@@ -56,6 +57,7 @@ const ContactPage = () => {
               </div>
 
               <SocialMediaLinks compact />
+              <DownloadCV variant="outlined" sx={{ alignSelf: 'flex-start' }} />
             </aside>
           </Reveal>
         </div>

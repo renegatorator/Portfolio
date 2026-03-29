@@ -1,7 +1,6 @@
 export const Routes = {
   LANDING_PAGE: '/',
   PROJECTS: '/projects',
-  FISHING: '/fishing',
   CONTACT: '/contact',
 } as const;
 

@@ -1,0 +1,149 @@
+@use '@/styles' as *;
+
+.card {
+  position: relative;
+  border-radius: $border-radius-md;
+  border: 1px solid var(--border-primary);
+  @include card-glass-bg;
+  @include card-transition;
+  @include top-accent-bar;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border-primary));
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-3px);
+  }
+
+  @include mq(xs) {
+    padding: 16px;
+  }
+}
+
+// Header
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  @include mq(sm) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.companyLink {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.company {
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.currentBadge {
+  background: color-mix(in srgb, var(--primary) 14%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 38%, transparent) !important;
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  flex-shrink: 0;
+  align-self: flex-start;
+  @include pulse-glow;
+}
+
+.role {
+  letter-spacing: -0.02em;
+  @include text-gradient;
+}
+
+// Meta
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-secondary);
+}
+
+.metaIcon {
+  font-size: 0.75rem;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+// Highlights
+
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    margin-top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    @include primary-gradient;
+  }
+}
+
+// Tech pills
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-primary);
+}
+
+.techPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-primary));
+  color: var(--text-secondary);
+}

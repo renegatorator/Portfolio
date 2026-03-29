@@ -4,25 +4,14 @@
   position: relative;
   overflow: hidden;
   gap: 24px;
-  border-radius: 24px;
-  border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border-primary));
-  background:
-    radial-gradient(circle at 14% 18%, rgba(0, 112, 243, 0.12) 0%, transparent 42%),
-    radial-gradient(circle at 86% 78%, rgba(40, 184, 255, 0.16) 0%, transparent 44%),
-    linear-gradient(
-      140deg,
-      var(--bg-primary) 0%,
-      color-mix(in srgb, var(--bg-secondary) 75%, var(--bg-primary)) 100%
-    );
+  border-radius: $border-radius-lg;
+  border: 1px solid;
+  @include primary-border(16%);
+  @include section-glass-bg;
 
   &::before,
   &::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(12px);
-    pointer-events: none;
-    opacity: 0.62;
+    @include floating-orb-base;
   }
 
   &::before {
@@ -49,7 +38,7 @@
   display: grid;
   grid-template-columns: minmax(210px, 320px) minmax(0, 1fr);
   align-items: center;
-  gap: 26px;
+  gap: 24px;
   z-index: 1;
 
   @include mq(md) {
@@ -67,9 +56,10 @@
 .heroPortrait {
   width: min(300px, 78vw);
   height: auto;
-  border-radius: 22px;
-  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border-primary));
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  border-radius: $border-radius-lg;
+  border: 1px solid;
+  @include primary-border(30%);
+  box-shadow: $shadow-portrait;
   object-fit: cover;
   object-position: center top;
 }
@@ -78,13 +68,12 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 8px 4px;
+  gap: 20px;
+  padding: 8px 0;
 
   @include mq(md) {
     align-items: center;
     text-align: center;
-    padding: 8px 0;
   }
 }
 
@@ -94,33 +83,28 @@
 
 .heroRole {
   color: var(--text-secondary);
-  letter-spacing: 0.02em;
-  font-weight: 700;
-
-  @include mq(sm) {
-    font-size: 1.3rem;
-  }
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
 }
 
 .heroName {
-  margin-top: 4px;
-  font-size: clamp(2.35rem, 5vw, 3.75rem);
-  line-height: 0.98;
-  background: linear-gradient(92deg, var(--text-primary) 0%, var(--primary) 92%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  margin-top: 6px;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1;
+  @include text-gradient;
 
   @include mq(sm) {
-    font-size: 2.35rem;
+    font-size: 2.2rem;
   }
 }
 
 .heroTagline {
   max-width: 760px;
   text-align: left;
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  line-height: 1.55;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 1.6;
 
   @include mq(md) {
     text-align: center;
@@ -136,7 +120,7 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
 
   @include mq(md) {
     justify-content: center;
@@ -149,11 +133,11 @@
 }
 
 .primaryCta {
-  box-shadow: 0 10px 24px rgba(0, 112, 243, 0.28);
+  box-shadow: $shadow-glow-primary;
 }
 
 .secondaryCta {
-  border-color: color-mix(in srgb, var(--primary) 56%, var(--border-primary));
+  @include primary-border(56%);
   color: var(--primary);
   background: color-mix(in srgb, var(--bg-primary) 90%, transparent);
 }
@@ -162,7 +146,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
   z-index: 1;
 
   @include mq(sm) {
@@ -170,27 +154,10 @@
   }
 }
 
-@keyframes driftOne {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(30px, 22px);
-  }
-}
+@include orb-drift(driftOne, 30px, 22px);
+@include orb-drift(driftTwo, -34px, -24px);
 
-@keyframes driftTwo {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-34px, -24px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
+@include reduced-motion {
   .heroSection::before,
   .heroSection::after {
     animation: none;
@@ -203,7 +170,7 @@
       radial-gradient(circle at 10% 18%, rgba(0, 112, 243, 0.1) 0%, transparent 44%),
       radial-gradient(circle at 86% 84%, rgba(0, 183, 255, 0.12) 0%, transparent 48%),
       linear-gradient(140deg, #f7f9fc 0%, #eef4fb 45%, #f3f8ff 100%);
-    box-shadow: 0 18px 38px rgba(19, 38, 71, 0.08);
+    box-shadow: $shadow-section-light;
   }
 
   .heroAvailability {
@@ -213,6 +180,6 @@
 
 [data-theme='dark'] {
   .heroSection {
-    box-shadow: 0 20px 38px rgba(4, 10, 22, 0.45);
+    box-shadow: $shadow-section-dark;
   }
 }
