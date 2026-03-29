@@ -113,3 +113,58 @@
     padding: 16px;
   }
 }
+
+// Pulsing glow ring — use on badge/chip elements to signal an active state.
+@mixin pulse-glow($duration: 2.8s) {
+  animation: pulseGlow $duration ease-in-out infinite;
+
+  @at-root {
+    @keyframes pulseGlow {
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 30%, transparent);
+      }
+      50% {
+        box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary) 20%, transparent);
+      }
+    }
+  }
+}
+
+// Floating orb drift — background orbs oscillate from origin to a translate offset and back.
+@mixin orb-drift($name, $x, $y) {
+  @keyframes #{$name} {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate($x, $y);
+    }
+  }
+}
+
+// Gentle vertical float — decorative elements bob up and down.
+@mixin float-y($name, $y: -6px) {
+  @keyframes #{$name} {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY($y);
+    }
+  }
+}
+
+// Continuous 360° spin via transform: rotate.
+@mixin rotate-spin($name) {
+  @keyframes #{$name} {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -1,0 +1,172 @@
+@use '@/styles' as *;
+
+// Shell
+
+.shell {
+  position: relative;
+  border-radius: $border-radius-lg;
+  border: 1px solid;
+  @include primary-border(16%);
+  padding: 40px;
+  @include section-glass-bg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &::before {
+    @include floating-orb-base;
+    width: 300px;
+    height: 300px;
+    top: -120px;
+    right: -90px;
+    background: radial-gradient(circle, rgba(0, 112, 243, 0.18) 0%, rgba(0, 112, 243, 0) 70%);
+    animation: driftA 18s ease-in-out infinite;
+  }
+
+  &::after {
+    @include floating-orb-base;
+    width: 260px;
+    height: 260px;
+    bottom: -90px;
+    left: -70px;
+    background: radial-gradient(circle, rgba(40, 184, 255, 0.16) 0%, rgba(40, 184, 255, 0) 70%);
+    animation: driftB 22s ease-in-out infinite;
+  }
+
+  @include mq(sm) {
+    padding: 32px 16px;
+  }
+}
+
+// Header
+
+.header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+
+  @include mq(sm) {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+// Timeline
+
+.timeline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.timelineLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 56px;
+}
+
+// Company logo avatar
+.avatar {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  pointer-events: none;
+}
+
+.avatarCurrent {
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent),
+    $shadow-glow-primary;
+}
+
+// Rotating dashed ring — only on current role
+.avatarRing {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed color-mix(in srgb, var(--primary) 55%, transparent);
+  animation: rotateSlow 9s linear infinite;
+}
+
+// Card wrapper
+.cardReveal {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 24px;
+}
+
+// Keyframes
+
+@include orb-drift(driftA, -22px, 16px);
+@include orb-drift(driftB, 18px, -20px);
+@include rotate-spin(rotateSlow);
+
+// Theme overrides
+
+[data-theme='light'] {
+  .shell {
+    background:
+      radial-gradient(circle at 88% 12%, rgba(0, 112, 243, 0.08) 0%, transparent 44%),
+      radial-gradient(circle at 10% 86%, rgba(0, 183, 255, 0.1) 0%, transparent 48%),
+      linear-gradient(140deg, #f7f9fc 0%, #eef4fb 45%, #f3f8ff 100%);
+    box-shadow: $shadow-section-light;
+  }
+}
+
+[data-theme='dark'] {
+  .shell {
+    box-shadow: $shadow-section-dark;
+  }
+}
+
+@include reduced-motion {
+  .shell::before,
+  .shell::after,
+  .avatarRing {
+    animation: none;
+  }
+}
