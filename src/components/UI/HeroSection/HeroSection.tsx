@@ -7,6 +7,7 @@ import { Trans, useTranslation } from 'next-i18next';
 import { useMemo } from 'react';
 
 import AvailabilityChip from '@/components/UI/AvailabilityChip/AvailabilityChip';
+import DownloadCV from '@/components/UI/DownloadCV/DownloadCV';
 import Reveal from '@/components/UI/Reveal/Reveal';
 import Section from '@/components/UI/Section/Section';
 import { reneKrajnc } from '@/constants/rene';
@@ -111,6 +112,7 @@ const HeroSection = () => {
                 {t('hero.cta.projects')}
               </Button>
             </Link>
+            <DownloadCV variant="outlined" className={classes.secondaryCta} />
           </Reveal>
         </div>
       </div>

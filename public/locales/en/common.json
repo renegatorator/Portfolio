@@ -123,5 +123,12 @@
   },
   "footer": "© {{year}} Rene Krajnc. All rights reserved.",
   "showMore": "Show more",
-  "showLess": "Show less"
+  "showLess": "Show less",
+  "workExperience": {
+    "title": "Work Experience",
+    "subtitle": "Delivering production-ready frontend solutions across blockchain, transport and logistics for 6+ years.",
+    "present": "Present",
+    "downloadCv": "Download CV",
+    "overviewTitle": "Career Overview"
+  }
 }

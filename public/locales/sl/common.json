@@ -119,5 +119,12 @@
   },
   "footer": "© {{year}} Rene Krajnc. Vse pravice pridržane.",
   "showMore": "Prikaži več",
-  "showLess": "Prikaži manj"
+  "showLess": "Prikaži manj",
+  "workExperience": {
+    "title": "Delovne izkušnje",
+    "subtitle": "6+ let dostave produkcijsko pripravljenih frontend rešitev na področju blockchain, transporta in logistike.",
+    "present": "Trenutno",
+    "downloadCv": "Prenesi CV",
+    "overviewTitle": "Karierni pregled"
+  }
 }
