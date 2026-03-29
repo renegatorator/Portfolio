@@ -40,7 +40,7 @@ const ContactPage = () => {
               <AvailabilityChip />
               <div className={classes.profileBlock}>
                 <Image
-                  src="/images/rene-profile.jpg"
+                  src="/images/rene-profile.png"
                   alt={reneKrajnc}
                   width={132}
                   height={132}

@@ -57,7 +57,7 @@ const HeroSection = () => {
       <div className={classes.heroGrid}>
         <Reveal direction="left" className={classes.heroPortraitWrap}>
           <Image
-            src="/images/rene-profile.jpg"
+            src="/images/rene-anime.png"
             alt={reneKrajnc}
             width={340}
             height={420}
