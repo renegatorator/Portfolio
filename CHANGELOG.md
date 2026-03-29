@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.2.3]
+
+### Added
+
+- **Work Experience Section**: Added `WorkExperienceSection` with glass shell, animated timeline, and company logo avatars; rendered as the last section on the landing page
+- **WorkExperienceCard Component**: Card component displaying company, role, period, location, highlights, and tech stack pills with top accent bar and hover lift
+- **Work Experience Data**: Added `WorkExperience` interface and `workExperiences` constant to `src/constants/rene.ts`
+- **DownloadCV Component**: Reusable locale-aware download button; EN/SL locales link to the English CV, DE locale links to the German CV
+- **CV PDFs**: Added `Rene_Krajnc_EN_2026.pdf` and `Rene_Krajnc_DE_2026.pdf` to `public/cv/`
+- **Company Logos**: Added Equaleyes, Margento, and Direct4.me logo images to `public/images/`
+- **SCSS Mixins**: Added `pulse-glow`, `orb-drift`, `float-y`, and `rotate-spin` mixins to `mixins.scss`
+- **Work Experience i18n**: Added `workExperience.*` translation keys to EN, DE, and SL locale files
+
+### Changed
+
+- **LandingPage Order**: Work experience section placed last — Hero → TechStack → About → WorkExperience
+- **DownloadCV Placement**: Button added to HeroSection CTA row and ContactPage connect card
+- **HeroSection Typography**: Role label reduced to small uppercase eyebrow style; name and tagline font sizes pulled back; content gap increased for breathing room
+- **Keyframe Consolidation**: Replaced 8 duplicate `@keyframes` blocks across HeroSection, ContactPage, WorkExperienceSection, and AboutSection with `@include orb-drift`, `@include float-y`, and `@include rotate-spin` mixin calls
+- **WorkExperienceCard SCSS**: Merged duplicate block definitions; replaced inline `@keyframes pulseGlow` with `@include pulse-glow`; cleaned up decorative `// ──` comments
+- **WorkExperienceSection**: Changed outermost wrapper from `<div>` to `<section>` for correct document semantics
+
+### Fixed
+
+- **External Link Security**: Company links in WorkExperienceCard now include `rel="noopener noreferrer"` and render as plain text when no URL is provided
+- **pulseGlow Visibility**: Ring glow is now visible at peak expansion (was rendering fully transparent)
+- **Removed Unused Dependency**: Removed `pdf-parse` from devDependencies
+
 ## [1.1.5]
 
 ### Changed

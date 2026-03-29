@@ -20,11 +20,22 @@ const WorkExperienceCard = ({ experience }: WorkExperienceCardProps) => {
     <article className={classes.card}>
       <div className={classes.header}>
         <div className={classes.headerLeft}>
-          <Link href={companyUrl || '#'} target="_blank" className={classes.companyLink}>
+          {companyUrl ? (
+            <Link
+              href={companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.companyLink}
+            >
+              <Typography variant="overline" component="span" className={classes.company}>
+                {company}
+              </Typography>
+            </Link>
+          ) : (
             <Typography variant="overline" component="span" className={classes.company}>
               {company}
             </Typography>
-          </Link>
+          )}
           <Typography variant="h4" component="h3" className={classes.role}>
             {role}
           </Typography>

@@ -13,7 +13,7 @@ const WorkExperienceSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={classes.shell}>
+    <section className={classes.shell}>
       <Reveal>
         <header className={classes.header}>
           <div className={classes.headerLeft}>
@@ -52,7 +52,7 @@ const WorkExperienceSection = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
