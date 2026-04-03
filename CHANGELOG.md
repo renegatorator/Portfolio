@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.2.6]
+
+### Changed
+
+- **Profile Image**: Replaced `rene-profile.png` with `rene-profile.jpg` on ContactPage; reduces asset size from ~474 KB to ~30 KB
+
+### Added
+
+- **Email Logo Asset**: Added `logo-email.png` to `public/images/logo/` for use in email templates
+
 ## [1.2.5]
 
 ### Added
