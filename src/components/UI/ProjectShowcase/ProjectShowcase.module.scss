@@ -22,6 +22,10 @@
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+
+  @include mq(sm) {
+    flex-direction: column;
+  }
 }
 
 .headerMeta {
@@ -142,10 +146,6 @@
   flex-wrap: wrap;
   align-items: center;
   flex-shrink: 0;
-
-  @include mq(sm) {
-    width: 100%;
-  }
 }
 
 .ctaBtn {

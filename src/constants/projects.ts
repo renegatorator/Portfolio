@@ -20,7 +20,6 @@ import {
   faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 
-
 export type ProjectStatus = 'live' | 'in-development' | 'archived';
 
 export interface Screenshot {
@@ -100,7 +99,7 @@ export const projects: Project[] = [
     ],
     status: 'in-development',
     isOpenSource: false,
-    githubUrl: 'https://github.com/renekrajnc/ops-tracker',
+    githubUrl: 'https://github.com/renegatorator/ops-tracker',
     demoUrl: 'https://ops-tracker.renekrajnc.com',
     logoLight: '/images/ops-tracker-screenshots/logo-light.svg',
     logoDark: '/images/ops-tracker-screenshots/logo-dark.svg',

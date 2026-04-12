@@ -28,7 +28,9 @@ const ScreenshotCarousel = ({
 
   // Stable ref so the interval callback always reads the latest values
   const stateRef = useRef({ currentIndex, isAnimating, paused, total });
-  stateRef.current = { currentIndex, isAnimating, paused, total };
+  useEffect(() => {
+    stateRef.current = { currentIndex, isAnimating, paused, total };
+  });
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 

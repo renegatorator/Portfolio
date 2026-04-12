@@ -24,6 +24,13 @@ All notable changes to this project will be documented in this file.
 - **Screenshot Filename**: Renamed `landing-01,png.png` to `landing-01.png` to fix a comma typo in the filename
 - **Project Title Typography**: Reduced project name heading from `clamp(2rem, 5vw, 3rem)` to `clamp(1.5rem, 2.5vw, 2rem)` so it reads as a section heading
 - **Tagline Font Size**: Reduced from MUI `subtitle1` default (~16px) to an explicit `13px`
+- **Projects Page Header**: Centred title and description with `text-align: center` / `margin: 0 auto` to match Contact page visual language; increased top padding on xs from `24px` to `40px`
+- **Project Showcase Mobile Layout**: Switched header to `flex-direction: column` on `sm` so CTA buttons always flow below the meta block and cannot overflow the container on narrow screens
+- **Reveal Animation Sensitivity**: Lowered `IntersectionObserver` threshold from `0.2` to `0.05` and removed the negative `-8%` bottom `rootMargin` so large elements (carousel, panels) reveal as soon as they enter the viewport rather than requiring 20 %+ of their height to be visible
+
+### Fixed
+
+- **ScreenshotCarousel Ref Mutation**: Moved `stateRef.current` sync from the render phase into a `useEffect` to resolve a React render-purity violation (`Cannot update ref during render`)
 
 ## [1.2.6]
 
