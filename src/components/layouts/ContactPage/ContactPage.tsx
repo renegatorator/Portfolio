@@ -57,7 +57,7 @@ const ContactPage = () => {
               </div>
 
               <SocialMediaLinks compact />
-              <DownloadCV variant="outlined" sx={{ alignSelf: 'flex-start' }} />
+              <DownloadCV variant="outlined" />
             </aside>
           </Reveal>
         </div>

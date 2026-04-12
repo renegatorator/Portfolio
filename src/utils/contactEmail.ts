@@ -1,9 +1,10 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { EMAIL_PATTERN } from '@/constants/formRules';
+import { DEFAULT_LOCALE, Locale, SUPPORTED_LOCALES } from '@/constants/locales';
 import { EmailAddresses } from '@/constants/rene';
-
-export type Locale = 'en' | 'sl' | 'de';
+import { SITE_URL } from '@/constants/site';
 
 export type EmailConfirmationCopy = {
   subject: string;
@@ -64,31 +65,31 @@ const getDefaultEmailConfirmationCopy = async (): Promise<EmailConfirmationCopy>
 
 export const getLocale = (locale?: string): Locale => {
   if (!locale) {
-    return 'en';
+    return DEFAULT_LOCALE;
   }
 
   const normalized = locale.toLowerCase().split('-')[0];
 
-  if (normalized === 'sl' || normalized === 'de' || normalized === 'en') {
-    return normalized;
+  if ((SUPPORTED_LOCALES as readonly string[]).includes(normalized)) {
+    return normalized as Locale;
   }
 
-  return 'en';
+  return DEFAULT_LOCALE;
 };
 
-export const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+export const isValidEmail = (email: string) => EMAIL_PATTERN.test(email);
 
 export const getEmailAssetBaseUrl = () => {
   const configuredBaseUrl = process.env.EMAIL_ASSET_BASE_URL || process.env.NEXT_PUBLIC_SITE_URL;
 
   if (!configuredBaseUrl) {
-    return 'https://www.renekrajnc.com';
+    return SITE_URL;
   }
 
   const normalizedUrl = configuredBaseUrl.trim().replace(/\/$/, '');
 
   if (/localhost|127\.0\.0\.1/i.test(normalizedUrl)) {
-    return 'https://www.renekrajnc.com';
+    return SITE_URL;
   }
 
   return normalizedUrl;

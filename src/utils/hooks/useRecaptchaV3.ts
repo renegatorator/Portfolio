@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { ApiRoutes } from '@/constants/apiRoutes';
+
 interface UseRecaptchaV3Options {
   action: string;
 }
@@ -23,7 +25,7 @@ export const useRecaptchaV3 = ({ action }: UseRecaptchaV3Options) => {
   useEffect(() => {
     const fetchSiteKey = async () => {
       try {
-        const response = await fetch('/api/recaptcha/site-key');
+        const response = await fetch(ApiRoutes.RECAPTCHA_SITE_KEY);
         if (!response.ok) {
           throw new Error('Failed to load reCAPTCHA site key');
         }
@@ -79,7 +81,7 @@ export const useRecaptchaV3 = ({ action }: UseRecaptchaV3Options) => {
       return false;
     }
 
-    const verificationResponse = await fetch('/api/recaptcha/verify', {
+    const verificationResponse = await fetch(ApiRoutes.RECAPTCHA_VERIFY, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
