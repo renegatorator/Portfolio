@@ -68,6 +68,16 @@
     "one": "Projekt Eins - Lorem ipsum dolor sit amet.",
     "two": "Projekt Zwei - Pellentesque euismod nisi eu consectetur.",
     "three": "Projekt Drei - Etiam porta sem malesuada magna mollis euismod.",
+    "page": {
+      "description": "Eine Auswahl an Full-Stack- und Frontend-Projekten, die nach Produktionsstandards entwickelt wurden — Architektur, Performance und Detailgenauigkeit im Fokus.",
+      "viewOnGithub": "Auf GitHub ansehen",
+      "liveDemo": "Live Demo",
+      "openSource": "Open Source",
+      "about": "Über das Projekt",
+      "techStack": "Tech Stack",
+      "keyFeatures": "Hauptfunktionen",
+      "screenshots": "Screenshots"
+    },
     "seo": {
       "title": "Projekte | Rene Krajnc",
       "description": "Entdecken Sie Rene Krajncs Portfolio von Web-Entwicklungsprojekten, die seine Fähigkeiten in Frontend- und Backend-Technologien sowie seine Fähigkeit zur Bereitstellung wirkungsvoller digitaler Lösungen zeigen."

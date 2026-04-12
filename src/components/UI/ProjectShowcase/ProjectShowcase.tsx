@@ -1,0 +1,231 @@
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faArrowUpRightFromSquare, faCheck, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Chip, Typography } from '@mui/material';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+
+import Reveal from '@/components/UI/Reveal/Reveal';
+import ScreenshotCarousel from '@/components/UI/ScreenshotCarousel/ScreenshotCarousel';
+import TechBadge from '@/components/UI/TechBadge/TechBadge';
+import { Project } from '@/constants/projects';
+
+import classes from './ProjectShowcase.module.scss';
+
+interface ProjectShowcaseProps {
+  project: Project;
+}
+
+const statusConfig = {
+  live: { label: 'Live', className: 'live' },
+  'in-development': { label: 'In Development', className: 'inDev' },
+  archived: { label: 'Archived', className: 'archived' },
+} as const;
+
+const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
+  const { t } = useTranslation();
+
+  const { label: statusLabel, className: statusClass } = statusConfig[project.status];
+
+  const featuredIndex = project.screenshots.findIndex((s) => s.src === project.featuredImage);
+  const initialIndex = featuredIndex >= 0 ? featuredIndex : 0;
+
+  const demoHost = project.demoUrl
+    ? project.demoUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')
+    : undefined;
+
+  return (
+    <article className={classes.showcase}>
+      {/* ── Header ─────────────────────────────────────────────────── */}
+      <div className={classes.header}>
+        <div className={classes.headerMeta}>
+          <Reveal>
+            <div className={classes.badges}>
+              <Chip
+                label={statusLabel}
+                size="small"
+                className={`${classes.statusChip} ${classes[statusClass]}`}
+              />
+              {project.isOpenSource && (
+                <Chip
+                  icon={<FontAwesomeIcon icon={faCodeBranch} className={classes.chipIcon} />}
+                  label={t('projects.page.openSource')}
+                  size="small"
+                  className={classes.openSourceChip}
+                />
+              )}
+            </div>
+          </Reveal>
+
+          <Reveal delayMs={60}>
+            {project.logoLight && project.logoDark ? (
+              <div className={classes.logoWrap}>
+                <Image
+                  src={project.logoLight}
+                  alt={project.title}
+                  width={220}
+                  height={52}
+                  className={`${classes.logo} ${classes.logoLight}`}
+                  priority
+                />
+                <Image
+                  src={project.logoDark}
+                  alt={project.title}
+                  width={220}
+                  height={52}
+                  className={`${classes.logo} ${classes.logoDark}`}
+                  priority
+                />
+              </div>
+            ) : (
+              <Typography variant="h2" component="h2" className={classes.title}>
+                {project.title}
+              </Typography>
+            )}
+          </Reveal>
+
+          <Reveal delayMs={120}>
+            <Typography variant="subtitle1" component="p" className={classes.tagline}>
+              {project.tagline}
+            </Typography>
+          </Reveal>
+        </div>
+
+        <Reveal delayMs={180} className={classes.ctaRow}>
+          {project.githubUrl && (
+            <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outlined"
+                size="small"
+                startIcon={<FontAwesomeIcon icon={faGithub} />}
+                className={classes.ctaBtn}
+              >
+                {t('projects.page.viewOnGithub')}
+              </Button>
+            </Link>
+          )}
+          {project.demoUrl && (
+            <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="contained"
+                size="small"
+                endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+                className={classes.ctaBtn}
+              >
+                {t('projects.page.liveDemo')}
+              </Button>
+            </Link>
+          )}
+        </Reveal>
+      </div>
+
+      {/* ── Screenshot carousel ────────────────────────────────────── */}
+      <Reveal delayMs={80} className={classes.carouselWrap}>
+        <ScreenshotCarousel
+          screenshots={project.screenshots}
+          initialIndex={initialIndex}
+          urlBase={demoHost}
+        />
+      </Reveal>
+
+      {/* ── About ──────────────────────────────────────────────────── */}
+      <Reveal>
+        <div className={classes.panel}>
+          <Typography variant="overline" component="h3" className={classes.panelTitle}>
+            {t('projects.page.about')}
+          </Typography>
+          <div className={classes.aboutGrid}>
+            {project.descriptionParts ? (
+              <p className={classes.description}>
+                {project.descriptionParts.map((part, i) =>
+                  part.em ? (
+                    <span key={i} className={classes.descriptionEm}>
+                      {part.text}
+                    </span>
+                  ) : (
+                    <span key={i}>{part.text}</span>
+                  ),
+                )}
+              </p>
+            ) : (
+              <Typography variant="body2" component="p" className={classes.description}>
+                {project.description}
+              </Typography>
+            )}
+            <ul className={classes.highlights}>
+              {project.highlights.map((item, idx) => (
+                <li key={idx} className={classes.highlight}>
+                  <FontAwesomeIcon icon={faCheck} className={classes.checkIcon} />
+                  <Typography variant="body2" component="span">
+                    {item}
+                  </Typography>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* ── Tech Stack ─────────────────────────────────────────────── */}
+      <Reveal delayMs={60}>
+        <div className={classes.panel}>
+          <Typography variant="overline" component="h3" className={classes.panelTitle}>
+            {t('projects.page.techStack')}
+          </Typography>
+          <div className={classes.techGrid}>
+            {project.techCategories.map((category) => (
+              <div key={category.label} className={classes.techCategory}>
+                <div className={classes.categoryHeader}>
+                  <FontAwesomeIcon icon={category.icon} className={classes.categoryIcon} />
+                  <Typography variant="caption" component="span" className={classes.categoryLabel}>
+                    {category.label}
+                  </Typography>
+                </div>
+                <div className={classes.badgeRow}>
+                  {category.items.map((item) => (
+                    <TechBadge key={item} label={item} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      {/* ── Key Features ───────────────────────────────────────────── */}
+      <Reveal delayMs={60}>
+        <div className={classes.panel}>
+          <Typography variant="overline" component="h3" className={classes.panelTitle}>
+            {t('projects.page.keyFeatures')}
+          </Typography>
+          <ul className={classes.featuresGrid}>
+            {project.features.map((feature) => (
+              <li key={feature.label} className={classes.featureCard}>
+                <div className={classes.featureIcon}>
+                  <FontAwesomeIcon icon={feature.icon} />
+                </div>
+                <div className={classes.featureContent}>
+                  <Typography variant="body2" component="span" className={classes.featureLabel}>
+                    {feature.label}
+                  </Typography>
+                  {feature.description && (
+                    <Typography
+                      variant="caption"
+                      component="p"
+                      className={classes.featureDescription}
+                    >
+                      {feature.description}
+                    </Typography>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
+    </article>
+  );
+};
+
+export default ProjectShowcase;

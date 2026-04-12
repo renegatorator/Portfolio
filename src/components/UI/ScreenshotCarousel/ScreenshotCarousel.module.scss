@@ -1,0 +1,272 @@
+@use '@/styles' as *;
+
+.carousel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.viewport {
+  overflow: hidden;
+  border-radius: $border-radius-md;
+  position: relative;
+
+  // Primary glow behind the carousel
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: $border-radius-lg;
+    background: radial-gradient(
+      ellipse 70% 50% at 50% 50%,
+      rgba(0, 112, 243, 0.14) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.track {
+  display: flex;
+  transition: transform 340ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+// Browser chrome frame
+
+.frame {
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+  box-shadow:
+    0 24px 60px rgba(0, 112, 243, 0.16),
+    0 4px 24px rgba(0, 0, 0, 0.22);
+}
+
+.browserBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  flex-shrink: 0;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+
+  &.red {
+    background: #ff5f57;
+  }
+
+  &.yellow {
+    background: #febc2e;
+  }
+
+  &.green {
+    background: #28c840;
+  }
+}
+
+.urlBar {
+  flex: 1;
+  min-width: 0;
+  background: color-mix(in srgb, var(--bg-primary) 55%, var(--bg-secondary));
+  border-radius: $border-radius-xs;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.urlText {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: monospace;
+  opacity: 0.75;
+}
+
+.screenshotWrapper {
+  position: relative;
+  aspect-ratio: 16 / 8;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+
+  @include mq(xs) {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+// Navigation controls
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.navBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  transition:
+    border-color 200ms ease,
+    background 200ms ease,
+    transform 160ms ease,
+    opacity 200ms ease;
+
+  &:hover:not(:disabled) {
+    border-color: color-mix(in srgb, var(--primary) 50%, var(--border-primary));
+    background: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.controlCenter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.groupChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--primary) 12%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 160px;
+
+  span {
+    color: var(--primary);
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.counter {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// Caption
+
+.caption {
+  text-align: center;
+  min-height: 20px;
+}
+
+.captionText {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+}
+
+// Progress bar
+
+.progressBar {
+  height: 2px;
+  background: var(--border-primary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary) 0%, #28b8ff 100%);
+  transition: width 340ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Dot indicators
+
+.dotRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+
+  @include mq(xs) {
+    gap: 4px;
+  }
+}
+
+.dotBtn {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-secondary);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 220ms ease,
+    width 220ms ease,
+    border-radius 220ms ease,
+    transform 160ms ease;
+  flex-shrink: 0;
+
+  &:hover:not(.dotActive) {
+    background: color-mix(in srgb, var(--primary) 50%, var(--border-secondary));
+    transform: scale(1.2);
+  }
+
+  &.dotActive {
+    background: linear-gradient(90deg, var(--primary) 0%, #28b8ff 100%);
+    width: 18px;
+    border-radius: 4px;
+  }
+}

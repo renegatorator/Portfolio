@@ -68,6 +68,16 @@
     "one": "Projekt Ena - Lorem ipsum dolor sit amet.",
     "two": "Projekt Dva - Pellentesque euismod nisi eu consectetur.",
     "three": "Projekt Tri - Etiam porta sem malesuada magna mollis euismod.",
+    "page": {
+      "description": "Izbor full-stack in frontend projektov, razvitih po produkcijskih standardih — z izpostavljeno arhitekturo, zmogljivostjo in pozornostjo do podrobnosti.",
+      "viewOnGithub": "Poglej na GitHubu",
+      "liveDemo": "Živa demo",
+      "openSource": "Odprtokodna",
+      "about": "O projektu",
+      "techStack": "Tech Stack",
+      "keyFeatures": "Ključne funkcije",
+      "screenshots": "Posnetki zaslona"
+    },
     "seo": {
       "title": "Projekti | Rene Krajnc",
       "description": "Raziskujte portfelj Rene Krajnc spletnih razvojnih projektov, ki prikazujejo njegove spretnosti v frontend in backend tehnologijah ter sposobnost dostave učinkovitih digitalnih rešitev."

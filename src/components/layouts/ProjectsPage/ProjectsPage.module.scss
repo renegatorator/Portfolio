@@ -1,0 +1,92 @@
+@use '@/styles' as *;
+
+// Glass shell — mirrors ContactPage's .contactShell
+.pageShell {
+  position: relative;
+  border-radius: $border-radius-lg;
+  border: 1px solid;
+  @include primary-border(16%);
+  padding: 40px;
+  @include section-glass-bg;
+  overflow: hidden;
+
+  &::before {
+    @include floating-orb-base;
+    width: 340px;
+    height: 340px;
+    top: -130px;
+    right: -120px;
+    background: radial-gradient(circle, rgba(0, 112, 243, 0.18) 0%, rgba(0, 112, 243, 0) 70%);
+    animation: orbDrift 18s ease-in-out infinite;
+  }
+
+  @include mq(md) {
+    padding: 32px 16px;
+  }
+
+  @include mq(xs) {
+    padding: 24px 12px;
+  }
+}
+
+[data-theme='light'] {
+  .pageShell {
+    box-shadow: $shadow-section-light;
+  }
+}
+
+[data-theme='dark'] {
+  .pageShell {
+    box-shadow: $shadow-section-dark;
+  }
+}
+
+@include orb-drift(orbDrift, -28px, 20px);
+
+@include reduced-motion {
+  .pageShell::before {
+    animation: none;
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pageTitle {
+  // Let MUI variant="h1" use its default size — same as Contact page
+}
+
+.pageDescription {
+  color: var(--text-secondary) !important;
+  max-width: 560px;
+  line-height: 1.65 !important;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-primary) 30%,
+    var(--border-primary) 70%,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}

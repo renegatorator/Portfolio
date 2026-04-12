@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.0]
+
+### Added
+
+- **Projects Page**: Replaced the coming-soon placeholder on `/projects` with a fully data-driven project showcase page
+- **Project Data Layer**: Added typed `Project` interface in `src/constants/projects.ts` with fields for screenshots, tech categories, features, highlights, description parts, theme-aware logo paths, and status
+- **Ops Tracker Showcase**: Added first project entry with 19 ordered screenshots, 7 tech categories, 9 key features, highlighted description keywords, and theme-aware SVG logo
+- **ScreenshotCarousel Component**: Custom carousel with a browser chrome frame (traffic-light dots + URL bar), auto-advance every 4 seconds, pause on hover/focus, looping, arrow navigation, dot indicators, progress bar, group chip label, and full keyboard support
+- **ProjectShowcase Component**: Per-project showcase with status chip, theme-aware SVG logo, tagline, GitHub and Live Demo CTA buttons, screenshot carousel, and stacked About / Tech Stack / Key Features panels
+- **TechBadge Component**: Reusable pill chip component for tech stack labels with hover border glow; usable across the whole site
+- **ProjectsPage Layout**: Page layout with a glass shell matching Contact page visual language (section-glass-bg, primary-border, floating orb, light/dark box-shadow), a gradient divider separating the page header from the project list, and a page description
+- **Theme-Aware Project Logo**: Projects can supply `logoLight` and `logoDark` SVG paths; the correct variant is shown via CSS `data-theme` toggling with no JavaScript state or flash
+- **Description Highlights**: Projects can define `descriptionParts` to mark key terms with a blue primary colour and subtle glow; nine terms highlighted in the Ops Tracker description
+- **Projects i18n**: Added `projects.page.*` UI chrome keys (About, Tech Stack, Key Features, View on GitHub, Live Demo, Open Source, Screenshots) to English, German, and Slovenian locale files
+
+### Changed
+
+- **Screenshot Filename**: Renamed `landing-01,png.png` to `landing-01.png` to fix a comma typo in the filename
+- **Project Title Typography**: Reduced project name heading from `clamp(2rem, 5vw, 3rem)` to `clamp(1.5rem, 2.5vw, 2rem)` so it reads as a section heading
+- **Tagline Font Size**: Reduced from MUI `subtitle1` default (~16px) to an explicit `13px`
+
 ## [1.2.6]
 
 ### Changed
