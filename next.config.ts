@@ -1,12 +1,13 @@
 import type { NextConfig } from 'next';
 
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from './src/constants/locales';
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
-  // i18n configuration
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'sl', 'de'],
+    defaultLocale: DEFAULT_LOCALE,
+    locales: [...SUPPORTED_LOCALES],
   },
 
   // Image optimization

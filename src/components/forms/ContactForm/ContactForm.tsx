@@ -1,9 +1,8 @@
 import { Email, Message, Person } from '@mui/icons-material';
-import { Alert, Box, Button, InputAdornment, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, InputAdornment, Link, TextField, Typography } from '@mui/material';
 import classNames from 'classnames';
 import Script from 'next/script';
 import { useTranslation } from 'next-i18next';
-import { useEffect } from 'react';
 
 import { EMAIL_PATTERN } from '@/constants/formRules';
 import { useContactForm } from '@/utils/hooks/useContactForm';
@@ -31,14 +30,6 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
   } = useRecaptchaV3({
     action: CAPTCHA_ACTION,
   });
-
-  useEffect(() => {
-    document.body.classList.add('show-recaptcha-badge');
-
-    return () => {
-      document.body.classList.remove('show-recaptcha-badge');
-    };
-  }, []);
 
   const { errors, handleSubmit, isSubmitting, onSubmit, register, submitError, submitSuccess } =
     useContactForm({
@@ -157,6 +148,18 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
         >
           {isSubmitting ? t('contact.sending') : t('contact.send')}
         </Button>
+
+        <Typography variant="caption" color="text.secondary" textAlign="center">
+          This site is protected by reCAPTCHA and the Google{' '}
+          <Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+            Privacy Policy
+          </Link>{' '}
+          and{' '}
+          <Link href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">
+            Terms of Service
+          </Link>{' '}
+          apply.
+        </Typography>
       </Box>
     </form>
   );

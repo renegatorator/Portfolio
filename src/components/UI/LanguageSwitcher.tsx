@@ -1,16 +1,20 @@
 import { ExpandMore } from '@mui/icons-material';
 import { FormControl, MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
-import { DE,GB, SI } from 'country-flag-icons/react/3x2';
+import { DE, GB, SI } from 'country-flag-icons/react/3x2';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
+import { Locale, LOCALE_LABELS, SUPPORTED_LOCALES } from '@/constants/locales';
+
 import styles from './LanguageSwitcher.module.scss';
 
-const languages = [
-  { code: 'en', label: 'English', Flag: GB },
-  { code: 'sl', label: 'Slovenščina', Flag: SI },
-  { code: 'de', label: 'Deutsch', Flag: DE },
-];
+const FLAG_COMPONENTS: Record<Locale, typeof GB> = { en: GB, sl: SI, de: DE };
+
+const languages = SUPPORTED_LOCALES.map((code) => ({
+  code,
+  label: LOCALE_LABELS[code],
+  Flag: FLAG_COMPONENTS[code],
+}));
 
 const LanguageSwitcher = () => {
   const router = useRouter();
