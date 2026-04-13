@@ -9,7 +9,7 @@ import { Screenshot } from '@/constants/projects';
 
 import classes from './ScreenshotCarousel.module.scss';
 
-const AUTO_ADVANCE_MS = 4000;
+const AUTO_ADVANCE_MS = 5000;
 
 interface ScreenshotCarouselProps {
   screenshots: Screenshot[];
@@ -102,8 +102,14 @@ const ScreenshotCarousel = ({
   // Keyboard nav scoped to the carousel container (tabIndex={0} + onKeyDown)
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); handleManualPrev(); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); handleManualNext(); }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handleManualPrev();
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleManualNext();
+      }
     },
     [handleManualPrev, handleManualNext],
   );
@@ -141,7 +147,7 @@ const ScreenshotCarousel = ({
         >
           {screenshots.map((screenshot, idx) => (
             <div
-              key={idx}
+              key={screenshot.src}
               className={classes.slide}
               aria-hidden={idx !== currentIndex}
               aria-label={`${screenshot.caption} — ${t('projects.page.carousel.slideLabel', { current: idx + 1, total })}`}
@@ -159,6 +165,7 @@ const ScreenshotCarousel = ({
                 </div>
                 <div className={classes.screenshotWrapper}>
                   <Image
+                    key={screenshot.src}
                     src={screenshot.src}
                     alt={screenshot.alt}
                     fill
@@ -166,6 +173,24 @@ const ScreenshotCarousel = ({
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 960px"
                     loading={idx === initialIndex ? 'eager' : 'lazy'}
                   />
+                  {screenshot.subtitle && (
+                    <div className={classes.slideOverlay}>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.overlayCaptionTitle}
+                      >
+                        {screenshot.caption}
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.overlayCaptionSubtitle}
+                      >
+                        {screenshot.subtitle}
+                      </Typography>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

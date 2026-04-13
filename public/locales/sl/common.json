@@ -70,25 +70,31 @@
     "three": "Projekt Tri - Etiam porta sem malesuada magna mollis euismod.",
     "data": {
       "opsTracker": {
-        "tagline": "Produkcijsko orodje za upravljanje projektov v slogu Jira — zgrajeno z Next.js 16, Supabase in TypeScript.",
+        "tagline": "Produkcijsko orodje za sledenje težavam v slogu Jira — demonstrira razširljivo Next.js arhitekturo s Supabase, RBAC in vzorci iz resničnega sveta.",
+        "keyProps": [
+          "Strežniške komponente + React Query hibridni podatkovni model",
+          "RBAC uveljavljen na ravni baze prek Supabase RLS",
+          "Gladko delovanje pri velikih podatkovnih nizih z TanStack Virtual"
+        ],
         "description": "Ops Tracker je <highlight>full-stack</highlight> aplikacija za upravljanje projektov in sledenje težavam, ki demonstrira <highlight>produkcijsko</highlight> frontend arhitekturo, podprto z resnično bazo <highlight>Supabase</highlight> (PostgreSQL). Pokriva avtentikacijo, <highlight>nadzor dostopa na osnovi vlog</highlight>, <highlight>Kanban table</highlight>, projektno usmerjene težave, <highlight>popolne revizijske dnevnike</highlight>, <highlight>transakcijska e-poštna sporočila</highlight> in <highlight>internacionalizacijo</highlight> v treh jezikih — vse, kar pravi <highlight>B2B SaaS</highlight> zahteva.",
         "highlights": [
-          "Next.js 16 App Router s strežniškimi komponentami, strežniškimi akcijami in proxy posredovalnikom",
+          "Next.js 16 App Router — strežniške komponente, strežniške akcije in proxy posrednik za avtentikacijo in i18n",
           "Supabase Row Level Security na ravni baze podatkov — privzeto brez zaupanja",
-          "Tristopenjski RBAC: Uporabnik, Admin in Super Admin z Postgres enum vlogami",
-          "Popolni revizijski dnevnik — vsaka sprememba zabeležena v PostgreSQL z znački akcij",
-          "Znamčena transakcijska e-pošta prek Resend ob ustvarjanju in dodeljevanju težav",
-          "Playwright end-to-end testi za kritično pot avtentikacije in težav",
-          "Večjezičnost (angleščina, nemščina, slovenščina) prek next-intl"
+          "Tristopenjski RBAC: Uporabnik, Admin, Super Admin shranjeni kot Postgres app_role enum",
+          "Virtualizirana tabela težav z TanStack Table v8 + @tanstack/react-virtual — gladko delovanje pri velikih podatkovnih nizih",
+          "Playwright end-to-end testi za kritično pot avtentikacije in upravljanja težav"
+        ],
+        "architectureSnapshot": [
+          "Modularno ogrodje na osnovi funkcij (src/features/<domena>/) — domenski kod skupaj s komponentami, hooks, akcijami, storitvijo in shemami",
+          "Strežniško usmerjena pridobitev podatkov — strežniške komponente za prvi prikaz; TanStack Query za odjemalčeve sezname, filtre in optimistične mutacije",
+          "Obramba v globino — Supabase RLS + preverjanje vlog v strežniških akcijah; odjemalec nikoli ne more zaobiti avtorizacije",
+          "Samo-prisojevalni revizijski dnevnik v PostgreSQL — vsaka mutacija zabeležena s tipiziranimi ključi akcij, akterjem, entiteto in metapodatki"
         ],
         "techCategories": {
           "frontend": "Vmesnik",
           "dataState": "Podatki & Stanje",
           "backendDb": "Zaledni del & BP",
-          "infrastructure": "Infrastruktura",
-          "email": "E-pošta",
-          "security": "Varnost",
-          "testing": "Testiranje"
+          "infrastructure": "Infrastruktura"
         },
         "features": {
           "kanbanBoard": {
@@ -99,29 +105,17 @@
             "label": "Nadzor dostopa na osnovi vlog",
             "description": "Tristopenjski RBAC — Uporabnik, Admin, Super Admin — uveljavljen na ravni baze prek Supabase RLS."
           },
-          "projectIssues": {
-            "label": "Projektno usmerjene težave",
-            "description": "Berljivi ključi težav (npr. RKP-1), vrste Hrošč/Opravilo, prehodi stanj in upravljanje dodeljenih oseb."
+          "virtualTable": {
+            "label": "Virtualizirana tabela težav",
+            "description": "Veliki seznami težav z TanStack Table v8 in @tanstack/react-virtual za gladko delovanje pri velikih podatkovnih nizih."
           },
           "auditTrail": {
             "label": "Popolni revizijski dnevnik",
             "description": "Vsaka sprememba je zabeležena v PostgreSQL audit_logs z barvno kodiranimi znački in smiselnimi povzetki."
           },
-          "emailNotifications": {
-            "label": "Transakcijska e-pošta",
-            "description": "Znamčene HTML predloge e-pošte prek Resend — samodejne obvestila ob ustvarjanju in dodeljevanju težav."
-          },
           "i18n": {
             "label": "Internacionalizacija",
             "description": "Celotna i18n prek next-intl za angleščino, nemščino in slovenščino, vključno z vsemi sporočili o napakah."
-          },
-          "virtualTable": {
-            "label": "Virtualizirana tabela težav",
-            "description": "Veliki seznami težav z TanStack Table in virtualnim pomikanjem za gladko delovanje pri velikih podatkovnih nizih."
-          },
-          "secureAuth": {
-            "label": "Varna avtentikacija",
-            "description": "Supabase Auth z neobvezno zaščito Google reCAPTCHA v3 na prijavnem obrazcu — elegantno degradira brez nastavitve."
           },
           "adminPanel": {
             "label": "Administratorska nadzorna plošča",
@@ -136,6 +130,9 @@
       "liveDemo": "Demo",
       "openSource": "Odprtokodna",
       "about": "O projektu",
+      "engineeringHighlights": "Inženirski poudarki",
+      "architectureSnapshot": "Arhitekturni pregled",
+      "ctaTrust": "Vključuje E2E teste, produkcijsko pripravljene vzorce in pravo Supabase zaledje.",
       "techStack": "Tech Stack",
       "keyFeatures": "Ključne funkcije",
       "screenshots": "Posnetki zaslona",
