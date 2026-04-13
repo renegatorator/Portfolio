@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.1]
+
+### Added
+
+- **Ops Tracker image set**: `public/images/ops-tracker-images/` with seven showcase PNGs; theme-aware SVG logos copied from the legacy screenshots folder; all project constants now point at this directory
+- **Screenshot subtitle**: Optional `subtitle` on each `Screenshot`; carousel renders title and subtitle in a bottom gradient overlay on each slide
+- **Architecture Snapshot**: New `ProjectShowcase` panel after Engineering Highlights with four bullets from locale `projects.data.opsTracker.architectureSnapshot`
+- **Hero key props**: Three pill chips below the Ops Tracker tagline, driven by `projects.data.opsTracker.keyProps` in EN, DE, and SL
+- **Projects page locale keys**: `engineeringHighlights`, `architectureSnapshot`, and `ctaTrust` under `projects.page` in all locale files
+
+### Changed
+
+- **Ops Tracker project data**: Reduced screenshots from nineteen to seven with per-slide captions and subtitles; trimmed `features` to six entries; compressed `techCategories` to four groups (frontend, data state, backend, infrastructure)
+- **ProjectShowcase layout**: About panel retitled to Engineering Highlights; description stacked full width above a two-column highlights grid; Live Demo button before GitHub; trust line under CTAs
+- **Ops Tracker locale copy**: New tagline; highlights list reduced to five engineering-focused bullets; tech category keys aligned with the four data groups; removed unused feature strings for dropped feature keys
+- **ScreenshotCarousel styling**: Stronger bottom gradient and text shadow on overlay text; active dot stays circular (no pill width); auto-advance interval increased from 4s to 5s
+- **ScreenshotCarousel behaviour**: Slide and `next/image` keys use `screenshot.src` instead of array index for stable reconciliation when navigating slides
+
 ## [1.3.0]
 
 ### Added

@@ -36,6 +36,8 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
 
   const pk = project.projectKey;
   const highlights = t(`projects.data.${pk}.highlights`, { returnObjects: true }) as string[];
+  const architectureSnapshot = t(`projects.data.${pk}.architectureSnapshot`, { returnObjects: true }) as string[];
+  const keyProps = t(`projects.data.${pk}.keyProps`, { returnObjects: true }) as string[];
 
   return (
     <article className={classes.showcase}>
@@ -92,36 +94,55 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
               {t(`projects.data.${pk}.tagline`)}
             </Typography>
           </Reveal>
+
+          {Array.isArray(keyProps) && keyProps.length > 0 && (
+            <Reveal delayMs={160}>
+              <div className={classes.keyProps}>
+                {keyProps.map((prop, i) => (
+                  <span key={i} className={classes.keyProp}>
+                    {prop}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+          )}
         </div>
 
-        <Reveal delayMs={180} className={classes.ctaRow}>
-          {project.githubUrl && (
-            <Button
-              variant="outlined"
-              size="small"
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              startIcon={<FontAwesomeIcon icon={faGithub} />}
-              className={classes.ctaBtn}
-            >
-              {t('projects.page.viewOnGithub')}
-            </Button>
-          )}
-          {project.demoUrl && (
-            <Button
-              variant="contained"
-              size="small"
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-              className={classes.ctaBtn}
-            >
-              {t('projects.page.liveDemo')}
-            </Button>
-          )}
-        </Reveal>
+        <div className={classes.ctaWrap}>
+          <Reveal delayMs={180} className={classes.ctaRow}>
+            {project.demoUrl && (
+              <Button
+                variant="contained"
+                size="small"
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+                className={classes.ctaBtn}
+              >
+                {t('projects.page.liveDemo')}
+              </Button>
+            )}
+            {project.githubUrl && (
+              <Button
+                variant="outlined"
+                size="small"
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                startIcon={<FontAwesomeIcon icon={faGithub} />}
+                className={classes.ctaBtn}
+              >
+                {t('projects.page.viewOnGithub')}
+              </Button>
+            )}
+          </Reveal>
+          <Reveal delayMs={240}>
+            <Typography variant="caption" component="p" className={classes.ctaTrust}>
+              {t('projects.page.ctaTrust')}
+            </Typography>
+          </Reveal>
+        </div>
       </div>
 
       {/* ── Screenshot carousel ────────────────────────────────────── */}
@@ -133,20 +154,20 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
         />
       </Reveal>
 
-      {/* ── About ──────────────────────────────────────────────────── */}
+      {/* ── Engineering Highlights ─────────────────────────────────── */}
       <Reveal>
         <div className={classes.panel}>
           <Typography variant="overline" component="h3" className={classes.panelTitle}>
-            {t('projects.page.about')}
+            {t('projects.page.engineeringHighlights')}
           </Typography>
-          <div className={classes.aboutGrid}>
+          <div className={classes.aboutContent}>
             <p className={classes.description}>
               <Trans
                 i18nKey={`projects.data.${pk}.description`}
                 components={{ highlight: <span className={classes.descriptionEm} /> }}
               />
             </p>
-            <ul className={classes.highlights}>
+            <ul className={classes.highlightsGrid}>
               {Array.isArray(highlights) &&
                 highlights.map((item, idx) => (
                   <li key={idx} className={classes.highlight}>
@@ -160,6 +181,27 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
           </div>
         </div>
       </Reveal>
+
+      {/* ── Architecture Snapshot ──────────────────────────────────── */}
+      {Array.isArray(architectureSnapshot) && architectureSnapshot.length > 0 && (
+        <Reveal delayMs={60}>
+          <div className={classes.panel}>
+            <Typography variant="overline" component="h3" className={classes.panelTitle}>
+              {t('projects.page.architectureSnapshot')}
+            </Typography>
+            <ul className={classes.highlights}>
+              {architectureSnapshot.map((item, idx) => (
+                <li key={idx} className={classes.highlight}>
+                  <FontAwesomeIcon icon={faCheck} className={classes.checkIcon} />
+                  <Typography variant="body2" component="span">
+                    {item}
+                  </Typography>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      )}
 
       {/* ── Tech Stack ─────────────────────────────────────────────── */}
       <Reveal delayMs={60}>

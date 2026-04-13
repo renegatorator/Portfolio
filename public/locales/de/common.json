@@ -70,25 +70,31 @@
     "three": "Projekt Drei - Etiam porta sem malesuada magna mollis euismod.",
     "data": {
       "opsTracker": {
-        "tagline": "Ein produktionsreifes Jira-ähnliches Projektverwaltungs-Tool — entwickelt mit Next.js 16, Supabase und TypeScript.",
+        "tagline": "Produktionsreifer Issue-Tracker im Jira-Stil — demonstriert skalierbare Next.js-Architektur mit Supabase, RBAC und praxisnahen Engineering-Mustern.",
+        "keyProps": [
+          "Server Components + React Query hybrides Datenmodell",
+          "RBAC auf DB-Ebene via Supabase RLS durchgesetzt",
+          "Große Datensätze reibungslos mit TanStack Virtual"
+        ],
         "description": "Ops Tracker ist eine <highlight>Full-Stack</highlight>-Anwendung für Projektverwaltung und Issue-Tracking, die <highlight>produktionsreife</highlight> Frontend-Architektur auf Basis einer echten <highlight>Supabase</highlight>-Datenbank (PostgreSQL) demonstriert. Sie umfasst Authentifizierung, <highlight>rollenbasierte Zugriffskontrolle</highlight>, <highlight>Kanban-Boards</highlight>, projektbezogene Issues, <highlight>vollständige Audit-Protokolle</highlight>, <highlight>transaktionale E-Mails</highlight> und <highlight>Internationalisierung</highlight> in drei Sprachen — alles, was ein echtes <highlight>B2B-SaaS</highlight> braucht.",
         "highlights": [
-          "Next.js 16 App Router mit Server-Komponenten, Server-Actions und Proxy-Middleware",
+          "Next.js 16 App Router — Server-Komponenten, Server-Actions und Proxy-Middleware für Auth + i18n",
           "Supabase Row Level Security auf Datenbankebene — standardmäßig Zero Trust",
-          "Dreistufiges RBAC: Benutzer, Admin und Super-Admin mit Postgres-Enum-Rollen",
-          "Vollständiges Audit-Trail — jede Mutation in PostgreSQL mit Action-Badges protokolliert",
-          "Gebrandetes E-Mail über Resend bei Issue-Erstellung und -Zuweisung",
-          "Playwright End-to-End-Tests für kritische Authentifizierungs- und Issue-Pfade",
-          "Mehrsprachig (Englisch, Deutsch, Slowenisch) via next-intl"
+          "Dreistufiges RBAC: Benutzer, Admin, Super-Admin als Postgres app_role Enum gespeichert",
+          "Virtualisierte Issue-Tabelle mit TanStack Table v8 + @tanstack/react-virtual — reibungslose Performance bei großen Datenmengen",
+          "Playwright End-to-End-Tests für kritische Authentifizierungs- und Issue-Workflows"
+        ],
+        "architectureSnapshot": [
+          "Feature-basierte Modulstruktur (src/features/<Domain>/) — Domain-Code zusammen mit Komponenten, Hooks, Actions, Service und Schemas",
+          "Server-first Datenabruf — Server-Komponenten für das initiale Laden; TanStack Query für Client-Listen, Filter und optimistische Mutationen",
+          "Verteidigung in der Tiefe — Supabase RLS + Server-Action-Rollenprüfungen setzen Berechtigungen durch; dem Client wird nie für Autorisierung vertraut",
+          "Append-only Audit-Protokoll in PostgreSQL — jede Mutation mit typisierten Action-Keys, Akteur, Entität und Metadaten aufgezeichnet"
         ],
         "techCategories": {
           "frontend": "Frontend",
           "dataState": "Daten & Status",
           "backendDb": "Backend & DB",
-          "infrastructure": "Infrastruktur",
-          "email": "E-Mail",
-          "security": "Sicherheit",
-          "testing": "Tests"
+          "infrastructure": "Infrastruktur"
         },
         "features": {
           "kanbanBoard": {
@@ -99,29 +105,17 @@
             "label": "Rollenbasierte Zugriffskontrolle",
             "description": "Dreistufiges RBAC — Benutzer, Admin, Super-Admin — auf Datenbankebene via Supabase RLS durchgesetzt."
           },
-          "projectIssues": {
-            "label": "Projektbezogene Issues",
-            "description": "Lesbare Issue-Schlüssel (z. B. RKP-1), Bug/Ticket-Typen, Status-Übergänge und Bearbeiter-Verwaltung."
+          "virtualTable": {
+            "label": "Virtualisierte Issue-Tabelle",
+            "description": "Große Issue-Listen mit TanStack Table v8 und @tanstack/react-virtual für reibungslose Performance bei hoher Datenmenge."
           },
           "auditTrail": {
             "label": "Vollständiges Audit-Trail",
             "description": "Jede Mutation wird in PostgreSQL audit_logs mit farbcodierten Action-Badges und aussagekräftigen Zusammenfassungen gespeichert."
           },
-          "emailNotifications": {
-            "label": "Transaktionale E-Mails",
-            "description": "Gebrandete HTML-E-Mail-Templates via Resend — automatische Benachrichtigungen bei Issue-Erstellung und -Zuweisung."
-          },
           "i18n": {
             "label": "Internationalisierung",
             "description": "Vollständige i18n via next-intl für Englisch, Deutsch und Slowenisch einschließlich aller Validierungsmeldungen und Fehlertexte."
-          },
-          "virtualTable": {
-            "label": "Virtualisierte Issue-Tabelle",
-            "description": "Große Issue-Listen mit TanStack Table und virtuellem Scrollen für reibungslose Performance bei hoher Datenmenge."
-          },
-          "secureAuth": {
-            "label": "Sichere Authentifizierung",
-            "description": "Supabase Auth mit optionalem Google reCAPTCHA v3 Bot-Schutz auf dem Login-Formular — graceful degradation bei fehlender Konfiguration."
           },
           "adminPanel": {
             "label": "Admin-Kontrollpanel",
@@ -136,6 +130,9 @@
       "liveDemo": "Live Demo",
       "openSource": "Open Source",
       "about": "Über das Projekt",
+      "engineeringHighlights": "Engineering Highlights",
+      "architectureSnapshot": "Architektur-Überblick",
+      "ctaTrust": "Enthält E2E-Tests, produktionsreife Muster und ein echtes Supabase-Backend.",
       "techStack": "Tech Stack",
       "keyFeatures": "Hauptfunktionen",
       "screenshots": "Screenshots",

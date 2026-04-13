@@ -109,6 +109,23 @@
   font-size: 13px !important;
 }
 
+.keyProps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.keyProp {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border-primary));
+  background: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
+  color: var(--primary);
+  white-space: nowrap;
+}
+
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 
 .logoWrap {
@@ -140,12 +157,36 @@
   }
 }
 
+.ctaWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+  align-items: flex-end;
+
+  @include mq(sm) {
+    align-items: flex-start;
+  }
+}
+
 .ctaRow {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
-  flex-shrink: 0;
+}
+
+.ctaTrust {
+  color: var(--text-secondary) !important;
+  font-size: 11px !important;
+  font-style: italic;
+  opacity: 0.75;
+  text-align: right;
+  line-height: 1.4 !important;
+
+  @include mq(sm) {
+    text-align: left;
+  }
 }
 
 .ctaBtn {
@@ -196,15 +237,22 @@
 
 // ─── About panel ──────────────────────────────────────────────────────────────
 
-.aboutGrid {
-  display: grid;
-  grid-template-columns: 55fr 45fr;
-  gap: 32px;
-  align-items: start;
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  @include mq(md) {
+.highlightsGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 32px;
+
+  @include mq(sm) {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 }
 
