@@ -2,6 +2,9 @@ import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { ApiRoutes } from '@/constants/apiRoutes';
+import { DEFAULT_LOCALE } from '@/constants/locales';
+
 export interface ContactFormData {
   name: string;
   email: string;
@@ -35,14 +38,14 @@ export const useContactForm = ({ verifyCaptcha, clearCaptchaError }: UseContactF
     }
 
     try {
-      const response = await fetch('/api/contact/send', {
+      const response = await fetch(ApiRoutes.CONTACT_SEND, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           ...data,
-          locale: i18n.resolvedLanguage || i18n.language || 'en',
+          locale: i18n.resolvedLanguage || i18n.language || DEFAULT_LOCALE,
         }),
       });
 

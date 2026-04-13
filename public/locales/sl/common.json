@@ -68,6 +68,91 @@
     "one": "Projekt Ena - Lorem ipsum dolor sit amet.",
     "two": "Projekt Dva - Pellentesque euismod nisi eu consectetur.",
     "three": "Projekt Tri - Etiam porta sem malesuada magna mollis euismod.",
+    "data": {
+      "opsTracker": {
+        "tagline": "Produkcijsko orodje za upravljanje projektov v slogu Jira — zgrajeno z Next.js 16, Supabase in TypeScript.",
+        "description": "Ops Tracker je <highlight>full-stack</highlight> aplikacija za upravljanje projektov in sledenje težavam, ki demonstrira <highlight>produkcijsko</highlight> frontend arhitekturo, podprto z resnično bazo <highlight>Supabase</highlight> (PostgreSQL). Pokriva avtentikacijo, <highlight>nadzor dostopa na osnovi vlog</highlight>, <highlight>Kanban table</highlight>, projektno usmerjene težave, <highlight>popolne revizijske dnevnike</highlight>, <highlight>transakcijska e-poštna sporočila</highlight> in <highlight>internacionalizacijo</highlight> v treh jezikih — vse, kar pravi <highlight>B2B SaaS</highlight> zahteva.",
+        "highlights": [
+          "Next.js 16 App Router s strežniškimi komponentami, strežniškimi akcijami in proxy posredovalnikom",
+          "Supabase Row Level Security na ravni baze podatkov — privzeto brez zaupanja",
+          "Tristopenjski RBAC: Uporabnik, Admin in Super Admin z Postgres enum vlogami",
+          "Popolni revizijski dnevnik — vsaka sprememba zabeležena v PostgreSQL z znački akcij",
+          "Znamčena transakcijska e-pošta prek Resend ob ustvarjanju in dodeljevanju težav",
+          "Playwright end-to-end testi za kritično pot avtentikacije in težav",
+          "Večjezičnost (angleščina, nemščina, slovenščina) prek next-intl"
+        ],
+        "techCategories": {
+          "frontend": "Vmesnik",
+          "dataState": "Podatki & Stanje",
+          "backendDb": "Zaledni del & BP",
+          "infrastructure": "Infrastruktura",
+          "email": "E-pošta",
+          "security": "Varnost",
+          "testing": "Testiranje"
+        },
+        "features": {
+          "kanbanBoard": {
+            "label": "Kanban tabla z vlečenjem in spuščanjem",
+            "description": "Projektna Kanban tabla z @dnd-kit s stolpci, ki jih poganjajo nastavljivi statusi delovnega toka."
+          },
+          "rbac": {
+            "label": "Nadzor dostopa na osnovi vlog",
+            "description": "Tristopenjski RBAC — Uporabnik, Admin, Super Admin — uveljavljen na ravni baze prek Supabase RLS."
+          },
+          "projectIssues": {
+            "label": "Projektno usmerjene težave",
+            "description": "Berljivi ključi težav (npr. RKP-1), vrste Hrošč/Opravilo, prehodi stanj in upravljanje dodeljenih oseb."
+          },
+          "auditTrail": {
+            "label": "Popolni revizijski dnevnik",
+            "description": "Vsaka sprememba je zabeležena v PostgreSQL audit_logs z barvno kodiranimi znački in smiselnimi povzetki."
+          },
+          "emailNotifications": {
+            "label": "Transakcijska e-pošta",
+            "description": "Znamčene HTML predloge e-pošte prek Resend — samodejne obvestila ob ustvarjanju in dodeljevanju težav."
+          },
+          "i18n": {
+            "label": "Internacionalizacija",
+            "description": "Celotna i18n prek next-intl za angleščino, nemščino in slovenščino, vključno z vsemi sporočili o napakah."
+          },
+          "virtualTable": {
+            "label": "Virtualizirana tabela težav",
+            "description": "Veliki seznami težav z TanStack Table in virtualnim pomikanjem za gladko delovanje pri velikih podatkovnih nizih."
+          },
+          "secureAuth": {
+            "label": "Varna avtentikacija",
+            "description": "Supabase Auth z neobvezno zaščito Google reCAPTCHA v3 na prijavnem obrazcu — elegantno degradira brez nastavitve."
+          },
+          "adminPanel": {
+            "label": "Administratorska nadzorna plošča",
+            "description": "Namensko področje /admin za upravljanje vlog, CRUD statusov težav, globalni revizijski dnevnik in nastavitve super-admina."
+          }
+        }
+      }
+    },
+    "page": {
+      "description": "Izbor full-stack in frontend projektov, razvitih po produkcijskih standardih — z izpostavljeno arhitekturo, zmogljivostjo in pozornostjo do podrobnosti.",
+      "viewOnGithub": "Poglej na GitHubu",
+      "liveDemo": "Demo",
+      "openSource": "Odprtokodna",
+      "about": "O projektu",
+      "techStack": "Tech Stack",
+      "keyFeatures": "Ključne funkcije",
+      "screenshots": "Posnetki zaslona",
+      "status": {
+        "live": "V živo",
+        "inDevelopment": "V razvoju",
+        "archived": "Arhivirano"
+      },
+      "carousel": {
+        "galleryLabel": "Galerija posnetkov zaslona",
+        "previous": "Prejšnji posnetek zaslona",
+        "next": "Naslednji posnetek zaslona",
+        "navigationLabel": "Navigacija po posnetkih zaslona",
+        "slideLabel": "posnetek zaslona {{current}} od {{total}}",
+        "goToLabel": "Pojdi na posnetek zaslona {{index}}"
+      }
+    },
     "seo": {
       "title": "Projekti | Rene Krajnc",
       "description": "Raziskujte portfelj Rene Krajnc spletnih razvojnih projektov, ki prikazujejo njegove spretnosti v frontend in backend tehnologijah ter sposobnost dostave učinkovitih digitalnih rešitev."

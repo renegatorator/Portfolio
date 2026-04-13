@@ -1,0 +1,365 @@
+@use '@/styles' as *;
+
+// ─── Article wrapper ──────────────────────────────────────────────────────────
+
+.showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+
+  & + & {
+    padding-top: 48px;
+    border-top: 1px solid var(--border-primary);
+  }
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @include mq(sm) {
+    flex-direction: column;
+  }
+}
+
+.headerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+// Status chip variants
+.statusChip {
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  height: 22px !important;
+
+  &.live {
+    background: color-mix(in srgb, #22c55e 15%, transparent) !important;
+    color: #16a34a !important;
+    border: 1px solid color-mix(in srgb, #22c55e 30%, transparent) !important;
+
+    [data-theme='dark'] & {
+      color: #4ade80 !important;
+    }
+
+    @include pulse-glow;
+  }
+
+  &.inDev {
+    background: color-mix(in srgb, #f59e0b 15%, transparent) !important;
+    color: #d97706 !important;
+    border: 1px solid color-mix(in srgb, #f59e0b 30%, transparent) !important;
+
+    [data-theme='dark'] & {
+      color: #fbbf24 !important;
+    }
+
+    @include pulse-glow;
+  }
+
+  &.archived {
+    background: color-mix(in srgb, var(--text-secondary) 12%, transparent) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-primary) !important;
+  }
+}
+
+.openSourceChip {
+  font-size: 11px !important;
+  height: 22px !important;
+  background: color-mix(in srgb, var(--primary) 10%, transparent) !important;
+  color: var(--primary) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary)) !important;
+}
+
+.chipIcon {
+  font-size: 10px !important;
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.title {
+  @include text-gradient;
+  font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  color: var(--text-secondary) !important;
+  max-width: 640px;
+  line-height: 1.6 !important;
+  font-size: 13px !important;
+}
+
+// ─── Logo ─────────────────────────────────────────────────────────────────────
+
+.logoWrap {
+  line-height: 0;
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+// Default (light theme): show light logo, hide dark logo
+.logoLight {
+  display: block;
+}
+
+.logoDark {
+  display: none;
+}
+
+[data-theme='dark'] {
+  .logoLight {
+    display: none;
+  }
+
+  .logoDark {
+    display: block;
+  }
+}
+
+.ctaRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ctaBtn {
+  border-radius: 999px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 6px 18px !important;
+  white-space: nowrap;
+}
+
+// ─── Carousel ─────────────────────────────────────────────────────────────────
+
+.carouselWrap {
+  width: 100%;
+}
+
+// ─── Shared panel shell ───────────────────────────────────────────────────────
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 32px;
+  border-radius: $border-radius-md;
+  border: 1px solid var(--border-primary);
+  position: relative;
+  overflow: hidden;
+  @include card-glass-bg;
+  @include top-accent-bar;
+
+  @include mq(sm) {
+    padding: 20px;
+  }
+
+  @include mq(xs) {
+    padding: 16px;
+  }
+}
+
+.panelTitle {
+  color: var(--text-secondary) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+// ─── About panel ──────────────────────────────────────────────────────────────
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 32px;
+  align-items: start;
+
+  @include mq(md) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.description {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-size: 14px;
+  margin: 0;
+}
+
+.descriptionEm {
+  color: var(--primary);
+  font-weight: 600;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--primary) 32%, transparent);
+}
+
+.highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.checkIcon {
+  color: var(--primary);
+  font-size: 11px !important;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+// ─── Tech stack panel ─────────────────────────────────────────────────────────
+
+.techGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+
+  @include mq(sm) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.techCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.categoryIcon {
+  color: var(--primary);
+  font-size: 12px !important;
+  width: 12px !important;
+  flex-shrink: 0;
+}
+
+.categoryLabel {
+  color: var(--text-secondary) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+// ─── Key features panel ───────────────────────────────────────────────────────
+
+.featuresGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: $border-radius-sm;
+  border: 1px solid var(--border-primary);
+  background: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+  @include card-transition;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 30%, var(--border-primary));
+    background: color-mix(in srgb, var(--primary) 4%, var(--bg-primary));
+  }
+}
+
+.featureIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: $border-radius-sm;
+  background: color-mix(in srgb, var(--primary) 10%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 1px;
+
+  svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.featureLabel {
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+}
+
+.featureDescription {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
