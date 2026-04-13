@@ -68,6 +68,68 @@
     "one": "Project One - Lorem ipsum dolor sit amet.",
     "two": "Project Two - Pellentesque euismod nisi eu consectetur.",
     "three": "Project Three - Etiam porta sem malesuada magna mollis euismod.",
+    "data": {
+      "opsTracker": {
+        "tagline": "A production-grade Jira-like project management tool — built with Next.js 16, Supabase, and TypeScript.",
+        "description": "Ops Tracker is a <highlight>full-stack</highlight> project management and issue tracking application demonstrating <highlight>production-level</highlight> frontend architecture backed by a real <highlight>Supabase</highlight> (PostgreSQL) database. It covers authentication, <highlight>role-based access control</highlight>, <highlight>Kanban boards</highlight>, project-scoped issues, <highlight>full audit trails</highlight>, <highlight>transactional email</highlight>, and <highlight>internationalisation</highlight> across three languages — everything a real <highlight>B2B SaaS</highlight> requires.",
+        "highlights": [
+          "Next.js 16 App Router with server components, server actions, and proxy middleware",
+          "Supabase Row Level Security enforced at the database layer — zero trust by default",
+          "Three-tier RBAC: User, Admin, and Super Admin with Postgres enum roles",
+          "Full audit trail — every mutation logged to PostgreSQL with action badges",
+          "Branded transactional email via Resend on issue create and assignment",
+          "Playwright end-to-end tests covering the critical authentication and issue path",
+          "Multilingual (English, German, Slovenian) via next-intl"
+        ],
+        "techCategories": {
+          "frontend": "Frontend",
+          "dataState": "Data & State",
+          "backendDb": "Backend & DB",
+          "infrastructure": "Infrastructure",
+          "email": "Email",
+          "security": "Security",
+          "testing": "Testing"
+        },
+        "features": {
+          "kanbanBoard": {
+            "label": "Drag-and-Drop Kanban Board",
+            "description": "Per-project Kanban board powered by @dnd-kit with columns driven by configurable workflow statuses."
+          },
+          "rbac": {
+            "label": "Role-Based Access Control",
+            "description": "Three-tier RBAC — User, Admin, Super Admin — enforced at the database layer via Supabase RLS."
+          },
+          "projectIssues": {
+            "label": "Project-Scoped Issues",
+            "description": "Human-readable issue keys (e.g. RKP-1), Bug/Ticket types, status transitions, and assignee management."
+          },
+          "auditTrail": {
+            "label": "Full Audit Trail",
+            "description": "Every mutating action is recorded to PostgreSQL audit_logs with colour-coded action badges and meaningful summaries."
+          },
+          "emailNotifications": {
+            "label": "Transactional Email",
+            "description": "Branded HTML email templates via Resend — automatic notifications on issue create and assignment."
+          },
+          "i18n": {
+            "label": "Internationalisation",
+            "description": "Full i18n via next-intl across English, German, and Slovenian including all validation messages and error text."
+          },
+          "virtualTable": {
+            "label": "Virtualised Issue Table",
+            "description": "Large issue lists rendered with TanStack Table and virtual scrolling for smooth performance at scale."
+          },
+          "secureAuth": {
+            "label": "Secure Authentication",
+            "description": "Supabase Auth with optional Google reCAPTCHA v3 bot protection on the login form — gracefully degraded when unconfigured."
+          },
+          "adminPanel": {
+            "label": "Admin Control Panel",
+            "description": "Dedicated /admin area for user role management, issue status CRUD, global audit log, and super-admin settings."
+          }
+        }
+      }
+    },
     "page": {
       "description": "A selection of full-stack and frontend projects built to production standard — demonstrating architecture, performance, and attention to detail.",
       "viewOnGithub": "View on GitHub",
@@ -76,7 +138,20 @@
       "about": "About",
       "techStack": "Tech Stack",
       "keyFeatures": "Key Features",
-      "screenshots": "Screenshots"
+      "screenshots": "Screenshots",
+      "status": {
+        "live": "Live",
+        "inDevelopment": "In Development",
+        "archived": "Archived"
+      },
+      "carousel": {
+        "galleryLabel": "Screenshot gallery",
+        "previous": "Previous screenshot",
+        "next": "Next screenshot",
+        "navigationLabel": "Screenshot navigation",
+        "slideLabel": "screenshot {{current}} of {{total}}",
+        "goToLabel": "Go to screenshot {{index}}"
+      }
     },
     "seo": {
       "title": "Projects | Rene Krajnc",

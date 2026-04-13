@@ -29,29 +29,24 @@ export interface Screenshot {
   group?: string;
 }
 
+/** Key used to look up `projects.data.<categoryKey>` in locale files */
 export interface TechCategory {
-  label: string;
+  categoryKey: string;
   icon: IconDefinition;
   items: string[];
 }
 
+/** Key used to look up `projects.data.<featureKey>.label/description` in locale files */
 export interface ProjectFeature {
   icon: IconDefinition;
-  label: string;
-  description?: string;
-}
-
-export interface DescriptionPart {
-  text: string;
-  em?: boolean;
+  featureKey: string;
 }
 
 export interface Project {
   id: string;
+  /** Used to build i18n key paths: `projects.data.<projectKey>.*` */
+  projectKey: string;
   title: string;
-  tagline: string;
-  description: string;
-  descriptionParts?: DescriptionPart[];
   status: ProjectStatus;
   isOpenSource: boolean;
   githubUrl?: string;
@@ -62,7 +57,6 @@ export interface Project {
   screenshots: Screenshot[];
   techCategories: TechCategory[];
   features: ProjectFeature[];
-  highlights: string[];
 }
 
 // Re-export icons used by consumers so they import from one place
@@ -71,32 +65,8 @@ export { faArrowUpRightFromSquare, faCodeBranch, faGithub };
 export const projects: Project[] = [
   {
     id: 'ops-tracker',
+    projectKey: 'opsTracker',
     title: 'Ops Tracker',
-    tagline:
-      'A production-grade Jira-like project management tool — built with Next.js 16, Supabase, and TypeScript.',
-    description:
-      'Ops Tracker is a full-stack project management and issue tracking application demonstrating production-level frontend architecture backed by a real Supabase (PostgreSQL) database. It covers authentication, role-based access control, Kanban boards, project-scoped issues, full audit trails, transactional email, and internationalisation across three languages — everything a real B2B SaaS requires.',
-    descriptionParts: [
-      { text: 'Ops Tracker is a ' },
-      { text: 'full-stack', em: true },
-      { text: ' project management and issue tracking application demonstrating ' },
-      { text: 'production-level', em: true },
-      { text: ' frontend architecture backed by a real ' },
-      { text: 'Supabase', em: true },
-      { text: ' (PostgreSQL) database. It covers authentication, ' },
-      { text: 'role-based access control', em: true },
-      { text: ', ' },
-      { text: 'Kanban boards', em: true },
-      { text: ', project-scoped issues, ' },
-      { text: 'full audit trails', em: true },
-      { text: ', ' },
-      { text: 'transactional email', em: true },
-      { text: ', and ' },
-      { text: 'internationalisation', em: true },
-      { text: ' across three languages — everything a real ' },
-      { text: 'B2B SaaS', em: true },
-      { text: ' requires.' },
-    ],
     status: 'in-development',
     isOpenSource: false,
     githubUrl: 'https://github.com/renegatorator/ops-tracker',
@@ -104,107 +74,25 @@ export const projects: Project[] = [
     logoLight: '/images/ops-tracker-screenshots/logo-light.svg',
     logoDark: '/images/ops-tracker-screenshots/logo-dark.svg',
     featuredImage: '/images/ops-tracker-screenshots/dashboard-01.png',
-    highlights: [
-      'Next.js 16 App Router with server components, server actions, and proxy middleware',
-      'Supabase Row Level Security enforced at the database layer — zero trust by default',
-      'Three-tier RBAC: User, Admin, and Super Admin with Postgres enum roles',
-      'Full audit trail — every mutation logged to PostgreSQL with action badges',
-      'Branded transactional email via Resend on issue create and assignment',
-      'Playwright end-to-end tests covering the critical authentication and issue path',
-      'Multilingual (English, German, Slovenian) via next-intl',
-    ],
     techCategories: [
-      {
-        label: 'Frontend',
-        icon: faCode,
-        items: ['Next.js 16', 'React 19', 'TypeScript', 'Mantine 8', 'SCSS Modules'],
-      },
-      {
-        label: 'Data & State',
-        icon: faLayerGroup,
-        items: ['TanStack Query', 'TanStack Table', 'React Hook Form', 'Zod', '@dnd-kit'],
-      },
-      {
-        label: 'Backend & DB',
-        icon: faDatabase,
-        items: ['Supabase', 'PostgreSQL', 'Row Level Security', 'Supabase Auth'],
-      },
-      {
-        label: 'Infrastructure',
-        icon: faServer,
-        items: ['Vercel', 'GitHub Actions'],
-      },
-      {
-        label: 'Email',
-        icon: faEnvelope,
-        items: ['Resend', 'React Email'],
-      },
-      {
-        label: 'Security',
-        icon: faShield,
-        items: ['Google reCAPTCHA v3', 'Supabase RLS'],
-      },
-      {
-        label: 'Testing',
-        icon: faFlask,
-        items: ['Playwright (E2E)'],
-      },
+      { categoryKey: 'frontend', icon: faCode, items: ['Next.js 16', 'React 19', 'TypeScript', 'Mantine 8', 'SCSS Modules'] },
+      { categoryKey: 'dataState', icon: faLayerGroup, items: ['TanStack Query', 'TanStack Table', 'React Hook Form', 'Zod', '@dnd-kit'] },
+      { categoryKey: 'backendDb', icon: faDatabase, items: ['Supabase', 'PostgreSQL', 'Row Level Security', 'Supabase Auth'] },
+      { categoryKey: 'infrastructure', icon: faServer, items: ['Vercel', 'GitHub Actions'] },
+      { categoryKey: 'email', icon: faEnvelope, items: ['Resend', 'React Email'] },
+      { categoryKey: 'security', icon: faShield, items: ['Google reCAPTCHA v3', 'Supabase RLS'] },
+      { categoryKey: 'testing', icon: faFlask, items: ['Playwright (E2E)'] },
     ],
     features: [
-      {
-        icon: faGrip,
-        label: 'Drag-and-Drop Kanban Board',
-        description:
-          'Per-project Kanban board powered by @dnd-kit with columns driven by configurable workflow statuses.',
-      },
-      {
-        icon: faUsers,
-        label: 'Role-Based Access Control',
-        description:
-          'Three-tier RBAC — User, Admin, Super Admin — enforced at the database layer via Supabase RLS.',
-      },
-      {
-        icon: faList,
-        label: 'Project-Scoped Issues',
-        description:
-          'Human-readable issue keys (e.g. RKP-1), Bug/Ticket types, status transitions, and assignee management.',
-      },
-      {
-        icon: faScroll,
-        label: 'Full Audit Trail',
-        description:
-          'Every mutating action is recorded to PostgreSQL audit_logs with colour-coded action badges and meaningful summaries.',
-      },
-      {
-        icon: faEnvelope,
-        label: 'Transactional Email',
-        description:
-          'Branded HTML email templates via Resend — automatic notifications on issue create and assignment.',
-      },
-      {
-        icon: faGlobe,
-        label: 'Internationalisation',
-        description:
-          'Full i18n via next-intl across English, German, and Slovenian including all validation messages and error text.',
-      },
-      {
-        icon: faRocket,
-        label: 'Virtualised Issue Table',
-        description:
-          'Large issue lists rendered with TanStack Table and virtual scrolling for smooth performance at scale.',
-      },
-      {
-        icon: faKey,
-        label: 'Secure Authentication',
-        description:
-          'Supabase Auth with optional Google reCAPTCHA v3 bot protection on the login form — gracefully degraded when unconfigured.',
-      },
-      {
-        icon: faGears,
-        label: 'Admin Control Panel',
-        description:
-          'Dedicated /admin area for user role management, issue status CRUD, global audit log, and super-admin settings.',
-      },
+      { icon: faGrip, featureKey: 'kanbanBoard' },
+      { icon: faUsers, featureKey: 'rbac' },
+      { icon: faList, featureKey: 'projectIssues' },
+      { icon: faScroll, featureKey: 'auditTrail' },
+      { icon: faEnvelope, featureKey: 'emailNotifications' },
+      { icon: faGlobe, featureKey: 'i18n' },
+      { icon: faRocket, featureKey: 'virtualTable' },
+      { icon: faKey, featureKey: 'secureAuth' },
+      { icon: faGears, featureKey: 'adminPanel' },
     ],
     screenshots: [
       // Landing

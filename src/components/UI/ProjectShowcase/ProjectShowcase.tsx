@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Chip, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 
 import Reveal from '@/components/UI/Reveal/Reveal';
 import ScreenshotCarousel from '@/components/UI/ScreenshotCarousel/ScreenshotCarousel';
@@ -18,15 +18,15 @@ interface ProjectShowcaseProps {
 }
 
 const statusConfig = {
-  live: { label: 'Live', className: 'live' },
-  'in-development': { label: 'In Development', className: 'inDev' },
-  archived: { label: 'Archived', className: 'archived' },
+  live: { labelKey: 'projects.page.status.live', className: 'live' },
+  'in-development': { labelKey: 'projects.page.status.inDevelopment', className: 'inDev' },
+  archived: { labelKey: 'projects.page.status.archived', className: 'archived' },
 } as const;
 
 const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
   const { t } = useTranslation();
 
-  const { label: statusLabel, className: statusClass } = statusConfig[project.status];
+  const { labelKey: statusLabelKey, className: statusClass } = statusConfig[project.status];
 
   const featuredIndex = project.screenshots.findIndex((s) => s.src === project.featuredImage);
   const initialIndex = featuredIndex >= 0 ? featuredIndex : 0;
@@ -34,6 +34,9 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
   const demoHost = project.demoUrl
     ? project.demoUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')
     : undefined;
+
+  const pk = project.projectKey;
+  const highlights = t(`projects.data.${pk}.highlights`, { returnObjects: true }) as string[];
 
   return (
     <article className={classes.showcase}>
@@ -43,7 +46,7 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
           <Reveal>
             <div className={classes.badges}>
               <Chip
-                label={statusLabel}
+                label={t(statusLabelKey)}
                 size="small"
                 className={`${classes.statusChip} ${classes[statusClass]}`}
               />
@@ -87,7 +90,7 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
 
           <Reveal delayMs={120}>
             <Typography variant="subtitle1" component="p" className={classes.tagline}>
-              {project.tagline}
+              {t(`projects.data.${pk}.tagline`)}
             </Typography>
           </Reveal>
         </div>
@@ -136,32 +139,22 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
             {t('projects.page.about')}
           </Typography>
           <div className={classes.aboutGrid}>
-            {project.descriptionParts ? (
-              <p className={classes.description}>
-                {project.descriptionParts.map((part, i) =>
-                  part.em ? (
-                    <span key={i} className={classes.descriptionEm}>
-                      {part.text}
-                    </span>
-                  ) : (
-                    <span key={i}>{part.text}</span>
-                  ),
-                )}
-              </p>
-            ) : (
-              <Typography variant="body2" component="p" className={classes.description}>
-                {project.description}
-              </Typography>
-            )}
+            <p className={classes.description}>
+              <Trans
+                i18nKey={`projects.data.${pk}.description`}
+                components={{ highlight: <span className={classes.descriptionEm} /> }}
+              />
+            </p>
             <ul className={classes.highlights}>
-              {project.highlights.map((item, idx) => (
-                <li key={idx} className={classes.highlight}>
-                  <FontAwesomeIcon icon={faCheck} className={classes.checkIcon} />
-                  <Typography variant="body2" component="span">
-                    {item}
-                  </Typography>
-                </li>
-              ))}
+              {Array.isArray(highlights) &&
+                highlights.map((item, idx) => (
+                  <li key={idx} className={classes.highlight}>
+                    <FontAwesomeIcon icon={faCheck} className={classes.checkIcon} />
+                    <Typography variant="body2" component="span">
+                      {item}
+                    </Typography>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
@@ -175,11 +168,11 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
           </Typography>
           <div className={classes.techGrid}>
             {project.techCategories.map((category) => (
-              <div key={category.label} className={classes.techCategory}>
+              <div key={category.categoryKey} className={classes.techCategory}>
                 <div className={classes.categoryHeader}>
                   <FontAwesomeIcon icon={category.icon} className={classes.categoryIcon} />
                   <Typography variant="caption" component="span" className={classes.categoryLabel}>
-                    {category.label}
+                    {t(`projects.data.${pk}.techCategories.${category.categoryKey}`)}
                   </Typography>
                 </div>
                 <div className={classes.badgeRow}>
@@ -201,23 +194,21 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
           </Typography>
           <ul className={classes.featuresGrid}>
             {project.features.map((feature) => (
-              <li key={feature.label} className={classes.featureCard}>
+              <li key={feature.featureKey} className={classes.featureCard}>
                 <div className={classes.featureIcon}>
                   <FontAwesomeIcon icon={feature.icon} />
                 </div>
                 <div className={classes.featureContent}>
                   <Typography variant="body2" component="span" className={classes.featureLabel}>
-                    {feature.label}
+                    {t(`projects.data.${pk}.features.${feature.featureKey}.label`)}
                   </Typography>
-                  {feature.description && (
-                    <Typography
-                      variant="caption"
-                      component="p"
-                      className={classes.featureDescription}
-                    >
-                      {feature.description}
-                    </Typography>
-                  )}
+                  <Typography
+                    variant="caption"
+                    component="p"
+                    className={classes.featureDescription}
+                  >
+                    {t(`projects.data.${pk}.features.${feature.featureKey}.description`)}
+                  </Typography>
                 </div>
               </li>
             ))}

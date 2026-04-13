@@ -2,6 +2,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Typography } from '@mui/material';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Screenshot } from '@/constants/projects';
@@ -21,6 +22,7 @@ const ScreenshotCarousel = ({
   initialIndex = 0,
   urlBase = 'app.renekrajnc.com',
 }: ScreenshotCarouselProps) => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isAnimating, setIsAnimating] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -103,7 +105,7 @@ const ScreenshotCarousel = ({
     <div
       className={classes.carousel}
       role="region"
-      aria-label="Screenshot gallery"
+      aria-label={t('projects.page.carousel.galleryLabel')}
       aria-live="polite"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -121,7 +123,7 @@ const ScreenshotCarousel = ({
               key={idx}
               className={classes.slide}
               aria-hidden={idx !== currentIndex}
-              aria-label={`${screenshot.caption} — screenshot ${idx + 1} of ${total}`}
+              aria-label={`${screenshot.caption} — ${t('projects.page.carousel.slideLabel', { current: idx + 1, total })}`}
             >
               <div className={classes.frame}>
                 <div className={classes.browserBar}>
@@ -154,7 +156,7 @@ const ScreenshotCarousel = ({
         <button
           className={classes.navBtn}
           onClick={handleManualPrev}
-          aria-label="Previous screenshot"
+          aria-label={t('projects.page.carousel.previous')}
         >
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
@@ -175,7 +177,7 @@ const ScreenshotCarousel = ({
         <button
           className={classes.navBtn}
           onClick={handleManualNext}
-          aria-label="Next screenshot"
+          aria-label={t('projects.page.carousel.next')}
         >
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
@@ -194,13 +196,13 @@ const ScreenshotCarousel = ({
         />
       </div>
 
-      <div className={classes.dotRow} role="tablist" aria-label="Screenshot navigation">
+      <div className={classes.dotRow} role="tablist" aria-label={t('projects.page.carousel.navigationLabel')}>
         {screenshots.map((_, idx) => (
           <button
             key={idx}
             role="tab"
             aria-selected={idx === currentIndex}
-            aria-label={`Go to screenshot ${idx + 1}: ${screenshots[idx]?.caption}`}
+            aria-label={`${t('projects.page.carousel.goToLabel', { index: idx + 1 })}: ${screenshots[idx]?.caption}`}
             className={`${classes.dotBtn} ${idx === currentIndex ? classes.dotActive : ''}`}
             onClick={() => handleManualGoTo(idx)}
           />
