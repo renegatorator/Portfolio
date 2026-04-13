@@ -70,25 +70,31 @@
     "three": "Project Three - Etiam porta sem malesuada magna mollis euismod.",
     "data": {
       "opsTracker": {
-        "tagline": "A production-grade Jira-like project management tool — built with Next.js 16, Supabase, and TypeScript.",
+        "tagline": "Production-grade Jira-like issue tracker — demonstrating scalable Next.js architecture with Supabase, RBAC, and real-world engineering patterns.",
+        "keyProps": [
+          "Server Components + React Query hybrid data model",
+          "RBAC enforced at DB level via Supabase RLS",
+          "Handles large datasets with TanStack Virtual"
+        ],
         "description": "Ops Tracker is a <highlight>full-stack</highlight> project management and issue tracking application demonstrating <highlight>production-level</highlight> frontend architecture backed by a real <highlight>Supabase</highlight> (PostgreSQL) database. It covers authentication, <highlight>role-based access control</highlight>, <highlight>Kanban boards</highlight>, project-scoped issues, <highlight>full audit trails</highlight>, <highlight>transactional email</highlight>, and <highlight>internationalisation</highlight> across three languages — everything a real <highlight>B2B SaaS</highlight> requires.",
         "highlights": [
-          "Next.js 16 App Router with server components, server actions, and proxy middleware",
-          "Supabase Row Level Security enforced at the database layer — zero trust by default",
-          "Three-tier RBAC: User, Admin, and Super Admin with Postgres enum roles",
-          "Full audit trail — every mutation logged to PostgreSQL with action badges",
-          "Branded transactional email via Resend on issue create and assignment",
-          "Playwright end-to-end tests covering the critical authentication and issue path",
-          "Multilingual (English, German, Slovenian) via next-intl"
+          "Next.js 16 App Router — server components, server actions, and proxy middleware for auth + i18n",
+          "Supabase Row Level Security enforced at the database layer — zero-trust by default",
+          "Three-tier RBAC: User, Admin, Super Admin stored as a Postgres app_role enum",
+          "Virtualised issue table via TanStack Table v8 + @tanstack/react-virtual — handles large row counts smoothly",
+          "Playwright end-to-end tests covering the critical authentication and issue workflows"
+        ],
+        "architectureSnapshot": [
+          "Feature-based module structure (src/features/<domain>/) — domain code colocated with its components, hooks, actions, service, and schemas",
+          "Server-first data fetching — Server Components for initial load; TanStack Query for client lists, filters, and optimistic mutations",
+          "Defense in depth — Supabase RLS + Server Action role checks enforce permissions; the client is never trusted for authorization",
+          "Append-only audit log in PostgreSQL — every mutating action recorded with typed action keys, actor, entity, and metadata"
         ],
         "techCategories": {
           "frontend": "Frontend",
           "dataState": "Data & State",
           "backendDb": "Backend & DB",
-          "infrastructure": "Infrastructure",
-          "email": "Email",
-          "security": "Security",
-          "testing": "Testing"
+          "infrastructure": "Infrastructure"
         },
         "features": {
           "kanbanBoard": {
@@ -99,29 +105,17 @@
             "label": "Role-Based Access Control",
             "description": "Three-tier RBAC — User, Admin, Super Admin — enforced at the database layer via Supabase RLS."
           },
-          "projectIssues": {
-            "label": "Project-Scoped Issues",
-            "description": "Human-readable issue keys (e.g. RKP-1), Bug/Ticket types, status transitions, and assignee management."
+          "virtualTable": {
+            "label": "Virtualised Issue Table",
+            "description": "Large issue lists rendered with TanStack Table v8 and @tanstack/react-virtual for smooth performance at scale."
           },
           "auditTrail": {
             "label": "Full Audit Trail",
             "description": "Every mutating action is recorded to PostgreSQL audit_logs with colour-coded action badges and meaningful summaries."
           },
-          "emailNotifications": {
-            "label": "Transactional Email",
-            "description": "Branded HTML email templates via Resend — automatic notifications on issue create and assignment."
-          },
           "i18n": {
             "label": "Internationalisation",
             "description": "Full i18n via next-intl across English, German, and Slovenian including all validation messages and error text."
-          },
-          "virtualTable": {
-            "label": "Virtualised Issue Table",
-            "description": "Large issue lists rendered with TanStack Table and virtual scrolling for smooth performance at scale."
-          },
-          "secureAuth": {
-            "label": "Secure Authentication",
-            "description": "Supabase Auth with optional Google reCAPTCHA v3 bot protection on the login form — gracefully degraded when unconfigured."
           },
           "adminPanel": {
             "label": "Admin Control Panel",
@@ -136,6 +130,9 @@
       "liveDemo": "Live Demo",
       "openSource": "Open Source",
       "about": "About",
+      "engineeringHighlights": "Engineering Highlights",
+      "architectureSnapshot": "Architecture Snapshot",
+      "ctaTrust": "Includes E2E tests, production-ready patterns, and a real Supabase backend.",
       "techStack": "Tech Stack",
       "keyFeatures": "Key Features",
       "screenshots": "Screenshots",

@@ -8,6 +8,14 @@
   gap: 32px;
   position: relative;
 
+  @include mq(sm) {
+    gap: 36px;
+  }
+
+  @include mq(xs) {
+    gap: 40px;
+  }
+
   & + & {
     padding-top: 48px;
     border-top: 1px solid var(--border-primary);
@@ -18,22 +26,66 @@
 
 .header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
 
   @include mq(sm) {
-    flex-direction: column;
+    gap: 20px;
+  }
+
+  @include mq(xs) {
+    gap: 22px;
   }
 }
 
-.headerMeta {
+// Status + logo (left) and CTAs (right); CTAs wrap to full-width row below branding when needed
+.headerTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px 20px;
+  width: 100%;
+  min-width: 0;
+
+  @include mq(sm) {
+    gap: 16px 22px;
+  }
+
+  @include mq(xs) {
+    gap: 24px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.headerBranding {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+
+// Tagline + key props — full width below the top bar (after logo / CTAs row)
+.headerBody {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;
+  width: 100%;
   min-width: 0;
+
+  @include mq(sm) {
+    gap: 14px;
+  }
+
+  @include mq(xs) {
+    gap: 16px;
+  }
 }
 
 .badges {
@@ -41,6 +93,10 @@
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+
+  @include mq(xs) {
+    gap: 10px;
+  }
 }
 
 // Status chip variants
@@ -104,9 +160,51 @@
 
 .tagline {
   color: var(--text-secondary) !important;
-  max-width: 640px;
+  max-width: min(640px, 100%);
   line-height: 1.6 !important;
   font-size: 13px !important;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.keyProps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+
+  @include mq(sm) {
+    gap: 12px;
+  }
+
+  @include mq(xs) {
+    gap: 14px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.keyProp {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border-primary));
+  background: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
+  color: var(--primary);
+  white-space: nowrap;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  @include mq(xs) {
+    white-space: normal;
+    overflow-wrap: break-word;
+    width: 100%;
+    text-align: left;
+    padding: 8px 14px;
+  }
 }
 
 // ─── Logo ─────────────────────────────────────────────────────────────────────
@@ -140,12 +238,61 @@
   }
 }
 
+.ctaWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  max-width: 100%;
+  min-width: 0;
+  margin-left: auto;
+  flex: 1 1 auto;
+
+  @include mq(sm) {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  @include mq(xs) {
+    margin-left: 0;
+    width: 100%;
+    align-items: stretch;
+    flex: none;
+    gap: 12px;
+  }
+}
+
 .ctaRow {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
-  flex-shrink: 0;
+  max-width: 100%;
+  min-width: 0;
+
+  @include mq(sm) {
+    gap: 8px;
+  }
+
+  @include mq(xs) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.ctaTrust {
+  color: var(--text-secondary) !important;
+  font-size: 11px !important;
+  font-style: italic;
+  opacity: 0.75;
+  text-align: right;
+  line-height: 1.4 !important;
+  max-width: 100%;
+  overflow-wrap: break-word;
+
+  @include mq(sm) {
+    text-align: left;
+  }
 }
 
 .ctaBtn {
@@ -155,6 +302,13 @@
   font-size: 13px !important;
   padding: 6px 18px !important;
   white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  @include mq(xs) {
+    width: 100% !important;
+    white-space: normal;
+  }
 }
 
 // ─── Carousel ─────────────────────────────────────────────────────────────────
@@ -196,15 +350,22 @@
 
 // ─── About panel ──────────────────────────────────────────────────────────────
 
-.aboutGrid {
-  display: grid;
-  grid-template-columns: 55fr 45fr;
-  gap: 32px;
-  align-items: start;
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  @include mq(md) {
+.highlightsGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 32px;
+
+  @include mq(sm) {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 }
 
@@ -213,6 +374,9 @@
   line-height: 1.75;
   font-size: 14px;
   margin: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .descriptionEm {
