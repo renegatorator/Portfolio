@@ -43,52 +43,92 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
     <article className={classes.showcase}>
       {/* ── Header ─────────────────────────────────────────────────── */}
       <div className={classes.header}>
-        <div className={classes.headerMeta}>
-          <Reveal>
-            <div className={classes.badges}>
-              <Chip
-                label={t(statusLabelKey)}
-                size="small"
-                className={`${classes.statusChip} ${classes[statusClass]}`}
-              />
-              {project.isOpenSource && (
-                <Chip
-                  icon={<FontAwesomeIcon icon={faCodeBranch} className={classes.chipIcon} />}
-                  label={t('projects.page.openSource')}
-                  size="small"
-                  className={classes.openSourceChip}
-                />
+        <div className={classes.headerTop}>
+          <div className={classes.headerBranding}>
+            <Reveal>
+              {project.logoLight && project.logoDark ? (
+                <div className={classes.logoWrap}>
+                  <Image
+                    src={project.logoLight}
+                    alt={project.title}
+                    width={220}
+                    height={52}
+                    className={`${classes.logo} ${classes.logoLight}`}
+                    priority
+                  />
+                  <Image
+                    src={project.logoDark}
+                    alt={project.title}
+                    width={220}
+                    height={52}
+                    className={`${classes.logo} ${classes.logoDark}`}
+                    priority
+                  />
+                </div>
+              ) : (
+                <Typography variant="h2" component="h2" className={classes.title}>
+                  {project.title}
+                </Typography>
               )}
-            </div>
-          </Reveal>
+            </Reveal>
 
-          <Reveal delayMs={60}>
-            {project.logoLight && project.logoDark ? (
-              <div className={classes.logoWrap}>
-                <Image
-                  src={project.logoLight}
-                  alt={project.title}
-                  width={220}
-                  height={52}
-                  className={`${classes.logo} ${classes.logoLight}`}
-                  priority
+            <Reveal delayMs={60}>
+              <div className={classes.badges}>
+                <Chip
+                  label={t(statusLabelKey)}
+                  size="small"
+                  className={`${classes.statusChip} ${classes[statusClass]}`}
                 />
-                <Image
-                  src={project.logoDark}
-                  alt={project.title}
-                  width={220}
-                  height={52}
-                  className={`${classes.logo} ${classes.logoDark}`}
-                  priority
-                />
+                {project.isOpenSource && (
+                  <Chip
+                    icon={<FontAwesomeIcon icon={faCodeBranch} className={classes.chipIcon} />}
+                    label={t('projects.page.openSource')}
+                    size="small"
+                    className={classes.openSourceChip}
+                  />
+                )}
               </div>
-            ) : (
-              <Typography variant="h2" component="h2" className={classes.title}>
-                {project.title}
-              </Typography>
-            )}
-          </Reveal>
+            </Reveal>
+          </div>
 
+          <div className={classes.ctaWrap}>
+            <Reveal delayMs={180} className={classes.ctaRow}>
+              {project.demoUrl && (
+                <Button
+                  variant="contained"
+                  size="small"
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+                  className={classes.ctaBtn}
+                >
+                  {t('projects.page.liveDemo')}
+                </Button>
+              )}
+              {project.githubUrl && (
+                <Button
+                  variant="outlined"
+                  size="small"
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  startIcon={<FontAwesomeIcon icon={faGithub} />}
+                  className={classes.ctaBtn}
+                >
+                  {t('projects.page.viewOnGithub')}
+                </Button>
+              )}
+            </Reveal>
+            <Reveal delayMs={240}>
+              <Typography variant="caption" component="p" className={classes.ctaTrust}>
+                {t('projects.page.ctaTrust')}
+              </Typography>
+            </Reveal>
+          </div>
+        </div>
+
+        <div className={classes.headerBody}>
           <Reveal delayMs={120}>
             <Typography variant="subtitle1" component="p" className={classes.tagline}>
               {t(`projects.data.${pk}.tagline`)}
@@ -106,42 +146,6 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
               </div>
             </Reveal>
           )}
-        </div>
-
-        <div className={classes.ctaWrap}>
-          <Reveal delayMs={180} className={classes.ctaRow}>
-            {project.demoUrl && (
-              <Button
-                variant="contained"
-                size="small"
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-                className={classes.ctaBtn}
-              >
-                {t('projects.page.liveDemo')}
-              </Button>
-            )}
-            {project.githubUrl && (
-              <Button
-                variant="outlined"
-                size="small"
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                startIcon={<FontAwesomeIcon icon={faGithub} />}
-                className={classes.ctaBtn}
-              >
-                {t('projects.page.viewOnGithub')}
-              </Button>
-            )}
-          </Reveal>
-          <Reveal delayMs={240}>
-            <Typography variant="caption" component="p" className={classes.ctaTrust}>
-              {t('projects.page.ctaTrust')}
-            </Typography>
-          </Reveal>
         </div>
       </div>
 
