@@ -23,28 +23,39 @@ const ScreenshotCarousel = ({
   urlBase = 'app.renekrajnc.com',
 }: ScreenshotCarouselProps) => {
   const { t } = useTranslation();
+  const total = screenshots.length;
+
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isAnimating, setIsAnimating] = useState(false);
   const [paused, setPaused] = useState(false);
-  const total = screenshots.length;
 
-  // Stable ref so the interval callback always reads the latest values
+  // Stable ref so interval/timeout callbacks always read latest values
   const stateRef = useRef({ currentIndex, isAnimating, paused, total });
   useEffect(() => {
     stateRef.current = { currentIndex, isAnimating, paused, total };
   });
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Store animation timeout id so we can cancel it on unmount
+  const animTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (animTimeoutRef.current) clearTimeout(animTimeoutRef.current);
+    };
+  }, []);
 
   const goTo = useCallback(
     (index: number, fromAuto = false) => {
+      if (stateRef.current.total === 0) return;
       const { isAnimating: anim } = stateRef.current;
       if (anim) return;
-      const clamped = ((index % total) + total) % total; // always loop
+      const clamped = ((index % total) + total) % total;
       if (!fromAuto && clamped === stateRef.current.currentIndex) return;
       setIsAnimating(true);
       setCurrentIndex(clamped);
-      setTimeout(() => setIsAnimating(false), 340);
+      if (animTimeoutRef.current) clearTimeout(animTimeoutRef.current);
+      animTimeoutRef.current = setTimeout(() => setIsAnimating(false), 340);
     },
     [total],
   );
@@ -63,13 +74,13 @@ const ScreenshotCarousel = ({
   }, [goTo]);
 
   useEffect(() => {
+    if (total <= 1) return;
     startInterval();
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [startInterval]);
+  }, [startInterval, total]);
 
-  // Reset the timer when the user manually navigates
   const handleManualPrev = useCallback(() => {
     prev();
     startInterval();
@@ -88,15 +99,23 @@ const ScreenshotCarousel = ({
     [goTo, startInterval],
   );
 
-  // Keyboard nav
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') handleManualPrev();
-      if (e.key === 'ArrowRight') handleManualNext();
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [handleManualPrev, handleManualNext]);
+  // Keyboard nav scoped to the carousel container (tabIndex={0} + onKeyDown)
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); handleManualPrev(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); handleManualNext(); }
+    },
+    [handleManualPrev, handleManualNext],
+  );
+
+  // Only unpause when focus leaves the carousel entirely
+  const handleBlur = useCallback((e: React.FocusEvent) => {
+    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+      setPaused(false);
+    }
+  }, []);
+
+  if (total === 0) return null;
 
   const current = screenshots[currentIndex];
   const currentGroup = current?.group ?? '';
@@ -106,11 +125,13 @@ const ScreenshotCarousel = ({
       className={classes.carousel}
       role="region"
       aria-label={t('projects.page.carousel.galleryLabel')}
-      aria-live="polite"
+      aria-live="off"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
+      onBlur={handleBlur}
     >
       <div className={classes.viewport}>
         <div
@@ -143,7 +164,7 @@ const ScreenshotCarousel = ({
                     fill
                     style={{ objectFit: 'cover', objectPosition: 'top center' }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 960px"
-                    loading={idx === 0 ? 'eager' : 'lazy'}
+                    loading={idx === initialIndex ? 'eager' : 'lazy'}
                   />
                 </div>
               </div>
@@ -154,6 +175,7 @@ const ScreenshotCarousel = ({
 
       <div className={classes.controls}>
         <button
+          type="button"
           className={classes.navBtn}
           onClick={handleManualPrev}
           aria-label={t('projects.page.carousel.previous')}
@@ -175,6 +197,7 @@ const ScreenshotCarousel = ({
         </div>
 
         <button
+          type="button"
           className={classes.navBtn}
           onClick={handleManualNext}
           aria-label={t('projects.page.carousel.next')}
@@ -196,12 +219,12 @@ const ScreenshotCarousel = ({
         />
       </div>
 
-      <div className={classes.dotRow} role="tablist" aria-label={t('projects.page.carousel.navigationLabel')}>
+      <div className={classes.dotRow} aria-label={t('projects.page.carousel.navigationLabel')}>
         {screenshots.map((_, idx) => (
           <button
             key={idx}
-            role="tab"
-            aria-selected={idx === currentIndex}
+            type="button"
+            aria-current={idx === currentIndex ? true : undefined}
             aria-label={`${t('projects.page.carousel.goToLabel', { index: idx + 1 })}: ${screenshots[idx]?.caption}`}
             className={`${classes.dotBtn} ${idx === currentIndex ? classes.dotActive : ''}`}
             onClick={() => handleManualGoTo(idx)}

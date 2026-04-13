@@ -3,7 +3,6 @@ import { faArrowUpRightFromSquare, faCheck, faCodeBranch } from '@fortawesome/fr
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Chip, Typography } from '@mui/material';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Trans, useTranslation } from 'next-i18next';
 
 import Reveal from '@/components/UI/Reveal/Reveal';
@@ -97,28 +96,30 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
 
         <Reveal delayMs={180} className={classes.ctaRow}>
           {project.githubUrl && (
-            <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="outlined"
-                size="small"
-                startIcon={<FontAwesomeIcon icon={faGithub} />}
-                className={classes.ctaBtn}
-              >
-                {t('projects.page.viewOnGithub')}
-              </Button>
-            </Link>
+            <Button
+              variant="outlined"
+              size="small"
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              startIcon={<FontAwesomeIcon icon={faGithub} />}
+              className={classes.ctaBtn}
+            >
+              {t('projects.page.viewOnGithub')}
+            </Button>
           )}
           {project.demoUrl && (
-            <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="contained"
-                size="small"
-                endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-                className={classes.ctaBtn}
-              >
-                {t('projects.page.liveDemo')}
-              </Button>
-            </Link>
+            <Button
+              variant="contained"
+              size="small"
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+              className={classes.ctaBtn}
+            >
+              {t('projects.page.liveDemo')}
+            </Button>
           )}
         </Reveal>
       </div>

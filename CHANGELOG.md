@@ -9,14 +9,14 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - **Projects Page**: Replaced the coming-soon placeholder on `/projects` with a fully data-driven project showcase page
-- **Project Data Layer**: Added typed `Project` interface in `src/constants/projects.ts` with fields for screenshots, tech categories, features, highlights, description parts, theme-aware logo paths, and status
-- **Ops Tracker Showcase**: Added first project entry with 19 ordered screenshots, 7 tech categories, 9 key features, highlighted description keywords, and theme-aware SVG logo
+- **Project Data Layer**: Added typed `Project` interface in `src/constants/projects.ts` with fields for screenshots, tech categories (via `categoryKey`), features (via `featureKey`), theme-aware logo paths, and status; all translatable text is resolved from locale files via `projectKey`
+- **Ops Tracker Showcase**: Added first project entry with 19 ordered screenshots, 7 tech categories, 9 key features, and a theme-aware SVG logo
 - **ScreenshotCarousel Component**: Custom carousel with a browser chrome frame (traffic-light dots + URL bar), auto-advance every 4 seconds, pause on hover/focus, looping, arrow navigation, dot indicators, progress bar, group chip label, and full keyboard support
 - **ProjectShowcase Component**: Per-project showcase with status chip, theme-aware SVG logo, tagline, GitHub and Live Demo CTA buttons, screenshot carousel, and stacked About / Tech Stack / Key Features panels
 - **TechBadge Component**: Reusable pill chip component for tech stack labels with hover border glow; usable across the whole site
 - **ProjectsPage Layout**: Page layout with a glass shell matching Contact page visual language (section-glass-bg, primary-border, floating orb, light/dark box-shadow), a gradient divider separating the page header from the project list, and a page description
 - **Theme-Aware Project Logo**: Projects can supply `logoLight` and `logoDark` SVG paths; the correct variant is shown via CSS `data-theme` toggling with no JavaScript state or flash
-- **Description Highlights**: Projects can define `descriptionParts` to mark key terms with a blue primary colour and subtle glow; nine terms highlighted in the Ops Tracker description
+- **Description Highlights**: Project descriptions in locale files use `<highlight>` markup rendered via the i18next `Trans` component; nine key terms displayed with a blue primary colour and subtle glow in the Ops Tracker About section
 - **Projects i18n**: Added `projects.page.*` UI chrome keys (About, Tech Stack, Key Features, View on GitHub, Live Demo, Open Source, Screenshots) to English, German, and Slovenian locale files
 
 ### Changed
