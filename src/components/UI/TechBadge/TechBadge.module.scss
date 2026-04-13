@@ -1,0 +1,29 @@
+@use '@/styles' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border-primary);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-primary) 92%, transparent),
+    color-mix(in srgb, var(--bg-secondary) 78%, transparent)
+  );
+  white-space: nowrap;
+  transition:
+    border-color 200ms ease,
+    background 200ms ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border-primary));
+  }
+}
+
+.label {
+  color: var(--text-secondary);
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em;
+}

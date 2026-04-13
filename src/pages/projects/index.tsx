@@ -1,14 +1,9 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import ComingSoonPage from '@/components/layouts/ComingSoonPage/ComingSoonPage';
-import { MaintenanceReasons } from '@/constants/maintenance';
+import ProjectsPage from '@/components/layouts/ProjectsPage/ProjectsPage';
 
 const Projects = () => {
-  return (
-    <ComingSoonPage
-      maintenanceReasons={[MaintenanceReasons.CONSTRUCTION, MaintenanceReasons.UPDATE]}
-    />
-  );
+  return <ProjectsPage />;
 };
 
 export default Projects;
