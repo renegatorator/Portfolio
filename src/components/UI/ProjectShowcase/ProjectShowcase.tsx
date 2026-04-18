@@ -1,5 +1,5 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faArrowUpRightFromSquare, faCheck, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Chip, Typography } from '@mui/material';
 import Image from 'next/image';
@@ -16,11 +16,29 @@ interface ProjectShowcaseProps {
   project: Project;
 }
 
+interface RichItem {
+  title: string;
+  description: string;
+}
+
+interface DecisionCopy {
+  challenge: string;
+  solution: string;
+  tradeoff: string;
+}
+
+interface StatCopy {
+  value: string;
+  label: string;
+}
+
 const statusConfig = {
   live: { labelKey: 'projects.page.status.live', className: 'live' },
   'in-development': { labelKey: 'projects.page.status.inDevelopment', className: 'inDev' },
   archived: { labelKey: 'projects.page.status.archived', className: 'archived' },
 } as const;
+
+const formatSectionNumber = (n: number): string => `0${n}`.slice(-2);
 
 const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
   const { t } = useTranslation();
@@ -35,183 +53,302 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
     : undefined;
 
   const pk = project.projectKey;
-  const highlights = t(`projects.data.${pk}.highlights`, { returnObjects: true }) as string[];
-  const architectureSnapshot = t(`projects.data.${pk}.architectureSnapshot`, { returnObjects: true }) as string[];
+  const highlights = t(`projects.data.${pk}.highlights`, { returnObjects: true }) as RichItem[];
+  const architectureSnapshot = t(`projects.data.${pk}.architectureSnapshot`, {
+    returnObjects: true,
+  }) as RichItem[];
   const keyProps = t(`projects.data.${pk}.keyProps`, { returnObjects: true }) as string[];
+
+  const hasStats = Array.isArray(project.stats) && project.stats.length > 0;
+  const hasDecisions = Array.isArray(project.decisions) && project.decisions.length > 0;
+
+  let sectionNumber = 0;
+  const nextSection = (): string => formatSectionNumber(++sectionNumber);
 
   return (
     <article className={classes.showcase}>
-      {/* ── Header ─────────────────────────────────────────────────── */}
-      <div className={classes.header}>
-        <div className={classes.headerTop}>
-          <div className={classes.headerBranding}>
-            <Reveal>
-              {project.logoLight && project.logoDark ? (
-                <div className={classes.logoWrap}>
-                  <Image
-                    src={project.logoLight}
-                    alt={project.title}
-                    width={220}
-                    height={52}
-                    className={`${classes.logo} ${classes.logoLight}`}
-                    priority
-                  />
-                  <Image
-                    src={project.logoDark}
-                    alt={project.title}
-                    width={220}
-                    height={52}
-                    className={`${classes.logo} ${classes.logoDark}`}
-                    priority
-                  />
-                </div>
-              ) : (
-                <Typography variant="h2" component="h2" className={classes.title}>
-                  {project.title}
-                </Typography>
-              )}
-            </Reveal>
-
-            <Reveal delayMs={60}>
-              <div className={classes.badges}>
-                <Chip
-                  label={t(statusLabelKey)}
-                  size="small"
-                  className={`${classes.statusChip} ${classes[statusClass]}`}
+      {/* ── Hero header ────────────────────────────────────────────── */}
+      <div className={classes.hero}>
+        <div className={classes.heroHeader}>
+          <Reveal>
+            {project.logoLight && project.logoDark ? (
+              <div className={classes.logoWrap}>
+                <Image
+                  src={project.logoLight}
+                  alt={project.title}
+                  width={220}
+                  height={52}
+                  className={`${classes.logo} ${classes.logoLight}`}
+                  priority
                 />
-                {project.isOpenSource && (
-                  <Chip
-                    icon={<FontAwesomeIcon icon={faCodeBranch} className={classes.chipIcon} />}
-                    label={t('projects.page.openSource')}
-                    size="small"
-                    className={classes.openSourceChip}
-                  />
-                )}
+                <Image
+                  src={project.logoDark}
+                  alt={project.title}
+                  width={220}
+                  height={52}
+                  className={`${classes.logo} ${classes.logoDark}`}
+                  priority
+                />
               </div>
-            </Reveal>
-          </div>
-
-          <div className={classes.ctaWrap}>
-            <Reveal delayMs={180} className={classes.ctaRow}>
-              {project.demoUrl && (
-                <Button
-                  variant="contained"
-                  size="small"
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-                  className={classes.ctaBtn}
-                >
-                  {t('projects.page.liveDemo')}
-                </Button>
-              )}
-              {project.githubUrl && (
-                <Button
-                  variant="outlined"
-                  size="small"
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  startIcon={<FontAwesomeIcon icon={faGithub} />}
-                  className={classes.ctaBtn}
-                >
-                  {t('projects.page.viewOnGithub')}
-                </Button>
-              )}
-            </Reveal>
-            <Reveal delayMs={240}>
-              <Typography variant="caption" component="p" className={classes.ctaTrust}>
-                {t('projects.page.ctaTrust')}
+            ) : (
+              <Typography variant="h2" component="h2" className={classes.title}>
+                {project.title}
               </Typography>
-            </Reveal>
-          </div>
-        </div>
+            )}
+          </Reveal>
 
-        <div className={classes.headerBody}>
+          <Reveal delayMs={60}>
+            <div className={classes.badges}>
+              <Chip
+                label={t(statusLabelKey)}
+                size="small"
+                className={`${classes.statusChip} ${classes[statusClass]}`}
+              />
+              {project.isOpenSource && (
+                <Chip
+                  icon={<FontAwesomeIcon icon={faCodeBranch} className={classes.chipIcon} />}
+                  label={t('projects.page.openSource')}
+                  size="small"
+                  className={classes.openSourceChip}
+                />
+              )}
+            </div>
+          </Reveal>
+
           <Reveal delayMs={120}>
             <Typography variant="subtitle1" component="p" className={classes.tagline}>
               {t(`projects.data.${pk}.tagline`)}
             </Typography>
           </Reveal>
+        </div>
 
-          {Array.isArray(keyProps) && keyProps.length > 0 && (
-            <Reveal delayMs={160}>
-              <div className={classes.keyProps}>
-                {keyProps.map((prop, i) => (
-                  <span key={i} className={classes.keyProp}>
-                    {prop}
-                  </span>
-                ))}
+        <div className={classes.heroBody}>
+          <div className={classes.heroLeft}>
+            <Reveal delayMs={140} className={classes.ctaWrap}>
+              <div className={classes.ctaRow}>
+                {project.demoUrl && (
+                  <Button
+                    variant="contained"
+                    size="small"
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    endIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+                    className={classes.ctaBtn}
+                  >
+                    {t('projects.page.liveDemo')}
+                  </Button>
+                )}
+                {project.githubUrl && (
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    startIcon={<FontAwesomeIcon icon={faGithub} />}
+                    className={classes.ctaBtn}
+                  >
+                    {t('projects.page.viewOnGithub')}
+                  </Button>
+                )}
               </div>
+              <Typography variant="caption" component="p" className={classes.ctaTrust}>
+                {t('projects.page.ctaTrust')}
+              </Typography>
             </Reveal>
-          )}
+
+            {hasStats && (
+              <Reveal delayMs={200}>
+                <div className={classes.statsGrid}>
+                  {project.stats!.map((stat) => {
+                    const copy = t(`projects.data.${pk}.stats.${stat.statKey}`, {
+                      returnObjects: true,
+                    }) as StatCopy;
+                    return (
+                      <div key={stat.statKey} className={classes.statCard}>
+                        <div className={classes.statIcon}>
+                          <FontAwesomeIcon icon={stat.icon} />
+                        </div>
+                        <div className={classes.statBody}>
+                          <Typography variant="h6" component="span" className={classes.statValue}>
+                            {copy.value}
+                          </Typography>
+                          <Typography
+                            variant="caption"
+                            component="span"
+                            className={classes.statLabel}
+                          >
+                            {copy.label}
+                          </Typography>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Reveal>
+            )}
+
+            {Array.isArray(keyProps) && keyProps.length > 0 && (
+              <Reveal delayMs={260}>
+                <div className={classes.keyProps}>
+                  {keyProps.map((prop, i) => (
+                    <span key={i} className={classes.keyProp}>
+                      {prop}
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
+            )}
+          </div>
+
+          <Reveal delayMs={80} className={classes.heroRight}>
+            <ScreenshotCarousel
+              screenshots={project.screenshots}
+              initialIndex={initialIndex}
+              urlBase={demoHost}
+            />
+          </Reveal>
         </div>
       </div>
 
-      {/* ── Screenshot carousel ────────────────────────────────────── */}
-      <Reveal delayMs={80} className={classes.carouselWrap}>
-        <ScreenshotCarousel
-          screenshots={project.screenshots}
-          initialIndex={initialIndex}
-          urlBase={demoHost}
-        />
-      </Reveal>
-
       {/* ── Engineering Highlights ─────────────────────────────────── */}
       <Reveal>
-        <div className={classes.panel}>
+        <section className={classes.panel}>
           <Typography variant="overline" component="h3" className={classes.panelTitle}>
-            {t('projects.page.engineeringHighlights')}
+            <span className={classes.panelNumber}>{nextSection()}</span>
+            <span>{t('projects.page.engineeringHighlights')}</span>
           </Typography>
-          <div className={classes.aboutContent}>
-            <p className={classes.description}>
-              <Trans
-                i18nKey={`projects.data.${pk}.description`}
-                components={{ highlight: <span className={classes.descriptionEm} /> }}
-              />
-            </p>
+          <p className={classes.description}>
+            <Trans
+              i18nKey={`projects.data.${pk}.description`}
+              components={{ highlight: <span className={classes.descriptionEm} /> }}
+            />
+          </p>
+          {Array.isArray(highlights) && highlights.length > 0 && (
             <ul className={classes.highlightsGrid}>
-              {Array.isArray(highlights) &&
-                highlights.map((item, idx) => (
-                  <li key={idx} className={classes.highlight}>
-                    <FontAwesomeIcon icon={faCheck} className={classes.checkIcon} />
-                    <Typography variant="body2" component="span">
-                      {item}
+              {highlights.map((item, idx) => (
+                <li key={idx} className={classes.highlightCard}>
+                  <span className={classes.highlightNumber}>{formatSectionNumber(idx + 1)}</span>
+                  <div className={classes.highlightBody}>
+                    <Typography variant="body2" component="span" className={classes.highlightTitle}>
+                      {item.title}
                     </Typography>
-                  </li>
-                ))}
+                    <Typography
+                      variant="caption"
+                      component="p"
+                      className={classes.highlightDescription}
+                    >
+                      {item.description}
+                    </Typography>
+                  </div>
+                </li>
+              ))}
             </ul>
-          </div>
-        </div>
+          )}
+        </section>
       </Reveal>
 
       {/* ── Architecture Snapshot ──────────────────────────────────── */}
       {Array.isArray(architectureSnapshot) && architectureSnapshot.length > 0 && (
         <Reveal delayMs={60}>
-          <div className={classes.panel}>
+          <section className={`${classes.panel} ${classes.panelMuted}`}>
             <Typography variant="overline" component="h3" className={classes.panelTitle}>
-              {t('projects.page.architectureSnapshot')}
+              <span className={classes.panelNumber}>{nextSection()}</span>
+              <span>{t('projects.page.architectureSnapshot')}</span>
             </Typography>
-            <ul className={classes.highlights}>
+            <ol className={classes.archFlow}>
               {architectureSnapshot.map((item, idx) => (
-                <li key={idx} className={classes.highlight}>
-                  <FontAwesomeIcon icon={faCheck} className={classes.checkIcon} />
-                  <Typography variant="body2" component="span">
-                    {item}
-                  </Typography>
+                <li key={idx} className={classes.archStep}>
+                  <span className={classes.archStepNumber}>{formatSectionNumber(idx + 1)}</span>
+                  <div className={classes.archStepBody}>
+                    <Typography variant="body2" component="span" className={classes.archStepTitle}>
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      component="p"
+                      className={classes.archStepDescription}
+                    >
+                      {item.description}
+                    </Typography>
+                  </div>
                 </li>
               ))}
-            </ul>
-          </div>
+            </ol>
+          </section>
+        </Reveal>
+      )}
+
+      {/* ── Challenges & Decisions ─────────────────────────────────── */}
+      {hasDecisions && (
+        <Reveal delayMs={60}>
+          <section className={classes.panel}>
+            <Typography variant="overline" component="h3" className={classes.panelTitle}>
+              <span className={classes.panelNumber}>{nextSection()}</span>
+              <span>{t('projects.page.decisionsTitle')}</span>
+            </Typography>
+            <div className={classes.decisionList}>
+              {project.decisions!.map((decision) => {
+                const copy = t(`projects.data.${pk}.decisions.${decision.decisionKey}`, {
+                  returnObjects: true,
+                }) as DecisionCopy;
+                return (
+                  <article key={decision.decisionKey} className={classes.decisionCard}>
+                    <div className={`${classes.decisionRow} ${classes.decisionRowChallenge}`}>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.decisionLabel}
+                      >
+                        {t('projects.page.decision.challenge')}
+                      </Typography>
+                      <Typography variant="body2" component="p" className={classes.decisionText}>
+                        {copy.challenge}
+                      </Typography>
+                    </div>
+                    <div className={`${classes.decisionRow} ${classes.decisionRowSolution}`}>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.decisionLabel}
+                      >
+                        {t('projects.page.decision.solution')}
+                      </Typography>
+                      <Typography variant="body2" component="p" className={classes.decisionText}>
+                        {copy.solution}
+                      </Typography>
+                    </div>
+                    <div className={`${classes.decisionRow} ${classes.decisionRowTradeoff}`}>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.decisionLabel}
+                      >
+                        {t('projects.page.decision.tradeoff')}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        component="p"
+                        className={`${classes.decisionText} ${classes.decisionTextMuted}`}
+                      >
+                        {copy.tradeoff}
+                      </Typography>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
         </Reveal>
       )}
 
       {/* ── Tech Stack ─────────────────────────────────────────────── */}
       <Reveal delayMs={60}>
-        <div className={classes.panel}>
+        <section className={`${classes.panel} ${classes.panelMuted}`}>
           <Typography variant="overline" component="h3" className={classes.panelTitle}>
-            {t('projects.page.techStack')}
+            <span className={classes.panelNumber}>{nextSection()}</span>
+            <span>{t('projects.page.techStack')}</span>
           </Typography>
           <div className={classes.techGrid}>
             {project.techCategories.map((category) => (
@@ -230,14 +367,15 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
               </div>
             ))}
           </div>
-        </div>
+        </section>
       </Reveal>
 
       {/* ── Key Features ───────────────────────────────────────────── */}
       <Reveal delayMs={60}>
-        <div className={classes.panel}>
+        <section className={classes.panel}>
           <Typography variant="overline" component="h3" className={classes.panelTitle}>
-            {t('projects.page.keyFeatures')}
+            <span className={classes.panelNumber}>{nextSection()}</span>
+            <span>{t('projects.page.keyFeatures')}</span>
           </Typography>
           <ul className={classes.featuresGrid}>
             {project.features.map((feature) => (
@@ -260,7 +398,7 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
               </li>
             ))}
           </ul>
-        </div>
+        </section>
       </Reveal>
     </article>
   );

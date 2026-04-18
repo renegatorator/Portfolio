@@ -78,18 +78,76 @@
         ],
         "description": "Ops Tracker is a <highlight>full-stack</highlight> project management and issue tracking application demonstrating <highlight>production-level</highlight> frontend architecture backed by a real <highlight>Supabase</highlight> (PostgreSQL) database. It covers authentication, <highlight>role-based access control</highlight>, <highlight>Kanban boards</highlight>, project-scoped issues, <highlight>full audit trails</highlight>, <highlight>transactional email</highlight>, and <highlight>internationalisation</highlight> across three languages — everything a real <highlight>B2B SaaS</highlight> requires.",
         "highlights": [
-          "Next.js 16 App Router — server components, server actions, and proxy middleware for auth + i18n",
-          "Supabase Row Level Security enforced at the database layer — zero-trust by default",
-          "Three-tier RBAC: User, Admin, Super Admin stored as a Postgres app_role enum",
-          "Virtualised issue table via TanStack Table v8 + @tanstack/react-virtual — handles large row counts smoothly",
-          "Playwright end-to-end tests covering the critical authentication and issue workflows"
+          {
+            "title": "Next.js 16 App Router",
+            "description": "Server Components, Server Actions, and proxy middleware drive both authentication and i18n end-to-end."
+          },
+          {
+            "title": "Row Level Security at the DB",
+            "description": "Supabase RLS enforces every read and write at the database layer — zero-trust by default."
+          },
+          {
+            "title": "Three-Tier RBAC",
+            "description": "User, Admin, and Super Admin roles are stored as a typed Postgres app_role enum and validated server-side."
+          },
+          {
+            "title": "Virtualised Issue Table",
+            "description": "TanStack Table v8 paired with @tanstack/react-virtual keeps large issue lists smooth at any row count."
+          },
+          {
+            "title": "Playwright E2E Coverage",
+            "description": "Critical authentication and issue workflows are guarded by end-to-end Playwright tests."
+          }
         ],
         "architectureSnapshot": [
-          "Feature-based module structure (src/features/<domain>/) — domain code colocated with its components, hooks, actions, service, and schemas",
-          "Server-first data fetching — Server Components for initial load; TanStack Query for client lists, filters, and optimistic mutations",
-          "Defense in depth — Supabase RLS + Server Action role checks enforce permissions; the client is never trusted for authorization",
-          "Append-only audit log in PostgreSQL — every mutating action recorded with typed action keys, actor, entity, and metadata"
+          {
+            "title": "Feature-based modules",
+            "description": "Each domain lives under src/features/<domain>/ with its components, hooks, actions, service, and Zod schemas colocated."
+          },
+          {
+            "title": "Server-first data fetching",
+            "description": "Server Components handle the initial paint; TanStack Query takes over on the client for lists, filters, and optimistic mutations."
+          },
+          {
+            "title": "Defense in depth",
+            "description": "Supabase RLS plus Server Action role checks enforce permissions twice — the client is never trusted for authorization."
+          },
+          {
+            "title": "Append-only audit log",
+            "description": "Every mutating action is written to a PostgreSQL audit_logs table with typed action keys, actor, entity, and metadata."
+          }
         ],
+        "stats": {
+          "languages": { "value": "Multilingual", "label": "3 Languages — EN · DE · SL" },
+          "rbac": { "value": "Three-tier RBAC", "label": "User · Admin · Super Admin" },
+          "defenseInDepth": {
+            "value": "Defense in Depth",
+            "label": "RLS at the DB + Server Action checks"
+          },
+          "e2e": { "value": "End-to-end Tested", "label": "Playwright covers the critical paths" }
+        },
+        "decisions": {
+          "rlsAtDb": {
+            "challenge": "Client-side authorization is fragile — any leaked token or hand-crafted request can bypass UI guards.",
+            "solution": "Authorization was pushed down into PostgreSQL via Supabase Row Level Security, with Server Actions performing a second role check before any mutation runs.",
+            "tradeoff": "RLS policies are harder to debug than `if` statements and every table needs explicit coverage — but the system is zero-trust by default and the client is never trusted with permissions."
+          },
+          "rscVsClient": {
+            "challenge": "Server Components give a fast, SEO-friendly first paint, but lists, filters, and inline editing need real client interactivity.",
+            "solution": "A hybrid model: Server Components prefetch data and dehydrate it into a HydrationBoundary, then TanStack Query takes over on the client for filtering, sorting, and optimistic updates.",
+            "tradeoff": "Two data layers raise the mental-model overhead — every feature has to decide where its data lives — but first paint stays fast and the UI never feels static."
+          },
+          "auditLog": {
+            "challenge": "B2B SaaS needs full traceability: who did what, when, and to which entity — without coupling that bookkeeping to feature code.",
+            "solution": "An append-only PostgreSQL audit_logs table is written from a single, typed audit service. Action keys are a literal union, so every mutation has to declare its intent at the type level.",
+            "tradeoff": "Write amplification and storage growth are real, but the audit trail is the source of truth for compliance, debugging, and the in-app activity timelines."
+          },
+          "monorepoFeatures": {
+            "challenge": "A flat src/components + src/hooks layout collapses under its own weight once a project has multiple bounded contexts.",
+            "solution": "Code is organised by feature (src/features/<domain>/) with components, hooks, server actions, services, and schemas colocated next to the domain they belong to.",
+            "tradeoff": "Cross-feature reuse takes a deliberate promotion step into shared/, but ownership is obvious and refactoring a single domain rarely touches anything outside its folder."
+          }
+        },
         "techCategories": {
           "frontend": "Frontend",
           "dataState": "Data & State",
@@ -132,10 +190,17 @@
       "about": "About",
       "engineeringHighlights": "Engineering Highlights",
       "architectureSnapshot": "Architecture Snapshot",
+      "decisionsTitle": "Challenges & Decisions",
+      "stats": "Quick Facts",
       "ctaTrust": "Includes E2E tests, production-ready patterns, and a real Supabase backend.",
       "techStack": "Tech Stack",
       "keyFeatures": "Key Features",
       "screenshots": "Screenshots",
+      "decision": {
+        "challenge": "Challenge",
+        "solution": "Solution",
+        "tradeoff": "Tradeoff"
+      },
       "status": {
         "live": "Live",
         "inDevelopment": "In Development",
