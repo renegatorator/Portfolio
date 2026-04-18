@@ -1,11 +1,13 @@
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Typography } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { IconButton, Modal, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Screenshot } from '@/constants/projects';
+import { useBreakpoint } from '@/utils/hooks/useBreakpoint';
 
 import classes from './ScreenshotCarousel.module.scss';
 
@@ -24,15 +26,17 @@ const ScreenshotCarousel = ({
 }: ScreenshotCarouselProps) => {
   const { t } = useTranslation();
   const total = screenshots.length;
+  const isXs = useBreakpoint('xs');
 
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isAnimating, setIsAnimating] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Stable ref so interval/timeout callbacks always read latest values
-  const stateRef = useRef({ currentIndex, isAnimating, paused, total });
+  const stateRef = useRef({ currentIndex, isAnimating, paused, total, lightboxIndex });
   useEffect(() => {
-    stateRef.current = { currentIndex, isAnimating, paused, total };
+    stateRef.current = { currentIndex, isAnimating, paused, total, lightboxIndex };
   });
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -67,7 +71,7 @@ const ScreenshotCarousel = ({
   const startInterval = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
-      if (!stateRef.current.paused) {
+      if (!stateRef.current.paused && stateRef.current.lightboxIndex === null) {
         goTo(stateRef.current.currentIndex + 1, true);
       }
     }, AUTO_ADVANCE_MS);
@@ -102,6 +106,7 @@ const ScreenshotCarousel = ({
   // Keyboard nav scoped to the carousel container (tabIndex={0} + onKeyDown)
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
+      if (lightboxIndex !== null) return;
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
         handleManualPrev();
@@ -111,7 +116,7 @@ const ScreenshotCarousel = ({
         handleManualNext();
       }
     },
-    [handleManualPrev, handleManualNext],
+    [handleManualPrev, handleManualNext, lightboxIndex],
   );
 
   // Only unpause when focus leaves the carousel entirely
@@ -121,10 +126,72 @@ const ScreenshotCarousel = ({
     }
   }, []);
 
+  const openLightbox = useCallback((idx: number) => {
+    setLightboxIndex(idx);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxIndex(null);
+  }, []);
+
+  const lightboxPrev = useCallback(() => {
+    setLightboxIndex((prevIdx) => {
+      if (prevIdx === null) return prevIdx;
+      const nextIdx = ((prevIdx - 1) % total + total) % total;
+      goTo(nextIdx);
+      return nextIdx;
+    });
+  }, [goTo, total]);
+
+  const lightboxNext = useCallback(() => {
+    setLightboxIndex((prevIdx) => {
+      if (prevIdx === null) return prevIdx;
+      const nextIdx = (prevIdx + 1) % total;
+      goTo(nextIdx);
+      return nextIdx;
+    });
+  }, [goTo, total]);
+
+  // Restart auto-advance timer when the lightbox closes so the next slide
+  // gets a fresh AUTO_ADVANCE_MS window. The interval callback itself skips
+  // ticks while the lightbox is open (see startInterval).
+  useEffect(() => {
+    if (lightboxIndex === null && total > 1) {
+      startInterval();
+    }
+  }, [lightboxIndex, startInterval, total]);
+
+  // Lock document scroll while the lightbox is open. We toggle it on
+  // <html> rather than <body> because the global stylesheet pins
+  // `body { padding-right: 0 !important }` which defeats MUI's default lock.
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const html = document.documentElement;
+    const previous = html.style.overflow;
+    html.style.overflow = 'hidden';
+    return () => {
+      html.style.overflow = previous;
+    };
+  }, [lightboxIndex]);
+
+  const handleLightboxKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (total <= 1) return;
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        lightboxPrev();
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        lightboxNext();
+      }
+    },
+    [lightboxPrev, lightboxNext, total],
+  );
+
   if (total === 0) return null;
 
-  const current = screenshots[currentIndex];
-  const currentGroup = current?.group ?? '';
+  const lightboxScreenshot = lightboxIndex !== null ? screenshots[lightboxIndex] : null;
 
   return (
     <div
@@ -152,7 +219,15 @@ const ScreenshotCarousel = ({
               aria-hidden={idx !== currentIndex}
               aria-label={`${screenshot.caption} — ${t('projects.page.carousel.slideLabel', { current: idx + 1, total })}`}
             >
-              <div className={classes.frame}>
+              <button
+                type="button"
+                className={classes.frame}
+                onClick={() => openLightbox(idx)}
+                aria-label={t('projects.page.carousel.openLightboxLabel', {
+                  caption: screenshot.caption,
+                })}
+                tabIndex={idx === currentIndex ? 0 : -1}
+              >
                 <div className={classes.browserBar}>
                   <div className={classes.dots}>
                     <span className={`${classes.dot} ${classes.red}`} />
@@ -192,49 +267,10 @@ const ScreenshotCarousel = ({
                     </div>
                   )}
                 </div>
-              </div>
+              </button>
             </div>
           ))}
         </div>
-      </div>
-
-      <div className={classes.controls}>
-        <button
-          type="button"
-          className={classes.navBtn}
-          onClick={handleManualPrev}
-          aria-label={t('projects.page.carousel.previous')}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
-
-        <div className={classes.controlCenter}>
-          {currentGroup && (
-            <span className={classes.groupChip}>
-              <Typography variant="caption" component="span">
-                {currentGroup}
-              </Typography>
-            </span>
-          )}
-          <Typography variant="caption" component="span" className={classes.counter}>
-            {currentIndex + 1} / {total}
-          </Typography>
-        </div>
-
-        <button
-          type="button"
-          className={classes.navBtn}
-          onClick={handleManualNext}
-          aria-label={t('projects.page.carousel.next')}
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
-      </div>
-
-      <div className={classes.caption}>
-        <Typography variant="caption" component="p" className={classes.captionText}>
-          {current?.caption}
-        </Typography>
       </div>
 
       <div className={classes.progressBar}>
@@ -244,18 +280,107 @@ const ScreenshotCarousel = ({
         />
       </div>
 
-      <div className={classes.dotRow} aria-label={t('projects.page.carousel.navigationLabel')}>
-        {screenshots.map((_, idx) => (
-          <button
-            key={idx}
-            type="button"
-            aria-current={idx === currentIndex ? true : undefined}
-            aria-label={`${t('projects.page.carousel.goToLabel', { index: idx + 1 })}: ${screenshots[idx]?.caption}`}
-            className={`${classes.dotBtn} ${idx === currentIndex ? classes.dotActive : ''}`}
-            onClick={() => handleManualGoTo(idx)}
-          />
-        ))}
-      </div>
+      {isXs ? (
+        <div className={classes.dotRow} aria-label={t('projects.page.carousel.navigationLabel')}>
+          {screenshots.map((screenshot, idx) => (
+            <button
+              key={screenshot.src}
+              type="button"
+              aria-current={idx === currentIndex ? true : undefined}
+              aria-label={`${t('projects.page.carousel.goToLabel', { index: idx + 1 })}: ${screenshot.caption}`}
+              className={`${classes.dotBtn} ${idx === currentIndex ? classes.dotActive : ''}`}
+              onClick={() => handleManualGoTo(idx)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div
+          className={classes.thumbStrip}
+          aria-label={t('projects.page.carousel.navigationLabel')}
+        >
+          {screenshots.map((screenshot, idx) => (
+            <button
+              key={screenshot.src}
+              type="button"
+              aria-current={idx === currentIndex ? true : undefined}
+              aria-label={`${t('projects.page.carousel.goToLabel', { index: idx + 1 })}: ${screenshot.caption}`}
+              className={`${classes.thumb} ${idx === currentIndex ? classes.thumbActive : ''}`}
+              onClick={() => handleManualGoTo(idx)}
+            >
+              <Image
+                src={screenshot.src}
+                alt=""
+                fill
+                sizes="72px"
+                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+              />
+            </button>
+          ))}
+        </div>
+      )}
+
+      <Modal
+        open={lightboxScreenshot !== null}
+        onClose={closeLightbox}
+        aria-label={t('projects.page.carousel.lightboxLabel')}
+        className={classes.lightbox}
+        slotProps={{
+          backdrop: { className: classes.lightboxBackdrop },
+        }}
+      >
+        <div
+          className={classes.lightboxInner}
+          onKeyDown={handleLightboxKeyDown}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeLightbox();
+          }}
+          tabIndex={-1}
+        >
+          {total > 1 && (
+            <IconButton
+              className={`${classes.lightboxNav} ${classes.lightboxPrev}`}
+              onClick={lightboxPrev}
+              aria-label={t('projects.page.carousel.prevLightboxLabel')}
+            >
+              <KeyboardArrowLeftIcon fontSize="inherit" />
+            </IconButton>
+          )}
+          <div
+            className={classes.lightboxStage}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) closeLightbox();
+            }}
+          >
+            {lightboxScreenshot && (
+              <div className={classes.lightboxImageWrap}>
+                <IconButton
+                  className={classes.lightboxClose}
+                  onClick={closeLightbox}
+                  aria-label={t('projects.page.carousel.closeLightboxLabel')}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  key={lightboxScreenshot.src}
+                  src={lightboxScreenshot.src}
+                  alt={lightboxScreenshot.alt}
+                  className={classes.lightboxImage}
+                />
+              </div>
+            )}
+          </div>
+          {total > 1 && (
+            <IconButton
+              className={`${classes.lightboxNav} ${classes.lightboxNext}`}
+              onClick={lightboxNext}
+              aria-label={t('projects.page.carousel.nextLightboxLabel')}
+            >
+              <KeyboardArrowRightIcon fontSize="inherit" />
+            </IconButton>
+          )}
+        </div>
+      </Modal>
     </div>
   );
 };

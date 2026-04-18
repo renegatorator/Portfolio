@@ -78,18 +78,83 @@
         ],
         "description": "Ops Tracker je <highlight>full-stack</highlight> aplikacija za upravljanje projektov in sledenje težavam, ki demonstrira <highlight>produkcijsko</highlight> frontend arhitekturo, podprto z resnično bazo <highlight>Supabase</highlight> (PostgreSQL). Pokriva avtentikacijo, <highlight>nadzor dostopa na osnovi vlog</highlight>, <highlight>Kanban table</highlight>, projektno usmerjene težave, <highlight>popolne revizijske dnevnike</highlight>, <highlight>transakcijska e-poštna sporočila</highlight> in <highlight>internacionalizacijo</highlight> v treh jezikih — vse, kar pravi <highlight>B2B SaaS</highlight> zahteva.",
         "highlights": [
-          "Next.js 16 App Router — strežniške komponente, strežniške akcije in proxy posrednik za avtentikacijo in i18n",
-          "Supabase Row Level Security na ravni baze podatkov — privzeto brez zaupanja",
-          "Tristopenjski RBAC: Uporabnik, Admin, Super Admin shranjeni kot Postgres app_role enum",
-          "Virtualizirana tabela težav z TanStack Table v8 + @tanstack/react-virtual — gladko delovanje pri velikih podatkovnih nizih",
-          "Playwright end-to-end testi za kritično pot avtentikacije in upravljanja težav"
+          {
+            "title": "Next.js 16 App Router",
+            "description": "Strežniške komponente, strežniške akcije in proxy posrednik poganjajo tako avtentikacijo kot i18n od konca do konca."
+          },
+          {
+            "title": "Row Level Security v bazi",
+            "description": "Supabase RLS uveljavlja vsako branje in pisanje na ravni baze podatkov — privzeto brez zaupanja."
+          },
+          {
+            "title": "Tristopenjski RBAC",
+            "description": "Vloge Uporabnik, Admin in Super Admin so shranjene kot tipizirani Postgres app_role enum in preverjene na strežniku."
+          },
+          {
+            "title": "Virtualizirana tabela težav",
+            "description": "TanStack Table v8 v paru z @tanstack/react-virtual ohranja velike sezname težav gladke pri kateremkoli številu vrstic."
+          },
+          {
+            "title": "Playwright E2E pokritost",
+            "description": "Kritične poti avtentikacije in upravljanja težav varujejo end-to-end Playwright testi."
+          }
         ],
         "architectureSnapshot": [
-          "Modularno ogrodje na osnovi funkcij (src/features/<domena>/) — domenski kod skupaj s komponentami, hooks, akcijami, storitvijo in shemami",
-          "Strežniško usmerjena pridobitev podatkov — strežniške komponente za prvi prikaz; TanStack Query za odjemalčeve sezname, filtre in optimistične mutacije",
-          "Obramba v globino — Supabase RLS + preverjanje vlog v strežniških akcijah; odjemalec nikoli ne more zaobiti avtorizacije",
-          "Samo-prisojevalni revizijski dnevnik v PostgreSQL — vsaka mutacija zabeležena s tipiziranimi ključi akcij, akterjem, entiteto in metapodatki"
+          {
+            "title": "Moduli na osnovi funkcij",
+            "description": "Vsaka domena živi v src/features/<domena>/ s svojimi komponentami, hooks, akcijami, storitvijo in Zod shemami na enem mestu."
+          },
+          {
+            "title": "Strežniško usmerjena pridobitev podatkov",
+            "description": "Strežniške komponente poskrbijo za prvi prikaz; TanStack Query nato prevzame na odjemalcu za sezname, filtre in optimistične mutacije."
+          },
+          {
+            "title": "Obramba v globino",
+            "description": "Supabase RLS in preverjanje vlog v strežniških akcijah uveljavljata pravice dvakrat — odjemalec nikoli ne dobi avtorizacijskega zaupanja."
+          },
+          {
+            "title": "Samo-pripenjajoči revizijski dnevnik",
+            "description": "Vsaka mutacija se zapiše v PostgreSQL audit_logs s tipiziranimi ključi akcij, akterjem, entiteto in metapodatki."
+          }
         ],
+        "stats": {
+          "languages": { "value": "Večjezično", "label": "3 jeziki — EN · DE · SL" },
+          "rbac": { "value": "Tristopenjski RBAC", "label": "Uporabnik · Admin · Super Admin" },
+          "defenseInDepth": {
+            "value": "Obramba v globino",
+            "label": "RLS v bazi + preverjanje v strežniških akcijah"
+          },
+          "e2e": {
+            "value": "End-to-end testirano",
+            "label": "Playwright pokriva kritične poti"
+          }
+        },
+        "decisions": {
+          "rlsAtDb": {
+            "challengeShort": "Avtorizacija na odjemalcu je krhka",
+            "challenge": "Avtorizacija na strani odjemalca je krhka — vsak ukraden žeton ali ročno sestavljena zahteva lahko zaobide UI varovala.",
+            "solution": "Avtorizacija je potisnjena navzdol v PostgreSQL prek Supabase Row Level Security; strežniške akcije pred vsako mutacijo izvedejo še drugo preverjanje vlog.",
+            "tradeoff": "RLS pravila je težje razhroščevati kot `if` stavke in vsaka tabela potrebuje izrecno pokritost — a sistem je privzeto brez zaupanja in odjemalec nikoli ne dobi pravic."
+          },
+          "rscVsClient": {
+            "challengeShort": "Hitrost strežnika proti interaktivnosti odjemalca",
+            "challenge": "Strežniške komponente prinesejo hiter, SEO-prijazen prvi prikaz, a seznami, filtri in urejanje na mestu potrebujejo pravo interaktivnost.",
+            "solution": "Hibridni model: strežniške komponente vnaprej naložijo podatke in jih dehidrirajo v HydrationBoundary, nato TanStack Query prevzame na odjemalcu za filtriranje, sortiranje in optimistične posodobitve.",
+            "tradeoff": "Dve podatkovni plasti zvišata miselni preskok — vsaka funkcija mora premisliti, kje živijo njeni podatki — a prvi prikaz ostane hiter in vmesnik nikoli ni statičen."
+          },
+          "auditLog": {
+            "challengeShort": "Popolna sledljivost brez sklapljanja",
+            "challenge": "B2B SaaS potrebuje popolno sledljivost: kdo je kaj naredil, kdaj in nad katero entiteto — brez sklapljanja te evidence s funkcijsko kodo.",
+            "solution": "Samo-pripenjajoča PostgreSQL audit_logs tabela se piše iz ene same, tipizirane revizijske storitve. Ključi akcij so literalna unija, zato mora vsaka mutacija svoj namen napovedati na ravni tipov.",
+            "tradeoff": "Pomnoževanje pisanj in rast pomnilnika sta resnična, a revizijski dnevnik je vir resnice za skladnost, razhroščevanje in časovnice aktivnosti v aplikaciji."
+          },
+          "monorepoFeatures": {
+            "challengeShort": "Ploska struktura se zlomi pri rasti",
+            "challenge": "Plosko src/components + src/hooks ogrodje se zruši pod lastno težo, ko ima projekt več domen.",
+            "solution": "Koda je organizirana po funkcijah (src/features/<domena>/), s komponentami, hooks, strežniškimi akcijami, storitvami in shemami zraven domene, ki ji pripadajo.",
+            "tradeoff": "Ponovna uporaba med funkcijami zahteva premišljeno povišanje v shared/, a lastništvo je očitno in refaktor ene domene redko poseže izven svoje mape."
+          }
+        },
         "techCategories": {
           "frontend": "Vmesnik",
           "dataState": "Podatki & Stanje",
@@ -132,10 +197,18 @@
       "about": "O projektu",
       "engineeringHighlights": "Inženirski poudarki",
       "architectureSnapshot": "Arhitekturni pregled",
+      "decisionsTitle": "Izzivi & odločitve",
+      "decisionsSubtitle": "Ključni arhitekturni izzivi, kompromisi in odločitve, sprejete pri gradnji projekta {{project}}.",
+      "stats": "Hitra dejstva",
       "ctaTrust": "Vključuje E2E teste, produkcijsko pripravljene vzorce in pravo Supabase zaledje.",
       "techStack": "Tech Stack",
       "keyFeatures": "Ključne funkcije",
       "screenshots": "Posnetki zaslona",
+      "decision": {
+        "challenge": "Izziv",
+        "solution": "Rešitev",
+        "tradeoff": "Kompromis"
+      },
       "status": {
         "live": "V živo",
         "inDevelopment": "V razvoju",
@@ -147,7 +220,12 @@
         "next": "Naslednji posnetek zaslona",
         "navigationLabel": "Navigacija po posnetkih zaslona",
         "slideLabel": "posnetek zaslona {{current}} od {{total}}",
-        "goToLabel": "Pojdi na posnetek zaslona {{index}}"
+        "goToLabel": "Pojdi na posnetek zaslona {{index}}",
+        "openLightboxLabel": "Prikaži {{caption}} čez cel zaslon",
+        "lightboxLabel": "Povečan posnetek zaslona",
+        "closeLightboxLabel": "Zapri povečano sliko",
+        "prevLightboxLabel": "Prejšnji posnetek zaslona",
+        "nextLightboxLabel": "Naslednji posnetek zaslona"
       }
     },
     "seo": {

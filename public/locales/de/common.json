@@ -78,18 +78,80 @@
         ],
         "description": "Ops Tracker ist eine <highlight>Full-Stack</highlight>-Anwendung für Projektverwaltung und Issue-Tracking, die <highlight>produktionsreife</highlight> Frontend-Architektur auf Basis einer echten <highlight>Supabase</highlight>-Datenbank (PostgreSQL) demonstriert. Sie umfasst Authentifizierung, <highlight>rollenbasierte Zugriffskontrolle</highlight>, <highlight>Kanban-Boards</highlight>, projektbezogene Issues, <highlight>vollständige Audit-Protokolle</highlight>, <highlight>transaktionale E-Mails</highlight> und <highlight>Internationalisierung</highlight> in drei Sprachen — alles, was ein echtes <highlight>B2B-SaaS</highlight> braucht.",
         "highlights": [
-          "Next.js 16 App Router — Server-Komponenten, Server-Actions und Proxy-Middleware für Auth + i18n",
-          "Supabase Row Level Security auf Datenbankebene — standardmäßig Zero Trust",
-          "Dreistufiges RBAC: Benutzer, Admin, Super-Admin als Postgres app_role Enum gespeichert",
-          "Virtualisierte Issue-Tabelle mit TanStack Table v8 + @tanstack/react-virtual — reibungslose Performance bei großen Datenmengen",
-          "Playwright End-to-End-Tests für kritische Authentifizierungs- und Issue-Workflows"
+          {
+            "title": "Next.js 16 App Router",
+            "description": "Server-Komponenten, Server-Actions und Proxy-Middleware treiben sowohl Authentifizierung als auch i18n end-to-end."
+          },
+          {
+            "title": "Row Level Security in der DB",
+            "description": "Supabase RLS erzwingt jeden Lese- und Schreibzugriff auf Datenbankebene — standardmäßig Zero Trust."
+          },
+          {
+            "title": "Dreistufiges RBAC",
+            "description": "Die Rollen Benutzer, Admin und Super-Admin sind als typisiertes Postgres app_role Enum gespeichert und werden serverseitig validiert."
+          },
+          {
+            "title": "Virtualisierte Issue-Tabelle",
+            "description": "TanStack Table v8 zusammen mit @tanstack/react-virtual hält große Issue-Listen bei jeder Zeilenanzahl flüssig."
+          },
+          {
+            "title": "Playwright E2E-Abdeckung",
+            "description": "Kritische Authentifizierungs- und Issue-Workflows sind durch End-to-End Playwright-Tests abgesichert."
+          }
         ],
         "architectureSnapshot": [
-          "Feature-basierte Modulstruktur (src/features/<Domain>/) — Domain-Code zusammen mit Komponenten, Hooks, Actions, Service und Schemas",
-          "Server-first Datenabruf — Server-Komponenten für das initiale Laden; TanStack Query für Client-Listen, Filter und optimistische Mutationen",
-          "Verteidigung in der Tiefe — Supabase RLS + Server-Action-Rollenprüfungen setzen Berechtigungen durch; dem Client wird nie für Autorisierung vertraut",
-          "Append-only Audit-Protokoll in PostgreSQL — jede Mutation mit typisierten Action-Keys, Akteur, Entität und Metadaten aufgezeichnet"
+          {
+            "title": "Feature-basierte Module",
+            "description": "Jede Domain liegt unter src/features/<Domain>/ mit ihren Komponenten, Hooks, Actions, Service und Zod-Schemas an einem Ort."
+          },
+          {
+            "title": "Server-first Datenabruf",
+            "description": "Server-Komponenten übernehmen den ersten Render; TanStack Query übernimmt anschließend auf dem Client für Listen, Filter und optimistische Mutationen."
+          },
+          {
+            "title": "Verteidigung in der Tiefe",
+            "description": "Supabase RLS plus Server-Action-Rollenprüfungen erzwingen Berechtigungen zweifach — dem Client wird für Autorisierung nie vertraut."
+          },
+          {
+            "title": "Append-only Audit-Log",
+            "description": "Jede Mutation wird in eine PostgreSQL audit_logs Tabelle mit typisierten Action-Keys, Akteur, Entität und Metadaten geschrieben."
+          }
         ],
+        "stats": {
+          "languages": { "value": "Mehrsprachig", "label": "3 Sprachen — EN · DE · SL" },
+          "rbac": { "value": "Dreistufiges RBAC", "label": "Benutzer · Admin · Super-Admin" },
+          "defenseInDepth": {
+            "value": "Verteidigung in der Tiefe",
+            "label": "RLS in der DB + Server-Action-Prüfungen"
+          },
+          "e2e": { "value": "End-to-End getestet", "label": "Playwright deckt kritische Pfade ab" }
+        },
+        "decisions": {
+          "rlsAtDb": {
+            "challengeShort": "Autorisierung auf dem Client ist fragil",
+            "challenge": "Autorisierung auf dem Client ist fragil — jedes geleakte Token oder handgebaute Request kann UI-Wächter umgehen.",
+            "solution": "Die Autorisierung wurde in PostgreSQL via Supabase Row Level Security verlagert; Server-Actions führen vor jeder Mutation eine zweite Rollenprüfung durch.",
+            "tradeoff": "RLS-Policies sind schwerer zu debuggen als `if`-Statements und jede Tabelle braucht explizite Abdeckung — dafür ist das System Zero-Trust und der Client erhält nie Autorisierungsvertrauen."
+          },
+          "rscVsClient": {
+            "challengeShort": "Server-Tempo gegen Client-Interaktivität",
+            "challenge": "Server-Komponenten liefern einen schnellen, SEO-freundlichen ersten Render, doch Listen, Filter und Inline-Editing brauchen echte Client-Interaktivität.",
+            "solution": "Hybrides Modell: Server-Komponenten holen Daten vor und dehydrieren sie in eine HydrationBoundary, anschließend übernimmt TanStack Query auf dem Client für Filter, Sortierung und optimistische Updates.",
+            "tradeoff": "Zwei Datenebenen erhöhen den mentalen Aufwand — jedes Feature muss entscheiden, wo seine Daten leben — aber der erste Render bleibt schnell und das UI fühlt sich nie statisch an."
+          },
+          "auditLog": {
+            "challengeShort": "Volle Nachvollziehbarkeit ohne Kopplung",
+            "challenge": "B2B-SaaS braucht volle Nachvollziehbarkeit: wer hat wann was an welcher Entität verändert — ohne diese Buchführung an Feature-Code zu koppeln.",
+            "solution": "Eine append-only PostgreSQL audit_logs Tabelle wird aus einem einzigen, typisierten Audit-Service beschrieben. Action-Keys sind eine Literal-Union, sodass jede Mutation ihre Absicht auf Typebene deklarieren muss.",
+            "tradeoff": "Schreib-Verstärkung und Speicherwachstum sind real, aber das Audit-Log ist die Quelle der Wahrheit für Compliance, Debugging und die In-App-Aktivitätszeitleisten."
+          },
+          "monorepoFeatures": {
+            "challengeShort": "Flache Ordner kollabieren bei Skalierung",
+            "challenge": "Eine flache src/components + src/hooks-Struktur kollabiert unter ihrem eigenen Gewicht, sobald ein Projekt mehrere Bounded Contexts hat.",
+            "solution": "Code ist nach Feature organisiert (src/features/<Domain>/), mit Komponenten, Hooks, Server-Actions, Services und Schemas neben der Domain, zu der sie gehören.",
+            "tradeoff": "Cross-Feature-Wiederverwendung erfordert eine bewusste Promotion nach shared/, dafür ist Eigentümerschaft offensichtlich und Refactorings einer Domain berühren selten etwas außerhalb ihres Ordners."
+          }
+        },
         "techCategories": {
           "frontend": "Frontend",
           "dataState": "Daten & Status",
@@ -132,10 +194,18 @@
       "about": "Über das Projekt",
       "engineeringHighlights": "Engineering Highlights",
       "architectureSnapshot": "Architektur-Überblick",
+      "decisionsTitle": "Herausforderungen & Entscheidungen",
+      "decisionsSubtitle": "Wichtige architektonische Herausforderungen, Trade-offs und Entscheidungen beim Bau von {{project}}.",
+      "stats": "Schnelle Fakten",
       "ctaTrust": "Enthält E2E-Tests, produktionsreife Muster und ein echtes Supabase-Backend.",
       "techStack": "Tech Stack",
       "keyFeatures": "Hauptfunktionen",
       "screenshots": "Screenshots",
+      "decision": {
+        "challenge": "Herausforderung",
+        "solution": "Lösung",
+        "tradeoff": "Trade-off"
+      },
       "status": {
         "live": "Live",
         "inDevelopment": "In Entwicklung",
@@ -147,7 +217,12 @@
         "next": "Nächster Screenshot",
         "navigationLabel": "Screenshot-Navigation",
         "slideLabel": "Screenshot {{current}} von {{total}}",
-        "goToLabel": "Zu Screenshot {{index}} gehen"
+        "goToLabel": "Zu Screenshot {{index}} gehen",
+        "openLightboxLabel": "{{caption}} im Vollbild ansehen",
+        "lightboxLabel": "Screenshot-Lightbox",
+        "closeLightboxLabel": "Vergrößertes Bild schließen",
+        "prevLightboxLabel": "Vorheriger Screenshot",
+        "nextLightboxLabel": "Nächster Screenshot"
       }
     },
     "seo": {
