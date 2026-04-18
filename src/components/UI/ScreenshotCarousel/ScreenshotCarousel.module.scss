@@ -340,26 +340,27 @@
   display: block;
   width: auto;
   height: auto;
-  // Explicit viewport-anchored caps so the image never escapes the screen.
-  // Reserves: stage padding (32 + 32) + nav buttons (44 + 44) + gaps (16 + 16) = 184px horizontal.
-  // Reserves: stage padding top + bottom (32 + 16) = 48px vertical.
-  max-width: calc(100vw - 184px);
+  // Explicit viewport-anchored caps so the image never escapes the screen and
+  // never overlaps the viewport-pinned nav buttons.
+  // Horizontal reserve = 2 × (edge gutter 16 + nav button 44 + clearance 16) = 152px.
+  // Vertical reserve = stage padding top + bottom (32 + 16) = 48px.
+  max-width: calc(100vw - 152px);
   max-height: calc(100vh - 48px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
 
   @include mq(sm) {
-    // padding (24 + 24) + nav buttons (34 + 34) + gaps (8 + 8) = 132px horizontal.
-    // padding top + bottom (24 + 12) = 36px vertical.
-    max-width: calc(100vw - 132px);
+    // 2 × (gutter 8 + nav button 34 + clearance 8) = 100px.
+    // padding top + bottom (24 + 12) = 36px.
+    max-width: calc(100vw - 100px);
     max-height: calc(100vh - 36px);
   }
 
   @include mq(xs) {
-    // padding (20 + 20) + nav buttons (30 + 30) + gaps (8 + 8) = 116px horizontal.
-    // padding top + bottom (20 + 10) = 30px vertical.
-    max-width: calc(100vw - 116px);
+    // 2 × (gutter 8 + nav button 30 + clearance 8) = 92px.
+    // padding top + bottom (20 + 10) = 30px.
+    max-width: calc(100vw - 92px);
     max-height: calc(100vh - 30px);
   }
 }

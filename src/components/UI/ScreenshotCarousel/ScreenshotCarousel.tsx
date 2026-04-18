@@ -336,21 +336,21 @@ const ScreenshotCarousel = ({
           }}
           tabIndex={-1}
         >
+          {total > 1 && (
+            <IconButton
+              className={`${classes.lightboxNav} ${classes.lightboxPrev}`}
+              onClick={lightboxPrev}
+              aria-label={t('projects.page.carousel.prevLightboxLabel')}
+            >
+              <KeyboardArrowLeftIcon fontSize="inherit" />
+            </IconButton>
+          )}
           <div
             className={classes.lightboxStage}
             onClick={(e) => {
               if (e.target === e.currentTarget) closeLightbox();
             }}
           >
-            {total > 1 && (
-              <IconButton
-                className={`${classes.lightboxNav} ${classes.lightboxPrev}`}
-                onClick={lightboxPrev}
-                aria-label={t('projects.page.carousel.prevLightboxLabel')}
-              >
-                <KeyboardArrowLeftIcon fontSize="inherit" />
-              </IconButton>
-            )}
             {lightboxScreenshot && (
               <div className={classes.lightboxImageWrap}>
                 <IconButton
@@ -369,16 +369,16 @@ const ScreenshotCarousel = ({
                 />
               </div>
             )}
-            {total > 1 && (
-              <IconButton
-                className={`${classes.lightboxNav} ${classes.lightboxNext}`}
-                onClick={lightboxNext}
-                aria-label={t('projects.page.carousel.nextLightboxLabel')}
-              >
-                <KeyboardArrowRightIcon fontSize="inherit" />
-              </IconButton>
-            )}
           </div>
+          {total > 1 && (
+            <IconButton
+              className={`${classes.lightboxNav} ${classes.lightboxNext}`}
+              onClick={lightboxNext}
+              aria-label={t('projects.page.carousel.nextLightboxLabel')}
+            >
+              <KeyboardArrowRightIcon fontSize="inherit" />
+            </IconButton>
+          )}
         </div>
       </Modal>
     </div>
