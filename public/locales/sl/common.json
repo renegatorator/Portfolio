@@ -131,21 +131,25 @@
         },
         "decisions": {
           "rlsAtDb": {
+            "challengeShort": "Avtorizacija na odjemalcu je krhka",
             "challenge": "Avtorizacija na strani odjemalca je krhka — vsak ukraden žeton ali ročno sestavljena zahteva lahko zaobide UI varovala.",
             "solution": "Avtorizacija je potisnjena navzdol v PostgreSQL prek Supabase Row Level Security; strežniške akcije pred vsako mutacijo izvedejo še drugo preverjanje vlog.",
             "tradeoff": "RLS pravila je težje razhroščevati kot `if` stavke in vsaka tabela potrebuje izrecno pokritost — a sistem je privzeto brez zaupanja in odjemalec nikoli ne dobi pravic."
           },
           "rscVsClient": {
+            "challengeShort": "Hitrost strežnika proti interaktivnosti odjemalca",
             "challenge": "Strežniške komponente prinesejo hiter, SEO-prijazen prvi prikaz, a seznami, filtri in urejanje na mestu potrebujejo pravo interaktivnost.",
             "solution": "Hibridni model: strežniške komponente vnaprej naložijo podatke in jih dehidrirajo v HydrationBoundary, nato TanStack Query prevzame na odjemalcu za filtriranje, sortiranje in optimistične posodobitve.",
             "tradeoff": "Dve podatkovni plasti zvišata miselni preskok — vsaka funkcija mora premisliti, kje živijo njeni podatki — a prvi prikaz ostane hiter in vmesnik nikoli ni statičen."
           },
           "auditLog": {
+            "challengeShort": "Popolna sledljivost brez sklapljanja",
             "challenge": "B2B SaaS potrebuje popolno sledljivost: kdo je kaj naredil, kdaj in nad katero entiteto — brez sklapljanja te evidence s funkcijsko kodo.",
             "solution": "Samo-pripenjajoča PostgreSQL audit_logs tabela se piše iz ene same, tipizirane revizijske storitve. Ključi akcij so literalna unija, zato mora vsaka mutacija svoj namen napovedati na ravni tipov.",
             "tradeoff": "Pomnoževanje pisanj in rast pomnilnika sta resnična, a revizijski dnevnik je vir resnice za skladnost, razhroščevanje in časovnice aktivnosti v aplikaciji."
           },
           "monorepoFeatures": {
+            "challengeShort": "Ploska struktura se zlomi pri rasti",
             "challenge": "Plosko src/components + src/hooks ogrodje se zruši pod lastno težo, ko ima projekt več domen.",
             "solution": "Koda je organizirana po funkcijah (src/features/<domena>/), s komponentami, hooks, strežniškimi akcijami, storitvami in shemami zraven domene, ki ji pripadajo.",
             "tradeoff": "Ponovna uporaba med funkcijami zahteva premišljeno povišanje v shared/, a lastništvo je očitno in refaktor ene domene redko poseže izven svoje mape."
@@ -194,6 +198,7 @@
       "engineeringHighlights": "Inženirski poudarki",
       "architectureSnapshot": "Arhitekturni pregled",
       "decisionsTitle": "Izzivi & odločitve",
+      "decisionsSubtitle": "Ključni arhitekturni izzivi, kompromisi in odločitve, sprejete pri gradnji projekta {{project}}.",
       "stats": "Hitra dejstva",
       "ctaTrust": "Vključuje E2E teste, produkcijsko pripravljene vzorce in pravo Supabase zaledje.",
       "techStack": "Tech Stack",
@@ -215,7 +220,12 @@
         "next": "Naslednji posnetek zaslona",
         "navigationLabel": "Navigacija po posnetkih zaslona",
         "slideLabel": "posnetek zaslona {{current}} od {{total}}",
-        "goToLabel": "Pojdi na posnetek zaslona {{index}}"
+        "goToLabel": "Pojdi na posnetek zaslona {{index}}",
+        "openLightboxLabel": "Prikaži {{caption}} čez cel zaslon",
+        "lightboxLabel": "Povečan posnetek zaslona",
+        "closeLightboxLabel": "Zapri povečano sliko",
+        "prevLightboxLabel": "Prejšnji posnetek zaslona",
+        "nextLightboxLabel": "Naslednji posnetek zaslona"
       }
     },
     "seo": {
