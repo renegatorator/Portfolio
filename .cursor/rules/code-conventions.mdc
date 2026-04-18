@@ -18,17 +18,19 @@ const getUser = (id: string) => { /* ... */ };
 ```
 
 ## Translations
-Use `useTranslations` without a namespace argument. Always pass the full key path to `t`.
+Use `useTranslation()` from `next-i18next` without a namespace argument. Always pass the full key path to `t`.
 
 ```tsx
 // BAD
-const t = useTranslations('issues.detail');
-t('title');
+const { t } = useTranslation('common');
+t('contact.form.title');
 
 // GOOD
-const t = useTranslations();
-t('issues.detail.title');
+const { t } = useTranslation();
+t('contact.form.title');
 ```
+
+For markup interpolation (e.g. highlighted spans inside a translated string), use `<Trans i18nKey="..." components={{ highlight: <span /> }} />`.
 
 ## Type safety
 Stick to strict type safety. When a set of literal values is needed, declare a `const` assertion and derive the type from it.

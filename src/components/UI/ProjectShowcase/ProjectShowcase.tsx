@@ -121,8 +121,10 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
   }) as RichItem[];
   const keyProps = t(`projects.data.${pk}.keyProps`, { returnObjects: true }) as string[];
 
-  const hasStats = Array.isArray(project.stats) && project.stats.length > 0;
-  const hasDecisions = Array.isArray(project.decisions) && project.decisions.length > 0;
+  const stats = Array.isArray(project.stats) ? project.stats : [];
+  const decisions = Array.isArray(project.decisions) ? project.decisions : [];
+  const hasStats = stats.length > 0;
+  const hasDecisions = decisions.length > 0;
 
   let sectionNumber = 0;
   const nextSection = (): string => formatSectionNumber(++sectionNumber);
@@ -223,7 +225,7 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
             {hasStats && (
               <Reveal delayMs={200}>
                 <div className={classes.statsGrid}>
-                  {project.stats!.map((stat) => {
+                  {stats.map((stat) => {
                     const copy = t(`projects.data.${pk}.stats.${stat.statKey}`, {
                       returnObjects: true,
                     }) as StatCopy;
@@ -354,7 +356,7 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
               {t('projects.page.decisionsSubtitle', { project: project.title })}
             </p>
             <div className={classes.decisionsContainer}>
-              {project.decisions!.map((decision, idx) => {
+              {decisions.map((decision, idx) => {
                 const copy = t(`projects.data.${pk}.decisions.${decision.decisionKey}`, {
                   returnObjects: true,
                 }) as DecisionCopy;

@@ -16,6 +16,11 @@ All notable changes to this project will be documented in this file.
 
 - **Lightbox Nav Buttons**: Prev/next buttons are positioned absolutely against the lightbox container instead of flexed inline with the image, so they stay in a fixed viewport position regardless of slide width and never overlap the image; image `max-width`/`max-height` use `calc(100vw - …)` and `calc(100vh - …)` that reserve space for the nav lanes at every breakpoint
 
+### Fixed
+
+- **ProjectShowcase Non-Null Assertions**: Replaced `project.stats!` and `project.decisions!` with narrowed local consts (`stats`/`decisions`) derived once via `Array.isArray(...) ? ... : []`, so the optional arrays are iterated safely and the file complies with the no-`!` rule
+- **Code Conventions Translations Rule**: Updated the Translations section in `.cursor/rules/code-conventions.mdc` to reference `useTranslation()` from `next-i18next` (the API actually used in this codebase) instead of the unrelated `useTranslations`, and added a pointer to `<Trans>` for inline markup interpolation
+
 ## [1.3.1]
 
 ### Added
