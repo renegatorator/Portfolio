@@ -128,21 +128,25 @@
         },
         "decisions": {
           "rlsAtDb": {
+            "challengeShort": "Autorisierung auf dem Client ist fragil",
             "challenge": "Autorisierung auf dem Client ist fragil — jedes geleakte Token oder handgebaute Request kann UI-Wächter umgehen.",
             "solution": "Die Autorisierung wurde in PostgreSQL via Supabase Row Level Security verlagert; Server-Actions führen vor jeder Mutation eine zweite Rollenprüfung durch.",
             "tradeoff": "RLS-Policies sind schwerer zu debuggen als `if`-Statements und jede Tabelle braucht explizite Abdeckung — dafür ist das System Zero-Trust und der Client erhält nie Autorisierungsvertrauen."
           },
           "rscVsClient": {
+            "challengeShort": "Server-Tempo gegen Client-Interaktivität",
             "challenge": "Server-Komponenten liefern einen schnellen, SEO-freundlichen ersten Render, doch Listen, Filter und Inline-Editing brauchen echte Client-Interaktivität.",
             "solution": "Hybrides Modell: Server-Komponenten holen Daten vor und dehydrieren sie in eine HydrationBoundary, anschließend übernimmt TanStack Query auf dem Client für Filter, Sortierung und optimistische Updates.",
             "tradeoff": "Zwei Datenebenen erhöhen den mentalen Aufwand — jedes Feature muss entscheiden, wo seine Daten leben — aber der erste Render bleibt schnell und das UI fühlt sich nie statisch an."
           },
           "auditLog": {
+            "challengeShort": "Volle Nachvollziehbarkeit ohne Kopplung",
             "challenge": "B2B-SaaS braucht volle Nachvollziehbarkeit: wer hat wann was an welcher Entität verändert — ohne diese Buchführung an Feature-Code zu koppeln.",
             "solution": "Eine append-only PostgreSQL audit_logs Tabelle wird aus einem einzigen, typisierten Audit-Service beschrieben. Action-Keys sind eine Literal-Union, sodass jede Mutation ihre Absicht auf Typebene deklarieren muss.",
             "tradeoff": "Schreib-Verstärkung und Speicherwachstum sind real, aber das Audit-Log ist die Quelle der Wahrheit für Compliance, Debugging und die In-App-Aktivitätszeitleisten."
           },
           "monorepoFeatures": {
+            "challengeShort": "Flache Ordner kollabieren bei Skalierung",
             "challenge": "Eine flache src/components + src/hooks-Struktur kollabiert unter ihrem eigenen Gewicht, sobald ein Projekt mehrere Bounded Contexts hat.",
             "solution": "Code ist nach Feature organisiert (src/features/<Domain>/), mit Komponenten, Hooks, Server-Actions, Services und Schemas neben der Domain, zu der sie gehören.",
             "tradeoff": "Cross-Feature-Wiederverwendung erfordert eine bewusste Promotion nach shared/, dafür ist Eigentümerschaft offensichtlich und Refactorings einer Domain berühren selten etwas außerhalb ihres Ordners."
@@ -191,6 +195,7 @@
       "engineeringHighlights": "Engineering Highlights",
       "architectureSnapshot": "Architektur-Überblick",
       "decisionsTitle": "Herausforderungen & Entscheidungen",
+      "decisionsSubtitle": "Wichtige architektonische Herausforderungen, Trade-offs und Entscheidungen beim Bau von {{project}}.",
       "stats": "Schnelle Fakten",
       "ctaTrust": "Enthält E2E-Tests, produktionsreife Muster und ein echtes Supabase-Backend.",
       "techStack": "Tech Stack",
@@ -212,7 +217,12 @@
         "next": "Nächster Screenshot",
         "navigationLabel": "Screenshot-Navigation",
         "slideLabel": "Screenshot {{current}} von {{total}}",
-        "goToLabel": "Zu Screenshot {{index}} gehen"
+        "goToLabel": "Zu Screenshot {{index}} gehen",
+        "openLightboxLabel": "{{caption}} im Vollbild ansehen",
+        "lightboxLabel": "Screenshot-Lightbox",
+        "closeLightboxLabel": "Vergrößertes Bild schließen",
+        "prevLightboxLabel": "Vorheriger Screenshot",
+        "nextLightboxLabel": "Nächster Screenshot"
       }
     },
     "seo": {
