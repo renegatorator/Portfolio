@@ -44,13 +44,6 @@
 // Browser chrome frame
 
 .frame {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  text-align: inherit;
-  font: inherit;
-  color: inherit;
   border-radius: $border-radius-md;
   overflow: hidden;
   border: 1px solid var(--border-primary);
@@ -58,24 +51,6 @@
   box-shadow:
     0 24px 60px rgba(0, 112, 243, 0.16),
     0 4px 24px rgba(0, 0, 0, 0.22);
-  cursor: zoom-in;
-  transition:
-    transform 240ms ease,
-    box-shadow 240ms ease,
-    border-color 240ms ease;
-
-  &:hover,
-  &:focus-visible {
-    border-color: color-mix(in srgb, var(--primary) 45%, var(--border-primary));
-    box-shadow:
-      0 28px 72px rgba(0, 112, 243, 0.22),
-      0 6px 28px rgba(0, 0, 0, 0.26);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 3px;
-  }
 }
 
 .browserBar {
@@ -280,132 +255,5 @@
 
   &.dotActive {
     background: linear-gradient(90deg, var(--primary) 0%, #28b8ff 100%);
-  }
-}
-
-// Lightbox modal
-
-.lightbox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightboxBackdrop {
-  background-color: rgba(0, 0, 0, 0.78) !important;
-}
-
-.lightboxInner {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightboxStage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  width: 100%;
-  height: 100%;
-  // Padding reserves room for the close button overhang (half a button) at the
-  // image's top-right corner, plus breathing room around the image.
-  padding: 32px 32px 16px;
-  box-sizing: border-box;
-
-  @include mq(sm) {
-    gap: 8px;
-    padding: 24px 24px 12px;
-  }
-
-  @include mq(xs) {
-    padding: 20px 20px 10px;
-  }
-}
-
-.lightboxImageWrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 1 auto;
-  min-width: 0;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.lightboxImage {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-}
-
-.lightboxClose,
-.lightboxNav {
-  z-index: 2;
-  color: #fff !important;
-  background: rgba(0, 0, 0, 0.45) !important;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  transition:
-    background 200ms ease,
-    transform 200ms ease,
-    border-color 200ms ease !important;
-
-  svg {
-    font-size: 24px;
-  }
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.65) !important;
-    border-color: color-mix(in srgb, var(--primary) 55%, rgba(255, 255, 255, 0.2)) !important;
-    transform: scale(1.05);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
-  }
-
-  @include mq(sm) {
-    width: 34px;
-    height: 34px;
-
-    svg {
-      font-size: 20px;
-    }
-  }
-
-  @include mq(xs) {
-    width: 30px;
-    height: 30px;
-
-    svg {
-      font-size: 18px;
-    }
-  }
-}
-
-.lightboxClose {
-  position: absolute !important;
-  // Center of the button sits exactly on the image's top-right corner
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
-
-  &:hover {
-    transform: translate(50%, -50%) scale(1.05);
   }
 }

@@ -1,22 +1,7 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import {
-  faArrowUpRightFromSquare,
-  faCodeBranch,
-  faLightbulb,
-  faScaleBalanced,
-  faTriangleExclamation,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Button,
-  Chip,
-  Typography,
-} from '@mui/material';
+import { Button, Chip, Typography } from '@mui/material';
 import Image from 'next/image';
 import { Trans, useTranslation } from 'next-i18next';
 
@@ -37,57 +22,10 @@ interface RichItem {
 }
 
 interface DecisionCopy {
-  challengeShort: string;
   challenge: string;
   solution: string;
   tradeoff: string;
 }
-
-type DecisionRowVariant = 'challenge' | 'solution' | 'tradeoff';
-
-interface DecisionRowProps {
-  icon: IconDefinition;
-  label: string;
-  text: string;
-  variant: DecisionRowVariant;
-  muted?: boolean;
-}
-
-const decisionVariantClass: Record<DecisionRowVariant, string> = {
-  challenge: 'decisionItemIconChallenge',
-  solution: 'decisionItemIconSolution',
-  tradeoff: 'decisionItemIconTradeoff',
-};
-
-const decisionLabelVariantClass: Record<DecisionRowVariant, string> = {
-  challenge: 'decisionItemLabelChallenge',
-  solution: 'decisionItemLabelSolution',
-  tradeoff: 'decisionItemLabelTradeoff',
-};
-
-const DecisionRow = ({ icon, label, text, variant, muted }: DecisionRowProps) => (
-  <div className={classes.decisionItem}>
-    <div className={`${classes.decisionItemIcon} ${classes[decisionVariantClass[variant]]}`}>
-      <FontAwesomeIcon icon={icon} />
-    </div>
-    <div className={classes.decisionItemBody}>
-      <Typography
-        variant="caption"
-        component="span"
-        className={`${classes.decisionItemLabel} ${classes[decisionLabelVariantClass[variant]]}`}
-      >
-        {label}
-      </Typography>
-      <Typography
-        variant="body2"
-        component="p"
-        className={`${classes.decisionItemText} ${muted ? classes.decisionItemTextMuted : ''}`}
-      >
-        {text}
-      </Typography>
-    </div>
-  </div>
-);
 
 interface StatCopy {
   value: string;
@@ -350,63 +288,54 @@ const ProjectShowcase = ({ project }: ProjectShowcaseProps) => {
               <span className={classes.panelNumber}>{nextSection()}</span>
               <span>{t('projects.page.decisionsTitle')}</span>
             </Typography>
-            <p className={classes.panelSubtitle}>
-              {t('projects.page.decisionsSubtitle', { project: project.title })}
-            </p>
-            <div className={classes.decisionsContainer}>
-              {project.decisions!.map((decision, idx) => {
+            <div className={classes.decisionList}>
+              {project.decisions!.map((decision) => {
                 const copy = t(`projects.data.${pk}.decisions.${decision.decisionKey}`, {
                   returnObjects: true,
                 }) as DecisionCopy;
                 return (
-                  <Accordion
-                    key={decision.decisionKey}
-                    defaultExpanded={idx === 0}
-                    disableGutters
-                    elevation={0}
-                    square={false}
-                    className={classes.decisionAccordion}
-                  >
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon className={classes.decisionExpand} />}
-                      className={classes.decisionSummary}
-                      classes={{ content: classes.decisionSummaryContent }}
-                    >
+                  <article key={decision.decisionKey} className={classes.decisionCard}>
+                    <div className={`${classes.decisionRow} ${classes.decisionRowChallenge}`}>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.decisionLabel}
+                      >
+                        {t('projects.page.decision.challenge')}
+                      </Typography>
+                      <Typography variant="body2" component="p" className={classes.decisionText}>
+                        {copy.challenge}
+                      </Typography>
+                    </div>
+                    <div className={`${classes.decisionRow} ${classes.decisionRowSolution}`}>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.decisionLabel}
+                      >
+                        {t('projects.page.decision.solution')}
+                      </Typography>
+                      <Typography variant="body2" component="p" className={classes.decisionText}>
+                        {copy.solution}
+                      </Typography>
+                    </div>
+                    <div className={`${classes.decisionRow} ${classes.decisionRowTradeoff}`}>
+                      <Typography
+                        variant="caption"
+                        component="span"
+                        className={classes.decisionLabel}
+                      >
+                        {t('projects.page.decision.tradeoff')}
+                      </Typography>
                       <Typography
                         variant="body2"
-                        component="span"
-                        className={classes.decisionShort}
+                        component="p"
+                        className={`${classes.decisionText} ${classes.decisionTextMuted}`}
                       >
-                        {copy.challengeShort}
+                        {copy.tradeoff}
                       </Typography>
-                      <Chip
-                        label={t('projects.page.decision.challenge')}
-                        size="small"
-                        className={`${classes.decisionChip} ${classes.decisionChipChallenge}`}
-                      />
-                    </AccordionSummary>
-                    <AccordionDetails className={classes.decisionDetails}>
-                      <DecisionRow
-                        icon={faTriangleExclamation}
-                        label={t('projects.page.decision.challenge')}
-                        text={copy.challenge}
-                        variant="challenge"
-                      />
-                      <DecisionRow
-                        icon={faLightbulb}
-                        label={t('projects.page.decision.solution')}
-                        text={copy.solution}
-                        variant="solution"
-                      />
-                      <DecisionRow
-                        icon={faScaleBalanced}
-                        label={t('projects.page.decision.tradeoff')}
-                        text={copy.tradeoff}
-                        variant="tradeoff"
-                        muted
-                      />
-                    </AccordionDetails>
-                  </Accordion>
+                    </div>
+                  </article>
                 );
               })}
             </div>
