@@ -5,83 +5,49 @@
 .showcase {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 48px;
   position: relative;
 
   @include mq(sm) {
-    gap: 36px;
-  }
-
-  @include mq(xs) {
     gap: 40px;
   }
 
+  @include mq(xs) {
+    gap: 36px;
+  }
+
   & + & {
-    padding-top: 48px;
+    padding-top: 56px;
     border-top: 1px solid var(--border-primary);
   }
 }
 
-// ─── Header ───────────────────────────────────────────────────────────────────
+// ─── Hero ─────────────────────────────────────────────────────────────────────
 
-.header {
+.hero {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  gap: 16px;
+  gap: 32px;
   width: 100%;
   min-width: 0;
 
   @include mq(sm) {
-    gap: 20px;
-  }
-
-  @include mq(xs) {
-    gap: 22px;
-  }
-}
-
-// Status + logo (left) and CTAs (right); CTAs wrap to full-width row below branding when needed
-.headerTop {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 12px 20px;
-  width: 100%;
-  min-width: 0;
-
-  @include mq(sm) {
-    gap: 16px 22px;
+    gap: 28px;
   }
 
   @include mq(xs) {
     gap: 24px;
-    flex-direction: column;
-    align-items: stretch;
   }
 }
 
-.headerBranding {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0;
-  min-width: 0;
-  max-width: 100%;
-  flex: 0 1 auto;
-}
-
-// Tagline + key props — full width below the top bar (after logo / CTAs row)
-.headerBody {
+.heroHeader {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
   width: 100%;
   min-width: 0;
-
-  @include mq(sm) {
-    gap: 14px;
-  }
 
   @include mq(xs) {
     gap: 16px;
@@ -93,6 +59,7 @@
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+  justify-content: center;
 
   @include mq(xs) {
     gap: 10px;
@@ -152,20 +119,238 @@
 
 .title {
   @include text-gradient;
-  font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+  font-size: clamp(1.75rem, 3vw, 2.25rem) !important;
   font-weight: 800 !important;
   line-height: 1.15 !important;
   letter-spacing: -0.02em;
+  margin: 0;
 }
 
 .tagline {
   color: var(--text-secondary) !important;
-  max-width: min(640px, 100%);
-  line-height: 1.6 !important;
-  font-size: 13px !important;
+  max-width: 640px;
+  line-height: 1.65 !important;
+  font-size: 14px !important;
   overflow-wrap: break-word;
   min-width: 0;
+  margin: 0 auto;
+
+  @include mq(xs) {
+    font-size: 13px !important;
+  }
 }
+
+// ─── Logo ─────────────────────────────────────────────────────────────────────
+
+.logoWrap {
+  line-height: 0;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoLight {
+  display: block;
+}
+
+.logoDark {
+  display: none;
+}
+
+[data-theme='dark'] {
+  .logoLight {
+    display: none;
+  }
+
+  .logoDark {
+    display: block;
+  }
+}
+
+// ─── Hero body (2-col on md+) ─────────────────────────────────────────────────
+
+.heroBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 36px;
+  align-items: start;
+  width: 100%;
+  min-width: 0;
+
+  @include mq(md) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @include mq(xs) {
+    gap: 28px;
+  }
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+
+  @include mq(md) {
+    gap: 20px;
+  }
+}
+
+.heroRight {
+  width: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+// ─── CTAs ─────────────────────────────────────────────────────────────────────
+
+.ctaWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+
+  @include mq(xs) {
+    align-items: stretch;
+    gap: 12px;
+  }
+}
+
+.ctaRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 100%;
+  min-width: 0;
+
+  @include mq(xs) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.ctaTrust {
+  color: var(--text-secondary) !important;
+  font-size: 11px !important;
+  font-style: italic;
+  opacity: 0.75;
+  text-align: left;
+  line-height: 1.4 !important;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.ctaBtn {
+  border-radius: 999px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 6px 18px !important;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  @include mq(xs) {
+    width: 100% !important;
+    white-space: normal;
+  }
+}
+
+// ─── Stats grid ───────────────────────────────────────────────────────────────
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+
+  @include mq(xs) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.statCard {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: $border-radius-sm;
+  border: 1px solid var(--border-primary);
+  @include card-glass-bg;
+  @include card-transition;
+  overflow: hidden;
+  min-width: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary) 0%, #28b8ff 100%);
+    opacity: 0.85;
+  }
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border-primary));
+    transform: translateY(-2px);
+  }
+}
+
+.statIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: $border-radius-sm;
+  background: color-mix(in srgb, var(--primary) 12%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+
+  svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+.statBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 3px;
+}
+
+.statValue {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: var(--text-primary);
+  letter-spacing: -0.005em;
+  overflow-wrap: break-word;
+}
+
+.statLabel {
+  color: var(--text-secondary) !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+  overflow-wrap: break-word;
+}
+
+// ─── Key props pills ──────────────────────────────────────────────────────────
 
 .keyProps {
   display: flex;
@@ -174,12 +359,8 @@
   width: 100%;
   min-width: 0;
 
-  @include mq(sm) {
-    gap: 12px;
-  }
-
   @include mq(xs) {
-    gap: 14px;
+    gap: 10px;
     flex-direction: column;
     align-items: stretch;
   }
@@ -207,122 +388,12 @@
   }
 }
 
-// ─── Logo ─────────────────────────────────────────────────────────────────────
-
-.logoWrap {
-  line-height: 0;
-}
-
-.logo {
-  height: 44px;
-  width: auto;
-  object-fit: contain;
-}
-
-// Default (light theme): show light logo, hide dark logo
-.logoLight {
-  display: block;
-}
-
-.logoDark {
-  display: none;
-}
-
-[data-theme='dark'] {
-  .logoLight {
-    display: none;
-  }
-
-  .logoDark {
-    display: block;
-  }
-}
-
-.ctaWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-end;
-  max-width: 100%;
-  min-width: 0;
-  margin-left: auto;
-  flex: 1 1 auto;
-
-  @include mq(sm) {
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  @include mq(xs) {
-    margin-left: 0;
-    width: 100%;
-    align-items: stretch;
-    flex: none;
-    gap: 12px;
-  }
-}
-
-.ctaRow {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  max-width: 100%;
-  min-width: 0;
-
-  @include mq(sm) {
-    gap: 8px;
-  }
-
-  @include mq(xs) {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
-.ctaTrust {
-  color: var(--text-secondary) !important;
-  font-size: 11px !important;
-  font-style: italic;
-  opacity: 0.75;
-  text-align: right;
-  line-height: 1.4 !important;
-  max-width: 100%;
-  overflow-wrap: break-word;
-
-  @include mq(sm) {
-    text-align: left;
-  }
-}
-
-.ctaBtn {
-  border-radius: 999px !important;
-  text-transform: none !important;
-  font-weight: 600 !important;
-  font-size: 13px !important;
-  padding: 6px 18px !important;
-  white-space: nowrap;
-  max-width: 100%;
-  box-sizing: border-box;
-
-  @include mq(xs) {
-    width: 100% !important;
-    white-space: normal;
-  }
-}
-
-// ─── Carousel ─────────────────────────────────────────────────────────────────
-
-.carouselWrap {
-  width: 100%;
-}
-
 // ─── Shared panel shell ───────────────────────────────────────────────────────
 
 .panel {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
   padding: 28px 32px;
   border-radius: $border-radius-md;
   border: 1px solid var(--border-primary);
@@ -332,11 +403,25 @@
   @include top-accent-bar;
 
   @include mq(sm) {
-    padding: 20px;
+    padding: 22px;
   }
 
   @include mq(xs) {
-    padding: 16px;
+    padding: 18px;
+  }
+}
+
+// Tonally quieter panel for visual rhythm between sections
+.panelMuted {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-secondary) 70%, transparent),
+    color-mix(in srgb, var(--bg-tertiary) 60%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--border-primary) 80%, transparent);
+
+  &::before {
+    opacity: 0.55;
   }
 }
 
@@ -346,28 +431,24 @@
   letter-spacing: 0.14em !important;
   font-weight: 700 !important;
   line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
 }
 
-// ─── About panel ──────────────────────────────────────────────────────────────
-
-.aboutContent {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.panelNumber {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: $border-radius-xs;
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
+  line-height: 1;
 }
 
-.highlightsGrid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 32px;
-
-  @include mq(sm) {
-    grid-template-columns: 1fr;
-  }
-}
+// ─── Highlights panel ─────────────────────────────────────────────────────────
 
 .description {
   color: var(--text-secondary);
@@ -385,27 +466,356 @@
   text-shadow: 0 0 14px color-mix(in srgb, var(--primary) 32%, transparent);
 }
 
-.highlights {
+.highlightsGrid {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  @include mq(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.highlightCard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: $border-radius-sm;
+  border: 1px solid var(--border-primary);
+  background: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+  @include card-transition;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 30%, var(--border-primary));
+    background: color-mix(in srgb, var(--primary) 4%, var(--bg-primary));
+    transform: translateY(-2px);
+  }
+}
+
+.highlightNumber {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-sm;
+  background: color-mix(in srgb, var(--primary) 10%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-primary));
+  line-height: 1;
+}
+
+.highlightBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.highlightTitle {
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  color: var(--text-primary);
+}
+
+.highlightDescription {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+// ─── Architecture flow ────────────────────────────────────────────────────────
+
+.archFlow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+
+  // Connector line on the left, behind the number chips
+  &::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    bottom: 16px;
+    left: 19px;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--primary) 35%, var(--border-primary)) 12%,
+      color-mix(in srgb, var(--primary) 35%, var(--border-primary)) 88%,
+      transparent
+    );
+    pointer-events: none;
+  }
+}
+
+.archStep {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: $border-radius-sm;
+  border: 1px solid var(--border-primary);
+  background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+  @include card-transition;
+  position: relative;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 30%, var(--border-primary));
+    transform: translateX(2px);
+  }
+}
+
+.archStepNumber {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, #28b8ff 100%);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 30%, transparent);
+  position: relative;
+  z-index: 1;
+}
+
+.archStepBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+  padding-top: 4px;
+}
+
+.archStepTitle {
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  color: var(--text-primary);
+}
+
+.archStepDescription {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+// ─── Decisions panel ──────────────────────────────────────────────────────────
+
+.panelSubtitle {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 640px;
+  overflow-wrap: break-word;
+}
+
+.decisionsContainer {
+  max-width: 760px;
+  width: 100%;
+  margin: 4px auto 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 0;
-  padding: 0;
 }
 
-.highlight {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  line-height: 1.5;
+.decisionAccordion {
+  background: color-mix(in srgb, var(--bg-primary) 70%, transparent) !important;
+  border: 1px solid var(--border-primary) !important;
+  border-radius: $border-radius-sm !important;
+  overflow: hidden;
+  @include card-transition;
+
+  &::before {
+    display: none !important;
+  }
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--primary) 25%, var(--border-primary)) !important;
+  }
+
+  &:global(.Mui-expanded) {
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border-primary)) !important;
+    background: color-mix(in srgb, var(--primary) 4%, var(--bg-primary)) !important;
+  }
 }
 
-.checkIcon {
-  color: var(--primary);
-  font-size: 11px !important;
-  margin-top: 3px;
+.decisionSummary {
+  padding: 4px 16px !important;
+  min-height: 56px !important;
+
+  &:global(.Mui-expanded) {
+    min-height: 56px !important;
+  }
+}
+
+.decisionSummaryContent {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 !important;
+
+  &:global(.Mui-expanded) {
+    margin: 12px 0 !important;
+  }
+}
+
+.decisionShort {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: var(--text-primary);
+  line-height: 1.4 !important;
+  flex: 1;
+  min-width: 0;
+}
+
+.decisionExpand {
+  color: var(--text-secondary);
+  font-size: 22px !important;
+}
+
+.decisionChip {
+  font-size: 10px !important;
+  height: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   flex-shrink: 0;
+}
+
+.decisionChipChallenge {
+  background: color-mix(in srgb, #f97316 14%, transparent) !important;
+  color: #ea580c !important;
+  border: 1px solid color-mix(in srgb, #f97316 30%, transparent) !important;
+
+  [data-theme='dark'] & {
+    color: #fb923c !important;
+  }
+}
+
+.decisionDetails {
+  display: flex !important;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px 18px 18px !important;
+  border-top: 1px solid color-mix(in srgb, var(--border-primary) 70%, transparent);
+}
+
+.decisionItem {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+
+  @include mq(xs) {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+.decisionItemIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: $border-radius-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+
+  svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+}
+
+.decisionItemIconChallenge {
+  background: color-mix(in srgb, #f97316 14%, transparent);
+  border: 1px solid color-mix(in srgb, #f97316 30%, transparent);
+  color: #ea580c;
+
+  [data-theme='dark'] & {
+    color: #fb923c;
+  }
+}
+
+.decisionItemIconSolution {
+  background: color-mix(in srgb, var(--primary) 12%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
+  color: var(--primary);
+}
+
+.decisionItemIconTradeoff {
+  background: color-mix(in srgb, var(--text-secondary) 10%, var(--bg-secondary));
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+}
+
+.decisionItemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.decisionItemLabel {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase;
+  line-height: 1.4 !important;
+}
+
+.decisionItemLabelChallenge {
+  color: #ea580c !important;
+
+  [data-theme='dark'] & {
+    color: #fb923c !important;
+  }
+}
+
+.decisionItemLabelSolution {
+  color: var(--primary) !important;
+}
+
+.decisionItemLabelTradeoff {
+  color: var(--text-secondary) !important;
+}
+
+.decisionItemText {
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+  color: var(--text-primary);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.decisionItemTextMuted {
+  color: var(--text-secondary) !important;
 }
 
 // ─── Tech stack panel ─────────────────────────────────────────────────────────
@@ -486,6 +896,7 @@
   &:hover {
     border-color: color-mix(in srgb, var(--primary) 30%, var(--border-primary));
     background: color-mix(in srgb, var(--primary) 4%, var(--bg-primary));
+    transform: translateY(-2px);
   }
 }
 

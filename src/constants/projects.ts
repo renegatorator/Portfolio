@@ -12,7 +12,9 @@ import {
   faRocket,
   faScroll,
   faServer,
+  faShieldHalved,
   faUsers,
+  faVialCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 export type ProjectStatus = 'live' | 'in-development' | 'archived';
@@ -38,6 +40,17 @@ export interface ProjectFeature {
   featureKey: string;
 }
 
+/** Key used to look up `projects.data.<projectKey>.stats.<statKey>.{value,label}` */
+export interface ProjectStat {
+  statKey: string;
+  icon: IconDefinition;
+}
+
+/** Key used to look up `projects.data.<projectKey>.decisions.<decisionKey>.{challenge,solution,tradeoff}` */
+export interface ProjectDecision {
+  decisionKey: string;
+}
+
 export interface Project {
   id: string;
   /** Used to build i18n key paths: `projects.data.<projectKey>.*` */
@@ -53,6 +66,8 @@ export interface Project {
   screenshots: Screenshot[];
   techCategories: TechCategory[];
   features: ProjectFeature[];
+  stats?: ProjectStat[];
+  decisions?: ProjectDecision[];
 }
 
 // Re-export icons used by consumers so they import from one place
@@ -99,6 +114,18 @@ export const projects: Project[] = [
       { icon: faScroll, featureKey: 'auditTrail' },
       { icon: faGlobe, featureKey: 'i18n' },
       { icon: faGears, featureKey: 'adminPanel' },
+    ],
+    stats: [
+      { statKey: 'languages', icon: faGlobe },
+      { statKey: 'rbac', icon: faUsers },
+      { statKey: 'defenseInDepth', icon: faShieldHalved },
+      { statKey: 'e2e', icon: faVialCircleCheck },
+    ],
+    decisions: [
+      { decisionKey: 'rlsAtDb' },
+      { decisionKey: 'rscVsClient' },
+      { decisionKey: 'auditLog' },
+      { decisionKey: 'monorepoFeatures' },
     ],
     screenshots: [
       {

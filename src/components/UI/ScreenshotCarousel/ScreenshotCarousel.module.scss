@@ -44,6 +44,13 @@
 // Browser chrome frame
 
 .frame {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: inherit;
+  font: inherit;
+  color: inherit;
   border-radius: $border-radius-md;
   overflow: hidden;
   border: 1px solid var(--border-primary);
@@ -51,6 +58,24 @@
   box-shadow:
     0 24px 60px rgba(0, 112, 243, 0.16),
     0 4px 24px rgba(0, 0, 0, 0.22);
+  cursor: zoom-in;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    border-color 240ms ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: color-mix(in srgb, var(--primary) 45%, var(--border-primary));
+    box-shadow:
+      0 28px 72px rgba(0, 112, 243, 0.22),
+      0 6px 28px rgba(0, 0, 0, 0.26);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
 }
 
 .browserBar {
@@ -161,96 +186,6 @@
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
 }
 
-// Navigation controls
-
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.navBtn {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid var(--border-primary);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  flex-shrink: 0;
-  transition:
-    border-color 200ms ease,
-    background 200ms ease,
-    transform 160ms ease,
-    opacity 200ms ease;
-
-  &:hover:not(:disabled) {
-    border-color: color-mix(in srgb, var(--primary) 50%, var(--border-primary));
-    background: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
-    transform: scale(1.05);
-  }
-
-  &:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    transform: none;
-  }
-}
-
-.controlCenter {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-  flex: 1;
-  min-width: 0;
-}
-
-.groupChip {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 10px;
-  border-radius: 100px;
-  background: color-mix(in srgb, var(--primary) 12%, var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 160px;
-
-  span {
-    color: var(--primary);
-    font-weight: 600 !important;
-    font-size: 11px !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
-.counter {
-  color: var(--text-secondary) !important;
-  font-size: 12px !important;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-// Caption
-
-.caption {
-  text-align: center;
-  min-height: 20px;
-}
-
-.captionText {
-  color: var(--text-secondary) !important;
-  font-size: 12px !important;
-}
-
 // Progress bar
 
 .progressBar {
@@ -267,7 +202,51 @@
   transition: width 340ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// Dot indicators
+// Thumbnail strip (md+)
+
+.thumbStrip {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.thumb {
+  position: relative;
+  width: 72px;
+  height: 44px;
+  padding: 0;
+  border-radius: $border-radius-xs;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0.55;
+  transition:
+    opacity 200ms ease,
+    border-color 200ms ease,
+    transform 160ms ease,
+    box-shadow 200ms ease;
+
+  &:hover:not(.thumbActive) {
+    opacity: 0.85;
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border-primary));
+    transform: translateY(-1px);
+  }
+}
+
+.thumbActive {
+  opacity: 1;
+  border-color: var(--primary);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--primary) 35%, transparent),
+    0 6px 14px color-mix(in srgb, var(--primary) 24%, transparent);
+  transform: translateY(-1px);
+}
+
+// Dot indicators (xs only)
 
 .dotRow {
   display: flex;
@@ -301,5 +280,176 @@
 
   &.dotActive {
     background: linear-gradient(90deg, var(--primary) 0%, #28b8ff 100%);
+  }
+}
+
+// Lightbox modal
+
+.lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxBackdrop {
+  background-color: rgba(0, 0, 0, 0.78) !important;
+}
+
+.lightboxInner {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxStage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  // Padding reserves room for the close button overhang (half a button) at the
+  // image's top-right corner, plus breathing room around the image.
+  padding: 32px 32px 16px;
+  box-sizing: border-box;
+
+  @include mq(sm) {
+    padding: 24px 24px 12px;
+  }
+
+  @include mq(xs) {
+    padding: 20px 20px 10px;
+  }
+}
+
+.lightboxImageWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightboxImage {
+  display: block;
+  width: auto;
+  height: auto;
+  // Explicit viewport-anchored caps so the image never escapes the screen and
+  // never overlaps the viewport-pinned nav buttons.
+  // Horizontal reserve = 2 × (edge gutter 16 + nav button 44 + clearance 16) = 152px.
+  // Vertical reserve = stage padding top + bottom (32 + 16) = 48px.
+  max-width: calc(100vw - 152px);
+  max-height: calc(100vh - 48px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  @include mq(sm) {
+    // 2 × (gutter 8 + nav button 34 + clearance 8) = 100px.
+    // padding top + bottom (24 + 12) = 36px.
+    max-width: calc(100vw - 100px);
+    max-height: calc(100vh - 36px);
+  }
+
+  @include mq(xs) {
+    // 2 × (gutter 8 + nav button 30 + clearance 8) = 92px.
+    // padding top + bottom (20 + 10) = 30px.
+    max-width: calc(100vw - 92px);
+    max-height: calc(100vh - 30px);
+  }
+}
+
+.lightboxClose,
+.lightboxNav {
+  z-index: 2;
+  color: #fff !important;
+  background: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  transition:
+    background 200ms ease,
+    transform 200ms ease,
+    border-color 200ms ease !important;
+
+  svg {
+    font-size: 24px;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.65) !important;
+    border-color: color-mix(in srgb, var(--primary) 55%, rgba(255, 255, 255, 0.2)) !important;
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  @include mq(sm) {
+    width: 34px;
+    height: 34px;
+
+    svg {
+      font-size: 20px;
+    }
+  }
+
+  @include mq(xs) {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      font-size: 18px;
+    }
+  }
+}
+
+.lightboxClose {
+  position: absolute !important;
+  // Center of the button sits exactly on the image's top-right corner
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+
+  &:hover {
+    transform: translate(50%, -50%) scale(1.05);
+  }
+}
+
+// Nav buttons live OUTSIDE the stage so they stay pinned to the viewport edges
+// instead of shifting with the image's width when slides change.
+.lightboxNav {
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+}
+
+.lightboxPrev {
+  left: 16px;
+
+  @include mq(sm) {
+    left: 8px;
+  }
+}
+
+.lightboxNext {
+  right: 16px;
+
+  @include mq(sm) {
+    right: 8px;
   }
 }
