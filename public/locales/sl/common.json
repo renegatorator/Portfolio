@@ -282,7 +282,7 @@
   "showLess": "Prikaži manj",
   "workExperience": {
     "title": "Delovne izkušnje",
-    "subtitle": "6+ let dostave produkcijsko pripravljenih frontend rešitev na področju blockchain, transporta in logistike.",
+    "subtitle": "6+ let dostave produkcijsko pripravljenih frontend rešitev z React, Next.js in TypeScript.",
     "present": "Trenutno",
     "downloadCv": "Prenesi CV",
     "overviewTitle": "Karierni pregled",
@@ -291,7 +291,7 @@
         "role": "Višji Frontend Inženir",
         "location": "Maribor, Slovenija",
         "highlights": [
-          "Vodim frontend razvoj blockchain produktov za nChain / Teranode (UK)",
+          "Razvijam frontend (React, Next.js, TypeScript) za web3 produkte, vključno z nChain / Teranode (UK)",
           "Gradim razširljive spletne aplikacije z React, Next.js, TypeScript in React Query",
           "Mentoriram mlajše razvijalce, izvajam preglede kode in spodbujam dobre prakse",
           "Prispevam k arhitekturnim odločitvam za produkcijsko pripravljene, prometno obremenjene spletne aplikacije"

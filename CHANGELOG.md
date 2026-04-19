@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.4]
+
+### Changed
+
+- **Work Experience Copy**: Removed misleading framing that implied blockchain domain expertise; the Equaleyes role highlight no longer says "Lead frontend development for blockchain-based products" and now reads "Build the frontend (React, Next.js, TypeScript) for web3 products, including nChain / Teranode (UK)" in EN, SL, and DE
+- **Work Experience Subtitle**: Replaced "blockchain, transport and logistics" framing with a frontend-focused line ("Delivering production-ready frontend solutions with React, Next.js and TypeScript for 6+ years.") in EN, SL, and DE
+- **Equaleyes Tech List**: Removed `Blockchain` from the Equaleyes `tech` array in `src/constants/rene.ts` so the displayed tech stack reflects actual frontend skills only
+
 ## [1.3.3]
 
 ### Changed

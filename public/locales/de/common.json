@@ -283,7 +283,7 @@
   "showLess": "Weniger anzeigen",
   "workExperience": {
     "title": "Berufserfahrung",
-    "subtitle": "Seit 6+ Jahren produktionsreife Frontend-Lösungen in den Bereichen Blockchain, Transport und Logistik.",
+    "subtitle": "Seit 6+ Jahren produktionsreife Frontend-Lösungen mit React, Next.js und TypeScript.",
     "present": "Aktuell",
     "downloadCv": "Lebenslauf herunterladen",
     "overviewTitle": "Karriere\u00fcbersicht",
@@ -292,7 +292,7 @@
         "role": "Senior Frontend Engineer",
         "location": "Maribor, Slowenien",
         "highlights": [
-          "Leitung der Frontend-Entwicklung für Blockchain-basierte Produkte für nChain / Teranode (UK)",
+          "Entwicklung des Frontends (React, Next.js, TypeScript) für Web3-Produkte, u. a. nChain / Teranode (UK)",
           "Entwicklung skalierbarer Webanwendungen mit React, Next.js, TypeScript und React Query",
           "Mentoring von Junior-Entwicklern, Code-Reviews und Förderung von Frontend-Best-Practices",
           "Beitrag zu Architekturentscheidungen für produktionsreife Web-Apps mit hohem Traffic"
