@@ -77,7 +77,7 @@ export const workExperiences: WorkExperience[] = [
     logo: '/images/eq.png',
     startDate: '08/2023',
     current: true,
-    tech: ['React', 'Next.js', 'TypeScript', 'React Query', 'Blockchain'],
+    tech: ['React', 'Next.js', 'TypeScript', 'React Query'],
   },
   {
     id: 'margento',
