@@ -13,7 +13,7 @@ const OG_LOCALE: Record<Locale, string> = {
   de: 'de_DE',
 };
 
-const OG_IMAGE_PATH = '/og-image.png';
+const OG_IMAGE_PATH = '/og-image.jpg';
 const OG_IMAGE_WIDTH = '1200';
 const OG_IMAGE_HEIGHT = '630';
 const OG_IMAGE_TYPE = 'image/png';
