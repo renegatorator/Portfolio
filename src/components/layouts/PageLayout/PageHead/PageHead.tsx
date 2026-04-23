@@ -3,6 +3,7 @@ import { useTranslation } from 'next-i18next';
 
 import { useSeo } from '@/constants/hooks/useSeo';
 import { DEFAULT_LOCALE, Locale, SUPPORTED_LOCALES } from '@/constants/locales';
+import { reneKrajnc } from '@/constants/rene';
 import { Route, Routes } from '@/constants/routes';
 import { SITE_URL } from '@/constants/site';
 
@@ -12,8 +13,7 @@ const OG_LOCALE: Record<Locale, string> = {
   de: 'de_DE',
 };
 
-const SITE_NAME = 'Rene Krajnc';
-const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+const OG_IMAGE_PATH = '/og-image.png';
 const OG_IMAGE_WIDTH = '1200';
 const OG_IMAGE_HEIGHT = '630';
 const OG_IMAGE_TYPE = 'image/png';
@@ -33,6 +33,7 @@ const PageHead = ({ route }: PageHeadProps) => {
   const routePath = route || Routes.LANDING_PAGE;
   const currentLocale = (i18n.language as Locale) || DEFAULT_LOCALE;
   const pageUrl = buildLocalisedUrl(baseUrl, currentLocale, routePath);
+  const imageUrl = `${baseUrl}${OG_IMAGE_PATH}`;
 
   return (
     <Head>
@@ -40,7 +41,7 @@ const PageHead = ({ route }: PageHeadProps) => {
       <meta name="description" content={description} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:site_name" content={reneKrajnc} />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -52,8 +53,8 @@ const PageHead = ({ route }: PageHeadProps) => {
           content={OG_LOCALE[locale] ?? OG_LOCALE.en}
         />
       ))}
-      <meta property="og:image" content={OG_IMAGE_URL} />
-      <meta property="og:image:secure_url" content={OG_IMAGE_URL} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:secure_url" content={imageUrl} />
       <meta property="og:image:type" content={OG_IMAGE_TYPE} />
       <meta property="og:image:width" content={OG_IMAGE_WIDTH} />
       <meta property="og:image:height" content={OG_IMAGE_HEIGHT} />
@@ -62,7 +63,7 @@ const PageHead = ({ route }: PageHeadProps) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={OG_IMAGE_URL} />
+      <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={title} />
 
       {SUPPORTED_LOCALES.map((locale) => (
