@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**Live Demo:** [www.renekrajnc.com](https://www.renekrajnc.com)
+**Live Demo:** [renekrajnc.com](https://renekrajnc.com)
 
 ---
 
@@ -195,7 +195,7 @@ RESEND_FROM_EMAIL=Rene Krajnc <onboarding@resend.dev>
 # Optional: sender display name used when RESEND_FROM_EMAIL is only an address
 RESEND_FROM_NAME=Rene Info
 # Optional: public base URL for assets in emails (do not use localhost)
-EMAIL_ASSET_BASE_URL=https://www.renekrajnc.com
+EMAIL_ASSET_BASE_URL=https://renekrajnc.com
 ```
 
 For production deployment on Vercel:
@@ -319,7 +319,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Rene Krajnc**
 
-- Website: [www.renekrajnc.com](https://www.renekrajnc.com)
+- Website: [renekrajnc.com](https://renekrajnc.com)
 - GitHub: [@renegatorator](https://github.com/renegatorator)
 - LinkedIn: [Rene Krajnc](https://linkedin.com/in/rene-krajnc)
 
