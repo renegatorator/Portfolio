@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.5]
+
+### Added
+
+- **Social Link Preview Metadata**: Expanded `PageHead` with the full Open Graph and Twitter Card tag set so shared links on Facebook, LinkedIn, iMessage, Discord, and Slack render a rich preview: `og:type`, `og:site_name`, `og:url`, `og:image` (+ `secure_url`, `type`, `width`, `height`, `alt`), `og:locale:alternate` entries for the non-active supported locales, and `twitter:card=summary_large_image` with matching `twitter:title`, `twitter:description`, `twitter:image`, and `twitter:image:alt`
+- **Social Preview Asset**: Added `public/og-image.png` (1200×630) referenced by all `og:image` / `twitter:image` tags
+
+### Changed
+
+- **Locale-Aware Canonical**: `canonical`, `og:url`, and the `hreflang` alternates now all derive from the same `buildLocalisedUrl` helper (default locale unprefixed, other locales prefixed with `/<locale>`), replacing the previous locale-agnostic canonical that contradicted the `hreflang` block
+- **Shared Site Name**: `og:site_name` now reuses the existing `reneKrajnc` constant from `src/constants/rene.ts` instead of a duplicated local string
+- **Consistent Asset Base URL**: OG image URL is derived from `baseUrl` (same source as `canonical` / `og:url` / `hreflang`) so production, preview, and local deployments all emit a coherent set of absolute URLs in `<head>`
+
 ## [1.3.4]
 
 ### Changed
