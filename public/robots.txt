@@ -2,6 +2,31 @@
 User-agent: *
 Allow: /
 
+# Social preview crawlers (explicitly allowed)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
 # Sitemap location
 Sitemap: https://renekrajnc.com/sitemap.xml
 
