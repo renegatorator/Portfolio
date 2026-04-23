@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.8]
+
+### Added
+
+- **Social Preview Crawler Allow-List**: `public/robots.txt` now explicitly lists `facebookexternalhit`, `Facebot`, `Twitterbot`, `LinkedInBot`, `Slackbot`, `Discordbot`, `WhatsApp`, and `TelegramBot` with `Allow: /`, so upstream proxy / CDN `robots.txt` overrides or stricter defaults can't accidentally block unfurlers even though `User-agent: *` already allows them — belt-and-braces for the social preview pipeline
+- **Social Preview & SSR Postmortem**: New `docs/social-preview-and-ssr.md` walks through the v1.3.4 → v1.3.6 social preview work end-to-end: why bare "URL + hostname" previews were showing, what was added in v1.3.5 (OG + Twitter tag set, `og:image`, locale-aware canonical), what was fixed in v1.3.6 (SSR gate in `ThemeProviderCustom` silently hiding every tag from crawlers), and `curl -A "facebookexternalhit/1.1" …` snippets for future debugging
+
+### Changed
+
+- **OG Image Format Swapped to JPG**: Replaced `public/og-image.png` (~1.3 MB) with `public/og-image.jpg` (~547 KB) and pointed `OG_IMAGE_PATH` in `PageHead` at `/og-image.jpg`, cutting social preview bandwidth by ~60% at the same 1200×630 dimensions; several unfurlers (notably WhatsApp) cap preview images around ~1 MB and were skipping the PNG, so the JPG also improves preview reliability, not just performance
+- **`.env.example` Comment Trimmed**: Removed the "(apex, no www)" qualifier from the production-domain comment now that the apex flip in `1.3.7` has settled and the comment is back to being generic
+
 ## [1.3.7]
 
 ### Changed
