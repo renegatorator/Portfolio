@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.7]
+
+### Changed
+
+- **Canonical Host Flipped to Apex**: `SITE_URL` in `src/constants/site.ts` is now `https://renekrajnc.com` (apex, no `www.`), matching the new Vercel primary domain; every absolute URL the site emits in `<head>` (canonical, `og:url`, `og:image`, `twitter:image`, and the `hreflang` alternates) now advertises the apex host so social crawlers no longer hit the `www → apex` redirect that Facebook's debugger was reporting as a 403
+- **Sitemap, robots.txt, security.txt Aligned**: Rewrote all 41 `<loc>` / `hreflang` URLs in `public/sitemap.xml`, the `Sitemap:` URL in `public/robots.txt`, and the `Canonical:` URL in `public/.well-known/security.txt` to use the apex host, so crawlers receive a coherent set of URLs from every entry point
+- **Docs and Example Env Updated**: `README.md` live-demo / author links and the `.env.example` `NEXT_PUBLIC_SITE_URL` / `EMAIL_ASSET_BASE_URL` examples now show the apex URL, with the accompanying comment updated from "with www if applicable" to "apex, no www"
+
 ## [1.3.6]
 
 ### Changed
