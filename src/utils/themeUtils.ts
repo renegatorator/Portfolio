@@ -1,4 +1,22 @@
-import { ColorToken } from '@/constants/theme';
+import { ColorToken, Theme, Themes } from '@/constants/theme';
+
+export const THEME_STORAGE_KEY = 'theme';
+
+export const isTheme = (value: unknown): value is Theme =>
+  value === Themes.LIGHT || value === Themes.DARK;
+
+// Inline script injected in <Head> so it runs before first paint and before React
+// hydrates, setting data-theme on <html> so CSS is correct from the very first frame
+// (no theme flash) and SSR stays crawler-friendly.
+export const themeInitScript = `
+(function () {
+  try {
+    var saved = localStorage.getItem('${THEME_STORAGE_KEY}');
+    if (saved !== '${Themes.LIGHT}' && saved !== '${Themes.DARK}') saved = '${Themes.DARK}';
+    document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+})();
+`;
 
 // Get CSS custom properties from the document
 export const getCssVar = (token: ColorToken): string => {
