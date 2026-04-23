@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.9]
+
+### Changed
+
+- **OG Image Switch**: New OG image
+
 ## [1.3.8]
 
 ### Added
