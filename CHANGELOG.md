@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.6]
+
+### Changed
+
+- **Theme Store via `useSyncExternalStore`**: `ThemeProviderCustom` now reads/writes theme through React 18's `useSyncExternalStore` hook backed by `localStorage`, eliminating the `setState`-inside-`useEffect` pattern and enabling cross-tab sync via the `storage` event; theme plumbing (`THEME_STORAGE_KEY`, `isTheme` type-guard, `themeInitScript`) now lives in `src/utils/themeUtils.ts` and is interpolated from the `Themes` literal union so the inline script cannot drift from the React store
+
+### Fixed
+
+- **Empty `<head>` for Social Crawlers**: `ThemeProviderCustom` was short-circuiting SSR with `if (!mounted) return <GlobalLoader />`, which meant `PageLayout` → `PageHead` never ran on the server and Facebook/LinkedIn/iMessage/Slack received HTML with no `<title>`, no `og:*`, and no `twitter:*` tags; removed the mount gate so the full metadata is now emitted in the initial server response
+- **Theme Flash Prevention Without Blocking SSR**: Added a tiny inline pre-hydration script in `src/pages/_document.tsx` that reads `localStorage.theme` and sets `data-theme` on `<html>` before first paint, replacing the full-page loader gate with the industry-standard (next-themes) pattern — no flash for returning visitors, full SSR for crawlers
+- **Cross-Tab Theme Sync Applies to DOM**: The `storage` event handler now calls `document.documentElement.setAttribute('data-theme', ...)` in addition to notifying the React store, so a theme toggle in one tab updates CSS in every other open tab (previously only the React state updated, leaving CSS stuck on the old theme)
+- **Defensive `localStorage` Access**: `getClientSnapshot` and `writeTheme` now wrap `localStorage` reads and writes in `try/catch` with sensible fallbacks, so sandboxed iframes, privacy-mode storage blocks, and quota-exceeded errors no longer crash the provider or abort a theme toggle
+
 ## [1.3.5]
 
 ### Added
@@ -16,17 +29,6 @@ All notable changes to this project will be documented in this file.
 - **Locale-Aware Canonical**: `canonical`, `og:url`, and the `hreflang` alternates now all derive from the same `buildLocalisedUrl` helper (default locale unprefixed, other locales prefixed with `/<locale>`), replacing the previous locale-agnostic canonical that contradicted the `hreflang` block
 - **Shared Site Name**: `og:site_name` now reuses the existing `reneKrajnc` constant from `src/constants/rene.ts` instead of a duplicated local string
 - **Consistent Asset Base URL**: OG image URL is derived from `baseUrl` (same source as `canonical` / `og:url` / `hreflang`) so production, preview, and local deployments all emit a coherent set of absolute URLs in `<head>`
-
-## [1.3.6]
-
-### Changed
-
-- **Theme Store via `useSyncExternalStore`**: `ThemeProviderCustom` now reads/writes theme through React 18's `useSyncExternalStore` hook backed by `localStorage`, eliminating the `setState`-inside-`useEffect` pattern and enabling cross-tab sync via the `storage` event; theme plumbing (`THEME_STORAGE_KEY`, `isTheme` type-guard, `themeInitScript`) now lives in `src/utils/themeUtils.ts` and is interpolated from the `Themes` literal union so the inline script cannot drift from the React store
-
-### Fixed
-
-- **Empty `<head>` for Social Crawlers**: `ThemeProviderCustom` was short-circuiting SSR with `if (!mounted) return <GlobalLoader />`, which meant `PageLayout` → `PageHead` never ran on the server and Facebook/LinkedIn/iMessage/Slack received HTML with no `<title>`, no `og:*`, and no `twitter:*` tags; removed the mount gate so the full metadata is now emitted in the initial server response
-- **Theme Flash Prevention Without Blocking SSR**: Added a tiny inline pre-hydration script in `src/pages/_document.tsx` that reads `localStorage.theme` and sets `data-theme` on `<html>` before first paint, replacing the full-page loader gate with the industry-standard (next-themes) pattern — no flash for returning visitors, full SSR for crawlers
 
 ## [1.3.4]
 

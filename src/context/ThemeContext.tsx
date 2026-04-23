@@ -16,17 +16,30 @@ export const ThemeContext = createContext<ThemeContextProps>({
 type Listener = () => void;
 const listeners = new Set<Listener>();
 
-const getClientSnapshot = (): Theme => {
-  const saved = localStorage.getItem(THEME_STORAGE_KEY);
-  return isTheme(saved) ? saved : Themes.DARK;
+const readStoredTheme = (): Theme => {
+  if (typeof window === 'undefined') return Themes.DARK;
+  try {
+    const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return isTheme(saved) ? saved : Themes.DARK;
+  } catch {
+    return Themes.DARK;
+  }
 };
 
+const getClientSnapshot = (): Theme => readStoredTheme();
 const getServerSnapshot = (): Theme => Themes.DARK;
+
+const applyTheme = (theme: Theme) => {
+  document.documentElement.setAttribute('data-theme', theme);
+};
 
 const subscribe = (listener: Listener) => {
   listeners.add(listener);
   const onStorage = (event: StorageEvent) => {
-    if (event.key === THEME_STORAGE_KEY) listener();
+    if (event.key !== THEME_STORAGE_KEY) return;
+    const nextTheme = isTheme(event.newValue) ? event.newValue : Themes.DARK;
+    applyTheme(nextTheme);
+    listener();
   };
   window.addEventListener('storage', onStorage);
   return () => {
@@ -36,8 +49,13 @@ const subscribe = (listener: Listener) => {
 };
 
 const writeTheme = (theme: Theme) => {
-  localStorage.setItem(THEME_STORAGE_KEY, theme);
-  document.documentElement.setAttribute('data-theme', theme);
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch {
+    // Storage writes can fail (private mode, quota, sandboxed iframes); still
+    // apply the theme in memory so the current session reflects the change.
+  }
+  applyTheme(theme);
   listeners.forEach((listener) => listener());
 };
 
