@@ -1,10 +1,14 @@
 import type { DocumentContext, DocumentInitialProps } from 'next/document';
 import { Head, Html, Main, NextScript } from 'next/document';
 
+import { themeInitScript } from '@/utils/themeUtils';
+
 const Document = ({ locale }: { locale: string }) => {
   return (
     <Html lang={locale || 'en'} data-theme="dark">
-      <Head />
+      <Head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </Head>
       <body>
         <Main />
         <NextScript />
@@ -13,7 +17,9 @@ const Document = ({ locale }: { locale: string }) => {
   );
 };
 
-Document.getInitialProps = async (ctx: DocumentContext): Promise<DocumentInitialProps & { locale: string }> => {
+Document.getInitialProps = async (
+  ctx: DocumentContext,
+): Promise<DocumentInitialProps & { locale: string }> => {
   const initialProps = await ctx.defaultGetInitialProps(ctx);
   return {
     ...initialProps,
