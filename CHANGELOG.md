@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.10]
+
+### Added
+
+- **GitHub Release Workflow**: New `.github/workflows/release.yml` triggers on pushes of `v*.*.*` tags and uses `softprops/action-gh-release@v2` to create a GitHub Release named `Release <tag>` with auto-generated release notes (`generate_release_notes: true`), publishes (not draft, not prerelease), and seeds a discussion in the `Releases` category so each tagged version now ships with proper release notes, a comparison link, and a discussion thread without any manual GitHub UI work
+- **Release Workflow Permissions & Concurrency**: The workflow runs with `contents: write` (minimum needed to publish a release), checks out with `fetch-depth: 0` so the action can diff against the previous tag for accurate notes, and uses a `release-${{ github.ref }}` concurrency group with `cancel-in-progress: false` so two tags pushed in quick succession queue rather than clobber each other
+
 ## [1.3.9]
 
 ### Changed
