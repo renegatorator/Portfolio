@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.11]
+
+### Fixed
+
+- **Release Workflow Discussion Permission**: `.github/workflows/release.yml` now grants `discussions: write` alongside `contents: write`, fixing the `error finalizing release: HttpError: Discussion could not be created. Make sure you passed a valid category name.` failure seen on the `v1.3.10` run; the release itself was being created successfully, but `softprops/action-gh-release` couldn't attach a discussion in the `Releases` category because the default `GITHUB_TOKEN` lacked permission to write discussions (the API surfaces this as a generic "invalid category name" error even when Discussions is enabled and the category exists, which made the original cause look like a config typo)
+
 ## [1.3.10]
 
 ### Added
