@@ -106,9 +106,9 @@
 .openSourceChip {
   font-size: 11px !important;
   height: 22px !important;
-  background: color-mix(in srgb, var(--primary) 10%, transparent) !important;
+  background: primary-mix(10%) !important;
   color: var(--primary) !important;
-  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary)) !important;
+  border: 1px solid primary-mix(25%, var(--border-primary)) !important;
 }
 
 .chipIcon {
@@ -128,7 +128,7 @@
 
 .tagline {
   color: var(--text-secondary) !important;
-  max-width: 640px;
+  max-width: $content-narrow;
   line-height: 1.65 !important;
   font-size: 14px !important;
   overflow-wrap: break-word;
@@ -250,12 +250,8 @@
 }
 
 .ctaBtn {
-  border-radius: 999px !important;
-  text-transform: none !important;
-  font-weight: 600 !important;
+  @include pill-button(6px 18px, 600);
   font-size: 13px !important;
-  padding: 6px 18px !important;
-  white-space: nowrap;
   max-width: 100%;
   box-sizing: border-box;
 
@@ -297,12 +293,12 @@
     position: absolute;
     inset: 0 auto 0 0;
     width: 3px;
-    background: linear-gradient(180deg, var(--primary) 0%, #28b8ff 100%);
+    background: linear-gradient(180deg, var(--primary) 0%, $brand-cyan 100%);
     opacity: 0.85;
   }
 
   &:hover {
-    border-color: color-mix(in srgb, var(--primary) 35%, var(--border-primary));
+    border-color: primary-mix(35%, var(--border-primary));
     transform: translateY(-2px);
   }
 }
@@ -311,8 +307,8 @@
   width: 34px;
   height: 34px;
   border-radius: $border-radius-sm;
-  background: color-mix(in srgb, var(--primary) 12%, var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
+  background: primary-mix(12%, var(--bg-secondary));
+  border: 1px solid primary-mix(25%, var(--border-primary));
   color: var(--primary);
   display: flex;
   align-items: center;
@@ -370,9 +366,9 @@
   font-size: 12px;
   font-weight: 600;
   padding: 4px 12px;
-  border-radius: 100px;
-  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border-primary));
-  background: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
+  border-radius: $border-radius-pill;
+  border: 1px solid primary-mix(30%, var(--border-primary));
+  background: primary-mix(8%, var(--bg-secondary));
   color: var(--primary);
   white-space: nowrap;
   max-width: 100%;
@@ -443,8 +439,8 @@
   letter-spacing: 0.08em;
   padding: 3px 8px;
   border-radius: $border-radius-xs;
-  background: color-mix(in srgb, var(--primary) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
+  background: primary-mix(12%);
+  border: 1px solid primary-mix(25%, var(--border-primary));
   line-height: 1;
 }
 
@@ -463,7 +459,7 @@
 .descriptionEm {
   color: var(--primary);
   font-weight: 600;
-  text-shadow: 0 0 14px color-mix(in srgb, var(--primary) 32%, transparent);
+  text-shadow: 0 0 14px primary-mix(32%);
 }
 
 .highlightsGrid {
@@ -490,8 +486,8 @@
   @include card-transition;
 
   &:hover {
-    border-color: color-mix(in srgb, var(--primary) 30%, var(--border-primary));
-    background: color-mix(in srgb, var(--primary) 4%, var(--bg-primary));
+    border-color: primary-mix(30%, var(--border-primary));
+    background: primary-mix(4%, var(--bg-primary));
     transform: translateY(-2px);
   }
 }
@@ -508,8 +504,8 @@
   align-items: center;
   justify-content: center;
   border-radius: $border-radius-sm;
-  background: color-mix(in srgb, var(--primary) 10%, var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-primary));
+  background: primary-mix(10%, var(--bg-secondary));
+  border: 1px solid primary-mix(22%, var(--border-primary));
   line-height: 1;
 }
 
@@ -556,8 +552,8 @@
     background: linear-gradient(
       180deg,
       transparent,
-      color-mix(in srgb, var(--primary) 35%, var(--border-primary)) 12%,
-      color-mix(in srgb, var(--primary) 35%, var(--border-primary)) 88%,
+      primary-mix(35%, var(--border-primary)) 12%,
+      primary-mix(35%, var(--border-primary)) 88%,
       transparent
     );
     pointer-events: none;
@@ -576,7 +572,7 @@
   position: relative;
 
   &:hover {
-    border-color: color-mix(in srgb, var(--primary) 30%, var(--border-primary));
+    border-color: primary-mix(30%, var(--border-primary));
     transform: translateX(2px);
   }
 }
@@ -589,13 +585,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary) 0%, #28b8ff 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, $brand-cyan 100%);
   color: #fff;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
   line-height: 1;
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 30%, transparent);
+  box-shadow: 0 4px 14px primary-mix(30%);
   position: relative;
   z-index: 1;
 }
@@ -629,12 +625,12 @@
   font-size: 13px;
   line-height: 1.55;
   margin: 0;
-  max-width: 640px;
+  max-width: $content-narrow;
   overflow-wrap: break-word;
 }
 
 .decisionsContainer {
-  max-width: 760px;
+  max-width: $content-medium;
   width: 100%;
   margin: 4px auto 0;
   display: flex;
@@ -654,12 +650,12 @@
   }
 
   &:hover {
-    border-color: color-mix(in srgb, var(--primary) 25%, var(--border-primary)) !important;
+    border-color: primary-mix(25%, var(--border-primary)) !important;
   }
 
   &:global(.Mui-expanded) {
-    border-color: color-mix(in srgb, var(--primary) 35%, var(--border-primary)) !important;
-    background: color-mix(in srgb, var(--primary) 4%, var(--bg-primary)) !important;
+    border-color: primary-mix(35%, var(--border-primary)) !important;
+    background: primary-mix(4%, var(--bg-primary)) !important;
   }
 }
 
@@ -764,8 +760,8 @@
 }
 
 .decisionItemIconSolution {
-  background: color-mix(in srgb, var(--primary) 12%, var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-primary));
+  background: primary-mix(12%, var(--bg-secondary));
+  border: 1px solid primary-mix(25%, var(--border-primary));
   color: var(--primary);
 }
 
@@ -894,8 +890,8 @@
   @include card-transition;
 
   &:hover {
-    border-color: color-mix(in srgb, var(--primary) 30%, var(--border-primary));
-    background: color-mix(in srgb, var(--primary) 4%, var(--bg-primary));
+    border-color: primary-mix(30%, var(--border-primary));
+    background: primary-mix(4%, var(--bg-primary));
     transform: translateY(-2px);
   }
 }
@@ -904,8 +900,8 @@
   width: 34px;
   height: 34px;
   border-radius: $border-radius-sm;
-  background: color-mix(in srgb, var(--primary) 10%, var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-primary));
+  background: primary-mix(10%, var(--bg-secondary));
+  border: 1px solid primary-mix(22%, var(--border-primary));
   display: flex;
   align-items: center;
   justify-content: center;

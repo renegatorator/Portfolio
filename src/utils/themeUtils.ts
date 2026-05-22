@@ -80,7 +80,7 @@ const getThemeAwareFallback = (token: ColorToken, isDark: boolean): string => {
 
   const darkFallbacks: Record<ColorToken, string> = {
     '--primary': '#79b8ff',
-    '--primary-text': '#f5f5f5',
+    '--primary-text': '#0a1a2e',
     '--bg-primary': '#181818',
     '--bg-secondary': '#23272f',
     '--bg-tertiary': '#1a1d24',
