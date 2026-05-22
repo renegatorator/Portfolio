@@ -6,14 +6,13 @@
   left: 0;
   width: 100%;
   background: var(--bg-primary);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  @include backdrop-blur(10px);
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow-xs;
   padding: 8px 0;
   display: flex;
   justify-content: center;
-  transition: border-bottom 0.3s ease;
+  transition: border-bottom $transition-base;
 
   &.scrolled {
     border-bottom: 1px solid var(--primary);
@@ -24,7 +23,7 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  max-width: 1200px;
+  max-width: $container-max-width;
   width: 100%;
   justify-content: space-between;
   padding: 0 32px;
@@ -35,7 +34,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all $transition-base;
     position: relative;
 
     &:hover {
@@ -58,7 +57,7 @@
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all $transition-base;
   position: relative;
   padding: 8px 0;
   border-radius: $border-radius-xs;
@@ -76,7 +75,7 @@
     height: 100%;
     border-radius: $border-radius-xs;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity $transition-base;
     z-index: -1;
   }
 
@@ -92,7 +91,7 @@
     width: 0;
     height: 2px;
     background: var(--primary);
-    transition: width 0.3s ease;
+    transition: width $transition-base;
   }
 
   &:hover::after {
@@ -121,7 +120,7 @@
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all $transition-base;
   position: relative;
   margin: 4px 0;
 
@@ -139,7 +138,7 @@
     height: 100%;
     background: var(--primary);
     transform: scaleY(0);
-    transition: width 0.3s ease;
+    transition: width $transition-base;
   }
 
   &:hover::before {
@@ -183,7 +182,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 8px;
-  transition: all 0.3s ease;
+  transition: all $transition-base;
   border-radius: $border-radius-sm;
 
   &:hover {
@@ -207,7 +206,7 @@
   z-index: 200;
   display: flex;
   justify-content: flex-end;
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 300ms ease-out;
 
   @keyframes fadeIn {
     from {
@@ -226,7 +225,7 @@
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  animation: slideIn 0.3s ease-out;
+  animation: slideIn 300ms ease-out;
 
   @keyframes slideIn {
     from {
@@ -257,8 +256,8 @@
   font-size: 1.25rem;
   cursor: pointer;
   padding: 8px;
-  transition: all 0.3s ease;
-  border-radius: 4px;
+  transition: all $transition-base;
+  border-radius: $border-radius-xs;
 
   &:hover {
     color: var(--primary);

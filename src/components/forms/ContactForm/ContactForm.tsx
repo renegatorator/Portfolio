@@ -3,9 +3,11 @@ import { Alert, Box, Button, InputAdornment, Link, TextField, Typography } from 
 import classNames from 'classnames';
 import Script from 'next/script';
 import { useTranslation } from 'next-i18next';
+import { useEffect, useState } from 'react';
 
 import { EMAIL_PATTERN } from '@/constants/formRules';
-import { useContactForm } from '@/utils/hooks/useContactForm';
+import { CookieConsentStates, useCookieConsent } from '@/context/CookieConsentContext';
+import { ContactFormData, useContactForm } from '@/utils/hooks/useContactForm';
 import { useRecaptchaV3 } from '@/utils/hooks/useRecaptchaV3';
 
 import classes from './ContactForm.module.scss';
@@ -19,6 +21,9 @@ interface ContactFormProps {
 
 const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) => {
   const { t } = useTranslation();
+  const { consent, accept, openPreferences } = useCookieConsent();
+  const hasConsent = consent === CookieConsentStates.ACCEPTED;
+
   const {
     captchaErrorType,
     captchaReady,
@@ -37,12 +42,34 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
       clearCaptchaError,
     });
 
+  const [pendingSubmit, setPendingSubmit] = useState<ContactFormData | null>(null);
+
+  const handleFormSubmit = (data: ContactFormData) => {
+    if (!hasConsent) {
+      setPendingSubmit(data);
+      openPreferences();
+      return;
+    }
+    return onSubmit(data);
+  };
+
+  useEffect(() => {
+    if (pendingSubmit && hasConsent && captchaReady) {
+      const data = pendingSubmit;
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot retry after the user grants consent; reactive setState is the simplest way to consume the pending submission exactly once
+      setPendingSubmit(null);
+      void onSubmit(data);
+    }
+  }, [pendingSubmit, hasConsent, captchaReady, onSubmit]);
+
+  const showConsentNotice = !hasConsent;
+
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(handleFormSubmit)}
       className={classNames(classes.container, className, { [classes.fullWidth]: fullWidth })}
     >
-      {siteKey && (
+      {hasConsent && siteKey && (
         <Script
           src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
           strategy="afterInteractive"
@@ -120,7 +147,28 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
           {...register('message', { required: true })}
         />
 
-        {!!captchaErrorType && (
+        {showConsentNotice && (
+          <Alert
+            severity="info"
+            variant="outlined"
+            action={
+              <Button
+                color="primary"
+                size="small"
+                variant="contained"
+                onClick={() => {
+                  accept();
+                }}
+              >
+                {t('cookies.contactNotice.accept')}
+              </Button>
+            }
+          >
+            {t('cookies.contactNotice.message')}
+          </Alert>
+        )}
+
+        {!!captchaErrorType && hasConsent && (
           <Typography color="error" variant="body2">
             {captchaErrorType === 'load'
               ? t('contact.captchaLoadError')
@@ -144,14 +192,18 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
           type="submit"
           variant="contained"
           color="primary"
-          disabled={isSubmitting || !siteKey || !captchaReady}
+          disabled={isSubmitting || (hasConsent && (!siteKey || !captchaReady))}
         >
           {isSubmitting ? t('contact.sending') : t('contact.send')}
         </Button>
 
         <Typography variant="caption" color="text.secondary" textAlign="center">
           This site is protected by reCAPTCHA and the Google{' '}
-          <Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Privacy Policy
           </Link>{' '}
           and{' '}

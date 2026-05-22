@@ -1,0 +1,148 @@
+@use '@/styles' as *;
+
+.wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1300;
+  padding: 16px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  animation: slideUp 320ms ease-out;
+
+  @include mq(xs) {
+    padding: 12px;
+  }
+}
+
+.banner {
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 22px;
+  border-radius: $border-radius-md;
+  border: 1px solid;
+  @include primary-border(28%);
+  @include card-glass-bg;
+  @include backdrop-blur(12px);
+  box-shadow: $shadow-card-hover;
+  @include top-accent-bar($border-radius-md);
+
+  @include mq(md) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  @include mq(xs) {
+    padding: 18px 16px;
+    text-align: center;
+  }
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1 1 auto;
+  min-width: 0;
+
+  @include mq(xs) {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: primary-mix(14%, var(--bg-primary));
+  border: 1px solid;
+  @include primary-border(32%);
+  flex-shrink: 0;
+}
+
+.icon {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.body {
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.inlineLink {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid primary-mix(40%);
+  transition:
+    color $transition-fast,
+    border-color $transition-fast;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    outline: none;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+  flex-shrink: 0;
+  min-width: 180px;
+
+  @include mq(md) {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.button {
+  @include pill-button(8px 18px, 600);
+  width: 100%;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(28px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@include reduced-motion {
+  .wrapper {
+    animation: none;
+  }
+}

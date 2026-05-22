@@ -3,13 +3,7 @@
 // Shell
 
 .shell {
-  position: relative;
-  border-radius: $border-radius-lg;
-  border: 1px solid;
-  @include primary-border(16%);
-  padding: 40px;
-  @include section-glass-bg;
-  overflow: hidden;
+  @include page-shell;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -20,7 +14,7 @@
     height: 300px;
     top: -120px;
     right: -90px;
-    background: radial-gradient(circle, rgba(0, 112, 243, 0.18) 0%, rgba(0, 112, 243, 0) 70%);
+    background: radial-gradient(circle, rgba($brand-blue, 0.18) 0%, rgba($brand-blue, 0) 70%);
     animation: driftA 18s ease-in-out infinite;
   }
 
@@ -30,12 +24,8 @@
     height: 260px;
     bottom: -90px;
     left: -70px;
-    background: radial-gradient(circle, rgba(40, 184, 255, 0.16) 0%, rgba(40, 184, 255, 0) 70%);
+    background: radial-gradient(circle, rgba($brand-cyan, 0.16) 0%, rgba($brand-cyan, 0) 70%);
     animation: driftB 22s ease-in-out infinite;
-  }
-
-  @include mq(sm) {
-    padding: 32px 16px;
   }
 }
 
@@ -68,7 +58,7 @@
 
 .subtitle {
   color: var(--text-secondary);
-  max-width: 640px;
+  max-width: $content-narrow;
 }
 
 // Timeline
@@ -123,7 +113,7 @@
 
 .avatarCurrent {
   box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent),
+    0 0 0 3px primary-mix(25%),
     $shadow-glow-primary;
 }
 
@@ -132,7 +122,7 @@
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 2px dashed color-mix(in srgb, var(--primary) 55%, transparent);
+  border: 2px dashed primary-mix(55%);
   animation: rotateSlow 9s linear infinite;
 }
 
@@ -154,7 +144,7 @@
 [data-theme='light'] {
   .shell {
     background:
-      radial-gradient(circle at 88% 12%, rgba(0, 112, 243, 0.08) 0%, transparent 44%),
+      radial-gradient(circle at 88% 12%, rgba($brand-blue, 0.08) 0%, transparent 44%),
       radial-gradient(circle at 10% 86%, rgba(0, 183, 255, 0.1) 0%, transparent 48%),
       linear-gradient(140deg, #f7f9fc 0%, #eef4fb 45%, #f3f8ff 100%);
     box-shadow: $shadow-section-light;

@@ -5,7 +5,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  border-radius: 999px;
+  border-radius: $border-radius-pill;
   border: 1px solid var(--border-primary);
   background: color-mix(in srgb, var(--bg-primary) 90%, transparent);
   padding: 8px 16px;

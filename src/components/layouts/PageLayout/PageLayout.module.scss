@@ -5,7 +5,7 @@
   font-family: 'Segoe UI', Arial, sans-serif;
   background: var(--bg-secondary);
   color: var(--text-primary);
-  padding-top: 64px;
+  padding-top: $header-height;
   display: flex;
   flex-direction: column;
 }
@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  max-width: 1200px;
+  max-width: $container-max-width;
   width: 100%;
   padding: 64px 32px;
   margin: 0 auto;
@@ -30,9 +30,104 @@
 }
 
 .footer {
-  text-align: center;
-  padding: 16px;
-  background: var(--bg-tertiary);
-  border-radius: $border-radius-sm $border-radius-sm 0 0;
+  position: relative;
   margin-top: auto;
+  padding: 28px 32px 20px;
+  background: var(--bg-tertiary);
+  border-radius: $border-radius-md $border-radius-md 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include top-accent-bar($border-radius-md);
+
+  @include mq(xs) {
+    padding: 24px 16px 16px;
+  }
+}
+
+.footerInner {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  @include mq(sm) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.footerLinks {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  justify-content: flex-end;
+
+  @include mq(sm) {
+    justify-content: center;
+  }
+}
+
+.footerLink,
+.footerLinkButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 2px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color $transition-fast;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 0;
+    height: 1px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform $transition-fast;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--primary);
+    outline: none;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.footerSeparator {
+  color: var(--text-secondary);
+  opacity: 0.55;
+  user-select: none;
+
+  @include mq(sm) {
+    display: none;
+  }
+}
+
+.footerCopyright {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--border-primary) 50%, transparent);
+  text-align: center;
+  color: var(--text-secondary);
+  opacity: 0.85;
 }

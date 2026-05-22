@@ -263,6 +263,157 @@
       "description": "Povežite se z Rene Krajnc za možnosti sodelovanja, povpraševanja o projektih ali razpravljanje o vašem naslednjem spletnem razvojnem projektu."
     }
   },
+  "privacy": {
+    "chip": "Skladno z GDPR",
+    "title": "Politika zasebnosti",
+    "lead": "Kako ta stran zbira, uporablja in varuje vaše osebne podatke — v razumljivem jeziku in skladno z evropsko Splošno uredbo o varstvu podatkov (GDPR).",
+    "lastUpdated": "Zadnja posodobitev: {{date}}",
+    "contactEmail": "info@renekrajnc.com",
+    "tocTitle": "Na tej strani",
+    "tocAriaLabel": "Razdelki politike zasebnosti",
+    "summary": {
+      "collect": {
+        "title": "Kaj zbiramo",
+        "body": "Samo to, kar nam posredujete — ime, e-poštni naslov in sporočilo prek kontaktnega obrazca. Poleg tega še minimalne tehnične podatke za varnost."
+      },
+      "share": {
+        "title": "Komu posredujemo",
+        "body": "Le manjšemu naboru zaupanja vrednih obdelovalcev: Resend za e-pošto, Vercel za gostovanje in Google reCAPTCHA za zaščito pred spamom."
+      },
+      "rights": {
+        "title": "Vaše pravice",
+        "body": "Dostop, popravek, izbris, prenosljivost ali omejitev vaših podatkov — kadarkoli lahko prekličete soglasje ali vložite pritožbo pri nadzornem organu."
+      }
+    },
+    "sections": {
+      "intro": {
+        "title": "Uvod",
+        "body": "Ta politika zasebnosti pojasnjuje, kako se obdelujejo osebni podatki ob obisku spletne strani <strong>renekrajnc.com</strong> (»spletna stran«). Spletno stran upravlja fizična oseba s sedežem v Evropski uniji. Spoštujemo vašo zasebnost in obdelujemo le tiste osebne podatke, ki so nujno potrebni za delovanje strani, odgovor na vaša povpraševanja in zagotavljanje varnosti. Z uporabo strani potrjujete, da ste prebrali to politiko. Če se z njo ne strinjate, strani ne uporabljajte."
+      },
+      "controller": {
+        "title": "Kdo je odgovoren (upravljavec podatkov)",
+        "body": "Upravljavec osebnih podatkov v smislu GDPR je <strong>Rene Krajnc</strong>, s sedežem v <strong>Mariboru, Slovenija</strong>. Za vsa vprašanja, zahteve ali pritožbe, povezane z zasebnostjo, nas lahko kontaktirate na <mailLink>info@renekrajnc.com</mailLink>. Na potrjene zahteve bomo odgovorili brez nepotrebnega odlašanja, najpozneje v 30 dneh, kot to določa 12. člen (3. odstavek) GDPR."
+      },
+      "data-we-collect": {
+        "title": "Osebni podatki, ki jih zbiramo",
+        "body": "Zbiramo le podatke, ki so potrebni za delovanje strani in odgovor na vaše povpraševanje. Konkretno:",
+        "bullets": [
+          "Podatki iz kontaktnega obrazca: ime, e-poštni naslov in sporočilo, ki jih pošljete prek obrazca.",
+          "Vsebina komunikacije: nadaljnja korespondenca, ki nam jo posredujete po e-pošti.",
+          "Tehnični podatki: IP-naslov, uporabniški agent, referer in časovni žigi, zabeleženi v dnevnikih dostopa in varnostnih dnevnikih našega ponudnika gostovanja.",
+          "Signali proti zlorabam: žeton reCAPTCHA in ocena, ki jo vrne Google, uporabljena za blokado samodejnih oddaj obrazca.",
+          "Nastavitve: izbrana tema (svetla ali temna), shranjena lokalno v vašem brskalniku; ta podatek nikoli ne zapusti vaše naprave."
+        ]
+      },
+      "purposes-and-legal-bases": {
+        "title": "Nameni in pravne podlage",
+        "body": "Vaše osebne podatke obdelujemo le za jasno opredeljene namene in samo, kadar imamo veljavno pravno podlago po 6. členu (1. odstavek) GDPR:",
+        "bullets": [
+          "Za odgovor na vaše povpraševanje, poslano prek kontaktnega obrazca — pravna podlaga: izvedba predpogodbenih ali pogodbenih ukrepov ter naš zakoniti interes za odgovarjanje na sporočila (6(1)(b) in (f) GDPR).",
+          "Za zaščito kontaktnega obrazca pred spamom in zlorabami z uporabo Google reCAPTCHA — pravna podlaga: vaše predhodno soglasje, oddano prek pasice za piškotke (6(1)(a) GDPR).",
+          "Za zagotavljanje dostopnosti in varnosti strani (strežniški dnevniki, omejevanje hitrosti, zaznavanje zlorab) — pravna podlaga: naš zakoniti interes za delovanje varne storitve (6(1)(f) GDPR).",
+          "Za pomnjenje vaše izbrane teme — ta podatek je shranjen lokalno in z vidika GDPR ne pomeni obdelave osebnih podatkov pri nas, temveč temelji na nujno potrebnem tehničnem mehanizmu.",
+          "Za izpolnjevanje pravnih obveznosti, kot je odziv na potrjene zahteve posameznikov ali zakonite zahteve organov — pravna podlaga: pravna obveznost (6(1)(c) GDPR)."
+        ]
+      },
+      "cookies": {
+        "title": "Piškotki in podobne tehnologije",
+        "body": "Stran uporablja minimalno število piškotkov in vnosov v lokalno shrambo. Ne uporabljamo oglaševalskih piškotkov, sledenja med stranmi ali vedenjskega profiliranja.",
+        "bullets": [
+          "Nujno potrebni: vrednost »theme«, shranjena v localStorage brskalnika, da si stran zapomni vašo izbiro svetle/temne teme. Za to soglasje ni potrebno, ker je nujno za izvedbo zahtevane storitve.",
+          "Funkcionalni / varnostni (na podlagi soglasja): če sprejmete piškotke, na kontaktni strani naložimo Google reCAPTCHA v3. reCAPTCHA lahko nastavi piškotke na Googlovih domenah in zbere tehnične podatke za razlikovanje ljudi od robotov.",
+          "Upravljanje soglasja: majhen vnos »cookie-consent-v1« v localStorage brskalnika si zapomni vašo izbiro med Sprejmi in Zavrni. Svojo izbiro lahko kadarkoli spremenite prek povezave »Nastavitve piškotkov« v nogi strani."
+        ]
+      },
+      "third-parties": {
+        "title": "Ponudniki storitev in prejemniki",
+        "body": "Osebnih podatkov nikoli ne prodajamo. Delimo jih le z manjšim naborom zaupanja vrednih ponudnikov storitev, ki delujejo kot obdelovalci podatkov v našem imenu in so vezani z ustrezno pogodbo o obdelavi podatkov:",
+        "bullets": [
+          "Resend (Resend, Inc., ZDA) — pošiljanje transakcijske e-pošte za sporočila iz kontaktnega obrazca. Več: <resendLink>Resendova politika zasebnosti</resendLink>.",
+          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, ZDA) — zaščita pred boti in zlorabami na kontaktnem obrazcu, naložena šele po vašem sprejemu piškotkov. Več: <googleLink>Googlova politika zasebnosti</googleLink>.",
+          "Vercel (Vercel Inc., ZDA) — gostovanje, dostava vsebin in strežniško beleženje. Več: <vercelLink>Vercelova politika zasebnosti</vercelLink>."
+        ]
+      },
+      "international-transfers": {
+        "title": "Mednarodni prenosi podatkov",
+        "body": "Nekateri zgoraj navedeni obdelovalci imajo sedež v Združenih državah Amerike. Kadar se osebni podatki prenašajo izven Evropskega gospodarskega prostora, je prenos zavarovan z ustreznimi zaščitnimi ukrepi po V. poglavju GDPR — praviloma s standardnimi pogodbenimi klavzulami Evropske komisije in, kjer je to mogoče, z okvirom EU–ZDA za varstvo podatkov (Data Privacy Framework). Kopijo veljavnih zaščitnih ukrepov lahko zahtevate pisno na <mailLink>info@renekrajnc.com</mailLink>."
+      },
+      "retention": {
+        "title": "Kako dolgo hranimo podatke",
+        "body": "Osebne podatke hranimo le toliko časa, kolikor je potrebno za namen, za katerega so bili zbrani, oziroma kolikor to zahteva zakon:",
+        "bullets": [
+          "Sporočila iz kontaktnega obrazca in povezana e-poštna korespondenca: do 12 mesecev po zadnji izmenjavi, razen če trajajoče poslovno razmerje ali pravna obveznost zahteva daljše hranjenje.",
+          "Strežniški dostopovni in varnostni dnevniki: do 30 dni, nato jih ponudnik gostovanja izbriše ali anonimizira.",
+          "Analize reCAPTCHA: Google jih hrani v skladu s svojo politiko zasebnosti; mi po preverbi surovega žetona ne shranjujemo.",
+          "Zapis soglasja za piškotke: shranjen lokalno v vašem brskalniku, dokler ga ne počistite ali spremenite izbire."
+        ]
+      },
+      "your-rights": {
+        "title": "Vaše pravice po GDPR",
+        "body": "Pod pogoji iz GDPR imate glede svojih osebnih podatkov naslednje pravice:",
+        "bullets": [
+          "Pravica do dostopa (15. člen) — potrditev, ali obdelujemo vaše podatke, in pravica do kopije.",
+          "Pravica do popravka (16. člen) — popravek netočnih ali nepopolnih podatkov.",
+          "Pravica do izbrisa (17. člen) — zahteva za izbris podatkov, kadar pravni razlog za obdelavo več ne obstaja.",
+          "Pravica do omejitve obdelave (18. člen) — omejitev obdelave v določenih primerih, npr. dokler izpodbijate točnost podatkov.",
+          "Pravica do prenosljivosti podatkov (20. člen) — pridobitev podatkov, ki ste nam jih posredovali, v strukturirani, splošno uporabljeni in strojno berljivi obliki.",
+          "Pravica do ugovora (21. člen) — ugovor obdelavi, ki temelji na zakonitih interesih, vključno z neposrednim kontaktiranjem.",
+          "Pravica do preklica soglasja (7(3) člen) — kadarkoli lahko prekličete dano soglasje, ne da bi to vplivalo na zakonitost obdelave pred preklicem.",
+          "Pravica do pritožbe — pritožbo lahko vložite pri nadzornem organu, zlasti pri Informacijskem pooblaščencu (<dpaLink>Informacijski pooblaščenec</dpaLink>) ali pri organu v vaši državi EU prebivanja."
+        ]
+      },
+      "security": {
+        "title": "Kako varujemo podatke",
+        "body": "Uporabljamo industrijske standarde za zaščito podatkov v prenosu in pri shranjevanju:",
+        "bullets": [
+          "Ves promet do strani je šifriran prek TLS (HTTPS).",
+          "Na ravni ogrodja so nastavljeni stroga politika varnosti vsebin (CSP), HSTS in druge varnostne glave.",
+          "Skrivnosti, kot so API-ključi, so shranjene v okoljskih spremenljivkah na platformi za gostovanje in nikoli niso izpostavljene brskalniku.",
+          "Google reCAPTCHA v3 ščiti kontaktni obrazec pred avtomatiziranimi zlorabami.",
+          "Prek strani ne zbiramo plačilnih podatkov, podatkov posebnih kategorij ali državnih identifikatorjev."
+        ]
+      },
+      "children": {
+        "title": "Zasebnost otrok",
+        "body": "Stran je namenjena splošnemu poslovnemu občinstvu in ni namenjena otrokom, mlajšim od 16 let. Zavestno ne zbiramo osebnih podatkov otrok. Če menite, da je otrok prek strani posredoval osebne podatke, nas kontaktirajte na <mailLink>info@renekrajnc.com</mailLink> in podatke bomo brez nepotrebnega odlašanja izbrisali."
+      },
+      "changes": {
+        "title": "Spremembe te politike",
+        "body": "Politiko zasebnosti lahko občasno posodobimo zaradi sprememb v naših praksah, storitvah tretjih oseb ali pravnih zahtev. Trenutna različica je vedno na voljo na tej strani, datum <strong>Zadnja posodobitev</strong> na vrhu pa je veljavni označevalec različice. Pomembne spremembe bodo izpostavljene na strani pred začetkom veljavnosti."
+      },
+      "contact": {
+        "title": "Kontaktirajte nas",
+        "body": "Če imate vprašanje glede te politike zasebnosti, želite uveljaviti pravico posameznika ali izraziti pomislek, nas kontaktirajte na <mailLink>info@renekrajnc.com</mailLink> ali prek <contactLink>kontaktne strani</contactLink>. Na vse potrjene zahteve odgovorimo v 30 dneh, kot to določa 12. člen (3. odstavek) GDPR."
+      }
+    },
+    "seo": {
+      "title": "Politika zasebnosti | Rene Krajnc",
+      "description": "Politika zasebnosti za renekrajnc.com — kateri osebni podatki se zbirajo, zakaj, komu se posredujejo in kako so spoštovane vaše pravice po GDPR."
+    }
+  },
+  "cookies": {
+    "banner": {
+      "title": "Cenimo vašo zasebnost",
+      "body": "Stran uporablja nujno potrebne tehnologije za pomnjenje vaše izbrane teme. Z vašim soglasjem na kontaktnem obrazcu naložimo tudi Google reCAPTCHA za zaščito pred spamom. Podrobnosti najdete v <link>politiki zasebnosti</link>.",
+      "accept": "Sprejmi vse",
+      "reject": "Zavrni nenujne",
+      "learnMore": "Več informacij",
+      "ariaLabel": "Soglasje za piškotke"
+    },
+    "contactNotice": {
+      "message": "Zaščita pred spamom je onemogočena. Sprejmite piškotke za vklop Google reCAPTCHA in pošiljanje sporočila.",
+      "accept": "Sprejmi in nadaljuj"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Rene Krajnc. Vse pravice pridržane.",
+    "links": {
+      "title": "Pravno",
+      "privacy": "Politika zasebnosti",
+      "contact": "Kontakt",
+      "cookies": "Nastavitve piškotkov"
+    }
+  },
   "comingSoon": {
     "title": "Prihaja kmalu",
     "description": "Ta spletna stran je v izdelavi. Prosimo, preverite kmalu za posodobitve.",
@@ -277,7 +428,6 @@
       "description": "Kmalu na voljo - Rene Krajnc - Frontend razvijalec"
     }
   },
-  "footer": "© {{year}} Rene Krajnc. Vse pravice pridržane.",
   "showMore": "Prikaži več",
   "showLess": "Prikaži manj",
   "workExperience": {

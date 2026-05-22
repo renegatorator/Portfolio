@@ -12,7 +12,6 @@
 .aboutDescription {
   max-width: 860px;
   color: var(--text-secondary);
-  // body1 line-height 1.6 is close enough; override only if intentional
   line-height: 1.7;
 }
 
@@ -43,7 +42,7 @@
   border-bottom: 1px solid var(--border-primary);
   position: relative;
   background:
-    radial-gradient(circle at 18% 22%, rgba(0, 112, 243, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 18% 22%, rgba($brand-blue, 0.25) 0%, transparent 40%),
     var(--bg-tertiary);
 }
 
@@ -72,7 +71,7 @@
   display: block;
   width: 72%;
   height: 10px;
-  border-radius: 999px;
+  border-radius: $border-radius-pill;
   @include primary-gradient;
   animation: codeWave 3.8s ease-in-out infinite;
 
@@ -108,7 +107,7 @@
   @include primary-border(45%);
   border-radius: $border-radius-sm;
   background: color-mix(in srgb, var(--bg-primary) 75%, transparent);
-  box-shadow: 0 0 30px rgba(0, 112, 243, 0.2);
+  box-shadow: 0 0 30px rgba($brand-blue, 0.2);
 }
 
 .deviceLaptop {
@@ -155,7 +154,7 @@
   height: 10px;
   border-radius: 50%;
   background: var(--primary);
-  box-shadow: 0 0 10px rgba(0, 112, 243, 0.6);
+  box-shadow: 0 0 10px rgba($brand-blue, 0.6);
 }
 
 .designVisual {
@@ -167,10 +166,10 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  border-radius: 8px;
+  border-radius: $border-radius-sm;
   border: 1px solid;
   @include primary-border(42%);
-  background: color-mix(in srgb, var(--primary) 20%, var(--bg-primary));
+  background: primary-mix(20%, var(--bg-primary));
   animation: orbit 6s linear infinite;
 
   &:nth-child(1) {
@@ -195,7 +194,7 @@
   border-radius: $border-radius-xl;
   border: 1px solid;
   @include primary-border(48%);
-  box-shadow: 0 0 24px rgba(0, 112, 243, 0.25);
+  box-shadow: 0 0 24px rgba($brand-blue, 0.25);
   animation: pulseRing 2.8s ease-in-out infinite;
 }
 
@@ -253,7 +252,7 @@
 
   .aboutCardVisual {
     background:
-      radial-gradient(circle at 18% 22%, rgba(0, 112, 243, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 18% 22%, rgba($brand-blue, 0.2) 0%, transparent 40%),
       linear-gradient(135deg, #f7fbff 0%, #ebf5ff 100%);
   }
 }

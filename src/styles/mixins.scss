@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:string';
 @use '@/styles/theme' as *;
 
 // Responsive
@@ -17,6 +18,19 @@
   }
 }
 
+// Colour helpers
+
+// Shorthand for primary-tinted color-mix; `$base` is the colour the primary
+// is mixed *into* (defaults to transparent for pure tint).
+@function primary-mix($pct, $base: transparent) {
+  @return string.unquote('color-mix(in srgb, var(--primary) #{$pct}, #{$base})');
+}
+
+// Primary-tinted border via color-mix.
+@mixin primary-border($pct: 20%) {
+  border-color: primary-mix($pct, var(--border-primary));
+}
+
 // Typography
 
 // Gradient text: text-primary fading into the primary brand colour.
@@ -27,16 +41,9 @@
   color: transparent;
 }
 
-// Colour helpers
-
-// Hard brand blue → sky gradient (fills, lines, progress bars).
+// Hard brand blue → cyan gradient (fills, lines, progress bars).
 @mixin primary-gradient($direction: 90deg) {
-  background: linear-gradient($direction, var(--primary) 0%, #28b8ff 100%);
-}
-
-// Primary-tinted border via color-mix.
-@mixin primary-border($pct: 20%) {
-  border-color: color-mix(in srgb, var(--primary) $pct, var(--border-primary));
+  background: linear-gradient($direction, var(--primary) 0%, $brand-cyan 100%);
 }
 
 // Backgrounds
@@ -44,8 +51,8 @@
 // Hero/section shell: twin radial blobs + subtle diagonal linear fade.
 @mixin section-glass-bg {
   background:
-    radial-gradient(circle at 12% 18%, rgba(0, 112, 243, 0.12) 0%, transparent 44%),
-    radial-gradient(circle at 88% 80%, rgba(40, 184, 255, 0.15) 0%, transparent 46%),
+    radial-gradient(circle at 12% 18%, rgba($brand-blue, 0.12) 0%, transparent 44%),
+    radial-gradient(circle at 88% 80%, rgba($brand-cyan, 0.15) 0%, transparent 46%),
     linear-gradient(
       140deg,
       var(--bg-primary) 0%,
@@ -60,6 +67,12 @@
     color-mix(in srgb, var(--bg-primary) 92%, transparent),
     color-mix(in srgb, var(--bg-secondary) 78%, transparent)
   );
+}
+
+// Cross-browser backdrop blur (Safari needs the -webkit- prefix).
+@mixin backdrop-blur($amount: 10px) {
+  -webkit-backdrop-filter: blur($amount);
+  backdrop-filter: blur($amount);
 }
 
 // Decorative elements
@@ -82,7 +95,25 @@
     inset: 0 0 auto;
     height: 2px;
     border-radius: $radius $radius 0 0;
-    background: linear-gradient(90deg, transparent, rgba(0, 112, 243, 0.65), transparent);
+    background: linear-gradient(90deg, transparent, rgba($brand-blue, 0.65), transparent);
+  }
+}
+
+// Layout shells
+
+// Glass-effect page shell — border + radius + glass bg + responsive padding.
+// Hosts page-level decorations (orbs, themed shadows) inside the consumer.
+@mixin page-shell($padding: 40px, $mobile-padding: 32px 16px) {
+  position: relative;
+  border-radius: $border-radius-lg;
+  border: 1px solid;
+  @include primary-border(16%);
+  @include section-glass-bg;
+  padding: $padding;
+  overflow: hidden;
+
+  @include mq(md) {
+    padding: $mobile-padding;
   }
 }
 
@@ -92,7 +123,7 @@
 @mixin card-hover($lift: -4px) {
   &:hover {
     transform: translateY($lift);
-    border-color: color-mix(in srgb, var(--primary) 45%, var(--border-primary));
+    border-color: primary-mix(45%, var(--border-primary));
     box-shadow: $shadow-card-hover;
   }
 }
@@ -100,9 +131,9 @@
 // Smooth transition for interactive card properties.
 @mixin card-transition {
   transition:
-    transform 260ms ease,
-    border-color 260ms ease,
-    box-shadow 260ms ease;
+    transform $transition-card,
+    border-color $transition-card,
+    box-shadow $transition-card;
 }
 
 // Standard card padding with a responsive mobile reduction.
@@ -114,6 +145,15 @@
   }
 }
 
+// Pill-shaped MUI button — overrides MUI defaults with !important.
+@mixin pill-button($padding: 8px 24px, $weight: 700) {
+  border-radius: $border-radius-pill !important;
+  text-transform: none !important;
+  font-weight: $weight !important;
+  padding: $padding !important;
+  white-space: nowrap;
+}
+
 // Pulsing glow ring — use on badge/chip elements to signal an active state.
 @mixin pulse-glow($duration: 2.8s) {
   animation: pulseGlow $duration ease-in-out infinite;
@@ -122,10 +162,10 @@
     @keyframes pulseGlow {
       0%,
       100% {
-        box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 30%, transparent);
+        box-shadow: 0 0 0 0 primary-mix(30%);
       }
       50% {
-        box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary) 20%, transparent);
+        box-shadow: 0 0 0 5px primary-mix(20%);
       }
     }
   }

@@ -1,3 +1,12 @@
+// ─── Brand palette (decorative, theme-agnostic) ───────────────────────────────
+// Decorative orbs, glows and gradient stops paired with var(--primary).
+// These hex values intentionally match the *light-theme* primary so that
+// decorative tints look consistent across both themes.
+$brand-blue: #0070f3;
+$brand-cyan: #28b8ff;
+
+// ─── Shadows ──────────────────────────────────────────────────────────────────
+
 $box-shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.2);
 $box-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
 $box-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -8,15 +17,43 @@ $shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.1);
 $shadow-card: 0 14px 26px rgba(10, 20, 40, 0.08);
 $shadow-card-hover: 0 18px 30px rgba(9, 25, 50, 0.14);
 $shadow-portrait: 0 14px 30px rgba(0, 0, 0, 0.22);
-$shadow-glow-primary: 0 10px 24px rgba(0, 112, 243, 0.28);
+$shadow-glow-primary: 0 10px 24px rgba($brand-blue, 0.28);
 $shadow-section-light: 0 20px 40px rgba(19, 38, 71, 0.08);
 $shadow-section-dark: 0 22px 40px rgba(4, 10, 22, 0.45);
+
+// ─── Border radii ─────────────────────────────────────────────────────────────
 
 $border-radius-xs: 4px;
 $border-radius-sm: 8px;
 $border-radius-md: 16px;
 $border-radius-lg: 24px;
 $border-radius-xl: 32px;
+$border-radius-pill: 999px;
+
+// ─── Layout ───────────────────────────────────────────────────────────────────
+
+// Centered page container max width — used by header, main, footer copyright.
+$container-max-width: 1200px;
+
+// Fixed sticky header height (matches PageLayout padding-top reserve).
+$header-height: 64px;
+
+// Scroll-anchor offset for in-page links / sticky TOC tops (header + breathing).
+$scroll-anchor-offset: 96px;
+
+// ─── Content widths (centered prose / hero blocks) ────────────────────────────
+
+$content-narrow: 640px;
+$content-medium: 760px;
+$content-wide: 820px;
+
+// ─── Transitions ──────────────────────────────────────────────────────────────
+
+$transition-fast: 200ms ease;
+$transition-base: 300ms ease;
+$transition-card: 260ms ease;
+
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
 
 $breakpoints: (
   'xs': 480px,
