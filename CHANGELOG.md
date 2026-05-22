@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.12]
+
 ### Added
 
 - **JSON-LD Structured Data for Site Name**: `PageHead` (`src/components/layouts/PageLayout/PageHead/PageHead.tsx`) now emits two `<script type="application/ld+json">` blocks on every page — a `Person` schema (name `Rene Krajnc`, locale-aware `jobTitle` sourced from the `role` translation key so EN reads `Software Engineer`, SL reads `Frontend razvijalec`, and DE reads `Frontend Entwickler`, `image: /images/rene-profile.jpg`, `email: mailto:info@renekrajnc.com`, `sameAs` pointing at GitHub, LinkedIn, and Facebook) and a `WebSite` schema (name `Rene Krajnc`, `alternateName: renekrajnc.com`, `inLanguage` covering `en_US`, `sl_SI`, `de_DE`, and `author` referencing the same `Person`); this is the canonical signal Google's site-name extractor consumes, so the SERP entity will now resolve to `Rene Krajnc` instead of the bare `renekrajnc.com` hostname (the existing `og:site_name` tag is widely reported to be insufficient on its own)
