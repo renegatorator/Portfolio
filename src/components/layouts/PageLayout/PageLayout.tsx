@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { ReactNode } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 
 import { Route, Routes } from '@/constants/routes';
 import { useCookieConsent } from '@/context/CookieConsentContext';
@@ -22,7 +22,7 @@ const PageLayout = ({ children, route = Routes.LANDING_PAGE }: PageLayoutProps) 
   const { openPreferences } = useCookieConsent();
   const year = new Date().getFullYear();
 
-  const handleCookiePreferencesClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCookiePreferencesClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     openPreferences();
   };

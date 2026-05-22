@@ -14,8 +14,7 @@ export const CookieConsentStates = {
   REJECTED: 'rejected',
 } as const;
 
-export type CookieConsentState =
-  (typeof CookieConsentStates)[keyof typeof CookieConsentStates];
+export type CookieConsentState = (typeof CookieConsentStates)[keyof typeof CookieConsentStates];
 
 export const COOKIE_CONSENT_STORAGE_KEY = 'cookie-consent-v1';
 
@@ -48,8 +47,10 @@ const isCookieConsentState = (value: unknown): value is CookieConsentState =>
 
 type Listener = () => void;
 const listeners = new Set<Listener>();
+let memoryConsent: CookieConsentState | null = null;
 
 const readStoredConsent = (): CookieConsentState => {
+  if (memoryConsent !== null) return memoryConsent;
   if (typeof window === 'undefined') {
     return CookieConsentStates.UNSET;
   }
@@ -68,6 +69,9 @@ const subscribe = (listener: Listener) => {
   listeners.add(listener);
   const onStorage = (event: StorageEvent) => {
     if (event.key !== COOKIE_CONSENT_STORAGE_KEY) return;
+    if (isCookieConsentState(event.newValue)) {
+      memoryConsent = event.newValue;
+    }
     listener();
   };
   window.addEventListener('storage', onStorage);
@@ -78,11 +82,12 @@ const subscribe = (listener: Listener) => {
 };
 
 const writeStoredConsent = (consent: CookieConsentState) => {
+  memoryConsent = consent;
   try {
     window.localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, consent);
   } catch {
     // Storage writes can fail (private mode, quota, sandboxed iframes);
-    // listeners still fire so in-memory state stays in sync this session.
+    // memoryConsent is the authoritative fallback for this session.
   }
   listeners.forEach((listener) => listener());
 };
@@ -133,9 +138,7 @@ export const CookieConsentProvider = ({ children }: CookieConsentProviderProps) 
     [consent, mounted, isBannerOpen, accept, reject, openPreferences, closeBanner],
   );
 
-  return (
-    <CookieConsentContext.Provider value={value}>{children}</CookieConsentContext.Provider>
-  );
+  return <CookieConsentContext.Provider value={value}>{children}</CookieConsentContext.Provider>;
 };
 
 export const useCookieConsent = () => useContext(CookieConsentContext);

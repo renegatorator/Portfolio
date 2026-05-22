@@ -21,7 +21,7 @@ interface ContactFormProps {
 
 const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) => {
   const { t } = useTranslation();
-  const { consent, accept } = useCookieConsent();
+  const { consent, accept, openPreferences } = useCookieConsent();
   const hasConsent = consent === CookieConsentStates.ACCEPTED;
 
   const {
@@ -47,7 +47,7 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
   const handleFormSubmit = (data: ContactFormData) => {
     if (!hasConsent) {
       setPendingSubmit(data);
-      accept();
+      openPreferences();
       return;
     }
     return onSubmit(data);
@@ -199,7 +199,11 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
 
         <Typography variant="caption" color="text.secondary" textAlign="center">
           This site is protected by reCAPTCHA and the Google{' '}
-          <Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Privacy Policy
           </Link>{' '}
           and{' '}

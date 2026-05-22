@@ -5,11 +5,7 @@ import { Trans, useTranslation } from 'next-i18next';
 
 import Reveal from '@/components/UI/Reveal/Reveal';
 import { DEFAULT_LOCALE, Locale } from '@/constants/locales';
-import {
-  PRIVACY_LAST_UPDATED,
-  PRIVACY_SECTION_ORDER,
-  PrivacySectionId,
-} from '@/constants/privacy';
+import { PRIVACY_LAST_UPDATED, PRIVACY_SECTION_ORDER, PrivacySectionId } from '@/constants/privacy';
 import { Routes } from '@/constants/routes';
 
 import PageLayout from '../PageLayout/PageLayout';
@@ -17,11 +13,12 @@ import classes from './PrivacyPage.module.scss';
 
 const formatLastUpdated = (locale: string) => {
   try {
+    const [y, m, d] = PRIVACY_LAST_UPDATED.split('-').map(Number);
     return new Intl.DateTimeFormat(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-    }).format(new Date(PRIVACY_LAST_UPDATED));
+    }).format(new Date(y, m - 1, d));
   } catch {
     return PRIVACY_LAST_UPDATED;
   }
@@ -106,9 +103,7 @@ const PrivacyPage = () => {
                 {PRIVACY_SECTION_ORDER.map((id, index) => (
                   <li key={id}>
                     <a href={`#${id}`} className={classes.tocLink}>
-                      <span className={classes.tocIndex}>
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
+                      <span className={classes.tocIndex}>{String(index + 1).padStart(2, '0')}</span>
                       <span>{t(`privacy.sections.${id}.title`)}</span>
                     </a>
                   </li>
@@ -136,11 +131,7 @@ const PrivacyPage = () => {
                         {t(`privacy.sections.${id}.title`)}
                       </Typography>
                     </header>
-                    <Typography
-                      variant="body1"
-                      component="p"
-                      className={classes.sectionBody}
-                    >
+                    <Typography variant="body1" component="p" className={classes.sectionBody}>
                       <Trans
                         i18nKey={`privacy.sections.${id}.body`}
                         components={{
@@ -184,12 +175,7 @@ const PrivacyPage = () => {
                               rel="noopener noreferrer"
                             />
                           ),
-                          contactLink: (
-                            <a
-                              className={classes.inlineLink}
-                              href={Routes.CONTACT}
-                            />
-                          ),
+                          contactLink: <a className={classes.inlineLink} href={Routes.CONTACT} />,
                         }}
                       />
                     </Typography>
