@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 
 import { useSeo } from '@/constants/hooks/useSeo';
 import { DEFAULT_LOCALE, Locale, SUPPORTED_LOCALES } from '@/constants/locales';
-import { reneKrajnc } from '@/constants/rene';
+import { EmailAddresses, reneKrajnc } from '@/constants/rene';
 import { Route, Routes } from '@/constants/routes';
 import { SITE_URL } from '@/constants/site';
 
@@ -16,17 +16,27 @@ const OG_LOCALE: Record<Locale, string> = {
 const OG_IMAGE_PATH = '/og-image.jpg';
 const OG_IMAGE_WIDTH = '1200';
 const OG_IMAGE_HEIGHT = '630';
-const OG_IMAGE_TYPE = 'image/png';
+const OG_IMAGE_TYPE = 'image/jpeg';
 
-const buildLocalisedUrl = (baseUrl: string, locale: Locale, routePath: string) =>
-  locale === DEFAULT_LOCALE ? `${baseUrl}${routePath}` : `${baseUrl}/${locale}${routePath}`;
+const PROFILE_IMAGE_PATH = '/images/rene-profile.jpg';
+const SAME_AS = [
+  'https://github.com/renegatorator',
+  'https://linkedin.com/in/rene-krajnc-a3400b190',
+  'https://www.facebook.com/rene.krajnc',
+];
+
+const buildLocalisedUrl = (baseUrl: string, locale: Locale, routePath: string) => {
+  if (locale === DEFAULT_LOCALE) return `${baseUrl}${routePath}`;
+  const path = routePath === '/' ? '' : routePath;
+  return `${baseUrl}/${locale}${path}`;
+};
 
 interface PageHeadProps {
   route?: Route;
 }
 
 const PageHead = ({ route }: PageHeadProps) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { title, description } = useSeo(route || Routes.LANDING_PAGE);
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
@@ -34,11 +44,46 @@ const PageHead = ({ route }: PageHeadProps) => {
   const currentLocale = (i18n.language as Locale) || DEFAULT_LOCALE;
   const pageUrl = buildLocalisedUrl(baseUrl, currentLocale, routePath);
   const imageUrl = `${baseUrl}${OG_IMAGE_PATH}`;
+  const profileImageUrl = `${baseUrl}${PROFILE_IMAGE_PATH}`;
+
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: reneKrajnc,
+    url: baseUrl,
+    image: profileImageUrl,
+    jobTitle: t('role'),
+    email: `mailto:${EmailAddresses.INFO}`,
+    sameAs: SAME_AS,
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: reneKrajnc,
+    alternateName: 'renekrajnc.com',
+    url: baseUrl,
+    inLanguage: SUPPORTED_LOCALES.map((locale) => OG_LOCALE[locale]),
+    author: {
+      '@type': 'Person',
+      name: reneKrajnc,
+      url: baseUrl,
+    },
+  };
 
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={reneKrajnc} />
