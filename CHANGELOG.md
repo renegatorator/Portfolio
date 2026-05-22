@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.13]
+
+### Changed
+
+- **Cookie Banner Text & UX Refinement**: Shortened and modernized the cookie consent banner body text across all three locales (EN / DE / SL) to reduce "legal/corporate" tone and align with the site's polished, developer-focused aesthetic; removed jargon like "strictly necessary technologies" in favor of conversational phrasing like "essential cookies"; renamed the reject button from "Reject non-essential" / "Nicht notwendige ablehnen" / "Zavrni nenujne" to "Essential only" / "Nur erforderlich" / "Le nujni" for a cleaner, less negative feel; reduced vertical density via tighter padding (18px → 16px), line-height (1.55 → 1.45), and button gaps (8px → 6px)
+
+### Fixed
+
+- **Image Cumulative Layout Shift Warnings**: `Logo.module.scss` was overriding the explicit width/height attributes set on `next/image` components with `height: auto`, causing Next.js to emit "Image with src has either width or height unspecified" warnings; replaced `height: auto` with explicit computed heights (desktop logo: 140px × 28px, mobile logo: 40px × 40px) to preserve aspect ratios and prevent layout shift, allowing Next.js to optimize images correctly
+
 ## [1.3.12]
 
 ### Added

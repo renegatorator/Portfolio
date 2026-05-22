@@ -394,9 +394,9 @@
   "cookies": {
     "banner": {
       "title": "Cenimo vašo zasebnost",
-      "body": "Stran uporablja nujno potrebne tehnologije za pomnjenje vaše izbrane teme. Z vašim soglasjem na kontaktnem obrazcu naložimo tudi Google reCAPTCHA za zaščito pred spamom. Podrobnosti najdete v <link>politiki zasebnosti</link>.",
+      "body": "Stran uporablja piškotke za shranjevanje vaših nastavitev. Z vašim soglasjem Google reCAPTCHA varuje kontaktni obrazec pred spamom. Podrobnosti so v <link>politiki zasebnosti</link>.",
       "accept": "Sprejmi vse",
-      "reject": "Zavrni nenujne",
+      "reject": "Le nujne",
       "learnMore": "Več informacij",
       "ariaLabel": "Soglasje za piškotke"
     },
