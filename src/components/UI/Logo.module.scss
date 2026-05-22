@@ -2,8 +2,6 @@
 
 .desktopLogo {
   display: block;
-  width: 140px;
-  height: auto;
   padding: 8px;
 
   @include mq(sm) {
@@ -13,8 +11,6 @@
 
 .mobileLogo {
   display: none;
-  width: 40px;
-  height: auto;
 
   @include mq(sm) {
     display: block;
