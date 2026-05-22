@@ -5,6 +5,8 @@ import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from './src/constants/locales';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
+  trailingSlash: false,
+
   i18n: {
     defaultLocale: DEFAULT_LOCALE,
     locales: [...SUPPORTED_LOCALES],
@@ -15,6 +17,19 @@ const nextConfig: NextConfig = {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+
+  // Pin www subdomain to the apex domain so Google doesn't index duplicate
+  // www.* URLs (resolves Soft 404 / duplicate-canonical warnings in GSC).
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.renekrajnc.com' }],
+        destination: 'https://renekrajnc.com/:path*',
+        permanent: true,
+      },
+    ];
   },
 
   // Security headers

@@ -39,7 +39,8 @@
 - Comprehensive security headers (CSP, HSTS, Permissions-Policy)
 - RFC 9116 compliant security.txt
 - Robots.txt and XML sitemap with multilingual support
-- Canonical URLs and Open Graph metadata
+- Canonical URLs, Open Graph metadata, and JSON-LD `Person` / `WebSite` schemas for Google Search entity recognition
+- Host-based `www` → apex 308 redirect so all crawler traffic resolves to a single canonical origin
 - Perfect score on securityheaders.com
 
 ### 📜 **Privacy & Compliance**
