@@ -19,7 +19,6 @@ const OG_IMAGE_HEIGHT = '630';
 const OG_IMAGE_TYPE = 'image/jpeg';
 
 const PROFILE_IMAGE_PATH = '/images/rene-profile.jpg';
-const JOB_TITLE = 'Software Engineer';
 const SAME_AS = [
   'https://github.com/renegatorator',
   'https://linkedin.com/in/rene-krajnc-a3400b190',
@@ -37,7 +36,7 @@ interface PageHeadProps {
 }
 
 const PageHead = ({ route }: PageHeadProps) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { title, description } = useSeo(route || Routes.LANDING_PAGE);
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
@@ -53,7 +52,7 @@ const PageHead = ({ route }: PageHeadProps) => {
     name: reneKrajnc,
     url: baseUrl,
     image: profileImageUrl,
-    jobTitle: JOB_TITLE,
+    jobTitle: t('role'),
     email: `mailto:${EmailAddresses.INFO}`,
     sameAs: SAME_AS,
   };
