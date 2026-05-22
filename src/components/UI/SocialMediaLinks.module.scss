@@ -46,8 +46,8 @@
   background: color-mix(in srgb, var(--bg-primary) 88%, var(--bg-secondary));
   color: var(--text-primary);
   text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border-primary));
+  transition: all $transition-base;
+  border: 1px solid primary-mix(22%, var(--border-primary));
   font-size: 18px;
 
   &:hover {

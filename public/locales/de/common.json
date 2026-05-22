@@ -260,6 +260,157 @@
       "description": "Treten Sie mit Rene Krajnc in Verbindung für Kooperationsmöglichkeiten, Projektanfragen oder um über Ihr nächstes Web-Entwicklungsprojekt zu sprechen."
     }
   },
+  "privacy": {
+    "chip": "DSGVO-konform",
+    "title": "Datenschutzerklärung",
+    "lead": "Wie diese Website personenbezogene Daten erhebt, verwendet und schützt — in verständlicher Sprache und im Einklang mit der EU-Datenschutz-Grundverordnung (DSGVO).",
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}",
+    "contactEmail": "info@renekrajnc.com",
+    "tocTitle": "Auf dieser Seite",
+    "tocAriaLabel": "Abschnitte der Datenschutzerklärung",
+    "summary": {
+      "collect": {
+        "title": "Was wir erheben",
+        "body": "Nur das, was Sie uns mitteilen — Name, E-Mail-Adresse und Nachricht über das Kontaktformular. Dazu minimale technische Daten zur Sicherheit."
+      },
+      "share": {
+        "title": "Wer Daten erhält",
+        "body": "Ein kleiner Kreis vertrauenswürdiger Auftragsverarbeiter: Resend für E-Mails, Vercel für Hosting und Google reCAPTCHA für den Spamschutz."
+      },
+      "rights": {
+        "title": "Ihre Rechte",
+        "body": "Auskunft, Berichtigung, Löschung, Übertragbarkeit oder Einschränkung Ihrer Daten — Sie können Ihre Einwilligung jederzeit widerrufen oder eine Beschwerde bei einer Aufsichtsbehörde einreichen."
+      }
+    },
+    "sections": {
+      "intro": {
+        "title": "Einleitung",
+        "body": "Diese Datenschutzerklärung beschreibt, wie personenbezogene Daten verarbeitet werden, wenn Sie <strong>renekrajnc.com</strong> (die »Website«) besuchen. Die Website ist ein persönliches Portfolio, das von einer natürlichen Person mit Sitz in der Europäischen Union betrieben wird. Wir respektieren Ihre Privatsphäre und verarbeiten nur diejenigen personenbezogenen Daten, die für den Betrieb der Website, die Beantwortung Ihrer Anfragen und die Aufrechterhaltung der Sicherheit unbedingt erforderlich sind. Mit der Nutzung der Website bestätigen Sie, dass Sie diese Erklärung gelesen haben. Wenn Sie nicht einverstanden sind, nutzen Sie die Website bitte nicht."
+      },
+      "controller": {
+        "title": "Verantwortlicher",
+        "body": "Verantwortlicher im Sinne der DSGVO ist <strong>Rene Krajnc</strong> mit Sitz in <strong>Maribor, Slowenien</strong>. Für datenschutzbezogene Fragen, Anliegen oder Beschwerden erreichen Sie uns unter <mailLink>info@renekrajnc.com</mailLink>. Bestätigte Anfragen beantworten wir unverzüglich, spätestens innerhalb von 30 Tagen, gemäß Art. 12 Abs. 3 DSGVO."
+      },
+      "data-we-collect": {
+        "title": "Welche personenbezogenen Daten wir erheben",
+        "body": "Wir erheben ausschließlich Daten, die für den Betrieb der Website und die Beantwortung Ihrer Anliegen erforderlich sind. Konkret:",
+        "bullets": [
+          "Kontaktformulardaten: Name, E-Mail-Adresse und Nachricht, die Sie über das Kontaktformular übermitteln.",
+          "Kommunikationsinhalte: jegliche weitere Korrespondenz, die Sie uns per E-Mail zukommen lassen.",
+          "Technische Daten: IP-Adresse, Browser-Kennung (User Agent), Referrer und Zeitstempel, die vom Hosting-Anbieter in den Zugriffs- und Sicherheitsprotokollen erfasst werden.",
+          "Missbrauchssignale: ein reCAPTCHA-Token und der von Google zurückgegebene Score, der zur Abwehr automatisierter Formularübermittlungen dient.",
+          "Präferenzdaten: das von Ihnen gewählte Theme (hell oder dunkel), lokal in Ihrem Browser gespeichert; diese Information verlässt Ihr Gerät nie."
+        ]
+      },
+      "purposes-and-legal-bases": {
+        "title": "Zwecke und Rechtsgrundlagen",
+        "body": "Wir verarbeiten Ihre personenbezogenen Daten nur für klar definierte Zwecke und nur, wenn eine gültige Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO vorliegt:",
+        "bullets": [
+          "Zur Beantwortung Ihrer per Kontaktformular gesendeten Anfrage — Rechtsgrundlage: vorvertragliche bzw. vertragliche Maßnahmen sowie unser berechtigtes Interesse an der Beantwortung von Nachrichten (Art. 6 Abs. 1 lit. b und f DSGVO).",
+          "Zum Schutz des Kontaktformulars vor Spam und Missbrauch mittels Google reCAPTCHA — Rechtsgrundlage: Ihre vorherige Einwilligung über das Cookie-Banner (Art. 6 Abs. 1 lit. a DSGVO).",
+          "Zur Sicherstellung der Verfügbarkeit und Sicherheit der Website (Serverprotokolle, Rate-Limiting, Missbrauchserkennung) — Rechtsgrundlage: unser berechtigtes Interesse am sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO).",
+          "Zum Merken Ihrer Theme-Auswahl — diese Information wird lokal gespeichert und stellt aus Sicht der DSGVO keine Verarbeitung personenbezogener Daten durch uns dar, beruht jedoch auf einem unbedingt erforderlichen technischen Mechanismus.",
+          "Zur Erfüllung rechtlicher Pflichten wie der Reaktion auf bestätigte Betroffenenanfragen oder rechtmäßige Behördenanfragen — Rechtsgrundlage: rechtliche Verpflichtung (Art. 6 Abs. 1 lit. c DSGVO)."
+        ]
+      },
+      "cookies": {
+        "title": "Cookies und ähnliche Technologien",
+        "body": "Die Website verwendet eine minimale Anzahl an Cookies und Local-Storage-Einträgen. Wir setzen weder Werbe-Cookies noch seitenübergreifendes Tracking oder Verhaltensprofiling ein.",
+        "bullets": [
+          "Unbedingt erforderlich: ein »theme«-Wert im localStorage Ihres Browsers, damit die Website Ihre hell/dunkel-Auswahl behält. Eine Einwilligung ist hierfür nicht erforderlich, da dies unbedingt notwendig ist, um den von Ihnen angeforderten Dienst bereitzustellen.",
+          "Funktional / sicherheitsbezogen (einwilligungspflichtig): Wenn Sie Cookies akzeptieren, laden wir auf der Kontaktseite Google reCAPTCHA v3. reCAPTCHA kann Cookies auf Google-Domains setzen und technische Daten erheben, um Menschen von Bots zu unterscheiden.",
+          "Einwilligungsverwaltung: ein kleiner Eintrag »cookie-consent-v1« im localStorage Ihres Browsers merkt sich Ihre Auswahl zwischen Akzeptieren und Ablehnen. Sie können Ihre Auswahl jederzeit über den Link »Cookie-Einstellungen« im Footer ändern."
+        ]
+      },
+      "third-parties": {
+        "title": "Dienstleister und Empfänger",
+        "body": "Wir verkaufen personenbezogene Daten nicht. Wir geben sie ausschließlich an eine kleine Zahl vertrauenswürdiger Dienstleister weiter, die als Auftragsverarbeiter in unserem Auftrag tätig sind und jeweils durch einen Auftragsverarbeitungsvertrag gebunden sind:",
+        "bullets": [
+          "Resend (Resend, Inc., USA) — Versand transaktionaler E-Mails für Kontaktformularnachrichten. Siehe <resendLink>Datenschutzerklärung von Resend</resendLink>.",
+          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, USA) — Schutz vor Bots und Missbrauch im Kontaktformular, wird erst nach Ihrer Einwilligung geladen. Siehe <googleLink>Datenschutzerklärung von Google</googleLink>.",
+          "Vercel (Vercel Inc., USA) — Hosting, Content-Auslieferung und Serverprotokollierung. Siehe <vercelLink>Datenschutzerklärung von Vercel</vercelLink>."
+        ]
+      },
+      "international-transfers": {
+        "title": "Internationale Datenübermittlungen",
+        "body": "Einige der oben genannten Auftragsverarbeiter haben ihren Sitz in den Vereinigten Staaten. Werden personenbezogene Daten in Länder außerhalb des Europäischen Wirtschaftsraums übermittelt, ist die Übermittlung durch geeignete Garantien gemäß Kapitel V DSGVO geschützt — in der Regel durch die Standardvertragsklauseln der Europäischen Kommission und, sofern anwendbar, durch das EU-US Data Privacy Framework. Eine Kopie der bestehenden Garantien können Sie unter <mailLink>info@renekrajnc.com</mailLink> anfordern."
+      },
+      "retention": {
+        "title": "Wie lange wir Daten speichern",
+        "body": "Wir speichern personenbezogene Daten nur so lange, wie es für den Zweck der Erhebung erforderlich ist oder gesetzlich vorgeschrieben:",
+        "bullets": [
+          "Kontaktformularnachrichten und zugehörige E-Mail-Korrespondenz: bis zu 12 Monate nach dem letzten Austausch, sofern keine fortlaufende Geschäftsbeziehung oder gesetzliche Pflicht eine längere Aufbewahrung erfordert.",
+          "Server-Zugriffs- und Sicherheitsprotokolle: bis zu 30 Tage, danach werden sie vom Hosting-Anbieter gelöscht oder anonymisiert.",
+          "reCAPTCHA-Auswertungen: werden von Google gemäß deren Datenschutzerklärung aufbewahrt; den Roh-Token speichern wir nach der Prüfung nicht.",
+          "Cookie-Einwilligungsdatensatz: wird lokal in Ihrem Browser gespeichert, bis Sie ihn löschen oder Ihre Auswahl ändern."
+        ]
+      },
+      "your-rights": {
+        "title": "Ihre Rechte nach der DSGVO",
+        "body": "Unter den Voraussetzungen der DSGVO stehen Ihnen hinsichtlich Ihrer personenbezogenen Daten folgende Rechte zu:",
+        "bullets": [
+          "Auskunftsrecht (Art. 15) — Bestätigung, ob wir Sie betreffende Daten verarbeiten, und eine Kopie davon.",
+          "Recht auf Berichtigung (Art. 16) — Korrektur unrichtiger oder unvollständiger Daten.",
+          "Recht auf Löschung (Art. 17) — Löschung Ihrer Daten, wenn die Rechtsgrundlage der Verarbeitung entfällt.",
+          "Recht auf Einschränkung der Verarbeitung (Art. 18) — Einschränkung in bestimmten Fällen, z. B. während Sie die Richtigkeit bestreiten.",
+          "Recht auf Datenübertragbarkeit (Art. 20) — Erhalt der von Ihnen bereitgestellten Daten in einem strukturierten, gängigen und maschinenlesbaren Format.",
+          "Widerspruchsrecht (Art. 21) — Widerspruch gegen Verarbeitungen, die auf berechtigten Interessen beruhen, einschließlich direkter Ansprache.",
+          "Recht auf Widerruf der Einwilligung (Art. 7 Abs. 3) — Sie können jede erteilte Einwilligung jederzeit widerrufen, ohne dass die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung berührt wird.",
+          "Beschwerderecht — Sie können sich bei einer Aufsichtsbehörde beschweren, insbesondere beim slowenischen Informationsbeauftragten (<dpaLink>Informacijski pooblaščenec</dpaLink>) oder bei der Aufsichtsbehörde Ihres EU-Wohnsitzlandes."
+        ]
+      },
+      "security": {
+        "title": "Wie wir Ihre Daten schützen",
+        "body": "Wir setzen branchenübliche Maßnahmen ein, um Daten bei Übertragung und Speicherung zu schützen:",
+        "bullets": [
+          "Der gesamte Datenverkehr zur Website ist per TLS (HTTPS) verschlüsselt.",
+          "Eine strikte Content Security Policy, HSTS und weitere Sicherheits-Header sind auf Framework-Ebene konfiguriert.",
+          "Geheimnisse wie API-Schlüssel werden in Umgebungsvariablen der Hosting-Plattform gespeichert und sind dem Browser niemals zugänglich.",
+          "Google reCAPTCHA v3 schützt das Kontaktformular vor automatisiertem Missbrauch.",
+          "Über die Website werden weder Zahlungsdaten noch besondere Kategorien personenbezogener Daten noch staatliche Identifikationsnummern erhoben."
+        ]
+      },
+      "children": {
+        "title": "Datenschutz für Kinder",
+        "body": "Die Website richtet sich an ein allgemeines, berufliches Publikum und nicht an Kinder unter 16 Jahren. Wir erheben wissentlich keine personenbezogenen Daten von Kindern. Sollten Sie der Ansicht sein, dass ein Kind über die Website personenbezogene Daten übermittelt hat, kontaktieren Sie uns bitte unter <mailLink>info@renekrajnc.com</mailLink>; wir werden die Daten unverzüglich löschen."
+      },
+      "changes": {
+        "title": "Änderungen dieser Erklärung",
+        "body": "Wir können diese Datenschutzerklärung gelegentlich aktualisieren, um Änderungen unserer Praktiken, der eingesetzten Drittanbieter oder gesetzlicher Vorgaben zu berücksichtigen. Die aktuelle Fassung ist stets auf dieser Seite verfügbar, das Datum <strong>Zuletzt aktualisiert</strong> oben auf der Seite ist die maßgebliche Versionsangabe. Wesentliche Änderungen werden vor ihrem Inkrafttreten auf der Website hervorgehoben."
+      },
+      "contact": {
+        "title": "Kontakt",
+        "body": "Bei Fragen zu dieser Datenschutzerklärung, zur Wahrnehmung Ihrer Betroffenenrechte oder bei Bedenken erreichen Sie uns unter <mailLink>info@renekrajnc.com</mailLink> oder über die <contactLink>Kontaktseite</contactLink>. Wir bemühen uns, alle bestätigten Anfragen innerhalb von 30 Tagen gemäß Art. 12 Abs. 3 DSGVO zu beantworten."
+      }
+    },
+    "seo": {
+      "title": "Datenschutzerklärung | Rene Krajnc",
+      "description": "Datenschutzerklärung für renekrajnc.com — welche personenbezogenen Daten erhoben werden, warum, an wen sie weitergegeben werden und wie Ihre Rechte nach der DSGVO gewahrt werden."
+    }
+  },
+  "cookies": {
+    "banner": {
+      "title": "Ihre Privatsphäre ist uns wichtig",
+      "body": "Diese Website nutzt unbedingt erforderliche Technologien, um Ihre Theme-Auswahl zu speichern. Mit Ihrer Einwilligung laden wir zusätzlich Google reCAPTCHA im Kontaktformular, um Spam abzuwehren. Details finden Sie in unserer <link>Datenschutzerklärung</link>.",
+      "accept": "Alle akzeptieren",
+      "reject": "Nicht notwendige ablehnen",
+      "learnMore": "Mehr erfahren",
+      "ariaLabel": "Cookie-Zustimmung"
+    },
+    "contactNotice": {
+      "message": "Der Spamschutz ist deaktiviert. Akzeptieren Sie Cookies, um Google reCAPTCHA zu aktivieren und die Nachricht zu senden.",
+      "accept": "Akzeptieren und fortfahren"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Rene Krajnc. Alle Rechte vorbehalten.",
+    "links": {
+      "title": "Rechtliches",
+      "privacy": "Datenschutzerklärung",
+      "contact": "Kontakt",
+      "cookies": "Cookie-Einstellungen"
+    }
+  },
   "comingSoon": {
     "title": "Demnächst verfügbar",
     "description": "Diese Website befindet sich im Aufbau. Bitte schauen Sie bald wieder vorbei für Updates.",
@@ -278,7 +429,6 @@
       "description": "Demnächst verfügbar - Rene Krajnc - Frontend Entwickler"
     }
   },
-  "footer": "© {{year}} Rene Krajnc. Alle Rechte vorbehalten.",
   "showMore": "Mehr anzeigen",
   "showLess": "Weniger anzeigen",
   "workExperience": {

@@ -39,8 +39,16 @@
 - Comprehensive security headers (CSP, HSTS, Permissions-Policy)
 - RFC 9116 compliant security.txt
 - Robots.txt and XML sitemap with multilingual support
-- Canonical URLs and Open Graph metadata
+- Canonical URLs, Open Graph metadata, and JSON-LD `Person` / `WebSite` schemas for Google Search entity recognition
+- Host-based `www` → apex 308 redirect so all crawler traffic resolves to a single canonical origin
 - Perfect score on securityheaders.com
+
+### 📜 **Privacy & Compliance**
+
+- GDPR-aligned `/privacy` policy page with full EN / SL / DE translations
+- Cookie consent banner with equal-prominence Accept / Reject buttons (EDPB-aligned)
+- Google reCAPTCHA loaded only after the visitor grants consent — no third-party cookies set on page load
+- Persistent consent state (`localStorage`, `cookie-consent-v1`) and a "Cookie preferences" footer link to revisit the choice
 
 ### 🎯 **Performance**
 
@@ -163,7 +171,7 @@ portfolio/
 │   │   └── UI/               # Reusable UI components
 │   ├── emails/               # React Email templates
 │   ├── constants/            # App constants
-│   ├── context/              # React contexts (Theme)
+│   ├── context/              # React contexts (Theme, CookieConsent)
 │   ├── pages/                # Next.js pages and API routes
 │   ├── styles/               # Global styles & mixins
 │   └── utils/                # Helper hooks and utilities

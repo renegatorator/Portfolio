@@ -45,7 +45,7 @@
 .input input,
 .textarea textarea {
   padding: 12px;
-  border: 1px solid color-mix(in srgb, var(--primary) 12%, var(--border-primary));
+  border: 1px solid primary-mix(12%, var(--border-primary));
   border-radius: $border-radius-xs;
   background: transparent;
   color: var(--text-primary);
@@ -56,11 +56,11 @@
   background: var(--primary);
   color: var(--primary-text);
   border: none;
-  border-radius: 999px;
+  border-radius: $border-radius-pill;
   cursor: pointer;
   transition:
-    transform 200ms ease,
-    box-shadow 200ms ease;
+    transform $transition-fast,
+    box-shadow $transition-fast;
   font-weight: 700;
   text-transform: none;
 }

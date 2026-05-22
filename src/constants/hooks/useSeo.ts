@@ -26,6 +26,11 @@ export const useSeo = (route: Route): SEOType => {
         title: t('contact.seo.title'),
         description: t('contact.seo.description'),
       };
+    case Routes.PRIVACY:
+      return {
+        title: t('privacy.seo.title'),
+        description: t('privacy.seo.description'),
+      };
     default:
       return {
         title: t('landingPage.title'),

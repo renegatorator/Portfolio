@@ -19,7 +19,7 @@
     height: 360px;
     top: -130px;
     left: -120px;
-    background: radial-gradient(circle, rgba(0, 112, 243, 0.2) 0%, rgba(0, 112, 243, 0) 72%);
+    background: radial-gradient(circle, rgba($brand-blue, 0.2) 0%, rgba($brand-blue, 0) 72%);
     animation: driftOne 18s ease-in-out infinite;
   }
 
@@ -28,7 +28,7 @@
     height: 320px;
     right: -110px;
     bottom: -140px;
-    background: radial-gradient(circle, rgba(40, 184, 255, 0.24) 0%, rgba(40, 184, 255, 0) 70%);
+    background: radial-gradient(circle, rgba($brand-cyan, 0.24) 0%, rgba($brand-cyan, 0) 70%);
     animation: driftTwo 20s ease-in-out infinite;
   }
 }
@@ -101,7 +101,7 @@
 }
 
 .heroTagline {
-  max-width: 760px;
+  max-width: $content-medium;
   text-align: left;
   font-size: clamp(0.95rem, 1.8vw, 1.15rem);
   line-height: 1.6;
@@ -167,7 +167,7 @@
 [data-theme='light'] {
   .heroSection {
     background:
-      radial-gradient(circle at 10% 18%, rgba(0, 112, 243, 0.1) 0%, transparent 44%),
+      radial-gradient(circle at 10% 18%, rgba($brand-blue, 0.1) 0%, transparent 44%),
       radial-gradient(circle at 86% 84%, rgba(0, 183, 255, 0.12) 0%, transparent 48%),
       linear-gradient(140deg, #f7f9fc 0%, #eef4fb 45%, #f3f8ff 100%);
     box-shadow: $shadow-section-light;
