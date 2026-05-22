@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Image from 'next/image';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './Logo.module.scss';
 
@@ -36,8 +36,8 @@ const Logo = ({ className = '', priority = false }: LogoProps) => {
       <Image
         src={isDarkTheme ? '/images/logo/logo-full-dark.png' : '/images/logo/logo-full.png'}
         alt="Rene Krajnc"
-        width={200}
-        height={40}
+        width={140}
+        height={48}
         className={classNames(styles.desktopLogo, className)}
         priority={priority}
       />
@@ -46,7 +46,7 @@ const Logo = ({ className = '', priority = false }: LogoProps) => {
         src={isDarkTheme ? '/images/logo/logo-initials-dark.png' : '/images/logo/logo-initials.png'}
         alt="Rene Krajnc"
         width={40}
-        height={40}
+        height={27}
         className={`${styles.mobileLogo} ${className}`}
         priority={priority}
       />

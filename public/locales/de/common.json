@@ -391,9 +391,9 @@
   "cookies": {
     "banner": {
       "title": "Ihre Privatsphäre ist uns wichtig",
-      "body": "Diese Website nutzt unbedingt erforderliche Technologien, um Ihre Theme-Auswahl zu speichern. Mit Ihrer Einwilligung laden wir zusätzlich Google reCAPTCHA im Kontaktformular, um Spam abzuwehren. Details finden Sie in unserer <link>Datenschutzerklärung</link>.",
+      "body": "Diese Website nutzt wichtige Cookies zur Speicherung Ihrer Einstellungen. Mit Ihrer Zustimmung schützt Google reCAPTCHA das Kontaktformular vor Spam. Details finden Sie in der <link>Datenschutzerklärung</link>.",
       "accept": "Alle akzeptieren",
-      "reject": "Nicht notwendige ablehnen",
+      "reject": "Nur erforderlich",
       "learnMore": "Mehr erfahren",
       "ariaLabel": "Cookie-Zustimmung"
     },

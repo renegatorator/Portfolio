@@ -23,9 +23,9 @@
   width: 100%;
   max-width: 920px;
   display: flex;
-  align-items: center;
+  // align-items: center;
   gap: 20px;
-  padding: 18px 22px;
+  padding: 16px 20px;
   border-radius: $border-radius-md;
   border: 1px solid;
   @include primary-border(28%);
@@ -36,13 +36,13 @@
 
   @include mq(md) {
     flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
+    gap: 20px;
   }
 
   @include mq(xs) {
-    padding: 18px 16px;
+    padding: 16px 14px;
     text-align: center;
+    align-items: center;
   }
 }
 
@@ -81,7 +81,7 @@
 .copy {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
   min-width: 0;
 }
 
@@ -93,7 +93,7 @@
 
 .body {
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.45;
 }
 
 .inlineLink {
@@ -114,12 +114,17 @@
 
 .actions {
   display: flex;
-  flex-direction: column-reverse;
-  gap: 8px;
+  flex-direction: column;
+  gap: 6px;
   flex-shrink: 0;
   min-width: 180px;
 
   @include mq(md) {
+    flex-direction: row;
+  }
+
+  @include mq(xs) {
+    flex-direction: column;
     width: 100%;
     min-width: 0;
   }

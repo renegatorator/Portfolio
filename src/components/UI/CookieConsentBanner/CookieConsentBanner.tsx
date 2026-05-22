@@ -53,15 +53,6 @@ const CookieConsentBanner = () => {
 
         <div className={classes.actions}>
           <Button
-            variant="outlined"
-            color="primary"
-            size="small"
-            onClick={reject}
-            className={classes.button}
-          >
-            {t('cookies.banner.reject')}
-          </Button>
-          <Button
             variant="contained"
             color="primary"
             size="small"
@@ -69,6 +60,15 @@ const CookieConsentBanner = () => {
             className={classes.button}
           >
             {t('cookies.banner.accept')}
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="small"
+            onClick={reject}
+            className={classes.button}
+          >
+            {t('cookies.banner.reject')}
           </Button>
         </div>
       </div>
