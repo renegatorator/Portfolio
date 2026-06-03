@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.14]
+
 ### Added
 
 - **Default-Locale Canonical Redirect Middleware**: New root-level `middleware.ts` permanently redirects `/en` and any `/en/*` route to the unprefixed canonical path (`/`, `/contact`, `/projects`, etc.), closing the duplicate-URL gap left by Next.js i18n routing where the default locale can still be reached under its prefix; the redirect is implemented at the middleware layer because locale matching happens before `next.config.ts` redirects, and the matcher is intentionally scoped to `/en` plus descendants so no other locale routing is affected
