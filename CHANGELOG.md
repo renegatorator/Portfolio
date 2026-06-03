@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- **Default-Locale Canonical Redirect Middleware**: New root-level `middleware.ts` permanently redirects `/en` and any `/en/*` route to the unprefixed canonical path (`/`, `/contact`, `/projects`, etc.), closing the duplicate-URL gap left by Next.js i18n routing where the default locale can still be reached under its prefix; the redirect is implemented at the middleware layer because locale matching happens before `next.config.ts` redirects, and the matcher is intentionally scoped to `/en` plus descendants so no other locale routing is affected
+
+### Changed
+
+- **Cookie Banner Reframed as Acknowledgement Notice**: `CookieConsentBanner` now presents the cookie UI as a single-action acknowledgement instead of an accept/reject choice, with updated EN / DE / SL copy that explicitly states only strictly necessary preference storage is used while Google reCAPTCHA remains always active on the contact page for spam protection; the banner layout was also reworked so copy and CTA align horizontally on larger screens and collapse into a centered stacked layout earlier on small screens for a cleaner mobile presentation
+- **Contact Form reCAPTCHA Flow Simplified**: `ContactForm` no longer gates reCAPTCHA behind cookie consent or stores pending submissions while waiting for consent; the Google reCAPTCHA script now loads whenever the site key is available, the inline consent warning / retry flow was removed, the submit button is disabled only until reCAPTCHA is ready, and the legal disclosure beneath the form is now localized via `contact.recaptchaNotice` with translated Google Privacy Policy / Terms of Service links in all three locales
+- **Localized Contact Form Placeholders & Softer Surface Styling**: Added locale-aware placeholder strings for name and email fields in EN / DE / SL, switched the contact form card from the solid secondary background to a translucent primary-surface treatment, and introduced `--bg-primary-rgb` CSS variables in both themes so that translucent surfaces can be derived consistently without hardcoding theme-specific RGB values
+
+### Fixed
+
+- **Privacy Copy Aligned with Always-On Spam Protection**: The privacy-policy and cookie-banner translation trees in EN / DE / SL were updated to remove the outdated consent-based description of Google reCAPTCHA, replacing it with wording that reflects always-on spam protection under legitimate-interest framing and clarifying that the `cookie-consent-v1` localStorage entry records acknowledgement of cookie use rather than an accept/reject preference
+
 ## [1.3.13]
 
 ### Changed

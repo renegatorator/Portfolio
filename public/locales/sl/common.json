@@ -239,7 +239,10 @@
     "name": "Ime in priimek",
     "email": "E-pošta",
     "message": "Sporočilo",
+    "namePlaceholder": "Janez Novak",
+    "emailPlaceholder": "janez.novak@example.com",
     "messagePlaceholder": "Vaše sporočilo tukaj...",
+    "recaptchaNotice": "Ta stran je zaščitena z reCAPTCHA in zanjo veljajo Googlova <privacyLink>politika zasebnosti</privacyLink> ter <tosLink>pogoji storitve</tosLink>.",
     "send": "Pošlji",
     "validation": {
       "nameRequired": "Ime je obvezno",
@@ -247,7 +250,6 @@
       "emailInvalid": "E-pošta ni veljavna",
       "messageRequired": "Sporočilo je obvezno"
     },
-    "captchaRequired": "Prosim, dokončajte CAPTCHA preverjanje.",
     "captchaVerifyError": "CAPTCHA preverjanje ni uspelo. Poskusite znova.",
     "captchaLoadError": "CAPTCHA ni bilo mogoče naložiti. Poskusite znova kasneje.",
     "sending": "Pošiljanje...",
@@ -310,7 +312,7 @@
         "body": "Vaše osebne podatke obdelujemo le za jasno opredeljene namene in samo, kadar imamo veljavno pravno podlago po 6. členu (1. odstavek) GDPR:",
         "bullets": [
           "Za odgovor na vaše povpraševanje, poslano prek kontaktnega obrazca — pravna podlaga: izvedba predpogodbenih ali pogodbenih ukrepov ter naš zakoniti interes za odgovarjanje na sporočila (6(1)(b) in (f) GDPR).",
-          "Za zaščito kontaktnega obrazca pred spamom in zlorabami z uporabo Google reCAPTCHA — pravna podlaga: vaše predhodno soglasje, oddano prek pasice za piškotke (6(1)(a) GDPR).",
+          "Za zaščito kontaktnega obrazca pred spamom in zlorabami z uporabo Google reCAPTCHA — pravna podlaga: naš zakoniti interes za varnost kontaktnega obrazca in preprečevanje samodejnih zlorab (6(1)(f) GDPR).",
           "Za zagotavljanje dostopnosti in varnosti strani (strežniški dnevniki, omejevanje hitrosti, zaznavanje zlorab) — pravna podlaga: naš zakoniti interes za delovanje varne storitve (6(1)(f) GDPR).",
           "Za pomnjenje vaše izbrane teme — ta podatek je shranjen lokalno in z vidika GDPR ne pomeni obdelave osebnih podatkov pri nas, temveč temelji na nujno potrebnem tehničnem mehanizmu.",
           "Za izpolnjevanje pravnih obveznosti, kot je odziv na potrjene zahteve posameznikov ali zakonite zahteve organov — pravna podlaga: pravna obveznost (6(1)(c) GDPR)."
@@ -321,8 +323,8 @@
         "body": "Stran uporablja minimalno število piškotkov in vnosov v lokalno shrambo. Ne uporabljamo oglaševalskih piškotkov, sledenja med stranmi ali vedenjskega profiliranja.",
         "bullets": [
           "Nujno potrebni: vrednost »theme«, shranjena v localStorage brskalnika, da si stran zapomni vašo izbiro svetle/temne teme. Za to soglasje ni potrebno, ker je nujno za izvedbo zahtevane storitve.",
-          "Funkcionalni / varnostni (na podlagi soglasja): če sprejmete piškotke, na kontaktni strani naložimo Google reCAPTCHA v3. reCAPTCHA lahko nastavi piškotke na Googlovih domenah in zbere tehnične podatke za razlikovanje ljudi od robotov.",
-          "Upravljanje soglasja: majhen vnos »cookie-consent-v1« v localStorage brskalnika si zapomni vašo izbiro med Sprejmi in Zavrni. Svojo izbiro lahko kadarkoli spremenite prek povezave »Nastavitve piškotkov« v nogi strani."
+          "Varnostni (vedno aktivni): Google reCAPTCHA v3 je vedno naložen na kontaktni strani, da razlikuje med ljudmi in roboti ter prepreči samodejne oddaje obrazca.",
+          "Upravljanje soglasja: majhen vnos »cookie-consent-v1« v localStorage brskalnika beleži, da ste bili obveščeni o naši rabi piškotkov. Svojo izbiro lahko kadarkoli pregledate prek povezave »Nastavitve piškotkov« v nogi strani."
         ]
       },
       "third-parties": {
@@ -330,7 +332,7 @@
         "body": "Osebnih podatkov nikoli ne prodajamo. Delimo jih le z manjšim naborom zaupanja vrednih ponudnikov storitev, ki delujejo kot obdelovalci podatkov v našem imenu in so vezani z ustrezno pogodbo o obdelavi podatkov:",
         "bullets": [
           "Resend (Resend, Inc., ZDA) — pošiljanje transakcijske e-pošte za sporočila iz kontaktnega obrazca. Več: <resendLink>Resendova politika zasebnosti</resendLink>.",
-          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, ZDA) — zaščita pred boti in zlorabami na kontaktnem obrazcu, naložena šele po vašem sprejemu piškotkov. Več: <googleLink>Googlova politika zasebnosti</googleLink>.",
+          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, ZDA) — zaščita pred boti in zlorabami na kontaktnem obrazcu, vedno aktivna. Več: <googleLink>Googlova politika zasebnosti</googleLink>.",
           "Vercel (Vercel Inc., ZDA) — gostovanje, dostava vsebin in strežniško beleženje. Več: <vercelLink>Vercelova politika zasebnosti</vercelLink>."
         ]
       },
@@ -394,15 +396,10 @@
   "cookies": {
     "banner": {
       "title": "Cenimo vašo zasebnost",
-      "body": "Stran uporablja piškotke za shranjevanje vaših nastavitev. Z vašim soglasjem Google reCAPTCHA varuje kontaktni obrazec pred spamom. Podrobnosti so v <link>politiki zasebnosti</link>.",
-      "accept": "Sprejmi vse",
-      "reject": "Le nujne",
+      "body": "Stran uporablja nujno potrebne piškotke za shranjevanje vaših nastavitev. Google reCAPTCHA je vedno aktiven na kontaktni strani za zaščito pred spamom. Podrobnosti so v <privacyLink>politiki zasebnosti</privacyLink>.",
+      "accept": "Razumem",
       "learnMore": "Več informacij",
       "ariaLabel": "Soglasje za piškotke"
-    },
-    "contactNotice": {
-      "message": "Zaščita pred spamom je onemogočena. Sprejmite piškotke za vklop Google reCAPTCHA in pošiljanje sporočila.",
-      "accept": "Sprejmi in nadaljuj"
     }
   },
   "footer": {

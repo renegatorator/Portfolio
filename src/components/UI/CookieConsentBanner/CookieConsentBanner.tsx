@@ -13,7 +13,7 @@ import classes from './CookieConsentBanner.module.scss';
 const CookieConsentBanner = () => {
   const { t } = useTranslation();
   const router = useRouter();
-  const { mounted, isBannerOpen, accept, reject } = useCookieConsent();
+  const { mounted, isBannerOpen, accept } = useCookieConsent();
 
   if (!mounted || !isBannerOpen) {
     return null;
@@ -30,47 +30,39 @@ const CookieConsentBanner = () => {
         <div className={classes.iconWrap} aria-hidden="true">
           <FontAwesomeIcon icon={faCookieBite} className={classes.icon} />
         </div>
+        <section className={classes.body}>
+          <div className={classes.copy}>
+            <Typography variant="h6" component="p" className={classes.title}>
+              {t('cookies.banner.title')}
+            </Typography>
+            <Typography variant="body2" component="p" className={classes.description}>
+              <Trans
+                i18nKey="cookies.banner.body"
+                components={{
+                  privacyLink: (
+                    <Link
+                      href={`${Routes.PRIVACY}#cookies`}
+                      locale={router.locale}
+                      className={classes.inlineLink}
+                    />
+                  ),
+                }}
+              />
+            </Typography>
+          </div>
 
-        <div className={classes.copy}>
-          <Typography variant="h6" component="p" className={classes.title}>
-            {t('cookies.banner.title')}
-          </Typography>
-          <Typography variant="body2" component="p" className={classes.body}>
-            <Trans
-              i18nKey="cookies.banner.body"
-              components={{
-                link: (
-                  <Link
-                    href={`${Routes.PRIVACY}#cookies`}
-                    locale={router.locale}
-                    className={classes.inlineLink}
-                  />
-                ),
-              }}
-            />
-          </Typography>
-        </div>
-
-        <div className={classes.actions}>
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            onClick={accept}
-            className={classes.button}
-          >
-            {t('cookies.banner.accept')}
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            size="small"
-            onClick={reject}
-            className={classes.button}
-          >
-            {t('cookies.banner.reject')}
-          </Button>
-        </div>
+          <div className={classes.actions}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={accept}
+              className={classes.button}
+            >
+              {t('cookies.banner.accept')}
+            </Button>
+          </div>
+        </section>
       </div>
     </div>
   );
