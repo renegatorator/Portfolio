@@ -236,7 +236,10 @@
     "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
+    "namePlaceholder": "Max Mustermann",
+    "emailPlaceholder": "max.mustermann@example.com",
     "messagePlaceholder": "Ihre Nachricht hier...",
+    "recaptchaNotice": "Diese Website wird durch reCAPTCHA geschützt und es gelten die <privacyLink>Datenschutzerklärung</privacyLink> und die <tosLink>Nutzungsbedingungen</tosLink> von Google.",
     "send": "Senden",
     "validation": {
       "nameRequired": "Name ist erforderlich",
@@ -244,7 +247,6 @@
       "emailInvalid": "E-Mail ist ungültig",
       "messageRequired": "Nachricht ist erforderlich"
     },
-    "captchaRequired": "Bitte schließen Sie die CAPTCHA-Prüfung ab.",
     "captchaVerifyError": "CAPTCHA-Überprüfung fehlgeschlagen. Bitte versuchen Sie es erneut.",
     "captchaLoadError": "CAPTCHA konnte nicht geladen werden. Bitte versuchen Sie es später erneut.",
     "sending": "Wird gesendet...",
@@ -307,7 +309,7 @@
         "body": "Wir verarbeiten Ihre personenbezogenen Daten nur für klar definierte Zwecke und nur, wenn eine gültige Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO vorliegt:",
         "bullets": [
           "Zur Beantwortung Ihrer per Kontaktformular gesendeten Anfrage — Rechtsgrundlage: vorvertragliche bzw. vertragliche Maßnahmen sowie unser berechtigtes Interesse an der Beantwortung von Nachrichten (Art. 6 Abs. 1 lit. b und f DSGVO).",
-          "Zum Schutz des Kontaktformulars vor Spam und Missbrauch mittels Google reCAPTCHA — Rechtsgrundlage: Ihre vorherige Einwilligung über das Cookie-Banner (Art. 6 Abs. 1 lit. a DSGVO).",
+          "Zum Schutz des Kontaktformulars vor Spam und Missbrauch mittels Google reCAPTCHA — Rechtsgrundlage: unser berechtigtes Interesse an der Sicherheit des Kontaktformulars und der Verhinderung automatisierten Missbrauchs (Art. 6 Abs. 1 lit. f DSGVO).",
           "Zur Sicherstellung der Verfügbarkeit und Sicherheit der Website (Serverprotokolle, Rate-Limiting, Missbrauchserkennung) — Rechtsgrundlage: unser berechtigtes Interesse am sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO).",
           "Zum Merken Ihrer Theme-Auswahl — diese Information wird lokal gespeichert und stellt aus Sicht der DSGVO keine Verarbeitung personenbezogener Daten durch uns dar, beruht jedoch auf einem unbedingt erforderlichen technischen Mechanismus.",
           "Zur Erfüllung rechtlicher Pflichten wie der Reaktion auf bestätigte Betroffenenanfragen oder rechtmäßige Behördenanfragen — Rechtsgrundlage: rechtliche Verpflichtung (Art. 6 Abs. 1 lit. c DSGVO)."
@@ -318,8 +320,8 @@
         "body": "Die Website verwendet eine minimale Anzahl an Cookies und Local-Storage-Einträgen. Wir setzen weder Werbe-Cookies noch seitenübergreifendes Tracking oder Verhaltensprofiling ein.",
         "bullets": [
           "Unbedingt erforderlich: ein »theme«-Wert im localStorage Ihres Browsers, damit die Website Ihre hell/dunkel-Auswahl behält. Eine Einwilligung ist hierfür nicht erforderlich, da dies unbedingt notwendig ist, um den von Ihnen angeforderten Dienst bereitzustellen.",
-          "Funktional / sicherheitsbezogen (einwilligungspflichtig): Wenn Sie Cookies akzeptieren, laden wir auf der Kontaktseite Google reCAPTCHA v3. reCAPTCHA kann Cookies auf Google-Domains setzen und technische Daten erheben, um Menschen von Bots zu unterscheiden.",
-          "Einwilligungsverwaltung: ein kleiner Eintrag »cookie-consent-v1« im localStorage Ihres Browsers merkt sich Ihre Auswahl zwischen Akzeptieren und Ablehnen. Sie können Ihre Auswahl jederzeit über den Link »Cookie-Einstellungen« im Footer ändern."
+          "Sicherheit (immer aktiv): Google reCAPTCHA v3 ist auf der Kontaktseite stets geladen, um Menschen von Bots zu unterscheiden und automatisierte Formularübermittlungen zu verhindern.",
+          "Einwilligungsverwaltung: ein kleiner Eintrag »cookie-consent-v1« im localStorage Ihres Browsers hält fest, dass Sie über unsere Cookie-Nutzung informiert wurden. Sie können dies jederzeit über den Link »Cookie-Einstellungen« im Footer aufrufen."
         ]
       },
       "third-parties": {
@@ -327,7 +329,7 @@
         "body": "Wir verkaufen personenbezogene Daten nicht. Wir geben sie ausschließlich an eine kleine Zahl vertrauenswürdiger Dienstleister weiter, die als Auftragsverarbeiter in unserem Auftrag tätig sind und jeweils durch einen Auftragsverarbeitungsvertrag gebunden sind:",
         "bullets": [
           "Resend (Resend, Inc., USA) — Versand transaktionaler E-Mails für Kontaktformularnachrichten. Siehe <resendLink>Datenschutzerklärung von Resend</resendLink>.",
-          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, USA) — Schutz vor Bots und Missbrauch im Kontaktformular, wird erst nach Ihrer Einwilligung geladen. Siehe <googleLink>Datenschutzerklärung von Google</googleLink>.",
+          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, USA) — Schutz vor Bots und Missbrauch im Kontaktformular, stets aktiv. Siehe <googleLink>Datenschutzerklärung von Google</googleLink>.",
           "Vercel (Vercel Inc., USA) — Hosting, Content-Auslieferung und Serverprotokollierung. Siehe <vercelLink>Datenschutzerklärung von Vercel</vercelLink>."
         ]
       },
@@ -391,15 +393,10 @@
   "cookies": {
     "banner": {
       "title": "Ihre Privatsphäre ist uns wichtig",
-      "body": "Diese Website nutzt wichtige Cookies zur Speicherung Ihrer Einstellungen. Mit Ihrer Zustimmung schützt Google reCAPTCHA das Kontaktformular vor Spam. Details finden Sie in der <link>Datenschutzerklärung</link>.",
-      "accept": "Alle akzeptieren",
-      "reject": "Nur erforderlich",
+      "body": "Diese Website verwendet unbedingt notwendige Cookies zur Speicherung Ihrer Einstellungen. Google reCAPTCHA ist auf der Kontaktseite stets aktiv, um vor Spam zu schützen. Details finden Sie in der <privacyLink>Datenschutzerklärung</privacyLink>.",
+      "accept": "Verstanden",
       "learnMore": "Mehr erfahren",
       "ariaLabel": "Cookie-Zustimmung"
-    },
-    "contactNotice": {
-      "message": "Der Spamschutz ist deaktiviert. Akzeptieren Sie Cookies, um Google reCAPTCHA zu aktivieren und die Nachricht zu senden.",
-      "accept": "Akzeptieren und fortfahren"
     }
   },
   "footer": {

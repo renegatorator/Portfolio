@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 24px;
   margin-top: 0;
-  background: var(--bg-secondary);
+  background: rgba(var(--bg-primary-rgb), 0.3);
   @include card-padding;
   border-radius: $border-radius-md;
   box-shadow: $shadow-card;

@@ -34,15 +34,15 @@
   box-shadow: $shadow-card-hover;
   @include top-accent-bar($border-radius-md);
 
-  @include mq(md) {
+  @include mq(sm) {
+    text-align: center;
+    align-items: center;
     flex-direction: column;
     gap: 20px;
   }
 
   @include mq(xs) {
     padding: 16px 14px;
-    text-align: center;
-    align-items: center;
   }
 }
 
@@ -78,6 +78,16 @@
   font-size: 1.1rem;
 }
 
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include mq(md) {
+    gap: 16px;
+  }
+}
+
 .copy {
   display: flex;
   flex-direction: column;
@@ -91,7 +101,7 @@
   line-height: 1.3;
 }
 
-.body {
+.description {
   color: var(--text-secondary);
   line-height: 1.45;
 }
@@ -114,13 +124,14 @@
 
 .actions {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   gap: 6px;
   flex-shrink: 0;
   min-width: 180px;
 
-  @include mq(md) {
+  @include mq(sm) {
     flex-direction: row;
+    justify-content: center;
   }
 
   @include mq(xs) {
@@ -132,7 +143,10 @@
 
 .button {
   @include pill-button(8px 18px, 600);
-  width: 100%;
+
+  @include mq(xs) {
+    width: 100%;
+  }
 }
 
 @keyframes slideUp {

@@ -236,7 +236,10 @@
     "name": "Full Name",
     "email": "Email",
     "message": "Message",
+    "namePlaceholder": "John Doe",
+    "emailPlaceholder": "john.doe@example.com",
     "messagePlaceholder": "Your message here...",
+    "recaptchaNotice": "This site is protected by reCAPTCHA and the Google <privacyLink>Privacy Policy</privacyLink> and <tosLink>Terms of Service</tosLink> apply.",
     "send": "Send",
     "validation": {
       "nameRequired": "Name is required",
@@ -244,7 +247,6 @@
       "emailInvalid": "Email is invalid",
       "messageRequired": "Message is required"
     },
-    "captchaRequired": "Please complete the CAPTCHA challenge.",
     "captchaVerifyError": "CAPTCHA verification failed. Please try again.",
     "captchaLoadError": "Unable to load CAPTCHA. Please try again later.",
     "sending": "Sending...",
@@ -307,7 +309,7 @@
         "body": "We process your personal data only for clearly defined purposes and only where we have a valid legal basis under Article 6(1) GDPR:",
         "bullets": [
           "To answer your enquiry sent via the contact form — legal basis: pre-contractual or contractual measures and our legitimate interest in responding to messages (Art. 6(1)(b) and (f) GDPR).",
-          "To protect the contact form against spam and abuse using Google reCAPTCHA — legal basis: your prior consent given via the cookie banner (Art. 6(1)(a) GDPR).",
+          "To protect the contact form against spam and abuse using Google reCAPTCHA — legal basis: our legitimate interest in keeping the contact form secure and preventing automated abuse (Art. 6(1)(f) GDPR).",
           "To keep the Site available and secure (server logs, rate-limiting, abuse detection) — legal basis: our legitimate interest in operating a secure service (Art. 6(1)(f) GDPR).",
           "To remember your theme preference — this is stored locally and is not a legal-basis question under GDPR because no personal data is processed by us, but it relies on a strictly necessary technical mechanism.",
           "To comply with legal obligations such as responding to verified data subject requests or lawful authority requests — legal basis: legal obligation (Art. 6(1)(c) GDPR)."
@@ -318,8 +320,8 @@
         "body": "The Site uses a minimal number of cookies and local storage entries. We do not use advertising cookies, cross-site tracking, or behavioural profiling.",
         "bullets": [
           "Strictly necessary: a 'theme' value stored in your browser's localStorage so the Site remembers your light/dark choice. No consent is required for this because it is strictly necessary to deliver the service you requested.",
-          "Functional / security (consent-based): when you accept cookies, we load Google reCAPTCHA v3 on the contact page. reCAPTCHA may set cookies on Google domains and collect technical data to distinguish humans from bots.",
-          "Consent management: a small 'cookie-consent-v1' entry is stored in your browser's localStorage to remember your choice between Accept and Reject. You can change your choice at any time via the 'Cookie preferences' link in the footer."
+          "Security (always active): Google reCAPTCHA v3 is always loaded on the contact page to distinguish humans from bots and protect against automated form submissions.",
+          "Consent management: a small 'cookie-consent-v1' entry is stored in your browser's localStorage to record that you have acknowledged our cookie use. You can review this at any time via the 'Cookie preferences' link in the footer."
         ]
       },
       "third-parties": {
@@ -327,7 +329,7 @@
         "body": "We never sell personal data. We only share it with a small set of trusted service providers acting as data processors on our behalf, each bound by an appropriate data processing agreement:",
         "bullets": [
           "Resend (Resend, Inc., USA) — transactional email delivery for contact form messages. See <resendLink>Resend's privacy policy</resendLink>.",
-          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, USA) — bot and abuse protection on the contact form, only loaded after you accept cookies. See <googleLink>Google's privacy policy</googleLink>.",
+          "Google reCAPTCHA (Google Ireland Ltd / Google LLC, USA) — bot and abuse protection on the contact form, always active. See <googleLink>Google's privacy policy</googleLink>.",
           "Vercel (Vercel Inc., USA) — hosting, content delivery, and server logging. See <vercelLink>Vercel's privacy policy</vercelLink>."
         ]
       },
@@ -391,15 +393,10 @@
   "cookies": {
     "banner": {
       "title": "We value your privacy",
-      "body": "This site uses essential cookies to remember your preferences. With your consent, Google reCAPTCHA helps protect the contact form from spam. Read the <link>Privacy Policy</link> for details.",
-      "accept": "Accept all",
-      "reject": "Essential only",
+      "body": "This site uses strictly necessary cookies to remember your preferences. Google reCAPTCHA is always active on the contact page to protect against spam. Read the <privacyLink>Privacy Policy</privacyLink> for details.",
+      "accept": "Got it",
       "learnMore": "Learn more",
       "ariaLabel": "Cookie consent"
-    },
-    "contactNotice": {
-      "message": "Spam protection is disabled. Accept cookies to enable Google reCAPTCHA and send your message.",
-      "accept": "Accept and continue"
     }
   },
   "footer": {
