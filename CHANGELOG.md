@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.15]
+
+### Changed
+
+- **Availability Copy Generalised Across All Locales**: Replaced contract- and freelance-specific availability strings (`availability` and `availabilityShort` keys in `public/locales/{en,de,sl}/common.json`) with neutral open-to-work wording — EN: "Open to New Opportunities" / "Open to Work", DE: "Offen für neue Möglichkeiten" / "Auf Jobsuche", SL: "Na voljo za nove priložnosti" / "Na voljo za priložnosti"; the `AvailabilityChip` component (rendered in `HeroSection` and `ContactPage`) reads these keys directly so no code changes were required
+- **CV Files Updated**: Replaced `public/cv/Rene_Krajnc_EN_2026.pdf` and `public/cv/Rene_Krajnc_DE_2026.pdf` with revised 2026 editions (file size reduced from ~83 KB to ~65 KB per file)
+- **ProjectShowcase Decision Details Top Padding**: Increased `padding-top` on `.decisionDetails` from `4px` to `12px` for better visual separation between the border and the decision item content
+
 ## [1.3.14]
 
 ### Added
