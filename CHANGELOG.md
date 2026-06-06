@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.3.16]
+
 ### Added
 
 - **Shared Type & Utility Layer**: Introduced a set of reusable primitives to remove duplicated inline logic and ad-hoc casts across the codebase — `src/types/api.ts` (`ApiResult`, `SiteKeyResponse` envelopes now consumed by all three API routes), `src/types/projects.ts` (`ProjectRichItem`, `ProjectStatCopy`, `ProjectDecisionCopy` for `returnObjects` i18n lookups), `src/utils/api.ts` (`parseJsonResponse` safe JSON parser used by `useRecaptchaV3` and `useContactForm`), `src/utils/translations.ts` (`getTranslationArray` / `getTranslationObject` typed helpers for `next-i18next` object lookups), `src/utils/format.ts` (`formatIndex` and `formatLongDate`, previously inline in `ProjectShowcase` and `PrivacyPage`), and `src/utils/createLocalStorageStore.ts` (a generic `useSyncExternalStore`-compatible factory)
