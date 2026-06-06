@@ -10,16 +10,6 @@ import {
   Section,
   Text,
 } from '@react-email/components';
-import type { CSSProperties } from 'react';
-
-import {
-  emailContainer as container,
-  emailDivider as divider,
-  emailHeading as heading,
-  emailLogoSection as logoSection,
-  emailMain as main,
-  emailParagraph,
-} from '@/emails/styles';
 
 interface ContactInquiryEmailProps {
   logoUrl: string;
@@ -64,12 +54,41 @@ const ContactInquiryEmail = ({ logoUrl, name, email, message }: ContactInquiryEm
   );
 };
 
-const paragraph: CSSProperties = {
-  ...emailParagraph,
+const main = {
+  backgroundColor: '#f6f9fc',
+  fontFamily: 'Arial, sans-serif',
+  margin: '0 auto',
+};
+
+const container = {
+  backgroundColor: '#ffffff',
+  borderRadius: '12px',
+  border: '1px solid #e5e7eb',
+  margin: '40px auto',
+  maxWidth: '560px',
+  padding: '32px',
+};
+
+const logoSection = {
+  marginBottom: '24px',
+};
+
+const heading = {
+  color: '#111827',
+  fontSize: '24px',
+  fontWeight: '700',
+  lineHeight: '32px',
+  margin: '0 0 16px',
+};
+
+const paragraph = {
+  color: '#374151',
+  fontSize: '16px',
+  lineHeight: '24px',
   margin: '0 0 24px',
 };
 
-const detailsSection: CSSProperties = {
+const detailsSection = {
   backgroundColor: '#f9fafb',
   borderRadius: '10px',
   padding: '20px',
@@ -97,6 +116,11 @@ const messageValue = {
   lineHeight: '22px',
   margin: 0,
   whiteSpace: 'pre-wrap' as const,
+};
+
+const divider = {
+  borderColor: '#e5e7eb',
+  margin: '24px 0 16px',
 };
 
 const footer = {

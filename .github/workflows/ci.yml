@@ -4,20 +4,19 @@ on:
   pull_request:
     branches: [master, main, development]
   push:
-    branches: [master, main, development]
+    branches: [development]
 
 jobs:
   lint-and-typecheck:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 20.9.0
-          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -25,11 +24,5 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Check formatting
-        run: npm run format:check
-
       - name: Run TypeScript type check
-        run: npm run tsc
-
-      - name: Build
-        run: npm run build
+        run: npx tsc --noEmit

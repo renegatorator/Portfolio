@@ -12,7 +12,12 @@
   flex-direction: column;
   gap: 16px;
   overflow: hidden;
-  @include card-hover(-3px);
+
+  &:hover {
+    border-color: primary-mix(45%, var(--border-primary));
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-3px);
+  }
 
   @include mq(xs) {
     padding: 16px;

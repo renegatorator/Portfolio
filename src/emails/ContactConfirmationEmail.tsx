@@ -10,16 +10,6 @@ import {
   Section,
   Text,
 } from '@react-email/components';
-import type { CSSProperties } from 'react';
-
-import {
-  emailContainer as container,
-  emailDivider as divider,
-  emailHeading as headingStyle,
-  emailLogoSection as logoSection,
-  emailMain as main,
-  emailParagraph as paragraph,
-} from '@/emails/styles';
 
 interface ContactConfirmationEmailProps {
   logoUrl: string;
@@ -67,12 +57,51 @@ const ContactConfirmationEmail = ({
   );
 };
 
-const signatureStyle: CSSProperties = {
+const main = {
+  backgroundColor: '#f6f9fc',
+  fontFamily: 'Arial, sans-serif',
+  margin: '0 auto',
+};
+
+const container = {
+  backgroundColor: '#ffffff',
+  borderRadius: '12px',
+  border: '1px solid #e5e7eb',
+  margin: '40px auto',
+  maxWidth: '560px',
+  padding: '32px',
+};
+
+const logoSection = {
+  marginBottom: '24px',
+};
+
+const headingStyle = {
+  color: '#111827',
+  fontSize: '24px',
+  fontWeight: '700',
+  lineHeight: '32px',
+  margin: '0 0 16px',
+};
+
+const paragraph = {
+  color: '#374151',
+  fontSize: '16px',
+  lineHeight: '24px',
+  margin: '0 0 16px',
+};
+
+const signatureStyle = {
   color: '#111827',
   fontSize: '16px',
   fontWeight: '700',
   lineHeight: '24px',
   margin: 0,
+};
+
+const divider = {
+  borderColor: '#e5e7eb',
+  margin: '24px 0 16px',
 };
 
 export default ContactConfirmationEmail;

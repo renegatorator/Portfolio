@@ -4,11 +4,12 @@
   @include page-shell;
 
   &::before {
-    @include decorative-orb($brand-blue, 0.2);
+    @include floating-orb-base;
     width: 320px;
     height: 320px;
     top: -120px;
     right: -110px;
+    background: radial-gradient(circle, rgba($brand-blue, 0.2) 0%, rgba($brand-blue, 0) 70%);
     animation: drift 16s ease-in-out infinite;
   }
 }

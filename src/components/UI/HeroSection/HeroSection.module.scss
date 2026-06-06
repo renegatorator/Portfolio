@@ -9,21 +9,26 @@
   @include primary-border(16%);
   @include section-glass-bg;
 
+  &::before,
+  &::after {
+    @include floating-orb-base;
+  }
+
   &::before {
-    @include decorative-orb($brand-blue, 0.2, 72%);
     width: 360px;
     height: 360px;
     top: -130px;
     left: -120px;
+    background: radial-gradient(circle, rgba($brand-blue, 0.2) 0%, rgba($brand-blue, 0) 72%);
     animation: driftOne 18s ease-in-out infinite;
   }
 
   &::after {
-    @include decorative-orb($brand-cyan, 0.24);
     width: 320px;
     height: 320px;
     right: -110px;
     bottom: -140px;
+    background: radial-gradient(circle, rgba($brand-cyan, 0.24) 0%, rgba($brand-cyan, 0) 70%);
     animation: driftTwo 20s ease-in-out infinite;
   }
 }

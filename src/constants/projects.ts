@@ -17,13 +17,7 @@ import {
   faVialCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const ProjectStatuses = {
-  LIVE: 'live',
-  IN_DEVELOPMENT: 'in-development',
-  ARCHIVED: 'archived',
-} as const;
-
-export type ProjectStatus = (typeof ProjectStatuses)[keyof typeof ProjectStatuses];
+export type ProjectStatus = 'live' | 'in-development' | 'archived';
 
 export interface Screenshot {
   src: string;

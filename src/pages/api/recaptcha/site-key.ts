@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { SiteKeyResponse } from '@/types/api';
+type SiteKeyResponse = {
+  siteKey?: string;
+  message?: string;
+};
 
 const handler = (_req: NextApiRequest, res: NextApiResponse<SiteKeyResponse>) => {
   const siteKey = process.env.RECAPTCHA_SITE_KEY;

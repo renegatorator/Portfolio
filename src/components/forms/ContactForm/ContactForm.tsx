@@ -5,12 +5,12 @@ import Script from 'next/script';
 import { Trans, useTranslation } from 'next-i18next';
 
 import { EMAIL_PATTERN } from '@/constants/formRules';
-import { RecaptchaActions } from '@/constants/recaptcha';
 import { useContactForm } from '@/utils/hooks/useContactForm';
 import { useRecaptchaV3 } from '@/utils/hooks/useRecaptchaV3';
 
 import classes from './ContactForm.module.scss';
 
+const CAPTCHA_ACTION = 'contact_form_submit';
 interface ContactFormProps {
   title?: string;
   fullWidth?: boolean;
@@ -28,7 +28,7 @@ const ContactForm = ({ title, fullWidth = false, className }: ContactFormProps) 
     siteKey,
     verifyCaptcha,
   } = useRecaptchaV3({
-    action: RecaptchaActions.CONTACT_FORM_SUBMIT,
+    action: CAPTCHA_ACTION,
   });
 
   const { errors, handleSubmit, isSubmitting, onSubmit, register, submitError, submitSuccess } =

@@ -4,7 +4,6 @@ import { Resend } from 'resend';
 import { EmailAddresses } from '@/constants/rene';
 import ContactConfirmationEmail from '@/emails/ContactConfirmationEmail';
 import ContactInquiryEmail from '@/emails/ContactInquiryEmail';
-import { ApiResult } from '@/types/api';
 import {
   getEmailAssetBaseUrl,
   getEmailConfirmationCopy,
@@ -13,6 +12,11 @@ import {
   isValidEmail,
 } from '@/utils/contactEmail';
 
+type SendContactResponse = {
+  success: boolean;
+  message?: string;
+};
+
 type ContactRequestBody = {
   name?: string;
   email?: string;
@@ -20,15 +24,7 @@ type ContactRequestBody = {
   locale?: string;
 };
 
-const MAX_NAME_LENGTH = 100;
-const MAX_EMAIL_LENGTH = 254;
-const MAX_MESSAGE_LENGTH = 5000;
-
-// Strip control characters (incl. CR/LF) so a crafted name cannot tamper with the subject line.
-const sanitizeSubjectValue = (value: string): string =>
-  value.replace(/[\u0000-\u001f\u007f]+/g, ' ').trim();
-
-const handler = async (req: NextApiRequest, res: NextApiResponse<ApiResult>) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse<SendContactResponse>) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).json({ success: false, message: 'Method not allowed.' });
@@ -53,17 +49,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<ApiResult>) => 
     return;
   }
 
-  if (
-    safeName.length > MAX_NAME_LENGTH ||
-    safeEmail.length > MAX_EMAIL_LENGTH ||
-    safeMessage.length > MAX_MESSAGE_LENGTH
-  ) {
-    res
-      .status(400)
-      .json({ success: false, message: 'One or more fields exceed the allowed length.' });
-    return;
-  }
-
   if (!isValidEmail(safeEmail)) {
     res.status(400).json({ success: false, message: 'Invalid email format.' });
     return;
@@ -81,7 +66,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<ApiResult>) => 
     await resend.emails.send({
       from,
       to: [EmailAddresses.INFO],
-      subject: `New contact form message from ${sanitizeSubjectValue(safeName)}`,
+      subject: `New contact form message from ${safeName}`,
       replyTo: safeEmail,
       react: ContactInquiryEmail({
         logoUrl,
@@ -112,14 +97,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<ApiResult>) => 
   } catch {
     res.status(500).json({ success: false, message: 'Failed to send emails.' });
   }
-};
-
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '64kb',
-    },
-  },
 };
 
 export default handler;

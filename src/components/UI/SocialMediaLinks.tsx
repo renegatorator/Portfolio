@@ -6,7 +6,6 @@ import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
 import { EmailAddresses } from '@/constants/rene';
-import { SocialUrls } from '@/constants/social';
 
 import classes from './SocialMediaLinks.module.scss';
 
@@ -24,19 +23,19 @@ interface SocialMediaLinksProps {
 const socialLinks: SocialMediaLink[] = [
   {
     name: 'GitHub',
-    url: SocialUrls.GITHUB,
+    url: 'https://github.com/renegatorator',
     icon: faGithub,
     color: '#777',
   },
   {
     name: 'LinkedIn',
-    url: SocialUrls.LINKEDIN,
+    url: 'https://linkedin.com/in/rene-krajnc-a3400b190',
     icon: faLinkedin,
     color: '#0077b5',
   },
   {
     name: 'Facebook',
-    url: SocialUrls.FACEBOOK,
+    url: 'https://www.facebook.com/rene.krajnc',
     icon: faFacebook,
     color: '#3b5998',
   },
@@ -46,6 +45,24 @@ const socialLinks: SocialMediaLink[] = [
     icon: faEnvelope,
     color: '#999',
   },
+  /*{
+    name: 'Twitter',
+    url: 'https://twitter.com/yourusername',
+    icon: faTwitter,
+    color: '#1da1f2',
+  },
+  {
+    name: 'Instagram',
+    url: 'https://instagram.com/yourusername',
+    icon: faInstagram,
+    color: '#e4405f',
+  },
+  {
+    name: 'Discord',
+    url: 'https://discord.gg/yourusername',
+    icon: faDiscord,
+    color: '#7289da',
+  },*/
 ];
 
 const SocialMediaLinks = ({ compact = false }: SocialMediaLinksProps) => {

@@ -4,8 +4,6 @@ import { useForm } from 'react-hook-form';
 
 import { ApiRoutes } from '@/constants/apiRoutes';
 import { DEFAULT_LOCALE } from '@/constants/locales';
-import { ApiResult } from '@/types/api';
-import { parseJsonResponse } from '@/utils/api';
 
 export interface ContactFormData {
   name: string;
@@ -51,9 +49,9 @@ export const useContactForm = ({ verifyCaptcha, clearCaptchaError }: UseContactF
         }),
       });
 
-      const result = await parseJsonResponse<ApiResult>(response);
+      const result = (await response.json()) as { success: boolean };
 
-      if (!response.ok || !result?.success) {
+      if (!response.ok || !result.success) {
         setSubmitError(t('contact.sendError'));
         return;
       }

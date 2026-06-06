@@ -4,31 +4,6 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [1.3.16]
-
-### Added
-
-- **Shared Type & Utility Layer**: Introduced a set of reusable primitives to remove duplicated inline logic and ad-hoc casts across the codebase — `src/types/api.ts` (`ApiResult`, `SiteKeyResponse` envelopes now consumed by all three API routes), `src/types/projects.ts` (`ProjectRichItem`, `ProjectStatCopy`, `ProjectDecisionCopy` for `returnObjects` i18n lookups), `src/utils/api.ts` (`parseJsonResponse` safe JSON parser used by `useRecaptchaV3` and `useContactForm`), `src/utils/translations.ts` (`getTranslationArray` / `getTranslationObject` typed helpers for `next-i18next` object lookups), `src/utils/format.ts` (`formatIndex` and `formatLongDate`, previously inline in `ProjectShowcase` and `PrivacyPage`), and `src/utils/createLocalStorageStore.ts` (a generic `useSyncExternalStore`-compatible factory)
-- **Centralized Constants**: New single-source-of-truth modules — `src/constants/i18n.ts` (typed `i18nConfig` replacing the old JS `next-i18next.config.js`, now passed explicitly to `appWithTranslation` and every `serverSideTranslations` call), `src/constants/recaptcha.ts` (`RecaptchaActions` / `RecaptchaAction`), `src/constants/seo.ts` (`OG_LOCALE`, OG image constants, `buildLocalisedUrl`), and `src/constants/social.ts` (`SocialUrls` / `SOCIAL_PROFILE_URLS` consumed by both `SocialMediaLinks` and the `PageHead` schema `sameAs`, so the two can no longer drift)
-- **Shared Email Styles**: New `src/emails/styles.ts` exports the inline style objects (`emailMain`, `emailContainer`, `emailLogoSection`, `emailHeading`, `emailParagraph`, `emailDivider`) shared by `ContactInquiryEmail` and `ContactConfirmationEmail`, keeping their visual shell identical from one source
-- **Favicon / Manifest / Viewport Metadata**: `src/pages/_app.tsx` now emits an explicit `viewport` meta plus `icon` (`favicon.ico`, `icon0.svg`), `apple-touch-icon`, and `manifest` links globally (covering the 404 page), wiring up the existing but previously unreferenced icon assets in `public/`
-- **CI Build & Format Verification**: `.github/workflows/ci.yml` now also runs `format:check` and a full `next build`, triggers on pushes to `master` / `main` (in addition to `development`), upgrades the GitHub Actions to v4, and enables npm caching; added a `format:check` script (`prettier --check .`) to `package.json`
-
-### Changed
-
-- **God-Component Decomposition**: Split the three largest components into focused units with no behavioral change — `ScreenshotCarousel` now delegates to a `useScreenshotCarousel` hook and a `ScreenshotLightbox` subcomponent; `ProjectShowcase` is an orchestrator rendering `ProjectHeader`, `ProjectHighlights`, `ArchitectureSnapshot`, `ProjectDecisions`, `ProjectTechStack`, and `ProjectFeatures` (sequential section numbering preserved via a shared counter); `PrivacyPage` now composes `PrivacyToc` and `PrivacySection`
-- **File Organization Normalized**: Moved the remaining flat UI files (`Logo`, `LanguageSwitcher`, `ProgressBar`, `SocialMediaLinks`, `ThemeToggle`) into their own `Component/Component` folders to match the rest of `src/components/UI` (history preserved via `git mv`), and relocated the `useSeo` hook from `src/constants/hooks/` to `src/utils/hooks/` alongside the other hooks
-- **Logo Theme Source**: `Logo` now reads the theme from the `useTheme` context (like `ThemeToggle`) instead of running its own `MutationObserver` on `data-theme`, removing a redundant DOM observer while keeping the same light/dark logo behavior
-- **State Stores Consolidated**: `ThemeContext` and `CookieConsentContext` now build on the shared `createLocalStorageStore` factory instead of each re-implementing `useSyncExternalStore` + storage plumbing (the cookie context's in-memory fallback behavior is preserved), and `useMuiTheme` memoizes its `createTheme` call
-- **Stronger Domain Typing**: `ProjectStatus` is now derived from a `ProjectStatuses` const object, `apiRoutes.ts` exports a derived `ApiRoute` type, `DownloadCV` uses a `Record<Locale, string>` map with an `isLocale` guard, and `ContactForm` / `useRecaptchaV3` reference `RecaptchaActions` instead of a string literal
-- **SCSS Consolidation**: Added a `decorative-orb` mixin and applied it to the repeated floating-orb gradients (`HeroSection`, `WorkExperienceSection`, `ContactPage`, `ProjectsPage`, `PrivacyPage`), and replaced the manual hover block on `WorkExperienceCard` with the existing `card-hover` mixin — compiled CSS output is unchanged
-- **API Hardening**: `api/contact/send.ts` now enforces field-length limits (name/email/message), sanitizes control characters out of the email subject line, and sets a 64 kb request body-size limit; the reCAPTCHA endpoints and the contact endpoint now share the `ApiResult` / `SiteKeyResponse` types
-- **Tooling Config**: Removed the conflicting Prettier import-order keys (sorting is owned by ESLint's `simple-import-sort`) and the duplicate `eslint` script, and ran a one-time repository-wide Prettier format so the new `format:check` CI step passes cleanly
-
-### Removed
-
-- **Dead Code & Boilerplate**: Deleted unused starter/boilerplate files (`src/pages/api/hello.ts`, `src/styles/Home.module.css`, the orphaned `GlobalLoader` component, and the `public/{vercel,file,window}.svg` assets), the now-redundant `next-i18next.config.js`, the unused `getCssVar` helper in `themeUtils.ts`, the commented-out social links in `SocialMediaLinks`, and the `prettier-plugin-organize-imports` dev dependency
-
 ## [1.3.15]
 
 ### Changed

@@ -8,8 +8,6 @@ import {
   useSyncExternalStore,
 } from 'react';
 
-import { createLocalStorageStore } from '@/utils/createLocalStorageStore';
-
 export const CookieConsentStates = {
   UNSET: 'unset',
   ACCEPTED: 'accepted',
@@ -47,26 +45,61 @@ const isCookieConsentState = (value: unknown): value is CookieConsentState =>
   value === CookieConsentStates.REJECTED ||
   value === CookieConsentStates.UNSET;
 
-// Keeps the previously cached value when a cross-tab event carries an invalid/cleared value,
-// so clearing the key elsewhere does not silently reset an explicit choice.
-const consentStore = createLocalStorageStore<CookieConsentState>({
-  key: COOKIE_CONSENT_STORAGE_KEY,
-  serverValue: CookieConsentStates.UNSET,
-  parse: (raw, fallback) => (isCookieConsentState(raw) ? raw : fallback),
-});
+type Listener = () => void;
+const listeners = new Set<Listener>();
+let memoryConsent: CookieConsentState | null = null;
+
+const readStoredConsent = (): CookieConsentState => {
+  if (memoryConsent !== null) return memoryConsent;
+  if (typeof window === 'undefined') {
+    return CookieConsentStates.UNSET;
+  }
+  try {
+    const stored = window.localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY);
+    return isCookieConsentState(stored) ? stored : CookieConsentStates.UNSET;
+  } catch {
+    return CookieConsentStates.UNSET;
+  }
+};
+
+const getClientSnapshot = (): CookieConsentState => readStoredConsent();
+const getServerSnapshot = (): CookieConsentState => CookieConsentStates.UNSET;
+
+const subscribe = (listener: Listener) => {
+  listeners.add(listener);
+  const onStorage = (event: StorageEvent) => {
+    if (event.key !== COOKIE_CONSENT_STORAGE_KEY) return;
+    if (isCookieConsentState(event.newValue)) {
+      memoryConsent = event.newValue;
+    }
+    listener();
+  };
+  window.addEventListener('storage', onStorage);
+  return () => {
+    listeners.delete(listener);
+    window.removeEventListener('storage', onStorage);
+  };
+};
+
+const writeStoredConsent = (consent: CookieConsentState) => {
+  memoryConsent = consent;
+  try {
+    window.localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, consent);
+  } catch {
+    // Storage writes can fail (private mode, quota, sandboxed iframes);
+    // memoryConsent is the authoritative fallback for this session.
+  }
+  listeners.forEach((listener) => listener());
+};
 
 interface CookieConsentProviderProps {
   children: ReactNode;
 }
 
 export const CookieConsentProvider = ({ children }: CookieConsentProviderProps) => {
-  const consent = useSyncExternalStore(
-    consentStore.subscribe,
-    consentStore.getClientSnapshot,
-    consentStore.getServerSnapshot,
-  );
+  const consent = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
   const mounted = useSyncExternalStore(
-    consentStore.subscribe,
+    subscribe,
     () => true,
     () => false,
   );
@@ -75,12 +108,12 @@ export const CookieConsentProvider = ({ children }: CookieConsentProviderProps) 
   const isBannerOpen = mounted && (consent === CookieConsentStates.UNSET || manualOpen);
 
   const accept = useCallback(() => {
-    consentStore.write(CookieConsentStates.ACCEPTED);
+    writeStoredConsent(CookieConsentStates.ACCEPTED);
     setManualOpen(false);
   }, []);
 
   const reject = useCallback(() => {
-    consentStore.write(CookieConsentStates.REJECTED);
+    writeStoredConsent(CookieConsentStates.REJECTED);
     setManualOpen(false);
   }, []);
 

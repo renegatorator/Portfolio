@@ -1,13 +1,14 @@
-import { createTheme, Theme } from '@mui/material/styles';
-import { useMemo } from 'react';
+import { createTheme } from '@mui/material/styles';
 
 import { breakpoints, ColorTokens } from '@/constants/theme';
 import { getCssVarWithTheme } from '@/utils/themeUtils';
 
 import { useTheme } from './useTheme';
 
-const createMuiTheme = (isDark: boolean): Theme =>
-  createTheme({
+export const useMuiTheme = () => {
+  const { isDark } = useTheme();
+
+  const muiTheme = createTheme({
     breakpoints: {
       values: breakpoints,
     },
@@ -143,7 +144,5 @@ const createMuiTheme = (isDark: boolean): Theme =>
     },
   });
 
-export const useMuiTheme = (): Theme => {
-  const { isDark } = useTheme();
-  return useMemo(() => createMuiTheme(isDark), [isDark]);
+  return muiTheme;
 };

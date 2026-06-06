@@ -1,21 +1,35 @@
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 
+import { useSeo } from '@/constants/hooks/useSeo';
 import { DEFAULT_LOCALE, Locale, SUPPORTED_LOCALES } from '@/constants/locales';
 import { EmailAddresses, reneKrajnc } from '@/constants/rene';
 import { Route, Routes } from '@/constants/routes';
-import {
-  buildLocalisedUrl,
-  OG_IMAGE_HEIGHT,
-  OG_IMAGE_PATH,
-  OG_IMAGE_TYPE,
-  OG_IMAGE_WIDTH,
-  OG_LOCALE,
-  PROFILE_IMAGE_PATH,
-} from '@/constants/seo';
 import { SITE_URL } from '@/constants/site';
-import { SOCIAL_PROFILE_URLS } from '@/constants/social';
-import { useSeo } from '@/utils/hooks/useSeo';
+
+const OG_LOCALE: Record<Locale, string> = {
+  en: 'en_US',
+  sl: 'sl_SI',
+  de: 'de_DE',
+};
+
+const OG_IMAGE_PATH = '/og-image.jpg';
+const OG_IMAGE_WIDTH = '1200';
+const OG_IMAGE_HEIGHT = '630';
+const OG_IMAGE_TYPE = 'image/jpeg';
+
+const PROFILE_IMAGE_PATH = '/images/rene-profile.jpg';
+const SAME_AS = [
+  'https://github.com/renegatorator',
+  'https://linkedin.com/in/rene-krajnc-a3400b190',
+  'https://www.facebook.com/rene.krajnc',
+];
+
+const buildLocalisedUrl = (baseUrl: string, locale: Locale, routePath: string) => {
+  if (locale === DEFAULT_LOCALE) return `${baseUrl}${routePath}`;
+  const path = routePath === '/' ? '' : routePath;
+  return `${baseUrl}/${locale}${path}`;
+};
 
 interface PageHeadProps {
   route?: Route;
@@ -40,7 +54,7 @@ const PageHead = ({ route }: PageHeadProps) => {
     image: profileImageUrl,
     jobTitle: t('role'),
     email: `mailto:${EmailAddresses.INFO}`,
-    sameAs: SOCIAL_PROFILE_URLS,
+    sameAs: SAME_AS,
   };
 
   const websiteSchema = {

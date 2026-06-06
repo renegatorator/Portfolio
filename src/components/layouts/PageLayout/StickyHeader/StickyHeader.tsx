@@ -6,9 +6,9 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 
-import LanguageSwitcher from '@/components/UI/LanguageSwitcher/LanguageSwitcher';
-import Logo from '@/components/UI/Logo/Logo';
-import ThemeToggle from '@/components/UI/ThemeToggle/ThemeToggle';
+import LanguageSwitcher from '@/components/UI/LanguageSwitcher';
+import Logo from '@/components/UI/Logo';
+import ThemeToggle from '@/components/UI/ThemeToggle';
 import { Routes } from '@/constants/routes';
 
 import classes from './StickyHeader.module.scss';

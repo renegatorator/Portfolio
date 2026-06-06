@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { ApiResult } from '@/types/api';
+type VerifyResponse = {
+  success: boolean;
+  message?: string;
+};
 
 type RecaptchaVerifyResult = {
   success: boolean;
@@ -27,7 +30,7 @@ const getMinScore = () => {
   return parsedMinScore;
 };
 
-const handler = async (req: NextApiRequest, res: NextApiResponse<ApiResult>) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse<VerifyResponse>) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     res.status(405).json({ success: false, message: 'Method not allowed.' });

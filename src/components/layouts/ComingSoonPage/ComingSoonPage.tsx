@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
 import IconCard, { IconCardProps } from '@/components/UI/IconCard/IconCard';
-import ProgressBar from '@/components/UI/ProgressBar/ProgressBar';
+import ProgressBar from '@/components/UI/ProgressBar';
 import Reveal from '@/components/UI/Reveal/Reveal';
 import Section from '@/components/UI/Section/Section';
 import { MaintenanceReason } from '@/constants/maintenance';

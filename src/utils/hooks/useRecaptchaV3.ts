@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import { ApiRoutes } from '@/constants/apiRoutes';
-import { RecaptchaAction } from '@/constants/recaptcha';
-import { ApiResult, SiteKeyResponse } from '@/types/api';
-import { parseJsonResponse } from '@/utils/api';
 
 interface UseRecaptchaV3Options {
-  action: RecaptchaAction;
+  action: string;
 }
 
 type CaptchaErrorType = 'load' | 'verify' | null;
@@ -33,10 +30,7 @@ export const useRecaptchaV3 = ({ action }: UseRecaptchaV3Options) => {
           throw new Error('Failed to load reCAPTCHA site key');
         }
 
-        const data = await parseJsonResponse<SiteKeyResponse>(response);
-        if (!data?.siteKey) {
-          throw new Error('Missing reCAPTCHA site key');
-        }
+        const data = (await response.json()) as { siteKey: string };
         setSiteKey(data.siteKey);
       } catch {
         setCaptchaErrorType('load');
@@ -70,49 +64,44 @@ export const useRecaptchaV3 = ({ action }: UseRecaptchaV3Options) => {
     setCaptchaErrorType(null);
   };
 
-  const verifyCaptcha = async (): Promise<boolean> => {
+  const verifyCaptcha = async () => {
     if (!siteKey || !captchaReady || !window.grecaptcha) {
       setCaptchaErrorType('load');
       return false;
     }
 
-    try {
-      await new Promise<void>((resolve) => {
-        window.grecaptcha?.ready(resolve);
-      });
+    await new Promise<void>((resolve) => {
+      window.grecaptcha?.ready(resolve);
+    });
 
-      const token = await window.grecaptcha.execute(siteKey, { action });
+    const token = await window.grecaptcha.execute(siteKey, { action });
 
-      if (!token) {
-        setCaptchaErrorType('verify');
-        return false;
-      }
-
-      const verificationResponse = await fetch(ApiRoutes.RECAPTCHA_VERIFY, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ token, action }),
-      });
-
-      if (!verificationResponse.ok) {
-        setCaptchaErrorType('verify');
-        return false;
-      }
-
-      const verificationData = await parseJsonResponse<ApiResult>(verificationResponse);
-
-      if (!verificationData?.success) {
-        setCaptchaErrorType('verify');
-        return false;
-      }
-
-      return true;
-    } catch {
+    if (!token) {
       setCaptchaErrorType('verify');
       return false;
     }
+
+    const verificationResponse = await fetch(ApiRoutes.RECAPTCHA_VERIFY, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token, action }),
+    });
+
+    if (!verificationResponse.ok) {
+      setCaptchaErrorType('verify');
+      return false;
+    }
+
+    const verificationData = (await verificationResponse.json()) as { success: boolean };
+
+    if (!verificationData.success) {
+      setCaptchaErrorType('verify');
+      return false;
+    }
+
+    return true;
   };
 
   return {
