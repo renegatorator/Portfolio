@@ -3,3 +3,5 @@ export const ApiRoutes = {
   RECAPTCHA_VERIFY: '/api/recaptcha/verify',
   CONTACT_SEND: '/api/contact/send',
 } as const;
+
+export type ApiRoute = (typeof ApiRoutes)[keyof typeof ApiRoutes];

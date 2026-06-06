@@ -4,8 +4,5 @@
   "printWidth": 100,
   "tabWidth": 2,
   "trailingComma": "all",
-  "endOfLine": "auto",
-  "importOrder": ["^[a-z]", "^@/", "^../", "^./"],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "endOfLine": "auto"
 }

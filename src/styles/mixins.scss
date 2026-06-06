@@ -87,6 +87,14 @@
   opacity: 0.62;
 }
 
+// Decorative orb: floating-orb base + a soft radial glow that fades to transparent.
+// Pair with size/position (and optionally an orb-drift animation) on the consuming
+// pseudo-element. `$color` is a brand hex; `$fade` is the transparent stop position.
+@mixin decorative-orb($color, $opacity, $fade: 70%) {
+  @include floating-orb-base;
+  background: radial-gradient(circle, rgba($color, $opacity) 0%, rgba($color, 0) $fade);
+}
+
 // Thin gradient accent bar pinned to the top edge of a card (use with &::before).
 @mixin top-accent-bar($radius: $border-radius-md) {
   &::before {

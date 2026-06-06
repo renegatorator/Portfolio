@@ -20,22 +20,20 @@
   z-index: 0;
 
   &::before {
-    @include floating-orb-base;
+    @include decorative-orb($brand-blue, 0.22);
     width: 360px;
     height: 360px;
     top: -140px;
     right: -120px;
-    background: radial-gradient(circle, rgba($brand-blue, 0.22) 0%, rgba($brand-blue, 0) 70%);
     animation: privacyDrift 18s ease-in-out infinite;
   }
 
   &::after {
-    @include floating-orb-base;
+    @include decorative-orb($brand-cyan, 0.16);
     width: 280px;
     height: 280px;
     bottom: -130px;
     left: -100px;
-    background: radial-gradient(circle, rgba($brand-cyan, 0.16) 0%, rgba($brand-cyan, 0) 70%);
     animation: privacyDriftAlt 22s ease-in-out infinite;
   }
 }
