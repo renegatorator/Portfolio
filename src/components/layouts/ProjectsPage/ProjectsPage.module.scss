@@ -5,12 +5,11 @@
   @include page-shell;
 
   &::before {
-    @include floating-orb-base;
+    @include decorative-orb($brand-blue, 0.18);
     width: 340px;
     height: 340px;
     top: -130px;
     right: -120px;
-    background: radial-gradient(circle, rgba($brand-blue, 0.18) 0%, rgba($brand-blue, 0) 70%);
     animation: orbDrift 18s ease-in-out infinite;
   }
 

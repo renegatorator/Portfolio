@@ -9,22 +9,20 @@
   gap: 32px;
 
   &::before {
-    @include floating-orb-base;
+    @include decorative-orb($brand-blue, 0.18);
     width: 300px;
     height: 300px;
     top: -120px;
     right: -90px;
-    background: radial-gradient(circle, rgba($brand-blue, 0.18) 0%, rgba($brand-blue, 0) 70%);
     animation: driftA 18s ease-in-out infinite;
   }
 
   &::after {
-    @include floating-orb-base;
+    @include decorative-orb($brand-cyan, 0.16);
     width: 260px;
     height: 260px;
     bottom: -90px;
     left: -70px;
-    background: radial-gradient(circle, rgba($brand-cyan, 0.16) 0%, rgba($brand-cyan, 0) 70%);
     animation: driftB 22s ease-in-out infinite;
   }
 }

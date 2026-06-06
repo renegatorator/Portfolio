@@ -1,13 +1,13 @@
 import { useTranslation } from 'next-i18next';
 
-import { Route, Routes } from '../routes';
+import { Route, Routes } from '@/constants/routes';
 
-type SEOType = {
+export interface Seo {
   title: string;
   description: string;
-};
+}
 
-export const useSeo = (route: Route): SEOType => {
+export const useSeo = (route: Route): Seo => {
   const { t } = useTranslation();
 
   switch (route) {
