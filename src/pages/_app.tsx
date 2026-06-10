@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
 
+import TechBackground from '@/components/background';
 import CookieConsentBanner from '@/components/UI/CookieConsentBanner';
 import { i18nConfig } from '@/constants/i18n';
 import { CookieConsentProvider } from '@/context/CookieConsentContext';
@@ -25,6 +26,8 @@ const AppWithTheme = ({ Component, pageProps, router, ...rest }: AppProps) => {
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <CssBaseline />
+      {/* Mounted once here (not in PageLayout) so the canvas survives route changes. */}
+      <TechBackground />
       <Component {...pageProps} router={router} {...rest} />
       <CookieConsentBanner />
     </ThemeProvider>
