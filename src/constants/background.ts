@@ -89,6 +89,220 @@ export const SCROLL_VELOCITY_DAMPING = 4;
 /** Barely-perceptible idle sway of the whole scene (Layer 2: ambient motion). */
 export const AMBIENT_SWAY = { frequency: 0.06, amplitude: 0.025 } as const;
 
+const hudDashArcs = (dashCount: number, dashRatio: number) => {
+  const slotAngle = (Math.PI * 2) / dashCount;
+  const dashAngle = slotAngle * dashRatio;
+
+  return Array.from({ length: dashCount }, (_, dash) => ({
+    start: dash * slotAngle,
+    end: dash * slotAngle + dashAngle,
+  }));
+};
+
+const PRIMARY_DATA_CORE = {
+  kind: 'dataCore' as const,
+  coreRadius: 0.045,
+  rings: [
+    {
+      radius: 0.055,
+      thickness: 0.008,
+      arcs: [
+        { start: 0.3, end: 1.1 },
+        { start: 1.8, end: 2.6 },
+        { start: 3.4, end: 4.2 },
+      ],
+      rotationSpeed: 0.25,
+    },
+    {
+      radius: 0.1,
+      thickness: 0.012,
+      arcs: [{ start: 0, end: Math.PI * 2 }],
+      rotationSpeed: 0.12,
+    },
+    {
+      radius: 0.135,
+      thickness: 0.01,
+      arcs: [
+        { start: 0, end: 0.55 },
+        { start: 1.2, end: 1.95 },
+        { start: 3.0, end: 3.85 },
+      ],
+      rotationSpeed: -0.2,
+    },
+    {
+      radius: 0.18,
+      thickness: 0.025,
+      arcs: [
+        { start: 0.2, end: 1.4 },
+        { start: 2.0, end: 3.2 },
+      ],
+      rotationSpeed: -0.18,
+    },
+    {
+      radius: 0.22,
+      thickness: 0.014,
+      arcs: hudDashArcs(16, 0.25),
+      rotationSpeed: 0.15,
+    },
+    {
+      radius: 0.28,
+      thickness: 0.018,
+      arcs: [{ start: 0.8, end: 2.1, emphasis: 'accent' as const }],
+      rotationSpeed: 0.22,
+    },
+    {
+      radius: 0.31,
+      thickness: 0.01,
+      arcs: [
+        { start: 0.5, end: 1.0, emphasis: 'accent' as const },
+        { start: 2.8, end: 3.3, emphasis: 'accent' as const },
+      ],
+      rotationSpeed: -0.12,
+    },
+    {
+      radius: 0.34,
+      thickness: 0.012,
+      arcs: hudDashArcs(10, 0.35),
+      rotationSpeed: -0.28,
+    },
+  ],
+  ticks: [
+    {
+      radius: 0.075,
+      count: 16,
+      length: 0.04,
+      width: 0.008,
+      rotationSpeed: 0.08,
+    },
+    {
+      radius: 0.24,
+      count: 24,
+      length: 0.05,
+      width: 0.01,
+      rotationSpeed: -0.06,
+    },
+  ],
+  nodes: [
+    {
+      radius: 0.16,
+      nodeRadius: 0.012,
+      angles: [0.4, 1.8, 3.2, 4.7],
+      rotationSpeed: 0.1,
+    },
+    {
+      radius: 0.3,
+      nodeRadius: 0.01,
+      angles: [0.9, 2.3, 3.9, 5.2],
+      rotationSpeed: -0.14,
+      emphasis: 'accent' as const,
+    },
+  ],
+  pulse: { period: 3.2, opacityAmplitude: 0.35, phaseStep: 0.65 },
+  rotationSpeed: 0,
+};
+
+const SECONDARY_DATA_CORE = {
+  kind: 'dataCore' as const,
+  coreRadius: 0.063,
+  rings: [
+    {
+      radius: 0.077,
+      thickness: 0.011,
+      arcs: [
+        { start: 0.3, end: 1.1 },
+        { start: 1.8, end: 2.6 },
+        { start: 3.4, end: 4.2 },
+      ],
+      rotationSpeed: 0.22,
+    },
+    {
+      radius: 0.14,
+      thickness: 0.017,
+      arcs: [{ start: 0, end: Math.PI * 2 }],
+      rotationSpeed: 0.1,
+    },
+    {
+      radius: 0.19,
+      thickness: 0.014,
+      arcs: [
+        { start: 0, end: 0.55 },
+        { start: 1.2, end: 1.95 },
+        { start: 3.0, end: 3.85 },
+      ],
+      rotationSpeed: -0.18,
+    },
+    {
+      radius: 0.25,
+      thickness: 0.035,
+      arcs: [
+        { start: 0.2, end: 1.4 },
+        { start: 2.0, end: 3.2 },
+      ],
+      rotationSpeed: -0.16,
+    },
+    {
+      radius: 0.31,
+      thickness: 0.02,
+      arcs: hudDashArcs(16, 0.25),
+      rotationSpeed: 0.13,
+    },
+    {
+      radius: 0.39,
+      thickness: 0.025,
+      arcs: [{ start: 0.8, end: 2.1, emphasis: 'accent' as const }],
+      rotationSpeed: 0.2,
+    },
+    {
+      radius: 0.43,
+      thickness: 0.014,
+      arcs: [
+        { start: 0.5, end: 1.0, emphasis: 'accent' as const },
+        { start: 2.8, end: 3.3, emphasis: 'accent' as const },
+      ],
+      rotationSpeed: -0.1,
+    },
+    {
+      radius: 0.48,
+      thickness: 0.017,
+      arcs: hudDashArcs(10, 0.35),
+      rotationSpeed: -0.24,
+    },
+  ],
+  ticks: [
+    {
+      radius: 0.105,
+      count: 16,
+      length: 0.055,
+      width: 0.011,
+      rotationSpeed: 0.07,
+    },
+    {
+      radius: 0.34,
+      count: 24,
+      length: 0.07,
+      width: 0.014,
+      rotationSpeed: -0.05,
+    },
+  ],
+  nodes: [
+    {
+      radius: 0.22,
+      nodeRadius: 0.017,
+      angles: [0.4, 1.8, 3.2, 4.7],
+      rotationSpeed: 0.09,
+    },
+    {
+      radius: 0.42,
+      nodeRadius: 0.014,
+      angles: [0.9, 2.3, 3.9, 5.2],
+      rotationSpeed: -0.12,
+      emphasis: 'accent' as const,
+    },
+  ],
+  pulse: { period: 3.6, opacityAmplitude: 0.3, phaseStep: 0.6 },
+  rotationSpeed: 0,
+};
+
 /**
  * Sparse HUD clusters scattered around the scene. Deeper elements get a lower
  * opacityScale so depth reads as fading, not just smaller size.
@@ -171,16 +385,10 @@ export const HUD_ELEMENTS: readonly HudElementConfig[] = [
         arcs: [{ start: 0, end: Math.PI * 2 }],
         rotationSpeed: 0.08,
       },
-      {
-        kind: 'reticle',
-        armLength: 0.35,
-        gap: 0.12,
-        width: 0.02,
-        rotationSpeed: 0.04,
-      },
+      PRIMARY_DATA_CORE,
     ],
   },
-  // Small targeting reticle, bottom-left, deeper and fainter.
+  // Secondary instrument with data core, bottom-left, deeper and fainter.
   {
     position: [-12, -1, -4.2],
     opacityScale: 0.85,
@@ -193,13 +401,7 @@ export const HUD_ELEMENTS: readonly HudElementConfig[] = [
         arcs: [{ start: 0, end: Math.PI * 2 }],
         rotationSpeed: 0.06,
       },
-      {
-        kind: 'reticle',
-        armLength: 0.55,
-        gap: 0.16,
-        width: 0.022,
-        rotationSpeed: 0,
-      },
+      SECONDARY_DATA_CORE,
       {
         kind: 'ring',
         radius: 0.95,
@@ -231,17 +433,18 @@ export const HUD_ELEMENTS: readonly HudElementConfig[] = [
       },
     ],
   },
-  // Angular corner-bracket marks, scattered at depth.
+  // Tri-node link marks scattered at depth.
   {
     position: [-4.4, 2.7, -5],
     opacityScale: 0.55,
     scrollRotationFactor: 0,
     parts: [
       {
-        kind: 'brackets',
-        halfSize: 0.7,
-        armLength: 0.22,
-        width: 0.025,
+        kind: 'linkMark',
+        hubRadius: 0.04,
+        stubLength: 0.22,
+        stubWidth: 0.025,
+        stubAngle: 0.5,
         rotationSpeed: 0,
       },
     ],
@@ -252,10 +455,11 @@ export const HUD_ELEMENTS: readonly HudElementConfig[] = [
     scrollRotationFactor: 0,
     parts: [
       {
-        kind: 'brackets',
-        halfSize: 0.55,
-        armLength: 0.18,
-        width: 0.025,
+        kind: 'linkMark',
+        hubRadius: 0.038,
+        stubLength: 0.18,
+        stubWidth: 0.025,
+        stubAngle: 1.2,
         rotationSpeed: 0,
       },
     ],
@@ -266,10 +470,11 @@ export const HUD_ELEMENTS: readonly HudElementConfig[] = [
     scrollRotationFactor: 0,
     parts: [
       {
-        kind: 'brackets',
-        halfSize: 0.45,
-        armLength: 0.15,
-        width: 0.025,
+        kind: 'linkMark',
+        hubRadius: 0.035,
+        stubLength: 0.15,
+        stubWidth: 0.025,
+        stubAngle: 2.1,
         rotationSpeed: 0.01,
       },
     ],

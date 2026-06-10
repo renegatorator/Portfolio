@@ -75,10 +75,74 @@ export interface HudTicksConfig {
   emphasis?: HudPartEmphasis;
 }
 
+/** One ring layer inside a data-core instrument. */
+export interface HudDataCoreRing {
+  radius: number;
+  thickness: number;
+  arcs: ReadonlyArray<HudRingArc>;
+  rotationSpeed: number;
+  emphasis?: HudPartEmphasis;
+}
+
+/** Radial tick marks on a data-core ring. */
+export interface HudDataCoreTickRing {
+  radius: number;
+  count: number;
+  length: number;
+  width: number;
+  rotationSpeed: number;
+  emphasis?: HudPartEmphasis;
+}
+
+/** Small node dots placed on a data-core ring circumference. */
+export interface HudDataCoreNodeRing {
+  radius: number;
+  nodeRadius: number;
+  /** Angles in radians where nodes sit on the ring. */
+  angles: readonly number[];
+  rotationSpeed: number;
+  emphasis?: HudPartEmphasis;
+}
+
+/** Animated central data-core instrument for HUD clusters. */
+export interface HudDataCoreConfig {
+  kind: 'dataCore';
+  /** Radius of the central node dot. */
+  coreRadius: number;
+  rings: ReadonlyArray<HudDataCoreRing>;
+  /** Optional inner tick rings for calibration-style detail. */
+  ticks?: ReadonlyArray<HudDataCoreTickRing>;
+  /** Optional node markers on ring circumferences. */
+  nodes?: ReadonlyArray<HudDataCoreNodeRing>;
+  pulse: {
+    /** Seconds for one full opacity ripple cycle. */
+    period: number;
+    /** Fraction of base opacity added/subtracted by the pulse wave. */
+    opacityAmplitude: number;
+    /** Radians of phase offset per layer index for outward propagation. */
+    phaseStep: number;
+  };
+  rotationSpeed: number;
+}
+
+/** Tri-node hub mark — a small graph-node glyph scattered at depth. */
+export interface HudLinkMarkConfig {
+  kind: 'linkMark';
+  hubRadius: number;
+  stubLength: number;
+  stubWidth: number;
+  /** First stub angle in radians; others at +120° and +240°. */
+  stubAngle: number;
+  rotationSpeed: number;
+  emphasis?: HudPartEmphasis;
+}
+
 /** One self-rotating piece of a HUD element; each kind maps to merged mesh geometry. */
 export type HudPartConfig =
   | ({ kind: 'ring' } & HudRingConfig)
   | ({ kind: 'ticks' } & HudTicksConfig)
+  | ({ kind: 'dataCore' } & HudDataCoreConfig)
+  | ({ kind: 'linkMark' } & HudLinkMarkConfig)
   | {
       kind: 'dashedRing';
       radius: number;
@@ -88,28 +152,6 @@ export type HudPartConfig =
       dashCount: number;
       /** Fraction of each slot covered by the dash (0..1). */
       dashRatio: number;
-      rotationSpeed: number;
-      emphasis?: HudPartEmphasis;
-    }
-  | {
-      kind: 'reticle';
-      /** Half-length of each crosshair arm, measured from the center gap outward. */
-      armLength: number;
-      /** Empty radius at the crosshair center. */
-      gap: number;
-      /** Crosshair stroke width in world units. */
-      width: number;
-      rotationSpeed: number;
-      emphasis?: HudPartEmphasis;
-    }
-  | {
-      kind: 'brackets';
-      /** Distance from the element center to each corner. */
-      halfSize: number;
-      /** Length of the two arms forming each corner L. */
-      armLength: number;
-      /** Bracket stroke width in world units. */
-      width: number;
       rotationSpeed: number;
       emphasis?: HudPartEmphasis;
     };

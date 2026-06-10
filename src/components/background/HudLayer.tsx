@@ -1,10 +1,17 @@
 import { useFrame } from '@react-three/fiber';
 import { RefObject, useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
-import { HUD_ARC_POINTS, HUD_ELEMENTS, PARALLAX } from '@/constants/background';
-import type { BackgroundPalette, HudPartConfig, HudRingArc, HudTicksConfig } from '@/types/background';
+import { HUD_ELEMENTS, PARALLAX } from '@/constants/background';
+import type { BackgroundPalette, HudPartConfig, HudRingArc } from '@/types/background';
+
+import { createDataCoreGroup, isDataCoreUserData, updateDataCoreGroup } from './hudDataCore';
+import {
+  createDashedRingBandGeometry,
+  createLinkMarkGeometry,
+  createRingBandGeometry,
+  createTicksBandGeometry,
+} from './hudGeometry';
 
 interface HudLayerProps {
   palette: BackgroundPalette;
@@ -14,155 +21,6 @@ interface HudLayerProps {
 }
 
 const ACCENT_OPACITY_SCALE = 1.8;
-const FULL_CIRCLE = Math.PI * 2;
-
-const createArcBandGeometry = (
-  radius: number,
-  thickness: number,
-  startAngle: number,
-  endAngle: number,
-  segments = HUD_ARC_POINTS,
-) => {
-  const arcLength = endAngle - startAngle;
-
-  if (arcLength <= 0) {
-    return null;
-  }
-
-  const inner = Math.max(radius - thickness / 2, 0.001);
-  const outer = radius + thickness / 2;
-
-  return new THREE.RingGeometry(inner, outer, segments, 1, startAngle, arcLength);
-};
-
-const mergeBandGeometries = (geometries: THREE.BufferGeometry[]) => {
-  const valid = geometries.filter((geometry): geometry is THREE.BufferGeometry => geometry !== null);
-
-  if (valid.length === 0) {
-    return null;
-  }
-
-  if (valid.length === 1) {
-    return valid[0];
-  }
-
-  const merged = mergeGeometries(valid, false);
-
-  valid.forEach((geometry) => geometry.dispose());
-
-  return merged;
-};
-
-const createRingBandGeometry = (
-  radius: number,
-  thickness: number,
-  arcs: ReadonlyArray<HudRingArc>,
-) =>
-  mergeBandGeometries(
-    arcs.flatMap(({ start, end }) => {
-      const geometry = createArcBandGeometry(radius, thickness, start, end);
-
-      return geometry ? [geometry] : [];
-    }),
-  );
-
-const createDashedRingBandGeometry = (
-  radius: number,
-  thickness: number,
-  dashCount: number,
-  dashRatio: number,
-) => {
-  const slotAngle = FULL_CIRCLE / dashCount;
-  const dashAngle = slotAngle * dashRatio;
-  const segments = Math.max(4, Math.ceil((dashAngle / FULL_CIRCLE) * HUD_ARC_POINTS));
-
-  return mergeBandGeometries(
-    Array.from({ length: dashCount }, (_, dash) => {
-      const startAngle = dash * slotAngle;
-
-      return createArcBandGeometry(radius, thickness, startAngle, startAngle + dashAngle, segments);
-    }).flatMap((geometry) => (geometry ? [geometry] : [])),
-  );
-};
-
-/** Thin quad centered at origin, then positioned and rotated into place. */
-const createQuadGeometry = (width: number, height: number) => new THREE.PlaneGeometry(width, height);
-
-const placeQuad = (
-  width: number,
-  height: number,
-  centerX: number,
-  centerY: number,
-  angle: number,
-) => {
-  const geometry = createQuadGeometry(width, height);
-
-  geometry.rotateZ(angle);
-  geometry.translate(centerX, centerY, 0);
-
-  return geometry;
-};
-
-const createTicksBandGeometry = ({ radius, count, length, width }: HudTicksConfig) =>
-  mergeBandGeometries(
-    Array.from({ length: count }, (_, tick) => {
-      const angle = (tick / count) * FULL_CIRCLE;
-      const midRadius = radius + length / 2;
-
-      return placeQuad(width, length, Math.cos(angle) * midRadius, Math.sin(angle) * midRadius, angle);
-    }),
-  );
-
-const createReticleBandGeometry = (armLength: number, gap: number, width: number) =>
-  mergeBandGeometries(
-    [
-      [1, 0],
-      [-1, 0],
-      [0, 1],
-      [0, -1],
-    ].map(([dx, dy]) => {
-      const segmentLength = armLength;
-      const centerDistance = gap + segmentLength / 2;
-
-      return placeQuad(
-        width,
-        segmentLength,
-        dx * centerDistance,
-        dy * centerDistance,
-        Math.atan2(dy, dx) + Math.PI / 2,
-      );
-    }),
-  );
-
-const createBracketsBandGeometry = (halfSize: number, armLength: number, width: number) => {
-  const geometries: THREE.BufferGeometry[] = [];
-
-  for (const sx of [-1, 1]) {
-    for (const sy of [-1, 1]) {
-      const cornerX = sx * halfSize;
-      const cornerY = sy * halfSize;
-
-      geometries.push(
-        placeQuad(
-          armLength,
-          width,
-          cornerX - (sx * armLength) / 2,
-          cornerY,
-          sx > 0 ? 0 : Math.PI,
-        ),
-        placeQuad(
-          width,
-          armLength,
-          cornerX,
-          cornerY - (sy * armLength) / 2,
-          sy > 0 ? -Math.PI / 2 : Math.PI / 2,
-        ),
-      );
-    }
-  }
-
-  return mergeBandGeometries(geometries);
-};
 
 const createPartGeometry = (part: HudPartConfig): THREE.BufferGeometry | null => {
   switch (part.kind) {
@@ -177,22 +35,43 @@ const createPartGeometry = (part: HudPartConfig): THREE.BufferGeometry | null =>
       );
     case 'ticks':
       return createTicksBandGeometry(part);
-    case 'reticle':
-      return createReticleBandGeometry(part.armLength, part.gap, part.width);
-    case 'brackets':
-      return createBracketsBandGeometry(part.halfSize, part.armLength, part.width);
+    case 'linkMark':
+      return createLinkMarkGeometry(
+        part.hubRadius,
+        part.stubLength,
+        part.stubWidth,
+        part.stubAngle,
+      );
+    case 'dataCore':
+      return null;
   }
 };
 
-const resolvePartEmphasis = (part: HudPartConfig) =>
-  part.kind === 'ring' ? part.emphasis : part.emphasis;
+const resolvePartEmphasis = (part: HudPartConfig) => {
+  if (part.kind === 'ring' || part.kind === 'dashedRing' || part.kind === 'linkMark') {
+    return part.emphasis;
+  }
+
+  return undefined;
+};
 
 /** Builds a self-rotating mesh (or small group) for one HUD part. */
 const createPartObject = (
   part: HudPartConfig,
+  palette: BackgroundPalette,
+  baseOpacity: number,
   baseMaterial: THREE.MeshBasicMaterial,
   accentMaterial: THREE.MeshBasicMaterial,
+  extraMaterials: THREE.MeshBasicMaterial[],
 ) => {
+  if (part.kind === 'dataCore') {
+    const { group, materials } = createDataCoreGroup(part, palette, baseOpacity);
+
+    extraMaterials.push(...materials);
+
+    return group;
+  }
+
   if (part.kind === 'ring') {
     const baseArcs = part.arcs.filter((arc) => arc.emphasis !== 'accent');
     const accentArcs = part.arcs.filter((arc) => arc.emphasis === 'accent');
@@ -269,7 +148,11 @@ const createHudGroup = (palette: BackgroundPalette) => {
 
     element.position.set(...position);
     element.userData.scrollRotationFactor = scrollRotationFactor;
-    parts.forEach((part) => element.add(createPartObject(part, baseMaterial, accentMaterial)));
+    parts.forEach((part) =>
+      element.add(
+        createPartObject(part, palette, baseOpacity, baseMaterial, accentMaterial, materials),
+      ),
+    );
 
     group.add(element);
   });
@@ -299,23 +182,36 @@ const HudLayer = ({ palette, animated, scrollRef }: HudLayerProps) => {
     [hudGroup, materials],
   );
 
-  useFrame((_, delta) => {
-    if (!animated || !groupRef.current) {
+  useFrame((state, delta) => {
+    if (!groupRef.current) {
       return;
     }
 
     const scroll = scrollRef.current;
 
     groupRef.current.children.forEach((element) => {
-      element.rotation.z = THREE.MathUtils.damp(
-        element.rotation.z,
-        scroll * (element.userData.scrollRotationFactor as number),
-        PARALLAX.damping,
-        delta,
-      );
+      if (animated) {
+        element.rotation.z = THREE.MathUtils.damp(
+          element.rotation.z,
+          scroll * (element.userData.scrollRotationFactor as number),
+          PARALLAX.damping,
+          delta,
+        );
+      }
 
       element.children.forEach((part) => {
-        part.rotation.z += (part.userData.rotationSpeed as number) * delta;
+        if (isDataCoreUserData(part.userData)) {
+          if (animated) {
+            part.rotation.z += part.userData.rotationSpeed * delta;
+          }
+
+          updateDataCoreGroup(part as THREE.Group, state.clock.elapsedTime, delta, animated);
+          return;
+        }
+
+        if (animated) {
+          part.rotation.z += (part.userData.rotationSpeed as number) * delta;
+        }
       });
     });
   });
