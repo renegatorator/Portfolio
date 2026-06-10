@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.4.0]
+
+### Added
+
+- **Three.js Animated Tech Background**: New `TechBackground` canvas layer (`src/components/background/`) renders a full-viewport, theme-aware particle network behind every page — `ParticleField` and `NetworkLines` drive a drifting node mesh with proximity-linked edges, `DataFlowLayer` spawns glow pulses along active connections (with scroll-velocity speed boost), `HudLayer` overlays decorative HUD clusters, and `MicroDetailLayer` adds faint depth accents; the canvas is client-only via `next/dynamic` (`ssr: false`), mounted globally in `src/pages/_app.tsx`, and sits beneath page content through a translucent scrim (`TechBackground.module.scss`) while `PageLayout` backgrounds are made transparent so sections stack correctly over the animation
+- **Background Config & Performance Tiers**: New `src/constants/background.ts` and `src/types/background.ts` centralise camera, field bounds, parallax, palette, HUD cluster, and data-flow constants; `useBackgroundConfig` resolves desktop / tablet / mobile complexity tiers (particle counts, connection distance, HUD / micro-detail visibility, pulse count) from viewport breakpoints, `useScrollParallax` applies damped Y-shift and yaw tied to scroll position, `useReducedMotion` honours `prefers-reduced-motion` (static single-frame render, `frameloop: 'demand'`), and `@react-three/drei` `PerformanceMonitor` scales device pixel ratio between 1.0 and 1.5 under load; light and dark palettes swap automatically via `useTheme`
+- **HUD Data Core Motif**: `HudLayer` renders decorative data-core clusters composed of `dataCore` and `linkMark` element types — `hudGeometry.ts` builds shared ring-band, tick-ring, and node-marker geometries, `hudDataCore.ts` assembles layered cores with pulsing opacity and rotation, and cluster configs in `src/constants/background.ts` define dense inner tick rings and tri-node depth marks
+- **Three.js Dependencies**: Added `three`, `@react-three/fiber`, and `@react-three/drei` (plus `@types/three`) to support the WebGL background stack
+
 ## [1.3.16]
 
 ### Added
