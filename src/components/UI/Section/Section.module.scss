@@ -44,7 +44,7 @@
 // backgrounds
 
 .default {
-  background: var(--bg-primary);
+  background: rgb(var(--bg-primary-rgb), 0.5);
 }
 
 .gradient {

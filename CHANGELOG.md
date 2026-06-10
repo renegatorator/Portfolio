@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.4.1]
+
+## Changed
+
+-- **Sections default background**: Improve default background of sections by using `--bg-primary-rgb` variable in order to add opacity.
+
 ## [1.4.0]
 
 ### Added
