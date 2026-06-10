@@ -164,11 +164,7 @@ export const createDataCoreGroup = (
         return;
       }
 
-      const material = createRingMaterial(
-        palette.hud,
-        baseOpacity,
-        tickRing.emphasis === 'accent',
-      );
+      const material = createRingMaterial(palette.hud, baseOpacity, tickRing.emphasis === 'accent');
 
       container.add(new THREE.Mesh(geometry, material));
       trackMaterial(material, layerMaterials, materials, currentLayerIndex);
@@ -221,11 +217,7 @@ const addNodeRingMeshes = (
     return;
   }
 
-  const material = createRingMaterial(
-    palette.hud,
-    baseOpacity,
-    nodeRing.emphasis === 'accent',
-  );
+  const material = createRingMaterial(palette.hud, baseOpacity, nodeRing.emphasis === 'accent');
   const mesh = new THREE.Mesh(geometry, material);
 
   container.add(mesh);
@@ -267,8 +259,7 @@ export const updateDataCoreGroup = (
 
   if (userData.coreMaterial) {
     userData.coreMaterial.opacity =
-      userData.coreBaseOpacity *
-      (1 + userData.pulseConfig.opacityAmplitude * Math.sin(pulsePhase));
+      userData.coreBaseOpacity * (1 + userData.pulseConfig.opacityAmplitude * Math.sin(pulsePhase));
   }
 
   userData.layerMaterials.forEach(({ material, baseOpacity, layerIndex }) => {

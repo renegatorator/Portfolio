@@ -78,10 +78,7 @@ const createPartObject = (
     const container = new THREE.Group();
     const wholePartAccent = part.emphasis === 'accent';
 
-    const addBand = (
-      arcs: ReadonlyArray<HudRingArc>,
-      material: THREE.MeshBasicMaterial,
-    ) => {
+    const addBand = (arcs: ReadonlyArray<HudRingArc>, material: THREE.MeshBasicMaterial) => {
       const geometry = createRingBandGeometry(part.radius, part.thickness, arcs);
 
       if (geometry) {

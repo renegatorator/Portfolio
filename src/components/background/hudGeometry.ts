@@ -28,7 +28,9 @@ export const createArcBandGeometry = (
 };
 
 export const mergeBandGeometries = (geometries: THREE.BufferGeometry[]) => {
-  const valid = geometries.filter((geometry): geometry is THREE.BufferGeometry => geometry !== null);
+  const valid = geometries.filter(
+    (geometry): geometry is THREE.BufferGeometry => geometry !== null,
+  );
 
   if (valid.length === 0) {
     return null;
@@ -78,7 +80,8 @@ export const createDashedRingBandGeometry = (
 };
 
 /** Thin quad centered at origin, then positioned and rotated into place. */
-const createQuadGeometry = (width: number, height: number) => new THREE.PlaneGeometry(width, height);
+const createQuadGeometry = (width: number, height: number) =>
+  new THREE.PlaneGeometry(width, height);
 
 export const placeQuad = (
   width: number,
@@ -109,7 +112,13 @@ export const createDataCoreTicksGeometry = (
       const angle = (tick / count) * FULL_CIRCLE;
       const midRadius = radius + length / 2;
 
-      return placeQuad(width, length, Math.cos(angle) * midRadius, Math.sin(angle) * midRadius, angle);
+      return placeQuad(
+        width,
+        length,
+        Math.cos(angle) * midRadius,
+        Math.sin(angle) * midRadius,
+        angle,
+      );
     }),
   );
 
