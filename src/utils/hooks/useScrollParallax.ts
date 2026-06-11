@@ -1,8 +1,12 @@
 import { RefObject, useEffect, useRef } from 'react';
 
+// visualViewport tracks the visible area when mobile browser chrome animates;
+// innerHeight is the fallback on browsers without the API.
+const getViewportHeight = () => window.visualViewport?.height ?? window.innerHeight;
+
 /**
  * Exposes the scroll position normalized by viewport height through a ref,
- * updated by a passive listener — reading it never triggers React re-renders.
+ * updated every animation frame — reading it never triggers React re-renders.
  * Intended to be consumed inside an animation loop (e.g. R3F's useFrame).
  */
 export const useScrollParallax = (enabled: boolean): RefObject<number> => {
@@ -14,14 +18,18 @@ export const useScrollParallax = (enabled: boolean): RefObject<number> => {
       return;
     }
 
-    const update = () => {
-      scrollRef.current = window.scrollY / window.innerHeight;
+    let rafId = 0;
+
+    // RAF instead of scroll events — real mobile browsers throttle scroll
+    // during touch drags, which left parallax frozen until finger lift.
+    const tick = () => {
+      scrollRef.current = window.scrollY / getViewportHeight();
+      rafId = requestAnimationFrame(tick);
     };
 
-    update();
-    window.addEventListener('scroll', update, { passive: true });
+    rafId = requestAnimationFrame(tick);
 
-    return () => window.removeEventListener('scroll', update);
+    return () => cancelAnimationFrame(rafId);
   }, [enabled]);
 
   return scrollRef;
