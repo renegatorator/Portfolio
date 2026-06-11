@@ -2,7 +2,12 @@
 // (and when JS is disabled) — PageLayout's container is transparent above it.
 .background {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // dvh follows the dynamic viewport before JS hydrates; TechBackground.tsx
+  // refines size via visualViewport once the client mounts.
+  height: 100dvh;
   z-index: 0;
   pointer-events: none;
   background: var(--bg-secondary);

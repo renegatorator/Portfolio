@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.4.2]
+
+### Fixed
+
+- **Mobile TechBackground scroll**: `useScrollParallax` now reads `scrollY` every animation frame (instead of throttled `scroll` events) and normalizes by `visualViewport.height`, so parallax tracks touch scrolling continuously instead of jumping on finger lift; `TechBackground` sizes its fixed wrapper to the visual viewport (`100dvh` CSS fallback plus `visualViewport` resize/scroll sync) to prevent a dark gap when mobile browser chrome animates; `body` background aligned to `--bg-secondary` so any remaining seam matches the canvas layer
+
 ## [1.4.1]
 
 ## Changed
