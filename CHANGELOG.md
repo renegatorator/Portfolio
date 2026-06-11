@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.4.3]
+
+### Added
+
+- **Version API endpoint**: New `GET /api/version` route returns the app version from `package.json` and, on Vercel, a short git commit SHA for deploy verification
+
 ## [1.4.2]
 
 ### Fixed

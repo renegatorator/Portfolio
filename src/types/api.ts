@@ -9,3 +9,10 @@ export interface SiteKeyResponse {
   siteKey?: string;
   message?: string;
 }
+
+// Response of the version endpoint.
+export interface VersionResponse {
+  version?: string;
+  commit?: string;
+  message?: string;
+}
